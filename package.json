@@ -1,0 +1,24 @@
+{
+  "name": "boemly",
+  "version": "0.1.0",
+  "description": "The open-source design system of Tree.ly",
+  "source": "src/index.tsx",
+  "main": "dist/main.js",
+  "types": "dist/types.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/treely/boemly.git"
+  },
+  "author": "Lukas Bals",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/treely/boemly/issues"
+  },
+  "homepage": "https://github.com/treely/boemly#readme",
+  "devDependencies": {
+    "parcel": "^2.3.1"
+  }
+}
