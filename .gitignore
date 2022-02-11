@@ -1,2 +1,7 @@
+# NPM
 node_modules
+
+# Parcel
+.parcel-cache
+dist
 
