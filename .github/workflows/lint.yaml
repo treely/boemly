@@ -1,4 +1,4 @@
-name: Test
+name: Lint and test
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  lint-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
