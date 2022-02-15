@@ -1,6 +1,6 @@
+import { ReactNode } from 'react';
 import { Alert, CloseButton, Flex, Text, useToken } from '@chakra-ui/react';
 import { CheckCircle, Info, WarningCircle, WarningOctagon } from 'phosphor-react';
-import { ReactNode } from 'react';
 
 export interface TreelyAlertProps {
   status?: 'success' | 'error' | 'warning' | 'info';

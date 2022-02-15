@@ -1,0 +1,6 @@
+// This Babel config can be removed as soon as this bug in Parcel is fixed
+// Please also remove the Babel dependencies in the package.json
+// https://github.com/parcel-bundler/parcel/issues/7652
+{
+  "presets": [["@babel/preset-react", { "runtime": "automatic" }]]
+}

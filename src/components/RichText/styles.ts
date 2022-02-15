@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'markdown-to-jsx';
 
-export const StyledRichText = styled(ReactMarkdown)`
+export const StyledRichText = styled(Markdown)`
   & p {
     margin-bottom: var(--chakra-space-4);
   }

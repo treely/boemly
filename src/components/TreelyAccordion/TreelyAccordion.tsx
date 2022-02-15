@@ -4,8 +4,9 @@ import {
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
-} from '@chakra-ui/accordion';
-import { Box, Heading } from '@chakra-ui/layout';
+  Box,
+  Heading,
+} from '@chakra-ui/react';
 import RichText from '../RichText';
 
 export interface TreelyAccordionProps {
