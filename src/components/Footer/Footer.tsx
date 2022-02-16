@@ -1,7 +1,7 @@
 import { Box, Divider, Spacer } from '@chakra-ui/react';
 import { ReactNode } from 'react';
-import DefaultSectionContainer from '../DefaultSectionContainer';
-import Wrapper from '../Wrapper';
+import { DefaultSectionContainer } from '../DefaultSectionContainer';
+import { Wrapper } from '../Wrapper';
 
 export interface FooterProps {
   left: ReactNode;

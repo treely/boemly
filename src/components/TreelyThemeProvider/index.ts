@@ -1,3 +1,1 @@
-import { TreelyThemeProvider } from './TreelyThemeProvider';
-
-export default TreelyThemeProvider;
+export { TreelyThemeProvider } from './TreelyThemeProvider';

@@ -1,3 +1,1 @@
-import { TreelyAlert } from './TreelyAlert';
-
-export default TreelyAlert;
+export { TreelyAlert } from './TreelyAlert';

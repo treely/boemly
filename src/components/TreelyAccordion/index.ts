@@ -1,3 +1,1 @@
-import { TreelyAccordion } from './TreelyAccordion';
-
-export default TreelyAccordion;
+export { TreelyAccordion } from './TreelyAccordion';

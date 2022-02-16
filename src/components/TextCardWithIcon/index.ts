@@ -1,3 +1,1 @@
-import { TextCardWithIcon } from './TextCardWithIcon';
-
-export default TextCardWithIcon;
+export { TextCardWithIcon } from './TextCardWithIcon';

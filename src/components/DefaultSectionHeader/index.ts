@@ -1,3 +1,1 @@
-import { DefaultSectionHeader } from './DefaultSectionHeader';
-
-export default DefaultSectionHeader;
+export { DefaultSectionHeader } from './DefaultSectionHeader';

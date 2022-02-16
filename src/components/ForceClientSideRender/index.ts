@@ -1,3 +1,1 @@
-import { ForceClientSideRender } from './ForceClientSideRender';
-
-export default ForceClientSideRender;
+export { ForceClientSideRender } from './ForceClientSideRender';

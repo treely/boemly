@@ -1,3 +1,1 @@
-import { Gradient } from './styles';
-
-export default Gradient;
+export { Gradient } from './styles';

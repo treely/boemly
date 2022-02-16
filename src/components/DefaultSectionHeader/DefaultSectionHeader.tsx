@@ -1,5 +1,5 @@
 import { Box, BoxProps, Heading, HeadingProps, Text, TextProps } from '@chakra-ui/react';
-import RichText from '../RichText';
+import { RichText } from '../RichText';
 
 export interface DefaultSectionHeaderProps {
   tagline?: string;

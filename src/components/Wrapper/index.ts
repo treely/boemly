@@ -1,3 +1,1 @@
-import { Wrapper } from './styles';
-
-export default Wrapper;
+export { Wrapper } from './styles';

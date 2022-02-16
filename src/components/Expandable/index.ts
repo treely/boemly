@@ -1,3 +1,1 @@
-import { Expandable } from './Expandable';
-
-export default Expandable;
+export { Expandable } from './Expandable';

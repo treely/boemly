@@ -1,3 +1,1 @@
-import { ShapesCard } from './ShapesCard';
-
-export default ShapesCard;
+export { ShapesCard } from './ShapesCard';

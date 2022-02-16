@@ -1,3 +1,1 @@
-import { PortfolioCard } from './PortfolioCard';
-
-export default PortfolioCard;
+export { PortfolioCard } from './PortfolioCard';

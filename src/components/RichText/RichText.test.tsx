@@ -1,5 +1,5 @@
 import { render, screen } from '../../test/testUtils';
-import RichText from '.';
+import { RichText } from '.';
 import { RichTextProps } from './RichText';
 
 const defaultProps: RichTextProps = {

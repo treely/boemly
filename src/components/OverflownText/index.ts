@@ -1,3 +1,1 @@
-import { OverflownText } from './OverflownText';
-
-export default OverflownText;
+export { OverflownText } from './OverflownText';

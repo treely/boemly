@@ -1,3 +1,1 @@
-import { SplitScreen } from './SplitScreen';
-
-export default SplitScreen;
+export { SplitScreen } from './SplitScreen';

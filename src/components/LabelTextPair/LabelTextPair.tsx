@@ -1,4 +1,4 @@
-import OverflownText from '../OverflownText';
+import { OverflownText } from '../OverflownText';
 
 export interface LabelTextPairProps {
   label: string;

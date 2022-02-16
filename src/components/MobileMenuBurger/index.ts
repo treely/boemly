@@ -1,3 +1,1 @@
-import { MobileMenuBurger } from './MobileMenuBurger';
-
-export default MobileMenuBurger;
+export { MobileMenuBurger } from './MobileMenuBurger';

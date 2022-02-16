@@ -1,6 +1,6 @@
 import { Box, Button, Heading, Text, useToken } from '@chakra-ui/react';
 import Link from 'next/link';
-import RichText from '../RichText';
+import { RichText } from '../RichText';
 import { ShapesCardContainer } from './styles';
 import { Shape } from '../Shape/Shape';
 import ILink from '../../models/components/ILink';

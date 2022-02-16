@@ -1,3 +1,1 @@
-import { LabelNumberPair } from './LabelNumberPair';
-
-export default LabelNumberPair;
+export { LabelNumberPair } from './LabelNumberPair';

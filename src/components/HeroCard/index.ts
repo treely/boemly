@@ -1,3 +1,1 @@
-import { HeroCard } from './HeroCard';
-
-export default HeroCard;
+export { HeroCard } from './HeroCard';

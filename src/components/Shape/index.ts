@@ -1,3 +1,1 @@
-import { Shape } from './Shape';
-
-export default Shape;
+export { Shape } from './Shape';

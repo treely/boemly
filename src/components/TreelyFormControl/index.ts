@@ -1,3 +1,1 @@
-import { TreelyFormControl } from './TreelyFormControl';
-
-export default TreelyFormControl;
+export { TreelyFormControl } from './TreelyFormControl';

@@ -7,7 +7,7 @@ import {
   Box,
   Heading,
 } from '@chakra-ui/react';
-import RichText from '../RichText';
+import { RichText } from '../RichText';
 
 export interface TreelyAccordionProps {
   variant?: 'white' | 'black';

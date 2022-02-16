@@ -1,10 +1,9 @@
 import { Flex } from '@chakra-ui/react';
-import type { ReactNode } from 'react';
 
 interface HeaderProps {
-  left: ReactNode;
-  center: ReactNode;
-  right: ReactNode;
+  left: JSX.Element;
+  center: JSX.Element;
+  right: JSX.Element;
 }
 
 export const Header: React.FC<HeaderProps> = ({ left, center, right }: HeaderProps) => (

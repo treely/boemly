@@ -1,3 +1,1 @@
-import { QuoteCard } from './QuoteCard';
-
-export default QuoteCard;
+export { QuoteCard } from './QuoteCard';
