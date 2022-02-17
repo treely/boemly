@@ -1,7 +1,8 @@
+import React from 'react';
 import { render, screen } from '../../test/testUtils';
-import SplitScreen from '.';
+import { SplitScreen, SplitScreenProps } from './SplitScreen';
 
-const defaultProps = {
+const defaultProps: SplitScreenProps = {
   left: 'left',
   right: 'right',
 };

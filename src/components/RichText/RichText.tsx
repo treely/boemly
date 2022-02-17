@@ -28,6 +28,6 @@ export interface RichTextProps {
 
 export const RichText: React.FC<RichTextProps> = ({
   content,
-  // headingProps = {},
-  // textProps = {},
-}: RichTextProps) => <StyledRichText>{content}</StyledRichText>;
+}: // headingProps = {},
+// textProps = {},
+RichTextProps) => <StyledRichText>{content}</StyledRichText>;

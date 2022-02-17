@@ -1,6 +1,6 @@
+import React from 'react';
 import { fireEvent, render, screen } from '../../test/testUtils';
-import LeftTextRightCard from '.';
-import { PortfolioCardProps } from './PortfolioCard';
+import { PortfolioCard, PortfolioCardProps } from './PortfolioCard';
 
 const defaultProps: PortfolioCardProps = {
   id: 1,
@@ -33,7 +33,7 @@ const defaultProps: PortfolioCardProps = {
 
 const setup = (props = {}) => {
   const combinedProps = { ...defaultProps, ...props };
-  render(<LeftTextRightCard {...combinedProps} />);
+  render(<PortfolioCard {...combinedProps} />);
 };
 
 describe('The PortfolioCard component', () => {

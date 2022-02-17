@@ -1,6 +1,6 @@
+import React from 'react';
 import { render, screen } from '../../test/testUtils';
-import TextCardWithIcon from '.';
-import { TextCardWithIconProps } from './TextCardWithIcon';
+import { TextCardWithIcon, TextCardWithIconProps } from './TextCardWithIcon';
 
 const defaultProps: TextCardWithIconProps = {
   title: 'Title',

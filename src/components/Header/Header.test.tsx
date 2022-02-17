@@ -1,7 +1,8 @@
+import React from 'react';
 import { render, screen } from '../../test/testUtils';
-import Header from '.';
+import { Header, HeaderProps } from './Header';
 
-const defaultProps = {
+const defaultProps: HeaderProps = {
   left: 'left',
   center: 'center',
   right: 'right',

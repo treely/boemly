@@ -1,6 +1,6 @@
-import TreelySteps from '.';
-import { render, screen, userEvent } from '../../test/testUtils';
-import { TreelyStepsProps } from './TreelySteps';
+import React from 'react';
+import { render, screen, fireEvent } from '../../test/testUtils';
+import { TreelySteps, TreelyStepsProps } from './TreelySteps';
 
 const onClickSpy = jest.fn();
 
@@ -54,7 +54,7 @@ describe('The TreelySteps component', () => {
   it('calls the onClick if one step is clicked', () => {
     setup({ steps: [{ text: 'Step 1', onClick: onClickSpy }], currentStep: 1 });
 
-    userEvent.click(screen.getByText('Step 1'));
+    fireEvent.click(screen.getByText('Step 1'));
 
     expect(onClickSpy).toHaveBeenCalledTimes(1);
   });

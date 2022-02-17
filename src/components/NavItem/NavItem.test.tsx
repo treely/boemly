@@ -1,6 +1,6 @@
+import React from 'react';
 import { fireEvent, render, screen } from '../../test/testUtils';
-import NavItem from '.';
-import { NavItemProps } from './NavItem';
+import { NavItem, NavItemProps } from './NavItem';
 
 const onClickSpy = jest.fn();
 

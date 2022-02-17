@@ -1,6 +1,6 @@
+import React from 'react';
 import { render, screen, fireEvent } from '../../test/testUtils';
-import MobileMenuBurger from '.';
-import { MobileMenuBurgerProps } from './MobileMenuBurger';
+import { MobileMenuBurger, MobileMenuBurgerProps } from './MobileMenuBurger';
 
 const onOpenSpy = jest.fn();
 const onCloseSpy = jest.fn();

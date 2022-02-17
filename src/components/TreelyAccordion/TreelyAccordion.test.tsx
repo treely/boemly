@@ -1,6 +1,6 @@
+import React from 'react';
 import { render, screen } from '../../test/testUtils';
-import TreelyAccordion from '.';
-import { TreelyAccordionProps } from './TreelyAccordion';
+import { TreelyAccordion, TreelyAccordionProps } from './TreelyAccordion';
 
 const defaultProps: TreelyAccordionProps = {
   defaultIndex: 0,

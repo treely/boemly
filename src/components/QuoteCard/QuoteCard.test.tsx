@@ -1,10 +1,14 @@
+import React from 'react';
 import { render, screen } from '../../test/testUtils';
-import QuoteCard from '.';
-import { QuoteCardProps } from './QuoteCard';
+import { QuoteCard, QuoteCardProps } from './QuoteCard';
 
 const defaultProps: QuoteCardProps = {
   text: 'Text',
-  avatar: { name: 'Name', description: 'Description', image: <img src="/src" alt="Alt text" /> },
+  avatar: {
+    name: 'Name',
+    description: 'Description',
+    image: <img src="/src" alt="Alt text" />,
+  },
 };
 
 const setup = (props = {}) => {

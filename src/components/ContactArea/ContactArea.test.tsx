@@ -1,11 +1,15 @@
+import React from 'react';
 import { render, screen } from '../../test/testUtils';
-import ContactArea from '.';
-import { ContactAreaProps } from './ContactArea';
+import { ContactArea, ContactAreaProps } from './ContactArea';
 
 const defaultProps: ContactAreaProps = {
   title: 'Title',
   text: 'Text',
-  avatar: { name: 'Name', description: 'Description', image: <img alt="Alt text" /> },
+  avatar: {
+    name: 'Name',
+    description: 'Description',
+    image: <img alt="Alt text" />,
+  },
   link: { text: 'Button Text', onClick: () => jest.fn() },
 };
 

@@ -1,8 +1,8 @@
+import React from 'react';
 import { InputLeftElement, InputRightElement } from '@chakra-ui/react';
 import { Heart } from 'phosphor-react';
 import { render, screen } from '../../test/testUtils';
-import TreelyFormControl from '.';
-import { TreelyFormControlProps } from './TreelyFormControl';
+import { TreelyFormControl, TreelyFormControlProps } from './TreelyFormControl';
 
 const defaultProps: TreelyFormControlProps = {
   id: 'form-id',
@@ -27,7 +27,10 @@ describe('The TreelyFormControl component', () => {
   });
 
   it('displays a select field if inputType select is given', () => {
-    setup({ inputType: 'Select', selectOptions: [{ value: 'value', label: 'Label' }] });
+    setup({
+      inputType: 'Select',
+      selectOptions: [{ value: 'value', label: 'Label' }],
+    });
 
     expect(screen.getByRole('combobox')).toBeInTheDocument();
     expect(screen.getByRole('option')).toHaveAttribute('value', 'value');

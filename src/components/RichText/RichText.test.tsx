@@ -1,6 +1,6 @@
+import React from 'react';
 import { render, screen } from '../../test/testUtils';
-import { RichText } from '.';
-import { RichTextProps } from './RichText';
+import { RichText, RichTextProps } from './RichText';
 
 const defaultProps: RichTextProps = {
   content: 'Content',

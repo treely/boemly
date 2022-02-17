@@ -1,6 +1,6 @@
+import React from 'react';
 import { render, screen } from '../../test/testUtils';
-import DefaultSectionHeader from '.';
-import { DefaultSectionHeaderProps } from './DefaultSectionHeader';
+import { DefaultSectionHeader, DefaultSectionHeaderProps } from './DefaultSectionHeader';
 
 const defaultProps: DefaultSectionHeaderProps = {
   title: 'Title',

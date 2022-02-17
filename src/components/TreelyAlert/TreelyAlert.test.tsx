@@ -1,6 +1,6 @@
-import { render, screen, userEvent } from '../../test/testUtils';
-import TreelyAlert from '.';
-import { TreelyAlertProps } from './TreelyAlert';
+import React from 'react';
+import { render, screen, fireEvent } from '../../test/testUtils';
+import { TreelyAlert, TreelyAlertProps } from './TreelyAlert';
 
 const onCloseSpy = jest.fn();
 
@@ -56,7 +56,7 @@ describe('The TreelyAlert component', () => {
   it('calls the onClose button if the close icon is clicked', () => {
     setup({ isClosable: true, onClose: onCloseSpy });
 
-    userEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByRole('button'));
 
     expect(onCloseSpy).toHaveBeenCalled();
   });

@@ -1,6 +1,6 @@
+import React from 'react';
 import { render, screen } from '../../test/testUtils';
-import ShapesCard from '.';
-import { ShapesCardProps } from './ShapesCard';
+import { ShapesCard, ShapesCardProps } from './ShapesCard';
 
 const defaultProps: ShapesCardProps = {
   title: 'Title',

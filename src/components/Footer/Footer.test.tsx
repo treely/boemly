@@ -1,6 +1,6 @@
+import React from 'react';
 import { render, screen } from '../../test/testUtils';
-import Footer from '.';
-import { FooterProps } from './Footer';
+import { Footer, FooterProps } from './Footer';
 
 const defaultProps: FooterProps = {
   left: <div>left</div>,

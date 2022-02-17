@@ -1,6 +1,6 @@
+import React from 'react';
 import { render, screen } from '../../test/testUtils';
-import DatePersonPair from '.';
-import { DatePersonPairProps } from './DatePersonPair';
+import { DatePersonPair, DatePersonPairProps } from './DatePersonPair';
 
 const defaultProps: DatePersonPairProps = {
   date: '10/1/2021',

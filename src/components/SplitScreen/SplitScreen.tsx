@@ -6,7 +6,7 @@ import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 import useResizeEventListener from '../../hooks/useResizeEventListener';
 import { Left, Right, SplitScreenContainer } from './styles';
 
-interface SplitScreenProps {
+export interface SplitScreenProps {
   left: ReactNode;
   right: ReactNode;
   mobileIsOpen?: boolean;

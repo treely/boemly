@@ -1,6 +1,6 @@
+import React from 'react';
 import { render, screen } from '../../test/testUtils';
-import Layout from '.';
-import { LayoutProps } from './Layout';
+import { Layout, LayoutProps } from './Layout';
 
 const defaultProps: LayoutProps = {
   header: 'header',
