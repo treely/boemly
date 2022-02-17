@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import IImage from '../../models/components/IImage';
 import ILink from '../../models/components/ILink';
-import Gradient from '../Gradient';
+import { Gradient } from '../Gradient';
 import { HeroCardContainer, HeroInnerContainer } from './styles';
 
 export interface HeroCardProps {

@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import TextCardWithIcon from '.';
+import { render, screen } from '../../test/testUtils';
+import { TextCardWithIcon } from '.';
 import { TextCardWithIconProps } from './TextCardWithIcon';
 
 const defaultProps: TextCardWithIconProps = {

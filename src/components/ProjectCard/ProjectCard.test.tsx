@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import LeftTextRightCard from '.';
+import { render, screen } from '../../test/testUtils';
+import { ProjectCard } from '.';
 import { ProjectCardProps } from './ProjectCard';
 
 const defaultProps: ProjectCardProps = {
@@ -15,7 +15,7 @@ const defaultProps: ProjectCardProps = {
 
 const setup = (props = {}) => {
   const combinedProps = { ...defaultProps, ...props };
-  render(<LeftTextRightCard {...combinedProps} />);
+  render(<ProjectCard {...combinedProps} />);
 };
 
 describe('The ProjectCard component', () => {

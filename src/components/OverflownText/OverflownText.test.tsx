@@ -1,6 +1,6 @@
 import { Box, TextProps } from '@chakra-ui/react';
-import { render, screen } from '@testing-library/react';
-import OverflownText from '.';
+import { render, screen } from '../../test/testUtils';
+import { OverflownText } from '.';
 
 const defaultProps: TextProps = {
   children: 'Short text',

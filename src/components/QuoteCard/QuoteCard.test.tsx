@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import QuoteCard from '.';
+import { render, screen } from '../../test/testUtils';
+import { QuoteCard } from '.';
 import { QuoteCardProps } from './QuoteCard';
 
 const defaultProps: QuoteCardProps = {

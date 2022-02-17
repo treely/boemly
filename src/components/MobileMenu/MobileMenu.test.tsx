@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import MobileMenu from '.';
+import { render, screen } from '../../test/testUtils';
+import { MobileMenu } from '.';
 import { MobileMenuProps } from './MobileMenu';
 
 const onCloseSpy = jest.fn();

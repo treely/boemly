@@ -1,6 +1,6 @@
 import { Heart } from 'phosphor-react';
-import { render, screen } from '@testing-library/react';
-import List from '.';
+import { render, screen } from '../../test/testUtils';
+import { List } from '.';
 import { ListProps } from './List';
 
 const defaultProps: ListProps = { listItems: [{ id: 1, text: 'Text' }] };

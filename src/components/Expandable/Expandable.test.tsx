@@ -1,5 +1,5 @@
-import Expandable from '.';
-import { render, screen } from '@testing-library/react';
+import { Expandable } from '.';
+import { render, screen } from '../../test/testUtils';
 import { ExpandableProps } from './Expandable';
 
 const onToggleSpy = jest.fn();

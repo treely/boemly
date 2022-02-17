@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import SplitScreen from '.';
+import { render, screen } from '../../test/testUtils';
+import { SplitScreen } from '.';
 
 const defaultProps = {
   left: 'left',

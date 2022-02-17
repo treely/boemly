@@ -1,5 +1,5 @@
-import TreelyThemeProvider from '.';
-import { render, screen } from '@testing-library/react';
+import { TreelyThemeProvider } from '.';
+import { render, screen } from '../../test/testUtils';
 
 const setup = () => {
   render(

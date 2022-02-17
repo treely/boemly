@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import LeftTextRightCard from '.';
+import { render, screen } from '../../test/testUtils';
+import { PortfolioCard } from '.';
 import { PortfolioCardProps } from './PortfolioCard';
 
 const defaultProps: PortfolioCardProps = {
@@ -40,7 +40,7 @@ const defaultProps: PortfolioCardProps = {
 
 const setup = (props = {}) => {
   const combinedProps = { ...defaultProps, ...props };
-  render(<LeftTextRightCard {...combinedProps} />);
+  render(<PortfolioCard {...combinedProps} />);
 };
 
 describe('The PortfolioCard component', () => {

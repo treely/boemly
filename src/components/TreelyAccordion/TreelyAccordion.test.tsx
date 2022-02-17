@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import TreelyAccordion from '.';
+import { render, screen } from '../../test/testUtils';
+import { TreelyAccordion } from '.';
 import { TreelyAccordionProps } from './TreelyAccordion';
 
 const defaultProps: TreelyAccordionProps = {

@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import Footer from '.';
+import { render, screen } from '../../test/testUtils';
+import { Footer } from '.';
 import { FooterProps } from './Footer';
 
 const defaultProps: FooterProps = {

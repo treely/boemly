@@ -1,7 +1,7 @@
 import { mocked } from 'jest-mock';
 import { useRouter } from 'next/router';
-import { render, screen } from '@testing-library/react';
-import NavItem from '.';
+import { render, screen } from '../../test/testUtils';
+import { NavItem } from '.';
 import { NavItemProps } from './NavItem';
 import { DEFAULT_USE_ROUTER_RETURN_VALUE } from '../../test/defaultMocks/next';
 

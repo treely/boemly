@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from "@testing-library/user-event";
-import TreelyAlert from '.';
+import { render, screen } from '../../test/testUtils';
+import userEvent from '@testing-library/user-event';
+import { TreelyAlert } from '.';
 import { TreelyAlertProps } from './TreelyAlert';
 
 const onCloseSpy = jest.fn();

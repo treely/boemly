@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import ShapesCard from '.';
+import { render, screen } from '../../test/testUtils';
+import { ShapesCard } from '.';
 import { ShapesCardProps } from './ShapesCard';
 
 const defaultProps: ShapesCardProps = {

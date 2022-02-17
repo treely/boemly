@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import Layout from '.';
+import { render, screen } from '../../test/testUtils';
+import { Layout } from '.';
 import { LayoutProps } from './Layout';
 
 const defaultProps: LayoutProps = {

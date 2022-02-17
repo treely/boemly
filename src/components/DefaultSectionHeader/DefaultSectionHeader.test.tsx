@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import DefaultSectionHeader from '.';
+import { render, screen } from '../../test/testUtils';
+import { DefaultSectionHeader } from '.';
 import { DefaultSectionHeaderProps } from './DefaultSectionHeader';
 
 const defaultProps: DefaultSectionHeaderProps = {
