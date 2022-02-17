@@ -1,0 +1,1 @@
+export { DefaultSectionContainer } from './styles';

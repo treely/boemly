@@ -1,0 +1,1 @@
+export { LabelTextPair } from './LabelTextPair';

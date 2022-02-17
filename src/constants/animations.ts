@@ -1,0 +1,2 @@
+export const MEDIUM_TRANSITION_DURATION = 0.2;
+export const SLOW_TRANSITION_DURATION = 0.4;

@@ -1,0 +1,1 @@
+export { ContactArea } from './ContactArea';

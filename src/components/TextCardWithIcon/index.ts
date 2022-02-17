@@ -1,0 +1,1 @@
+export { TextCardWithIcon } from './TextCardWithIcon';

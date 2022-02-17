@@ -1,0 +1,1 @@
+export { TreelyThemeProvider } from './TreelyThemeProvider';

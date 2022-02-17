@@ -1,0 +1,1 @@
+export { LabelNumberPair } from './LabelNumberPair';

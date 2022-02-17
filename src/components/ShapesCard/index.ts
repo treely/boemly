@@ -1,0 +1,1 @@
+export { ShapesCard } from './ShapesCard';

@@ -1,0 +1,34 @@
+import { render, screen } from '../../test/testUtils';
+import AvatarWithName from '.';
+import { AvatarWithNameProps } from './AvatarWithName';
+
+const defaultProps: AvatarWithNameProps = {
+  name: 'Name',
+  description: 'Description',
+  image: <img alt="alt" />,
+};
+
+const setup = (props = {}) => {
+  const combinedProps = { ...defaultProps, ...props };
+  render(<AvatarWithName {...combinedProps} />);
+};
+
+describe('The AvatarWithName component', () => {
+  it('displays the name', () => {
+    setup();
+
+    expect(screen.getByText(defaultProps.name, { exact: false })).toBeInTheDocument();
+  });
+
+  it('displays the description', () => {
+    setup();
+
+    expect(screen.getByText(defaultProps.description, { exact: false })).toBeInTheDocument();
+  });
+
+  it('displays the image', () => {
+    setup();
+
+    expect(screen.getByRole('img')).toHaveAttribute('alt', 'alt');
+  });
+});
