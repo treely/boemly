@@ -1,9 +1,9 @@
-import type { NextRouter } from "next/router";
+import type { NextRouter } from 'next/router';
 
 export const DEFAULT_USE_ROUTER_RETURN_VALUE: NextRouter = {
-  asPath: "/",
+  asPath: '/',
   back: jest.fn(),
-  basePath: "",
+  basePath: '',
   beforePopState: jest.fn(),
   events: {
     emit: jest.fn(),
@@ -14,15 +14,15 @@ export const DEFAULT_USE_ROUTER_RETURN_VALUE: NextRouter = {
   isLocaleDomain: true,
   isPreview: false,
   isReady: true,
-  pathname: "/",
+  pathname: '/',
   prefetch: jest.fn(),
   push: jest.fn(),
   query: {},
   reload: jest.fn(),
   replace: jest.fn(),
-  route: "/",
-  defaultLocale: "en",
+  route: '/',
+  defaultLocale: 'en',
   domainLocales: [],
-  locale: "en",
-  locales: ["en", "de"],
+  locale: 'en',
+  locales: ['en', 'de'],
 };
