@@ -1,4 +1,4 @@
-import { render, screen } from '../../test/testUtils';
+import { render, screen } from '@testing-library/react';
 import Layout from '.';
 import { LayoutProps } from './Layout';
 

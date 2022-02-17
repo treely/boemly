@@ -1,5 +1,6 @@
 import TreelySteps from '.';
-import { render, screen, userEvent } from '../../test/testUtils';
+import { render, screen } from '@testing-library/react';
+import userEvent from "@testing-library/user-event";
 import { TreelyStepsProps } from './TreelySteps';
 
 const onClickSpy = jest.fn();

@@ -1,4 +1,4 @@
-import { render, screen } from '../../test/testUtils';
+import { render, screen } from '@testing-library/react';
 import ShapesCard from '.';
 import { ShapesCardProps } from './ShapesCard';
 

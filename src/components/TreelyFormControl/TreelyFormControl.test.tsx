@@ -1,6 +1,6 @@
 import { InputLeftElement, InputRightElement } from '@chakra-ui/react';
 import { Heart } from 'phosphor-react';
-import { render, screen } from '../../test/testUtils';
+import { render, screen } from '@testing-library/react';
 import TreelyFormControl from '.';
 import { TreelyFormControlProps } from './TreelyFormControl';
 

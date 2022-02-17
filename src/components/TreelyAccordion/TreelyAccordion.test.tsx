@@ -1,4 +1,4 @@
-import { render, screen } from '../../test/testUtils';
+import { render, screen } from '@testing-library/react';
 import TreelyAccordion from '.';
 import { TreelyAccordionProps } from './TreelyAccordion';
 

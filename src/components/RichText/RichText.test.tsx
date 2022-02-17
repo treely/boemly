@@ -1,4 +1,4 @@
-import { render, screen } from '../../test/testUtils';
+import { render, screen } from '@testing-library/react';
 import { RichText } from '.';
 import { RichTextProps } from './RichText';
 

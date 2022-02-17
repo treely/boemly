@@ -1,5 +1,5 @@
 import { Heart } from 'phosphor-react';
-import { render, screen } from '../../test/testUtils';
+import { render, screen } from '@testing-library/react';
 import List from '.';
 import { ListProps } from './List';
 
