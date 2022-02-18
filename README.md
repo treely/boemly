@@ -1,4 +1,4 @@
-# Boemly
+# 🌳 Boemly
 
 ## Getting started
 
