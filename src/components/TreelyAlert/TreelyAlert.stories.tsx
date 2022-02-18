@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TreelyAlert from '.';
+import { TreelyAlert } from './TreelyAlert';
 
 export default {
   title: 'components/TreelyAlert',

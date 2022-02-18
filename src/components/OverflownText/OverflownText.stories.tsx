@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Box } from '@chakra-ui/react';
-import OverflownText from '.';
+import { OverflownText } from './OverflownText';
 
 export default {
   title: 'components/OverflownText',

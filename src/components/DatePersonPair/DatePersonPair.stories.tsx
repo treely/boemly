@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { storybookAvatarUrl } from '../../test/storybookMocks/storybookMedia';
-import DatePersonPair from '.';
+import { storybookAvatarUrl } from '../../test/storybookMedia';
+import { DatePersonPair } from './DatePersonPair';
 
 export default {
   title: 'components/DatePersonPair',

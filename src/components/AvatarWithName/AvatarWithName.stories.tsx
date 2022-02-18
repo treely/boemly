@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { storybookAvatarUrl } from '../../test/storybookMocks/storybookMedia';
-import AvatarWithName from '.';
+import { storybookAvatarUrl } from '../../test/storybookMedia';
+import { AvatarWithName } from './AvatarWithName';
 
 export default {
   title: 'components/AvatarWithName',

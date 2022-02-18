@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Heart } from 'phosphor-react';
-import { TreelyList } from '.';
+import { TreelyList } from './TreelyList';
 
 export default {
   title: 'components/TreelyList',

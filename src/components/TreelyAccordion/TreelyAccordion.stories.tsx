@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TreelyAccordion from '.';
+import { TreelyAccordion } from './TreelyAccordion';
 
 export default {
   title: 'components/TreelyAccordion',

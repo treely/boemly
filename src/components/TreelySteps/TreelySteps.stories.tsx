@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TreelySteps from '.';
+import { TreelySteps } from './TreelySteps';
 
 export default {
   title: 'components/TreelySteps',

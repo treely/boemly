@@ -9,7 +9,7 @@ import {
   InputRightElement,
 } from '@chakra-ui/react';
 import { Heart } from 'phosphor-react';
-import TreelyFormControl from '.';
+import { TreelyFormControl } from './TreelyFormControl';
 
 export default {
   title: 'components/TreelyFormControl',

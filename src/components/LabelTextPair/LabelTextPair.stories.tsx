@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import LabelTextPair from '.';
+import { LabelTextPair } from './LabelTextPair';
 
 export default {
   title: 'components/LabelTextPair',

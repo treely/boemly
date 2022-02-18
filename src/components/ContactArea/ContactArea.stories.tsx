@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { storybookAvatarUrl } from '../../test/storybookMocks/storybookMedia';
-import ContactArea from '.';
+import { storybookAvatarUrl } from '../../test/storybookMedia';
+import { ContactArea } from './ContactArea';
 
 export default {
   title: 'components/ContactArea',

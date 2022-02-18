@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Heart } from 'phosphor-react';
 import { Heading, Tag, useDisclosure } from '@chakra-ui/react';
-import Expandable from '.';
+import { Expandable } from './Expandable';
 
 export default {
   title: 'components/Expandable',
