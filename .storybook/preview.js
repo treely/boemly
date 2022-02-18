@@ -12,16 +12,14 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Welcome', 'components'],
+      order: ['Welcome', 'Optimizations', 'components'],
     },
   },
 };
 
-addDecorator((storybook) => (
-  <>
-    <TreelyThemeProvider>
-      <CSSReset />
-      {storybook()}
-    </TreelyThemeProvider>
-  </>
+addDecorator((Storybook) => (
+  <TreelyThemeProvider>
+    <CSSReset />
+    <Storybook />
+  </TreelyThemeProvider>
 ));

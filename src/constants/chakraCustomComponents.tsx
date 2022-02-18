@@ -1,5 +1,6 @@
 import React from 'react';
 import { CaretDown } from 'phosphor-react';
+import { FONTS } from './chakraCustomizations';
 
 export const CustomizedHeading = {
   baseStyle: {
@@ -26,7 +27,7 @@ export const CustomizedHeading = {
     '2xlMono': {
       fontSize: '4xl',
       lineHeight: '9',
-      fontFamily: 'SpaceMono',
+      fontFamily: FONTS.mono,
     },
     xl: { fontSize: '2xl', lineHeight: '7' },
     lg: { fontSize: 'xl', lineHeight: '5' },
@@ -62,12 +63,12 @@ export const CustomizedText = {
     lgMonoNormal: {
       fontSize: 'xl',
       lineHeight: '8',
-      fontFamily: 'SpaceMono',
+      fontFamily: FONTS.mono,
     },
     lgMonoUppercase: {
       fontSize: 'xl',
       lineHeight: '8',
-      fontFamily: 'SpaceMono',
+      fontFamily: FONTS.mono,
       textTransform: 'uppercase',
     },
 
@@ -92,12 +93,12 @@ export const CustomizedText = {
     mdMonoNormal: {
       fontSize: 'md',
       lineHeight: '6',
-      fontFamily: 'SpaceMono',
+      fontFamily: FONTS.mono,
     },
     mdMonoUppercase: {
       fontSize: 'md',
       lineHeight: '6',
-      fontFamily: 'SpaceMono',
+      fontFamily: FONTS.mono,
       textTransform: 'uppercase',
     },
 
@@ -122,12 +123,12 @@ export const CustomizedText = {
     smMonoNormal: {
       fontSize: 'sm',
       lineHeight: '4',
-      fontFamily: 'SpaceMono',
+      fontFamily: FONTS.mono,
     },
     smMonoUppercase: {
       fontSize: 'sm',
       lineHeight: '4',
-      fontFamily: 'SpaceMono',
+      fontFamily: FONTS.mono,
       textTransform: 'uppercase',
     },
 
@@ -152,12 +153,12 @@ export const CustomizedText = {
     xsMonoNormal: {
       fontSize: 'xs',
       lineHeight: '2',
-      fontFamily: 'SpaceMono',
+      fontFamily: FONTS.mono,
     },
     xsMonoUppercase: {
       fontSize: 'xs',
       lineHeight: '2',
-      fontFamily: 'SpaceMono',
+      fontFamily: FONTS.mono,
       textTransform: 'uppercase',
     },
   },
