@@ -33,7 +33,7 @@
     "trailingComma": "es5"
   },
   "name": "boemly",
-  "author": "Lukas Bals",
+  "author": "Tree.ly GmbH",
   "module": "dist/boemly.esm.js",
   "size-limit": [
     {
@@ -87,5 +87,14 @@
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
     ]
-  }
+  },
+  "description": "Boemly is the open source design system of Tree.ly.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/treely/boemly.git"
+  },
+  "bugs": {
+    "url": "https://github.com/treely/boemly/issues"
+  },
+  "homepage": "https://github.com/treely/boemly#readme"
 }
