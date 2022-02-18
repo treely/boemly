@@ -5,7 +5,7 @@ import { ListItemContainer, IconContainer } from './styles';
 
 export interface TreelyListProps {
   listItems: {
-    id: number;
+    id: number | string;
     text: string;
   }[];
   icon?: ReactNode;
