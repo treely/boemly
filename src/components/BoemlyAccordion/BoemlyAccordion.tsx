@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { RichText } from '../RichText';
 
-export interface TreelyAccordionProps {
+export interface BoemlyAccordionProps {
   variant?: 'white' | 'black';
   rows: {
     id: number;
@@ -20,11 +20,11 @@ export interface TreelyAccordionProps {
   defaultIndex: number;
 }
 
-export const TreelyAccordion: React.FC<TreelyAccordionProps> = ({
+export const BoemlyAccordion: React.FC<BoemlyAccordionProps> = ({
   variant = 'black',
   rows,
   defaultIndex,
-}: TreelyAccordionProps) => {
+}: BoemlyAccordionProps) => {
   const textColor = variant === 'black' ? 'gray.500' : 'white';
   return (
     <Accordion defaultIndex={[defaultIndex]} variant={variant}>

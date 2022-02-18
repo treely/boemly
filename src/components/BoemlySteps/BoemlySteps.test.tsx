@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen, fireEvent } from '../../test/testUtils';
-import { TreelySteps, TreelyStepsProps } from './TreelySteps';
+import { BoemlySteps, BoemlyStepsProps } from './BoemlySteps';
 
 const onClickSpy = jest.fn();
 
-const defaultProps: TreelyStepsProps = {
+const defaultProps: BoemlyStepsProps = {
   steps: [
     { text: 'Step 1', onClick: jest.fn() },
     { text: 'Step 2', onClick: jest.fn() },
@@ -16,10 +16,10 @@ const defaultProps: TreelyStepsProps = {
 
 const setup = (props = {}) => {
   const combinedProps = { ...defaultProps, ...props };
-  render(<TreelySteps {...combinedProps} />);
+  render(<BoemlySteps {...combinedProps} />);
 };
 
-describe('The TreelySteps component', () => {
+describe('The BoemlySteps component', () => {
   afterEach(() => {
     onClickSpy.mockRestore();
   });

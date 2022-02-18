@@ -1,16 +1,16 @@
 import React from 'react';
-import { TreelyThemeProvider } from './TreelyThemeProvider';
+import { BoemlyThemeProvider } from './BoemlyThemeProvider';
 import { render, screen } from '../../test/testUtils';
 
 const setup = () => {
   render(
-    <TreelyThemeProvider>
+    <BoemlyThemeProvider>
       <div>Children</div>
-    </TreelyThemeProvider>
+    </BoemlyThemeProvider>
   );
 };
 
-describe('The TreelySteps component', () => {
+describe('The BoemlySteps component', () => {
   it('displays the children', () => {
     setup();
 

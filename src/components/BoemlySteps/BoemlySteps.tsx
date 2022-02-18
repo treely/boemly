@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Text, useToken } from '@chakra-ui/react';
 import { Check } from 'phosphor-react';
 
-export interface TreelyStepsProps {
+export interface BoemlyStepsProps {
   steps: {
     text: string;
     onClick: () => void;
@@ -10,10 +10,10 @@ export interface TreelyStepsProps {
   currentStep: number;
 }
 
-export const TreelySteps: React.FC<TreelyStepsProps> = ({
+export const BoemlySteps: React.FC<BoemlyStepsProps> = ({
   steps,
   currentStep,
-}: TreelyStepsProps) => {
+}: BoemlyStepsProps) => {
   const [white] = useToken('color', ['white']);
 
   return (

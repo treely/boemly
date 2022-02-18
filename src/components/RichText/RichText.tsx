@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { Box, Heading, HeadingProps, Link, Text, TextProps } from '@chakra-ui/react';
 import { ImageContainer } from './styles';
 import Markdown from 'markdown-to-jsx';
-import { TreelyList } from '../TreelyList';
+import { BoemlyList } from '../BoemlyList';
 
 export interface RichTextProps {
   content: string;
@@ -82,9 +82,9 @@ export const RichText: React.FC<RichTextProps> = ({
             {children}
           </Box>
         ),
-        ul: ({ children }: ListComponentProps) => <TreelyList listItems={getListItems(children)} />,
+        ul: ({ children }: ListComponentProps) => <BoemlyList listItems={getListItems(children)} />,
         ol: ({ children }: ListComponentProps) => (
-          <TreelyList listItems={getListItems(children)} ordered />
+          <BoemlyList listItems={getListItems(children)} ordered />
         ),
         a: ({ children, href }: LinkComponentProps) => (
           <Link size="md" href={href}>

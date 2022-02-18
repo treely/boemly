@@ -1,1 +1,0 @@
-export { TreelyAlert } from './TreelyAlert';

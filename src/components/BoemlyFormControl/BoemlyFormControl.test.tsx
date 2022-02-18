@@ -2,18 +2,18 @@ import React from 'react';
 import { InputLeftElement, InputRightElement } from '@chakra-ui/react';
 import { Heart } from 'phosphor-react';
 import { render, screen } from '../../test/testUtils';
-import { TreelyFormControl, TreelyFormControlProps } from './TreelyFormControl';
+import { BoemlyFormControl, BoemlyFormControlProps } from './BoemlyFormControl';
 
-const defaultProps: TreelyFormControlProps = {
+const defaultProps: BoemlyFormControlProps = {
   id: 'form-id',
 };
 
 const setup = (props = {}) => {
   const combinedProps = { ...defaultProps, ...props };
-  render(<TreelyFormControl {...combinedProps} />);
+  render(<BoemlyFormControl {...combinedProps} />);
 };
 
-describe('The TreelyFormControl component', () => {
+describe('The BoemlyFormControl component', () => {
   it('displays an input field', () => {
     setup();
 

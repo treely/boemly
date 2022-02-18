@@ -12,7 +12,7 @@ export * from './components/HeroCard';
 export * from './components/LabelNumberPair';
 export * from './components/LabelTextPair';
 export * from './components/Layout';
-export * from './components/TreelyList';
+export * from './components/BoemlyList';
 export * from './components/MobileMenu';
 export * from './components/MobileMenuBurger';
 export * from './components/NavItem';
@@ -28,11 +28,11 @@ export * from './components/Shape';
 export * from './components/ShapesCard';
 export * from './components/SplitScreen';
 export * from './components/TextCardWithIcon';
-export * from './components/TreelyAccordion';
-export * from './components/TreelyAlert';
-export * from './components/TreelyFormControl';
-export * from './components/TreelySteps';
-export * from './components/TreelyThemeProvider';
+export * from './components/BoemlyAccordion';
+export * from './components/BoemlyAlert';
+export * from './components/BoemlyFormControl';
+export * from './components/BoemlySteps';
+export * from './components/BoemlyThemeProvider';
 export * from './components/Wrapper';
 
 export {

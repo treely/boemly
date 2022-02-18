@@ -3,7 +3,7 @@ import { Circle } from 'phosphor-react';
 import React, { ReactNode } from 'react';
 import { ListItemContainer, IconContainer } from './styles';
 
-export interface TreelyListProps {
+export interface BoemlyListProps {
   listItems: {
     id: number | string;
     text: string;
@@ -13,12 +13,12 @@ export interface TreelyListProps {
   textColor?: string;
 }
 
-export const TreelyList: React.FC<TreelyListProps> = ({
+export const BoemlyList: React.FC<BoemlyListProps> = ({
   listItems,
   icon = <Circle weight="fill" size={6} />,
   ordered = false,
   textColor = 'black',
-}: TreelyListProps) => (
+}: BoemlyListProps) => (
   <div data-testid="list">
     {listItems.map(({ id, text }, index) => (
       <ListItemContainer key={id}>

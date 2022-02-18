@@ -23,7 +23,7 @@ import {
 } from '@chakra-ui/react';
 import { CaretDown, CaretUp, Check, WarningOctagon } from 'phosphor-react';
 
-export interface TreelyFormControlProps {
+export interface BoemlyFormControlProps {
   id: string;
   size?: string;
   label?: string;
@@ -49,7 +49,7 @@ export interface TreelyFormControlProps {
   isDisabled?: boolean;
 }
 
-export const TreelyFormControl: React.FC<TreelyFormControlProps> = ({
+export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
   id,
   size = 'lg',
   label,
@@ -70,7 +70,7 @@ export const TreelyFormControl: React.FC<TreelyFormControlProps> = ({
   isInvalid = false,
   isReadOnly = false,
   isDisabled = false,
-}: TreelyFormControlProps) => {
+}: BoemlyFormControlProps) => {
   const [primary700, red500] = useToken('colors', ['primary.700', 'red.500']);
 
   const renderInputField = () => {

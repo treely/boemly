@@ -1,16 +1,16 @@
 import React from 'react';
 import { Heart } from 'phosphor-react';
 import { render, screen } from '../../test/testUtils';
-import { TreelyList, TreelyListProps } from './TreelyList';
+import { BoemlyList, BoemlyListProps } from './BoemlyList';
 
-const defaultProps: TreelyListProps = { listItems: [{ id: 1, text: 'Text' }] };
+const defaultProps: BoemlyListProps = { listItems: [{ id: 1, text: 'Text' }] };
 
 const setup = (props = {}) => {
   const combinedProps = { ...defaultProps, ...props };
-  render(<TreelyList {...combinedProps} />);
+  render(<BoemlyList {...combinedProps} />);
 };
 
-describe('The TreelyList component', () => {
+describe('The BoemlyList component', () => {
   it('displays the check mark', () => {
     setup();
 

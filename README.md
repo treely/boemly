@@ -5,13 +5,13 @@
 Just include the theme provider in the root of your app and start using the Boemly components:
 
 ```js
-import { Button, TreelyThemeProvider } from 'boemly';
+import { Button, BoemlyThemeProvider } from 'boemly';
 
 function App() {
   return (
-    <TreelyThemeProvider>
+    <BoemlyThemeProvider>
       <Button>Button</Button>
-    </TreelyThemeProvider>
+    </BoemlyThemeProvider>
   );
 }
 

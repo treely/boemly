@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, screen } from '../../test/testUtils';
-import { TreelyAccordion, TreelyAccordionProps } from './TreelyAccordion';
+import { BoemlyAccordion, BoemlyAccordionProps } from './BoemlyAccordion';
 
-const defaultProps: TreelyAccordionProps = {
+const defaultProps: BoemlyAccordionProps = {
   defaultIndex: 0,
   rows: [{ id: 1, key: 'Heading', value: 'Text' }],
 };
 
 const setup = (props = {}) => {
   const combinedProps = { ...defaultProps, ...props };
-  render(<TreelyAccordion {...combinedProps} />);
+  render(<BoemlyAccordion {...combinedProps} />);
 };
 
-describe('The TreelyAccordion component', () => {
+describe('The BoemlyAccordion component', () => {
   it('displays the key', () => {
     setup();
 

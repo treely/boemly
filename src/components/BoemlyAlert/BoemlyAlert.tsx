@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { Alert, CloseButton, Flex, Text, useToken } from '@chakra-ui/react';
 import { CheckCircle, Info, WarningCircle, WarningOctagon } from 'phosphor-react';
 
-export interface TreelyAlertProps {
+export interface BoemlyAlertProps {
   status?: 'success' | 'error' | 'warning' | 'info';
   title?: ReactNode;
   text: ReactNode;
@@ -11,13 +11,13 @@ export interface TreelyAlertProps {
 }
 
 const iconSize = '1.5rem';
-export const TreelyAlert: React.FC<TreelyAlertProps> = ({
+export const BoemlyAlert: React.FC<BoemlyAlertProps> = ({
   status,
   title,
   text,
   isClosable = false,
   onClose,
-}: TreelyAlertProps) => {
+}: BoemlyAlertProps) => {
   const [red500, primary500, orange500, blue500] = useToken('colors', [
     'red.500',
     'green.500',

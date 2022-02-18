@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { TreelyAccordion } from './TreelyAccordion';
+import { BoemlyAccordion } from './BoemlyAccordion';
 
 export default {
-  title: 'components/TreelyAccordion',
-  component: TreelyAccordion,
-} as ComponentMeta<typeof TreelyAccordion>;
+  title: 'components/BoemlyAccordion',
+  component: BoemlyAccordion,
+} as ComponentMeta<typeof BoemlyAccordion>;
 
-const Template: ComponentStory<typeof TreelyAccordion> = (args) => <TreelyAccordion {...args} />;
+const Template: ComponentStory<typeof BoemlyAccordion> = (args) => <BoemlyAccordion {...args} />;
 
 const rows = [
   { id: 1, key: 'Key 1', value: 'Value 1' },

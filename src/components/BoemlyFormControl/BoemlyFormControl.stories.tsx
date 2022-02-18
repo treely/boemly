@@ -9,27 +9,27 @@ import {
   InputRightElement,
 } from '@chakra-ui/react';
 import { Heart } from 'phosphor-react';
-import { TreelyFormControl } from './TreelyFormControl';
+import { BoemlyFormControl } from './BoemlyFormControl';
 
 export default {
-  title: 'components/TreelyFormControl',
-  component: TreelyFormControl,
-} as ComponentMeta<typeof TreelyFormControl>;
+  title: 'components/BoemlyFormControl',
+  component: BoemlyFormControl,
+} as ComponentMeta<typeof BoemlyFormControl>;
 
-const Template: ComponentStory<typeof TreelyFormControl> = (args) => (
-  <TreelyFormControl {...args} />
+const Template: ComponentStory<typeof BoemlyFormControl> = (args) => (
+  <BoemlyFormControl {...args} />
 );
 
 export const States = () => (
   <Box maxW="xs">
     <Box mb="4">
-      <TreelyFormControl id="default-state" label="Default state" />
+      <BoemlyFormControl id="default-state" label="Default state" />
     </Box>
     <Box mb="4">
-      <TreelyFormControl id="valid-state" label="Valid state" isValid />
+      <BoemlyFormControl id="valid-state" label="Valid state" isValid />
     </Box>
     <Box mb="4">
-      <TreelyFormControl
+      <BoemlyFormControl
         id="invalid-state"
         label="Invalid state"
         isInvalid
@@ -37,7 +37,7 @@ export const States = () => (
       />
     </Box>
     <Box mb="4">
-      <TreelyFormControl
+      <BoemlyFormControl
         id="disabled-state"
         label="Disabled state"
         isDisabled
@@ -45,7 +45,7 @@ export const States = () => (
       />
     </Box>
     <Box>
-      <TreelyFormControl
+      <BoemlyFormControl
         id="read-only-state"
         label="Read only state"
         isReadOnly

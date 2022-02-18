@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, screen, fireEvent } from '../../test/testUtils';
-import { TreelyAlert, TreelyAlertProps } from './TreelyAlert';
+import { BoemlyAlert, BoemlyAlertProps } from './BoemlyAlert';
 
 const onCloseSpy = jest.fn();
 
-const defaultProps: TreelyAlertProps = {
+const defaultProps: BoemlyAlertProps = {
   text: 'Text',
 };
 
 const setup = (props = {}) => {
   const combinedProps = { ...defaultProps, ...props };
-  render(<TreelyAlert {...combinedProps} />);
+  render(<BoemlyAlert {...combinedProps} />);
 };
 
-describe('The TreelyAlert component', () => {
+describe('The BoemlyAlert component', () => {
   afterEach(() => {
     onCloseSpy.mockRestore();
   });

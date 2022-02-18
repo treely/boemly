@@ -1,6 +1,6 @@
 import { addDecorator } from '@storybook/react';
 import { CSSReset } from '@chakra-ui/react';
-import { TreelyThemeProvider } from '../src';
+import { BoemlyThemeProvider } from '../src';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -18,8 +18,8 @@ export const parameters = {
 };
 
 addDecorator((Storybook) => (
-  <TreelyThemeProvider>
+  <BoemlyThemeProvider>
     <CSSReset />
     <Storybook />
-  </TreelyThemeProvider>
+  </BoemlyThemeProvider>
 ));

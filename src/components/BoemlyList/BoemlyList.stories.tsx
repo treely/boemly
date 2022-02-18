@@ -2,14 +2,14 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Heart } from 'phosphor-react';
-import { TreelyList } from './TreelyList';
+import { BoemlyList } from './BoemlyList';
 
 export default {
-  title: 'components/TreelyList',
-  component: TreelyList,
-} as ComponentMeta<typeof TreelyList>;
+  title: 'components/BoemlyList',
+  component: BoemlyList,
+} as ComponentMeta<typeof BoemlyList>;
 
-const Template: ComponentStory<typeof TreelyList> = (args) => <TreelyList {...args} />;
+const Template: ComponentStory<typeof BoemlyList> = (args) => <BoemlyList {...args} />;
 
 const listItems = [
   { id: 1, text: 'One' },

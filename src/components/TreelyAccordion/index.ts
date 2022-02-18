@@ -1,1 +1,0 @@
-export { TreelyAccordion } from './TreelyAccordion';

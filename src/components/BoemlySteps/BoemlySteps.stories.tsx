@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { TreelySteps } from './TreelySteps';
+import { BoemlySteps } from './BoemlySteps';
 
 export default {
-  title: 'components/TreelySteps',
-  component: TreelySteps,
-} as ComponentMeta<typeof TreelySteps>;
+  title: 'components/BoemlySteps',
+  component: BoemlySteps,
+} as ComponentMeta<typeof BoemlySteps>;
 
-const Template: ComponentStory<typeof TreelySteps> = (args) => <TreelySteps {...args} />;
+const Template: ComponentStory<typeof BoemlySteps> = (args) => <BoemlySteps {...args} />;
 
 const onClick = () => {
   // eslint-disable-next-line no-console

@@ -5,13 +5,13 @@ import chakraTheme from '../../constants/chakraTheme';
 import iconCustomizations from '../../constants/iconCustomizations';
 import GlobalStyle from '../../GlobalStyle';
 
-interface TreelyThemeProviderProps {
+interface BoemlyThemeProviderProps {
   children: JSX.Element | JSX.Element[];
 }
 
-export const TreelyThemeProvider: React.FC<TreelyThemeProviderProps> = ({
+export const BoemlyThemeProvider: React.FC<BoemlyThemeProviderProps> = ({
   children,
-}: TreelyThemeProviderProps) => (
+}: BoemlyThemeProviderProps) => (
   <>
     <GlobalStyle />
     <ChakraProvider theme={chakraTheme}>

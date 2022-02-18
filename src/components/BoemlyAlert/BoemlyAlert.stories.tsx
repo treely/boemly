@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { TreelyAlert } from './TreelyAlert';
+import { BoemlyAlert } from './BoemlyAlert';
 
 export default {
-  title: 'components/TreelyAlert',
-  component: TreelyAlert,
-} as ComponentMeta<typeof TreelyAlert>;
+  title: 'components/BoemlyAlert',
+  component: BoemlyAlert,
+} as ComponentMeta<typeof BoemlyAlert>;
 
-const Template: ComponentStory<typeof TreelyAlert> = (args) => <TreelyAlert {...args} />;
+const Template: ComponentStory<typeof BoemlyAlert> = (args) => <BoemlyAlert {...args} />;
 
 // eslint-disable-next-line no-console
 const onClose = () => console.log('Close');
