@@ -9,5 +9,5 @@ export default create({
 
   brandTitle: 'Tree.ly storybook',
   brandUrl: 'https://tree.ly',
-  brandImage: 'https://cdn.tree.ly/assets/v3/logo_full_green.svg',
+  brandImage: 'https://cdn.tree.ly/assets/v3/logo_boemly.svg',
 });
