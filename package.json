@@ -90,7 +90,7 @@
       "@testing-library/jest-dom/extend-expect"
     ]
   },
-  "description": "Boemly is the open source design system of Tree.ly.",
+  "description": "Boemly is the open source design system maintained by Tree.ly.",
   "repository": {
     "type": "git",
     "url": "https://github.com/treely/boemly.git"
@@ -98,7 +98,7 @@
   "bugs": {
     "url": "https://github.com/treely/boemly/issues"
   },
-  "homepage": "https://github.com/treely/boemly#readme",
+  "homepage": "https://boemly.tree.ly",
   "release": {
     "branches": [
       "main"
