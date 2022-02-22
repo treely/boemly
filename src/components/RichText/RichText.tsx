@@ -38,6 +38,7 @@ export const RichText: React.FC<RichTextProps> = ({
   textProps = {},
 }: RichTextProps) => (
   <Markdown
+    style={{ color: textProps.color }}
     options={{
       overrides: {
         h1: ({ children }: ComponentProps) => (
@@ -62,11 +63,6 @@ export const RichText: React.FC<RichTextProps> = ({
         ),
         p: ({ children }: ComponentProps) => (
           <Text size="mdRegularNormal" color="gray.800" mb="12" {...textProps}>
-            {children}
-          </Text>
-        ),
-        span: ({ children }: ComponentProps) => (
-          <Text size="mdRegularNormal" color="gray.800" {...textProps}>
             {children}
           </Text>
         ),
