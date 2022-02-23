@@ -1,4 +1,4 @@
-import { Text } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/layout';
 import { Circle } from 'phosphor-react';
 import React, { ReactNode } from 'react';
 import { ListItemContainer, IconContainer } from './styles';

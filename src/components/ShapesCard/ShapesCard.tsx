@@ -1,4 +1,6 @@
-import { Box, Button, Heading, Text, useToken } from '@chakra-ui/react';
+import { Box, Heading, Text } from '@chakra-ui/layout';
+import { useToken } from '@chakra-ui/system';
+import { Button } from '@chakra-ui/button';
 import React, { ReactNode } from 'react';
 import { RichText } from '../RichText';
 import { ShapesCardContainer } from './styles';

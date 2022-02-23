@@ -1,4 +1,5 @@
-import { Button, Heading, Text } from '@chakra-ui/react';
+import { Heading, Text } from '@chakra-ui/layout';
+import { Button } from '@chakra-ui/button';
 import React, { ReactNode } from 'react';
 import { Gradient } from '../Gradient';
 import { HeroCardContainer, HeroInnerContainer } from './styles';

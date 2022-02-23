@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/layout';
 import { ReactNode } from 'react';
 import { ImageContainer } from './styles';
 

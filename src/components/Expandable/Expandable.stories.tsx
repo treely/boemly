@@ -1,8 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import { Heart } from 'phosphor-react';
-import { Heading, Tag, useDisclosure } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/layout';
+import { useDisclosure } from '@chakra-ui/hooks';
+import { Tag } from '@chakra-ui/tag';
 import { Expandable } from './Expandable';
 
 export default {

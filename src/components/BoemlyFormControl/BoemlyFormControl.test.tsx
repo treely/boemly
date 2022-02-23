@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputLeftElement, InputRightElement } from '@chakra-ui/react';
+import { InputLeftElement, InputRightElement } from '@chakra-ui/input';
 import { Heart } from 'phosphor-react';
 import { render, screen } from '../../test/testUtils';
 import { BoemlyFormControlProps } from './BoemlyFormControl';

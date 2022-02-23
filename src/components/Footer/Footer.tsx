@@ -1,4 +1,4 @@
-import { Box, Divider, Spacer } from '@chakra-ui/react';
+import { Box, Divider, Spacer } from '@chakra-ui/layout';
 import React, { ReactNode } from 'react';
 import { DefaultSectionContainer } from '../DefaultSectionContainer';
 import { Wrapper } from '../Wrapper';

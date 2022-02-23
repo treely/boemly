@@ -1,4 +1,4 @@
-import { Heading, Text } from '@chakra-ui/react';
+import { Heading, Text } from '@chakra-ui/layout';
 import React, { ReactNode } from 'react';
 import { IconContainer, InnerIconContainer, TextCardWithIconContainer } from './styles';
 

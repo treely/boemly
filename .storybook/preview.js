@@ -1,5 +1,5 @@
 import { addDecorator } from '@storybook/react';
-import { CSSReset } from '@chakra-ui/react';
+import { CSSReset } from '@chakra-ui/css-reset';
 import { BoemlyThemeProvider } from '../src';
 
 export const parameters = {

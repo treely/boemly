@@ -1,4 +1,5 @@
-import { Box, Button, Divider, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, Divider, Heading, SimpleGrid, Text } from '@chakra-ui/layout';
+import { Button } from '@chakra-ui/button';
 import { Heart } from 'phosphor-react';
 import React, { ReactNode } from 'react';
 import {

@@ -1,4 +1,4 @@
-import { useToken } from '@chakra-ui/react';
+import { useToken } from '@chakra-ui/system';
 import React, { ReactNode } from 'react';
 import { ShapeContainer } from './styles';
 

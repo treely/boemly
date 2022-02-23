@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/button';
 import { useAnimation } from 'framer-motion';
 import React, { useEffect } from 'react';
 import { ActivePageIndicator, NavItemContainer } from './styles';

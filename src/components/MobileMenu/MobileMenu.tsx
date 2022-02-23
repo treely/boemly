@@ -1,4 +1,5 @@
-import { Heading, Button } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/layout';
+import { Button } from '@chakra-ui/button';
 import { useAnimation } from 'framer-motion';
 import React, { useEffect } from 'react';
 import { useWindowSize } from 'react-use';

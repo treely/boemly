@@ -1,7 +1,9 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/layout';
+import { useToken } from '@chakra-ui/system';
+import {  Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/table';
 
 export default {
   title: 'Foundations',

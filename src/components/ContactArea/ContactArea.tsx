@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Divider, Heading, Text } from '@chakra-ui/react';
+import { Divider, Heading, Text } from '@chakra-ui/layout';
+import { Button } from '@chakra-ui/button';
 import { ArrowRight } from 'phosphor-react';
 import { AvatarWithName, AvatarWithNameProps } from '../AvatarWithName/AvatarWithName';
 import { ContactCardContainer } from './styles';

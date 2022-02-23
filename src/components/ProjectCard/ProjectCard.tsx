@@ -1,4 +1,5 @@
-import { Box, Divider, Heading, SimpleGrid, Text, useToken } from '@chakra-ui/react';
+import { Box, Divider, Heading, SimpleGrid, Text } from '@chakra-ui/layout';
+import { useToken } from '@chakra-ui/system';
 import { ArrowsOutSimple, MapPin } from 'phosphor-react';
 import React, { ReactNode } from 'react';
 

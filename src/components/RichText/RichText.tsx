@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Box, Heading, HeadingProps, Link, Text, TextProps } from '@chakra-ui/react';
+import { Box, Heading, HeadingProps, Link, Text, TextProps } from '@chakra-ui/layout';
 import { ImageContainer } from './styles';
 import Markdown from 'markdown-to-jsx';
 import { BoemlyList } from '../BoemlyList';

@@ -1,4 +1,4 @@
-import { IconButton } from '@chakra-ui/react';
+import { IconButton } from '@chakra-ui/button';
 import { useAnimation } from 'framer-motion';
 import React, { useEffect } from 'react';
 import { MEDIUM_TRANSITION_DURATION } from '../../constants/animations';

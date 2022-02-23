@@ -1,4 +1,6 @@
-import { Box, Heading, IconButton, Flex, Text, Spinner } from '@chakra-ui/react';
+import { Box, Heading, Flex, Text } from '@chakra-ui/layout';
+import { Spinner } from '@chakra-ui/spinner';
+import { IconButton } from '@chakra-ui/button';
 import { motion, useAnimation } from 'framer-motion';
 import { CaretDown, CaretUp } from 'phosphor-react';
 import React, { useEffect } from 'react';

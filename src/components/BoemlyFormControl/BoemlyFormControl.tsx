@@ -1,26 +1,18 @@
 import React, { ReactNode } from 'react';
+import { Text } from '@chakra-ui/layout';
+import { Input, InputGroup, InputProps, InputRightElement } from '@chakra-ui/input';
+import { Checkbox, CheckboxProps } from '@chakra-ui/checkbox';
+import { FormControl, FormErrorMessage, FormHelperText, FormLabel } from '@chakra-ui/form-control';
+import { useToken } from '@chakra-ui/system';
 import {
-  Checkbox,
-  CheckboxProps,
-  Text,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  FormLabel,
-  InputGroup,
-  InputRightElement,
-  Input,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
-  Select,
-  InputProps,
   NumberInputProps,
-  SelectProps,
-  useToken,
-} from '@chakra-ui/react';
+} from '@chakra-ui/number-input';
+import { Select, SelectProps } from '@chakra-ui/select';
 import { CaretDown, CaretUp, Check, WarningOctagon } from 'phosphor-react';
 
 export interface BoemlyFormControlProps {

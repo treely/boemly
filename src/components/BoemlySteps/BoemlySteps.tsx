@@ -1,5 +1,6 @@
 import React from 'react';
-import { Flex, Text, useToken } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/layout';
+import { useToken } from '@chakra-ui/system';
 import { Check } from 'phosphor-react';
 
 export interface BoemlyStepsProps {

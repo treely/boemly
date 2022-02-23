@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/provider';
 import { IconContext } from 'phosphor-react';
 import chakraTheme from '../../constants/chakraTheme';
 import iconCustomizations from '../../constants/iconCustomizations';

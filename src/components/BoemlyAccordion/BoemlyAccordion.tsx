@@ -5,9 +5,8 @@ import {
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
-  Box,
-  Heading,
-} from '@chakra-ui/react';
+} from '@chakra-ui/accordion';
+import { Box, Heading } from '@chakra-ui/layout';
 import { RichText } from '../RichText';
 
 export interface BoemlyAccordionProps {
@@ -26,6 +25,7 @@ export const BoemlyAccordion: React.FC<BoemlyAccordionProps> = ({
   defaultIndex,
 }: BoemlyAccordionProps) => {
   const textColor = variant === 'black' ? 'gray.500' : 'white';
+
   return (
     <Accordion defaultIndex={[defaultIndex]} variant={variant}>
       {rows.map(({ id, key, value }) => (

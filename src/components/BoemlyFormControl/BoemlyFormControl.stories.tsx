@@ -2,12 +2,12 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import {
-  Box,
   InputLeftAddon,
   InputLeftElement,
   InputRightAddon,
   InputRightElement,
-} from '@chakra-ui/react';
+} from '@chakra-ui/input';
+import { Box } from '@chakra-ui/layout';
 import { Heart } from 'phosphor-react';
 import { BoemlyFormControl } from './BoemlyFormControl';
 

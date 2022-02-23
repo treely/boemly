@@ -21,9 +21,7 @@ export * from './components/PageContainer';
 export * from './components/PortfolioCard';
 export * from './components/ProjectCard';
 export * from './components/QuoteCard';
-
-export * from './components/RichText'; // Needs to be refactored to work with new library
-
+export * from './components/RichText';
 export * from './components/Shape';
 export * from './components/ShapesCard';
 export * from './components/SplitScreen';
@@ -35,43 +33,36 @@ export * from './components/BoemlySteps';
 export * from './components/BoemlyThemeProvider';
 export * from './components/Wrapper';
 
+export { Avatar } from '@chakra-ui/avatar';
+export { useDisclosure } from '@chakra-ui/hooks';
+export { Button, IconButton } from '@chakra-ui/button';
 export {
-  Avatar,
-  Box,
-  Button,
-  Center,
-  Divider,
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  IconButton,
   InputLeftAddon,
   InputLeftElement,
   InputRightAddon,
   InputRightElement,
+} from '@chakra-ui/input';
+export {
+  Box,
+  Center,
+  Divider,
+  Flex,
+  Grid,
+  Heading,
+  GridItem,
   Link,
   List,
   ListItem,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Select,
   SimpleGrid,
   Spacer,
-  Spinner,
-  Table,
-  Tag,
-  Tbody,
-  Td,
   Text,
-  Th,
-  Thead,
-  Tooltip,
-  Tr,
-  useDisclosure,
-  useMediaQuery,
-  useToast,
-  useToken,
-} from '@chakra-ui/react';
+} from '@chakra-ui/layout';
+export { useMediaQuery } from '@chakra-ui/media-query';
+export { Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/menu';
+export { Select } from '@chakra-ui/select';
+export { Spinner } from '@chakra-ui/spinner';
+export { useToken } from '@chakra-ui/system';
+export { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/table';
+export { Tag } from '@chakra-ui/tag';
+export { Tooltip } from '@chakra-ui/tooltip';
+export { useToast } from '@chakra-ui/toast';

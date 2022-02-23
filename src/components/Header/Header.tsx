@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/layout';
 
 export interface HeaderProps {
   left: ReactNode;

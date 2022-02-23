@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
-import type { TextProps } from '@chakra-ui/react';
-import { Text, Tooltip } from '@chakra-ui/react';
+import type { TextProps } from '@chakra-ui/layout';
+import { Text } from '@chakra-ui/layout';
+import { Tooltip } from '@chakra-ui/tooltip';
 
 export const OverflownText: React.FC<TextProps> = ({ children, ...props }: TextProps) => {
   const ref = useRef<HTMLParagraphElement>(null);

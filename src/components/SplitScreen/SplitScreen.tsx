@@ -1,4 +1,4 @@
-import { useMediaQuery } from '@chakra-ui/react';
+import { useMediaQuery } from '@chakra-ui/media-query';
 import React, { ReactNode, useEffect } from 'react';
 import { useAnimation } from 'framer-motion';
 import { useMeasure } from 'react-use';

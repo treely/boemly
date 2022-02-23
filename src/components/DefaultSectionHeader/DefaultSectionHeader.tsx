@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, BoxProps, Heading, HeadingProps, Text, TextProps } from '@chakra-ui/react';
+import { Box, BoxProps, Heading, HeadingProps, Text, TextProps } from '@chakra-ui/layout';
 import { RichText } from '../RichText';
 
 export interface DefaultSectionHeaderProps {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, TextProps } from '@chakra-ui/react';
+import { Box, TextProps } from '@chakra-ui/layout';
 import { render, screen } from '../../test/testUtils';
 import { OverflownText } from '.';
 
