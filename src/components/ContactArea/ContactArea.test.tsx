@@ -1,6 +1,7 @@
 import React from 'react';
+import { ContactArea } from '.';
 import { render, screen } from '../../test/testUtils';
-import { ContactArea, ContactAreaProps } from './ContactArea';
+import { ContactAreaProps } from './ContactArea';
 
 const defaultProps: ContactAreaProps = {
   title: 'Title',

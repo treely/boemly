@@ -1,6 +1,7 @@
 import React from 'react';
+import { AvatarWithName } from '.';
 import { render, screen } from '../../test/testUtils';
-import { AvatarWithName, AvatarWithNameProps } from './AvatarWithName';
+import { AvatarWithNameProps } from './AvatarWithName';
 
 const defaultProps: AvatarWithNameProps = {
   name: 'Name',

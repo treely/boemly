@@ -1,6 +1,7 @@
 import React from 'react';
+import { BoemlyAccordion } from '.';
 import { render, screen } from '../../test/testUtils';
-import { BoemlyAccordion, BoemlyAccordionProps } from './BoemlyAccordion';
+import { BoemlyAccordionProps } from './BoemlyAccordion';
 
 const defaultProps: BoemlyAccordionProps = {
   defaultIndex: 0,

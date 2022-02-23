@@ -1,6 +1,7 @@
 import React from 'react';
+import { LabelNumberPair } from '.';
 import { render, screen } from '../../test/testUtils';
-import { LabelNumberPair, LabelNumberPairProps } from './LabelNumberPair';
+import { LabelNumberPairProps } from './LabelNumberPair';
 
 const defaultProps: LabelNumberPairProps = {
   label: 'Label',

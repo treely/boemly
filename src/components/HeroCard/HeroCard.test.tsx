@@ -1,6 +1,7 @@
 import React from 'react';
+import { HeroCard } from '.';
 import { render, screen } from '../../test/testUtils';
-import { HeroCard, HeroCardProps } from './HeroCard';
+import { HeroCardProps } from './HeroCard';
 
 const defaultProps: HeroCardProps = {
   title: 'Title',

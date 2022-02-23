@@ -2,7 +2,8 @@ import React from 'react';
 import { InputLeftElement, InputRightElement } from '@chakra-ui/react';
 import { Heart } from 'phosphor-react';
 import { render, screen } from '../../test/testUtils';
-import { BoemlyFormControl, BoemlyFormControlProps } from './BoemlyFormControl';
+import { BoemlyFormControlProps } from './BoemlyFormControl';
+import { BoemlyFormControl } from '.';
 
 const defaultProps: BoemlyFormControlProps = {
   id: 'form-id',

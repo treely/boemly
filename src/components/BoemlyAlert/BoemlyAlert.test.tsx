@@ -1,6 +1,7 @@
 import React from 'react';
+import { BoemlyAlert } from '.';
 import { render, screen, fireEvent } from '../../test/testUtils';
-import { BoemlyAlert, BoemlyAlertProps } from './BoemlyAlert';
+import { BoemlyAlertProps } from './BoemlyAlert';
 
 const onCloseSpy = jest.fn();
 

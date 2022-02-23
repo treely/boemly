@@ -1,7 +1,8 @@
 import React from 'react';
 import { Heart } from 'phosphor-react';
 import { render, screen } from '../../test/testUtils';
-import { BoemlyList, BoemlyListProps } from './BoemlyList';
+import { BoemlyListProps } from './BoemlyList';
+import { BoemlyList } from '.';
 
 const defaultProps: BoemlyListProps = { listItems: [{ id: 1, text: 'Text' }] };
 

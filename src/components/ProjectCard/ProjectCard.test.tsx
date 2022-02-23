@@ -1,6 +1,7 @@
 import React from 'react';
+import { ProjectCard } from '.';
 import { render, screen } from '../../test/testUtils';
-import { ProjectCard, ProjectCardProps } from './ProjectCard';
+import { ProjectCardProps } from './ProjectCard';
 
 const defaultProps: ProjectCardProps = {
   title: 'Title',

@@ -1,6 +1,7 @@
 import React from 'react';
+import { MobileMenu } from '.';
 import { fireEvent, render, screen } from '../../test/testUtils';
-import { MobileMenu, MobileMenuProps } from './MobileMenu';
+import { MobileMenuProps } from './MobileMenu';
 
 const onCloseSpy = jest.fn();
 const onLinkClickSpy = jest.fn();

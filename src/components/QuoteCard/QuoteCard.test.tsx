@@ -1,6 +1,7 @@
 import React from 'react';
+import { QuoteCard } from '.';
 import { render, screen } from '../../test/testUtils';
-import { QuoteCard, QuoteCardProps } from './QuoteCard';
+import { QuoteCardProps } from './QuoteCard';
 
 const defaultProps: QuoteCardProps = {
   text: 'Text',

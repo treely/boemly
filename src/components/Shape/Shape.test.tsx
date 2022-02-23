@@ -1,6 +1,7 @@
 import React from 'react';
+import { Shape } from '.';
 import { render, screen } from '../../test/testUtils';
-import { Shape, ShapeProps } from './Shape';
+import { ShapeProps } from './Shape';
 
 const defaultProps: ShapeProps = {
   shape: <img alt="Alt text" src="/src" />,

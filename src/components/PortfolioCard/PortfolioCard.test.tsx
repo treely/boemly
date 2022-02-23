@@ -1,6 +1,7 @@
 import React from 'react';
+import { PortfolioCard } from '.';
 import { fireEvent, render, screen } from '../../test/testUtils';
-import { PortfolioCard, PortfolioCardProps } from './PortfolioCard';
+import { PortfolioCardProps } from './PortfolioCard';
 
 const defaultProps: PortfolioCardProps = {
   id: 1,

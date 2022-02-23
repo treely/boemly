@@ -88,6 +88,12 @@
   "jest": {
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
+    ],
+    "collectCoverageFrom": [
+      "./src/**/*.{js,jsx,ts,tsx}",
+      "!**/*.stories.{js,jsx,ts,tsx}",
+      "!**/src/test/**",
+      "!**/src/index.tsx"
     ]
   },
   "description": "Boemly is the open source design system maintained by Tree.ly.",

@@ -1,6 +1,7 @@
 import React from 'react';
+import { BoemlySteps } from '.';
 import { render, screen, fireEvent } from '../../test/testUtils';
-import { BoemlySteps, BoemlyStepsProps } from './BoemlySteps';
+import { BoemlyStepsProps } from './BoemlySteps';
 
 const onClickSpy = jest.fn();
 
