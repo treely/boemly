@@ -11,7 +11,13 @@ Boemly is the open source design system maintained by Tree.ly based on
 
 ## 🏃‍♀️ Getting started
 
-Just include the theme provider in the root of your app and start using the Boemly components:
+Install Boemly:
+
+```bash
+npm i boemly --save
+```
+
+Include the theme provider in the root of your app and start using the Boemly components:
 
 ```jsx
 import { Button, BoemlyThemeProvider } from 'boemly';
