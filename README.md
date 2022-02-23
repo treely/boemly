@@ -9,11 +9,11 @@
 Boemly is the open source design system maintained by Tree.ly based on
 [ChakraUI](https://chakra-ui.com/).
 
-## Getting started
+## 🏃‍♀️ Getting started
 
 Just include the theme provider in the root of your app and start using the Boemly components:
 
-```tsx
+```jsx
 import { Button, BoemlyThemeProvider } from 'boemly';
 
 function App() {
@@ -27,11 +27,32 @@ function App() {
 export default App;
 ```
 
-## Documentation
+## 📚 Documentation
 
 You can find a detailed documentation of Boemly [here](https://boemly.tree.ly).
 
-## Who is behind Boemly
+## 🚀 Contributing
+
+We are happy about every contribution from our community! Please follow our
+[contribution guideline](CONTRIBUTING.md).
+
+## 💻 Development
+
+For development on Boemly check out our [development docs](CONTRIBUTING.md#development).
+
+## ⚙️ Technologies used
+
+- [Typescript](https://www.typescriptlang.org/) as the programming language.
+- [styled-components](https://styled-components.com/) for custom styles.
+- [react-use](https://www.npmjs.com/package/react-use) as a collection of hooks.
+- [Framer](https://www.framer.com/docs/) for animations.
+- [Eslint](https://eslint.org/) combined with [Prettier](https://prettier.io/)
+  as a linter/formatter.
+- [Jest](https://jestjs.io/) as the testing framework.
+- [Storybook](https://storybook.js.org/) for the design system and component
+  documentation.
+
+## 🌲 Who is behind Boemly
 
 Boemly is maintained by [Tree.ly](https://tree.ly).
 
