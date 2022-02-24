@@ -9,7 +9,7 @@ export const Gradient = styled.div`
 
   background: linear-gradient(
     0deg,
-    var(--chakra-colors-blackAlpha-500),
-    var(--chakra-colors-blackAlpha-500)
+    var(--boemly-colors-blackAlpha-500),
+    var(--boemly-colors-blackAlpha-500)
   );
 `;

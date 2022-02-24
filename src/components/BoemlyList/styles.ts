@@ -5,7 +5,7 @@ export const ListItemContainer = styled.div`
   flex-direction: row;
   align-items: center;
 
-  margin-top: var(--chakra-space-4);
+  margin-top: var(--boemly-space-4);
 
   &:first-of-type {
     margin-top: 0;
@@ -17,11 +17,11 @@ export const IconContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: var(--chakra-space-6);
-  min-width: var(--chakra-space-6);
-  height: var(--chakra-space-6);
-  background-color: var(--chakra-colors-primary-50);
-  border-radius: var(--chakra-radii-lg);
+  width: var(--boemly-space-6);
+  min-width: var(--boemly-space-6);
+  height: var(--boemly-space-6);
+  background-color: var(--boemly-colors-primary-50);
+  border-radius: var(--boemly-radii-lg);
 
-  margin-right: var(--chakra-space-4);
+  margin-right: var(--boemly-space-4);
 `;

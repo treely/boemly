@@ -14,14 +14,14 @@ export const AvatarImageContainer = styled.div`
   min-width: 3.5rem;
   height: 3.5rem;
 
-  margin-right: var(--chakra-space-6);
+  margin-right: var(--boemly-space-6);
 
-  border-radius: var(--chakra-radii-xl);
+  border-radius: var(--boemly-radii-xl);
 
   & span,
   div,
   img {
-    border-radius: var(--chakra-radii-xl);
+    border-radius: var(--boemly-radii-xl);
   }
 
   @media screen and (min-width: ${BREAKPOINT_MD}) {

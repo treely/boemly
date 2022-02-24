@@ -61,8 +61,8 @@ const GlobalStyle = createGlobalStyle`
   --header-height: ${HEADER_HEIGHT}px;
   --extended-header-height: ${EXTENDED_HEADER_HEIGHT}px;
 
-  --default-hero-height: calc(100vh - var(--chakra-space-24));
-  --small-hero-height: var(--chakra-sizes-lg);
+  --default-hero-height: calc(100vh - var(--boemly-space-24));
+  --small-hero-height: var(--boemly-sizes-lg);
 
   // Transitions
   --medium-transition-duration: ${MEDIUM_TRANSITION_DURATION}s;

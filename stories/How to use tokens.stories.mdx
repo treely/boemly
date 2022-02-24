@@ -1,0 +1,64 @@
+<Meta title="How to use tokens" />
+
+# 📏 How to use tokens
+
+In the next section of the storybook you will find the tokens on which Boemly is based on.
+
+Each of those tokens you can use in several ways - you can learn how in the following code
+snippets.
+
+## Usable tokens:
+
+- `colors`
+- `radii`
+- `sizes`
+- `space`
+
+## Examples
+
+### Use a ChakraUI based component and use the tokens in the props
+
+```jsx
+import { Box } from 'boemly';
+
+export default () => {
+  return (
+    <Box width="24" height="24" background="primary.500">
+      Hello World
+    </Box>
+  );
+};
+```
+
+### Use the `useToken` hook
+
+```tsx
+import { useToken } from 'boemly';
+
+export default () => {
+  const [space24] = useToken('space', ['24']);
+  const [primary500] = useToken('colors', ['primary.500']);
+
+  return (
+    <div
+      style={{
+        width: space24,
+        height: space24,
+        background: primary500,
+      }}
+    >
+      Hello World
+    </div>
+  );
+};
+```
+
+### Use CSS variables
+
+```css
+.div {
+  width: var(--boemly-space-24);
+  height: var(--boemly-space-24);
+  background-color: var(--boemly-colors-primary-500);
+}
+```

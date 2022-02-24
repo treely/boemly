@@ -35,11 +35,11 @@ export const Right = styled(motion.div)<RightProps>`
     width: 100%;
 
     border-top-right-radius: ${({ hideLeftOnMobile }) =>
-      hideLeftOnMobile ? '0' : 'var(--chakra-radii-2xl)'};
+      hideLeftOnMobile ? '0' : 'var(--boemly-radii-2xl)'};
     border-top-left-radius: ${({ hideLeftOnMobile }) =>
-      hideLeftOnMobile ? '0' : 'var(--chakra-radii-2xl)'};
+      hideLeftOnMobile ? '0' : 'var(--boemly-radii-2xl)'};
     box-shadow: ${({ hideLeftOnMobile }) =>
-      hideLeftOnMobile ? 'none' : 'var(--chakra-shadows-md)'};
+      hideLeftOnMobile ? 'none' : 'var(--boemly-shadows-md)'};
 
     // This is just needed if the right container contains a mapbox map.
     // Since it's no problem if there are other components in the right
@@ -47,11 +47,11 @@ export const Right = styled(motion.div)<RightProps>`
     & .mapboxgl-map {
       overflow: hidden;
       border-top-right-radius: ${({ hideLeftOnMobile }) =>
-        hideLeftOnMobile ? '0' : 'var(--chakra-radii-2xl)'};
+        hideLeftOnMobile ? '0' : 'var(--boemly-radii-2xl)'};
       border-top-left-radius: ${({ hideLeftOnMobile }) =>
-        hideLeftOnMobile ? '0' : 'var(--chakra-radii-2xl)'};
+        hideLeftOnMobile ? '0' : 'var(--boemly-radii-2xl)'};
       box-shadow: ${({ hideLeftOnMobile }) =>
-        hideLeftOnMobile ? 'none' : 'var(--chakra-shadows-md)'};
+        hideLeftOnMobile ? 'none' : 'var(--boemly-shadows-md)'};
 
       mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
     }

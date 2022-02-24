@@ -21,8 +21,8 @@ export const MenuBurgerItem = styled(motion.div)<MenuBurgerItemProps>`
   height: 2px;
   width: 1rem;
 
-  border-radius: var(--chakra-radii-full);
+  border-radius: var(--boemly-radii-full);
 
   transition: background-color ease var(--medium-transition-duration);
-  background-color: var(--chakra-colors-${({ color }) => color});
+  background-color: var(--boemly-colors-${({ color }) => color});
 `;

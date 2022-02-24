@@ -2,9 +2,10 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 
 import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '@chakra-ui/react';
+import { RADII } from '../../src/constants/customizations';
 
 export default {
-  title: 'Foundations/Radii',
+  title: 'Tokens/Radii',
 } as Meta;
 
 interface RadiiRowProps {
@@ -23,13 +24,11 @@ const RadiiRow = ({ radius }: RadiiRowProps) => {
         <Text size="mdMonoNormal">{radiiValue}</Text>
       </Td>
       <Td>
-        <Box bg="primary.500" width="sm" height="4rem" borderRadius={radius} />
+        <Box bg="primary.500" width="sm" height="16" borderRadius={radius} />
       </Td>
     </Tr>
   );
 };
-
-const radiis = ['none', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', 'full'];
 
 export const Radii = () => (
   <Table variant="simple">
@@ -41,8 +40,8 @@ export const Radii = () => (
       </Tr>
     </Thead>
     <Tbody>
-      {radiis.map((radii) => (
-        <RadiiRow radius={radii} />
+      {Object.keys(RADII).map((radii) => (
+        <RadiiRow key={radii} radius={radii} />
       ))}
     </Tbody>
   </Table>

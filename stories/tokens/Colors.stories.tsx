@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react';
 import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '@chakra-ui/react';
 
 export default {
-  title: 'Foundations/Colors',
+  title: 'Tokens/Colors',
 } as Meta;
 
 interface ColorRowProps {
@@ -23,7 +23,7 @@ const ColorRow: React.FC<ColorRowProps> = ({ colorToken }: ColorRowProps) => {
         <Text size="mdMonoNormal">{color}</Text>
       </Td>
       <Td>
-        <Box bg={colorToken} width="sm" height="6" />
+        <Box bg={colorToken} width="sm" height="8" />
       </Td>
     </Tr>
   );

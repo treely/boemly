@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { BREAKPOINT_LG } from '../../constants/breakpoints';
 
 export const ContactCardContainer = styled.div`
-  border: solid 1px var(--chakra-colors-gray-200);
-  border-radius: var(--chakra-radii-2xl);
+  border: solid 1px var(--boemly-colors-gray-200);
+  border-radius: var(--boemly-radii-2xl);
 
-  padding: var(--chakra-space-6);
+  padding: var(--boemly-space-6);
 
   display: flex;
   flex-direction: row;
@@ -17,7 +17,7 @@ export const ContactCardContainer = styled.div`
     align-items: flex-start;
 
     & button {
-      margin-top: var(--chakra-space-6);
+      margin-top: var(--boemly-space-6);
     }
   }
 `;

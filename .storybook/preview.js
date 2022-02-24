@@ -12,7 +12,14 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Welcome', 'Optimizations', 'Customizations', 'Foundations', 'components'],
+      order: [
+        'Welcome',
+        'Optimizations',
+        'Customizations',
+        'How to use tokens',
+        'Tokens',
+        'components',
+      ],
     },
   },
 };

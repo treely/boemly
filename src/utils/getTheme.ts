@@ -22,6 +22,7 @@ import {
   FONT_SIZES,
   LINE_HEIGHTS,
   RADII,
+  SIZES,
   SPACE,
   Z_INDICES,
 } from '../constants/customizations';
@@ -34,14 +35,16 @@ interface Options {
 
 const getTheme = ({ customColors, customRadii }: Options) => {
   return extendTheme({
+    config: { cssVarPrefix: 'boemly' },
     colors: { ...COLORS, ...customColors },
     breakpoints: BREAKPOINTS,
     fonts: FONTS,
     fontSizes: FONT_SIZES,
     lineHeights: LINE_HEIGHTS,
     radii: { ...RADII, ...customRadii },
-    zIndices: Z_INDICES,
+    sizes: SIZES,
     space: SPACE,
+    zIndices: Z_INDICES,
 
     components: {
       Accordion: CustomizedAccordion,

@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 export const ImageContainer = styled.div`
   position: relative;
-  width: var(--chakra-sizes-7);
-  height: var(--chakra-sizes-7);
-  border-radius: var(--chakra-radii-lg);
+  width: var(--boemly-sizes-7);
+  height: var(--boemly-sizes-7);
+  border-radius: var(--boemly-radii-lg);
 
   & span,
   div,
   img {
-    border-radius: var(--chakra-radii-lg);
+    border-radius: var(--boemly-radii-lg);
   }
 `;

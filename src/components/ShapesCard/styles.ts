@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 export const ShapesCardContainer = styled.div`
-  border-radius: var(--chakra-radii-2xl);
-  background-color: var(--chakra-colors-white);
+  border-radius: var(--boemly-radii-2xl);
+  background-color: var(--boemly-colors-white);
   overflow: hidden;
   position: relative;
 
-  padding: var(--chakra-space-20) var(--chakra-space-6) var(--chakra-space-24) var(--chakra-space-6);
+  padding: var(--boemly-space-20) var(--boemly-space-6) var(--boemly-space-24) var(--boemly-space-6);
 
   text-align: center;
 
-  box-shadow: var(--chakra-shadows-lg);
+  box-shadow: var(--boemly-shadows-lg);
 
-  max-width: var(--chakra-sizes-5xl);
+  max-width: var(--boemly-sizes-5xl);
 
   margin: 0 auto;
 `;

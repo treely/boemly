@@ -29,19 +29,19 @@ interface ShapeContainerProps {
 export const ShapeContainer = styled.div<ShapeContainerProps>`
   position: absolute;
 
-  width: ${({ size }) => `var(--chakra-sizes-${size})`};
-  height: ${({ size }) => `var(--chakra-sizes-${size})`};
+  width: ${({ size }) => `var(--boemly-sizes-${size})`};
+  height: ${({ size }) => `var(--boemly-sizes-${size})`};
 
   top: ${({ top }) => top};
   right: ${({ right }) => right};
   bottom: ${({ bottom }) => bottom};
   left: ${({ left }) => left};
 
-  ${({ radius }) => `border-${radius}-radius`}: var(--chakra-radii-full);
+  ${({ radius }) => `border-${radius}-radius`}: var(--boemly-radii-full);
 
   & span,
   div {
-    ${({ radius }) => `border-${radius}-radius`}: var(--chakra-radii-full);
+    ${({ radius }) => `border-${radius}-radius`}: var(--boemly-radii-full);
   }
 
   z-index: ${({ zIndex }) => zIndex};

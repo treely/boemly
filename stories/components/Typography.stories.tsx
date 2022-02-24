@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react';
 import { Heading, Text } from '@chakra-ui/react';
 
 export default {
-  title: 'Foundations/Typography',
+  title: 'Components/Typography',
 } as Meta;
 
 export const Headings = () => (

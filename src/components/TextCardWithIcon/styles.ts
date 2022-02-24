@@ -4,17 +4,17 @@ interface TextCardWithIconContainerProps {
   displayAs: 'row' | 'column';
 }
 export const TextCardWithIconContainer = styled.div<TextCardWithIconContainerProps>`
-  box-shadow: var(--chakra-shadows-lg);
-  border-radius: var(--chakra-radii-2xl);
+  box-shadow: var(--boemly-shadows-lg);
+  border-radius: var(--boemly-radii-2xl);
 
-  padding: var(--chakra-space-8) var(--chakra-space-6);
+  padding: var(--boemly-space-8) var(--boemly-space-6);
 
-  margin-top: var(--chakra-space-4);
+  margin-top: var(--boemly-space-4);
   &:first-of-type {
     margin-top: 0;
   }
 
-  background-color: var(--chakra-colors-white);
+  background-color: var(--boemly-colors-white);
 
   display: flex;
   flex-direction: ${({ displayAs }) => displayAs};
@@ -30,11 +30,11 @@ export const IconContainer = styled.div<IconContainerProps>`
   height: ${({ displayAs }) => (displayAs === 'row' ? '4.3rem' : '2rem')};
 
   background-color: ${({ displayAs }) =>
-    displayAs === 'row' ? 'var(--chakra-colors-primary-50)' : 'transparent'};
-  border-radius: ${({ displayAs }) => (displayAs === 'row' ? 'var(--chakra-radii-full)' : '0')};
+    displayAs === 'row' ? 'var(--boemly-colors-primary-50)' : 'transparent'};
+  border-radius: ${({ displayAs }) => (displayAs === 'row' ? 'var(--boemly-radii-full)' : '0')};
 
-  margin-right: var(--chakra-space-8);
-  margin-bottom: ${({ displayAs }) => (displayAs === 'row' ? '0' : 'var(--chakra-space-6)')};
+  margin-right: var(--boemly-space-8);
+  margin-bottom: ${({ displayAs }) => (displayAs === 'row' ? '0' : 'var(--boemly-space-6)')};
 
   display: flex;
   align-items: center;
