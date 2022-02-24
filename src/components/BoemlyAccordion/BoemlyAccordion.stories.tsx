@@ -28,3 +28,6 @@ White.args = {
   rows,
   variant: 'white',
 };
+White.parameters = {
+  backgrounds: { default: 'dark' },
+};
