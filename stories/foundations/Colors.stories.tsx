@@ -41,6 +41,7 @@ export const Colors = () => (
       </Tr>
     </Thead>
     <Tbody>
+      <ColorRow colorToken="transparent" />
       <ColorRow colorToken="black" />
       <ColorRow colorToken="white" />
       {colorWeights.map((weight) => (
@@ -53,7 +54,28 @@ export const Colors = () => (
         <ColorRow colorToken={`red.${weight}`} />
       ))}
       {colorWeights.map((weight) => (
+        <ColorRow colorToken={`orange.${weight}`} />
+      ))}
+      {colorWeights.map((weight) => (
+        <ColorRow colorToken={`yellow.${weight}`} />
+      ))}
+      {colorWeights.map((weight) => (
+        <ColorRow colorToken={`green.${weight}`} />
+      ))}
+      {colorWeights.map((weight) => (
+        <ColorRow colorToken={`teal.${weight}`} />
+      ))}
+      {colorWeights.map((weight) => (
         <ColorRow colorToken={`blue.${weight}`} />
+      ))}
+      {colorWeights.map((weight) => (
+        <ColorRow colorToken={`cyan.${weight}`} />
+      ))}
+      {colorWeights.map((weight) => (
+        <ColorRow colorToken={`purple.${weight}`} />
+      ))}
+      {colorWeights.map((weight) => (
+        <ColorRow colorToken={`pink.${weight}`} />
       ))}
       {colorWeights.map((weight) => (
         <ColorRow colorToken={`blackAlpha.${weight}`} />

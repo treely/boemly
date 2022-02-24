@@ -1,6 +1,6 @@
 import React from 'react';
 import { CaretDown } from 'phosphor-react';
-import { FONTS } from './chakraCustomizations';
+import { FONTS } from './customizations';
 
 export const CustomizedHeading = {
   baseStyle: {

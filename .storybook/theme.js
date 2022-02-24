@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming';
-import { COLORS } from '../src/constants/chakraCustomizations';
+import { COLORS } from '../src/constants/customizations';
 
 export default create({
   base: 'light',

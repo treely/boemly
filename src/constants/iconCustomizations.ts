@@ -1,5 +1,5 @@
 import { IconProps } from 'phosphor-react';
-import { COLORS } from './chakraCustomizations';
+import { COLORS } from './customizations';
 
 const iconCustomizations: IconProps = {
   color: COLORS.black,

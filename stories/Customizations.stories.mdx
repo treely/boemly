@@ -1,0 +1,48 @@
+<Meta title="Customizations" />
+
+# 🎨 Boemly Customizations
+
+Boemly offers a certain amount of customizations. Just enough to be able to use it in every
+context/for every brand, but still keep it as simple as possible.
+
+In this document you can learn how to customize Boemly.
+
+## Colors
+
+To customize the colors of the app you can pass the `colors` argument to the `BoemlyThemeProvider`:
+
+```tsx
+import { Button, BoemlyThemeProvider } from 'boemly';
+
+const colors = {
+  transparent: 'transparent',
+  black: '#000000',
+  white: '#ffffff',
+  primary: {
+    50: '#f3f6f5',
+    100: '#f2fcf7',
+    200: '#d0f2e3',
+    300: '#96E3BF',
+    400: '#6DD8A6',
+    500: '#14C072',
+    600: '#13B46C',
+    700: '#13A060',
+    800: '#108450',
+    900: '#0D7748',
+  },
+};
+
+function App() {
+  return (
+    <BoemlyThemeProvider colors={colors}>
+      <Button>Button</Button>
+    </BoemlyThemeProvider>
+  );
+}
+
+export default App;
+```
+
+The customizable colors are `transparent`, `black`, and `white` as standalone colors. Additionally,
+`primary`, `gray`, `red`, `orange`, `yellow`, `green`, `teal`, `blue`, `cyan`, `purple`, and `pink`
+as color hues from `50` to `900` (as you can see in the example above).
