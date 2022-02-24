@@ -25,18 +25,21 @@ import {
   SPACE,
   Z_INDICES,
 } from '../constants/customizations';
+import BorderRadiiCustomization from '../types/BorderRadiiCustomization';
 
-const getTheme = (customColors: Colors) => {
+interface Options {
+  customColors: Colors;
+  customRadii: BorderRadiiCustomization;
+}
+
+const getTheme = ({ customColors, customRadii }: Options) => {
   return extendTheme({
-    colors: {
-      ...COLORS,
-      ...customColors,
-    },
+    colors: { ...COLORS, ...customColors },
     breakpoints: BREAKPOINTS,
     fonts: FONTS,
     fontSizes: FONT_SIZES,
     lineHeights: LINE_HEIGHTS,
-    radii: RADII,
+    radii: { ...RADII, ...customRadii },
     zIndices: Z_INDICES,
     space: SPACE,
 

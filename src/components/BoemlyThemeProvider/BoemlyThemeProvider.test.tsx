@@ -25,4 +25,10 @@ describe('The BoemlySteps component', () => {
 
     expect(screen.getByText('Children')).toBeInTheDocument();
   });
+
+  it('displays the children if there is a border radii customization passed in', () => {
+    setup({ radii: { sm: '1rem' } });
+
+    expect(screen.getByText('Children')).toBeInTheDocument();
+  });
 });

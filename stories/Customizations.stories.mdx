@@ -9,7 +9,7 @@ In this document you can learn how to customize Boemly.
 
 ## Colors
 
-To customize the colors of the app you can pass the `colors` argument to the `BoemlyThemeProvider`:
+To customize the colors of the app you can pass the `colors` property to the `BoemlyThemeProvider`:
 
 ```tsx
 import { Button, BoemlyThemeProvider } from 'boemly';
@@ -46,3 +46,36 @@ export default App;
 The customizable colors are `transparent`, `black`, and `white` as standalone colors. Additionally,
 `primary`, `gray`, `red`, `orange`, `yellow`, `green`, `teal`, `blue`, `cyan`, `purple`, and `pink`
 as color hues from `50` to `900` (as you can see in the example above).
+
+## Border radius
+
+To customize the border radius of the app you can pass the `radii` property to the
+`BoemlyThemeProvider`:
+
+```tsx
+import { Button, BoemlyThemeProvider } from 'boemly';
+
+const radii = {
+  none: '0',
+  sm: '0.125rem',
+  base: '0.25rem',
+  md: '0.375rem',
+  lg: '0.5rem',
+  xl: '0.75rem',
+  '2xl': '1.25rem',
+  '3xl': '1.5rem',
+  full: '9999px',
+};
+
+function App() {
+  return (
+    <BoemlyThemeProvider radii={radii}>
+      <Button>Button</Button>
+    </BoemlyThemeProvider>
+  );
+}
+
+export default App;
+```
+
+The customizable units are `none`, `sm`, `base`, `md`, `lg`, `xl`, `2xl`, `3xl`, and `full`.
