@@ -1,8 +1,8 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '@chakra-ui/react';
-import { SPACE } from '../../src/constants/customizations';
+import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
+import { SPACE } from '../../constants/customizations';
 
 export default {
   title: 'Tokens/Space',
@@ -24,7 +24,7 @@ const SpaceRow = ({ space }: SpaceRowProps) => {
         <Text size="mdMonoNormal">{spaceValue}</Text>
       </Td>
       <Td>
-        <Box bg="primary.500" width={space} height="8"  />
+        <Box bg="primary.500" width={space} height="8" />
       </Td>
     </Tr>
   );

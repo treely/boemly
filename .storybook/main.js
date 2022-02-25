@@ -2,10 +2,7 @@ const path = require('path');
 const toPath = (_path) => path.join(process.cwd(), _path);
 
 module.exports = {
-  stories: [
-    '../stories/**/*.stories.@(ts|tsx|js|jsx|mdx)',
-    '../src/components/**/*.stories.@(ts|tsx|js|jsx)',
-  ],
+  stories: ['../src/**/*.stories.@(ts|tsx|js|jsx|mdx)'],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   typescript: {
     check: true, // type-check stories during Storybook build

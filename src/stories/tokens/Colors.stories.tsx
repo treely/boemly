@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '@chakra-ui/react';
+import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
 
 export default {
   title: 'Tokens/Colors',

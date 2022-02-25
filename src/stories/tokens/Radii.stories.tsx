@@ -1,8 +1,8 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '@chakra-ui/react';
-import { RADII } from '../../src/constants/customizations';
+import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
+import { RADII } from '../../constants/customizations';
 
 export default {
   title: 'Tokens/Radii',

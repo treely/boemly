@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Heading, Text } from '@chakra-ui/react';
+import { Heading, Text } from '../..';
 
 export default {
   title: 'Components/Typography',

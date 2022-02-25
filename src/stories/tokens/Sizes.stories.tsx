@@ -1,9 +1,8 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Box, Heading, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '@chakra-ui/react';
-import { SIZES_ONLY } from '../../src/constants/customizations';
-import { RichText } from '../..'
+import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
+import { SIZES_ONLY } from '../../constants/customizations';
 
 export default {
   title: 'Tokens/Sizes',
@@ -25,7 +24,7 @@ const SizeRow = ({ size }: SizesRowProps) => {
         <Text size="mdMonoNormal">{sizeValue}</Text>
       </Td>
       <Td>
-        <Box bg="primary.500" width={size} height="8"  />
+        <Box bg="primary.500" width={size} height="8" />
       </Td>
     </Tr>
   );

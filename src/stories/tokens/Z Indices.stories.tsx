@@ -1,8 +1,8 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '@chakra-ui/react';
-import { Z_INDICES } from '../../src/constants/customizations';
+import { Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
+import { Z_INDICES } from '../../constants/customizations';
 
 export default {
   title: 'Tokens/Z Indices',

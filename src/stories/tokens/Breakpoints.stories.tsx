@@ -1,8 +1,8 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '@chakra-ui/react';
-import { BREAKPOINTS } from '../../src/constants/customizations';
+import { Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
+import { BREAKPOINTS } from '../../constants/customizations';
 
 export default {
   title: 'Tokens/Breakpoints',
