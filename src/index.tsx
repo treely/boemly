@@ -21,9 +21,7 @@ export * from './components/PageContainer';
 export * from './components/PortfolioCard';
 export * from './components/ProjectCard';
 export * from './components/QuoteCard';
-
-export * from './components/RichText'; // Needs to be refactored to work with new library
-
+export * from './components/RichText';
 export * from './components/Shape';
 export * from './components/ShapesCard';
 export * from './components/SplitScreen';

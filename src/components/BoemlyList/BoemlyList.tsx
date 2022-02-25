@@ -1,7 +1,5 @@
-import { Text } from '@chakra-ui/react';
-import { Circle } from 'phosphor-react';
+import { Box, Center, List, ListIcon, ListItem, Text } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
-import { ListItemContainer, IconContainer } from './styles';
 
 export interface BoemlyListProps {
   listItems: {
@@ -15,26 +13,31 @@ export interface BoemlyListProps {
 
 export const BoemlyList: React.FC<BoemlyListProps> = ({
   listItems,
-  icon = <Circle weight="fill" size={6} />,
+  icon = <Box width="1.5" height="1.5" borderRadius="full" bg="black" />,
   ordered = false,
   textColor = 'black',
 }: BoemlyListProps) => (
-  <div data-testid="list">
+  <List spacing="4" as={ordered ? 'ol' : 'ul'}>
     {listItems.map(({ id, text }, index) => (
-      <ListItemContainer key={id}>
-        <IconContainer>
-          {ordered ? (
-            <Text size="xsLowBold" color="black">
-              {index + 1}
-            </Text>
-          ) : (
-            icon
+      <ListItem key={id}>
+        <ListIcon
+          as={() => (
+            <Center width="6" height="6" bg="primary.50" borderRadius="lg" float="left" mr="4">
+              {ordered ? (
+                <Text size="xsLowBold" color="black">
+                  {index + 1}
+                </Text>
+              ) : (
+                icon
+              )}
+            </Center>
           )}
-        </IconContainer>
+        />
+
         <Text size="mdRegularNormal" color={textColor}>
           {text}
         </Text>
-      </ListItemContainer>
+      </ListItem>
     ))}
-  </div>
+  </List>
 );
