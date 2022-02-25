@@ -1,4 +1,3 @@
-import { createBreakpoints } from '@chakra-ui/theme-tools';
 import { BREAKPOINT_LG, BREAKPOINT_MD, BREAKPOINT_SM, BREAKPOINT_XL } from './breakpoints';
 
 export const FONTS = {
@@ -90,12 +89,12 @@ export const COLORS = {
   },
 };
 
-export const BREAKPOINTS = createBreakpoints({
+export const BREAKPOINTS = {
   sm: BREAKPOINT_SM,
   md: BREAKPOINT_MD,
   lg: BREAKPOINT_LG,
   xl: BREAKPOINT_XL,
-});
+};
 
 export const RADII = {
   none: '0',

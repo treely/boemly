@@ -1,4 +1,5 @@
 import { Colors, extendTheme } from '@chakra-ui/react';
+import { createBreakpoints } from '@chakra-ui/theme-tools';
 import {
   CustomizedAccordion,
   CustomizedAlert,
@@ -37,7 +38,7 @@ const getTheme = ({ customColors, customRadii }: Options) => {
   return extendTheme({
     config: { cssVarPrefix: 'boemly' },
     colors: { ...COLORS, ...customColors },
-    breakpoints: BREAKPOINTS,
+    breakpoints: createBreakpoints(BREAKPOINTS),
     fonts: FONTS,
     fontSizes: FONT_SIZES,
     lineHeights: LINE_HEIGHTS,
