@@ -1,1 +1,1 @@
-export { Gradient } from './styles';
+export { Gradient } from './Gradient';

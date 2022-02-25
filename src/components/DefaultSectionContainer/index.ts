@@ -1,1 +1,1 @@
-export { DefaultSectionContainer } from './styles';
+export { DefaultSectionContainer } from './DefaultSectionContainer';

@@ -4,7 +4,6 @@ import { fireEvent, render, screen } from '../../test/testUtils';
 import { PortfolioCardProps } from './PortfolioCard';
 
 const defaultProps: PortfolioCardProps = {
-  id: 1,
   portfolioNumber: 'Portfolio #1',
   title: 'My forest',
   facts: [

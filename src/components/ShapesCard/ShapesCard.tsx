@@ -1,7 +1,6 @@
 import { Box, Button, Heading, Text, useToken } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 import { RichText } from '../RichText';
-import { ShapesCardContainer } from './styles';
 import { Shape } from '../Shape/Shape';
 
 export interface ShapesCardProps {
@@ -23,7 +22,19 @@ export const ShapesCard: React.FC<ShapesCardProps> = ({
   const [zIndexBase] = useToken('zIndices', ['base']);
 
   return (
-    <ShapesCardContainer>
+    <Box
+      borderRadius="2xl"
+      backgroundColor="white"
+      overflow="hidden"
+      position="relative"
+      paddingTop="20"
+      paddingBottom="24"
+      paddingX="6"
+      textAlign="center"
+      boxShadow="lg"
+      maxWidth="5xl"
+      marginX="auto"
+    >
       {shapes && shapes.length > 1 && (
         <>
           <Shape
@@ -67,6 +78,6 @@ export const ShapesCard: React.FC<ShapesCardProps> = ({
           {button.text}
         </Button>
       )}
-    </ShapesCardContainer>
+    </Box>
   );
 };

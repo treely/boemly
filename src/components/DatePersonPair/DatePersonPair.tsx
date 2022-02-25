@@ -1,7 +1,7 @@
 import React from 'react';
-import { Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import { ReactNode } from 'react';
-import { ImageContainer } from './styles';
+import { css } from '@emotion/react';
 
 export interface DatePersonPairProps {
   date: string;
@@ -24,7 +24,21 @@ export const DatePersonPair: React.FC<DatePersonPairProps> = ({
         <Text size="smLowNormal" color="gray.500" mx="2">
           |
         </Text>
-        <ImageContainer>{person.image}</ImageContainer>
+        <Box
+          position="relative"
+          width="7"
+          height="7"
+          borderRadius="lg"
+          css={css`
+            & span,
+            div,
+            img {
+              border-radius: var(--boemly-radii-lg);
+            }
+          `}
+        >
+          {person.image}
+        </Box>
         <Text ml="2">{person.name}</Text>
       </>
     )}

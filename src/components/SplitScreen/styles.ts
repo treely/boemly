@@ -1,13 +1,6 @@
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { BREAKPOINT_MD } from '../../constants/breakpoints';
-
-export const SplitScreenContainer = styled.div<{ ref: any }>`
-  position: relative;
-  height: calc(var(--viewport-height, 1vh) * 100 - var(--header-height));
-  margin-top: var(--header-height);
-  overflow: hidden;
-`;
 
 export const Left = styled.div`
   position: absolute;

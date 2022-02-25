@@ -1,7 +1,6 @@
 import React from 'react';
-import { Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { AvatarWithName, AvatarWithNameProps } from '../AvatarWithName/AvatarWithName';
-import { CardContainer } from './styles';
 
 export interface QuoteCardProps {
   text: string;
@@ -9,10 +8,17 @@ export interface QuoteCardProps {
 }
 
 export const QuoteCard: React.FC<QuoteCardProps> = ({ text, avatar }: QuoteCardProps) => (
-  <CardContainer data-testid="quote-card">
+  <Box
+    borderRadius="2xl"
+    borderStyle="solid"
+    borderWidth="thin"
+    borderColor="gray.200"
+    padding="10"
+    backgroundColor="white"
+  >
     <Text size="mdRegularNormalBold" color="black" mb="8">
       {text}
     </Text>
     <AvatarWithName image={avatar.image} name={avatar.name} description={avatar.description} />
-  </CardContainer>
+  </Box>
 );

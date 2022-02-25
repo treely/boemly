@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { BREAKPOINT_XL } from '../../constants/breakpoints';
 
 interface ShapeContainerProps {

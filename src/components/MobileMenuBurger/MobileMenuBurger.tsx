@@ -1,8 +1,8 @@
-import { IconButton } from '@chakra-ui/react';
+import { Flex, IconButton } from '@chakra-ui/react';
 import { useAnimation } from 'framer-motion';
 import React, { useEffect } from 'react';
 import { MEDIUM_TRANSITION_DURATION } from '../../constants/animations';
-import { MenuBurgerContainer, MenuBurgerItem } from './styles';
+import { MenuBurgerItem } from './styles';
 
 export interface MobileMenuBurgerProps {
   onOpen: () => void;
@@ -51,7 +51,15 @@ export const MobileMenuBurger: React.FC<MobileMenuBurgerProps> = ({
       variant="ghost"
       data-testid={isOpen ? 'x' : 'list'}
       icon={
-        <MenuBurgerContainer>
+        <Flex
+          position="relative"
+          width="4"
+          height="4"
+          padding="px"
+          flexDirection="column"
+          justifyContent="space-between"
+          overflow="hidden"
+        >
           <MenuBurgerItem
             animate={controls}
             variants={topVariants}
@@ -70,7 +78,7 @@ export const MobileMenuBurger: React.FC<MobileMenuBurgerProps> = ({
             transition={{ duration: MEDIUM_TRANSITION_DURATION }}
             color={color}
           />
-        </MenuBurgerContainer>
+        </Flex>
       }
     />
   );

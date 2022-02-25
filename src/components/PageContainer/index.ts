@@ -1,1 +1,1 @@
-export { PageContainer } from './styles';
+export { PageContainer } from './PageContainer';

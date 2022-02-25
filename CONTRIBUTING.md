@@ -110,5 +110,5 @@ and an index files to export everything that can be used by the user of the desi
     ├── Button.test.tsx    # File containing the tests
     ├── Button.tsx         # The component itself containing the component and a props interface
     ├── index.ts           # Index file exporting the useable component itself as default
-    └── styles.ts          # The styled-components style file
+    └── styles.ts          # The styled componentss
 ```

@@ -49,7 +49,7 @@ For development on Boemly check out our [development docs](CONTRIBUTING.md#devel
 ## ⚙️ Technologies used
 
 - [Typescript](https://www.typescriptlang.org/) as the programming language.
-- [styled-components](https://styled-components.com/) for custom styles.
+- [@emotion](https://emotion.sh/docs/introduction) for custom styles.
 - [react-use](https://www.npmjs.com/package/react-use) as a collection of hooks.
 - [Framer](https://www.framer.com/docs/) for animations.
 - [Eslint](https://eslint.org/) combined with [Prettier](https://prettier.io/)

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import { ReactNode } from 'react';
-import { AvatarContainer, AvatarImageContainer } from './styles';
+import { css } from '@emotion/react';
 
 export interface AvatarWithNameProps {
   name: string;
@@ -14,12 +14,28 @@ export const AvatarWithName: React.FC<AvatarWithNameProps> = ({
   description,
   image,
 }: AvatarWithNameProps) => (
-  <AvatarContainer data-testid="avatar-with-name">
-    <AvatarImageContainer>{image}</AvatarImageContainer>
+  <Flex flexDir="row" alignItems="center" data-testid="avatar-with-name">
+    <Box
+      position="relative"
+      minWidth={['12', null, '14']}
+      width={['12', null, '14']}
+      height={['12', null, '14']}
+      borderRadius="xl"
+      mr="6"
+      css={css`
+        & span,
+        div,
+        img {
+          border-radius: var(--boemly-radii-xl);
+        }
+      `}
+    >
+      {image}
+    </Box>
     <Text size="smRegularNormal">
       {name}
       <br />
       {description}
     </Text>
-  </AvatarContainer>
+  </Flex>
 );

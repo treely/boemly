@@ -1,7 +1,7 @@
-import { Button, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Heading, Text } from '@chakra-ui/react';
+import { css } from '@emotion/react';
 import React, { ReactNode } from 'react';
 import { Gradient } from '../Gradient';
-import { HeroCardContainer, HeroInnerContainer } from './styles';
 
 export interface HeroCardProps {
   title: string;
@@ -19,14 +19,25 @@ export const HeroCard: React.FC<HeroCardProps> = ({
   link,
   image,
 }: HeroCardProps) => (
-  <HeroCardContainer data-testid="hero-card">
+  <Box
+    position="relative"
+    height="lg"
+    textAlign="center"
+    borderRadius="2xl"
+    css={css`
+      & span,
+      div {
+        border-radius: var(--boemly-radii-2xl);
+      }
+    `}
+  >
     {image && (
       <>
         {image}
         <Gradient />
       </>
     )}
-    <HeroInnerContainer>
+    <Box position="absolute" width="full" top="50%" transform="translateY(-50%)" paddingX="4">
       <Heading as="h2" size="3xl" color="white" maxW="3xl" mx="auto">
         {title}
       </Heading>
@@ -38,6 +49,6 @@ export const HeroCard: React.FC<HeroCardProps> = ({
           {link.text}
         </Button>
       )}
-    </HeroInnerContainer>
-  </HeroCardContainer>
+    </Box>
+  </Box>
 );

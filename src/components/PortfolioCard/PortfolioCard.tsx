@@ -1,16 +1,9 @@
-import { Box, Button, Divider, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, Button, Center, Divider, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import { css } from '@emotion/react';
 import { Heart } from 'phosphor-react';
 import React, { ReactNode } from 'react';
-import {
-  CardContainer,
-  CardHeaderContainer,
-  CardIconContainer,
-  CardImageContainer,
-  CardInnerContainer,
-} from './styles';
 
 export interface PortfolioCardProps {
-  id: number;
   portfolioNumber: string;
   title: string;
   facts: {
@@ -29,20 +22,42 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({
   button,
   image,
 }: PortfolioCardProps) => (
-  <CardContainer data-testid="card">
-    <CardImageContainer>{image}</CardImageContainer>
-    <CardInnerContainer>
-      <CardHeaderContainer>
+  <Box borderRadius="2xl" boxShadow="lg" maxWidth="sm">
+    <Box
+      position="relative"
+      width="full"
+      height="36"
+      borderTopRadius="3xl"
+      css={css`
+        & span,
+        div,
+        img {
+          border-top-left-radius: var(--boemly-radii-3xl);
+          border-top-right-radius: var(--boemly-radii-3xl);
+        }
+      `}
+    >
+      {image}
+    </Box>
+    <Box padding="8">
+      <Flex flexDir="row" alignItems="center" justifyContent="space-between">
         <div>
           <Text size="xsMonoUppercase">{portfolioNumber}</Text>
           <Heading as="h6" size="sm" mt="1">
             {title}
           </Heading>
         </div>
-        <CardIconContainer>
+        <Center
+          width="8"
+          height="8"
+          borderRadius="xl"
+          borderWidth="thin"
+          borderStyle="solid"
+          borderColor="gray.200"
+        >
           <Heart />
-        </CardIconContainer>
-      </CardHeaderContainer>
+        </Center>
+      </Flex>
       <Divider colorScheme="gray.200" mt="6" mb="6" />
       <SimpleGrid columns={2} spacing="6">
         {facts.map((fact) => (
@@ -60,6 +75,6 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({
           {button.text}
         </Button>
       )}
-    </CardInnerContainer>
-  </CardContainer>
+    </Box>
+  </Box>
 );

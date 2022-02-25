@@ -1,8 +1,7 @@
 import React from 'react';
-import { Button, Divider, Heading, Text } from '@chakra-ui/react';
+import { Button, Divider, Flex, Heading, Text } from '@chakra-ui/react';
 import { ArrowRight } from 'phosphor-react';
 import { AvatarWithName, AvatarWithNameProps } from '../AvatarWithName/AvatarWithName';
-import { ContactCardContainer } from './styles';
 
 export interface ContactAreaProps {
   title: string;
@@ -26,9 +25,19 @@ export const ContactArea: React.FC<ContactAreaProps> = ({
       {text}
     </Text>
 
-    <ContactCardContainer>
+    <Flex
+      borderStyle="solid"
+      borderWidth="thin"
+      borderColor="gray.200"
+      borderRadius="2xl"
+      padding="6"
+      flexDir={['column', null, null, 'row']}
+      alignItems={['flex-start', null, null, 'center']}
+      justifyContent="space-between"
+    >
       <AvatarWithName name={avatar.name} description={avatar.description} image={avatar.image} />
       <Button
+        mt={['6', null, null, '0']}
         colorScheme="whiteAlpha"
         variant="outline"
         rightIcon={<ArrowRight />}
@@ -36,6 +45,6 @@ export const ContactArea: React.FC<ContactAreaProps> = ({
       >
         {link.text}
       </Button>
-    </ContactCardContainer>
+    </Flex>
   </>
 );

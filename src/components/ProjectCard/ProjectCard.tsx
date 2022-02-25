@@ -1,8 +1,7 @@
 import { Box, Divider, Heading, SimpleGrid, Text, useToken } from '@chakra-ui/react';
+import { css } from '@emotion/react';
 import { ArrowsOutSimple, MapPin } from 'phosphor-react';
 import React, { ReactNode } from 'react';
-
-import { CardContainer, CardImageContainer } from './styles';
 
 export interface ProjectCardProps {
   title: string;
@@ -27,8 +26,29 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const icons = [<ArrowsOutSimple color={gray500} />, <MapPin color={gray500} />];
 
   return (
-    <CardContainer data-testid="project-card">
-      <CardImageContainer>{image}</CardImageContainer>
+    <Box
+      position="relative"
+      borderRadius="2xl"
+      boxShadow="lg"
+      maxWidth="sm"
+      minWidth={['2xs', null, 'xs']}
+    >
+      <Box
+        position="relative"
+        width="full"
+        height="40"
+        borderTopRadius="3xl"
+        css={css`
+          & span,
+          div,
+          img {
+            border-top-left-radius: var(--boemly-radii-3xl);
+            border-top-right-radius: var(--boemly-radii-3xl);
+          }
+        `}
+      >
+        {image}
+      </Box>
       <Box padding="6">
         <Heading as="h6" size="sm">
           {title}
@@ -53,6 +73,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           {footerSubTitle}
         </Text>
       </Box>
-    </CardContainer>
+    </Box>
   );
 };

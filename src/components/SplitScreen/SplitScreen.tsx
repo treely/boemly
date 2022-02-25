@@ -4,7 +4,8 @@ import { useAnimation } from 'framer-motion';
 import { useMeasure } from 'react-use';
 import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 import useResizeEventListener from '../../hooks/useResizeEventListener';
-import { Left, Right, SplitScreenContainer } from './styles';
+import { Left, Right } from './styles';
+import { css } from '@emotion/react';
 
 export interface SplitScreenProps {
   left: ReactNode;
@@ -23,7 +24,7 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
 
   const [mobile] = useMediaQuery(BREAKPOINT_MD_QUERY);
 
-  const [ref, { height }] = useMeasure();
+  const [ref, { height }] = useMeasure<HTMLDivElement>();
   const controls = useAnimation();
 
   const variants = {
@@ -43,7 +44,15 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
   }, [mobileIsOpen, height]);
 
   return (
-    <SplitScreenContainer ref={ref}>
+    <div
+      ref={ref}
+      css={css`
+        position: relative;
+        height: calc(var(--viewport-height, 1vh) * 100 - var(--header-height));
+        margin-top: var(--header-height);
+        overflow: hidden;
+      `}
+    >
       <Left>{(!mobile || !hideLeftOnMobile) && left}</Left>
       <Right
         variants={variants}
@@ -53,6 +62,6 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
       >
         {right}
       </Right>
-    </SplitScreenContainer>
+    </div>
   );
 };
