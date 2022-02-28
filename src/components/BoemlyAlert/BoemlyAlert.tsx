@@ -10,7 +10,7 @@ export interface BoemlyAlertProps {
   onClose?: () => void;
 }
 
-const iconSize = '1.5rem';
+const iconSize = '24px';
 export const BoemlyAlert: React.FC<BoemlyAlertProps> = ({
   status,
   title,
