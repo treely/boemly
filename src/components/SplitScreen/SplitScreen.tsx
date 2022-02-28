@@ -1,11 +1,10 @@
-import { useMediaQuery } from '@chakra-ui/react';
+import { Box, useMediaQuery } from '@chakra-ui/react';
 import React, { ReactNode, useEffect } from 'react';
 import { useAnimation } from 'framer-motion';
 import { useMeasure } from 'react-use';
 import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 import useResizeEventListener from '../../hooks/useResizeEventListener';
 import { Left, Right } from './styles';
-import { css } from '@emotion/react';
 
 export interface SplitScreenProps {
   left: ReactNode;
@@ -44,24 +43,23 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
   }, [mobileIsOpen, height]);
 
   return (
-    <div
-      ref={ref}
-      css={css`
-        position: relative;
-        height: calc(var(--viewport-height, 1vh) * 100 - var(--header-height));
-        margin-top: var(--header-height);
-        overflow: hidden;
-      `}
-    >
-      <Left>{(!mobile || !hideLeftOnMobile) && left}</Left>
-      <Right
-        variants={variants}
-        initial="desktop"
-        animate={controls}
-        hideLeftOnMobile={hideLeftOnMobile}
+    <div ref={ref}>
+      <Box
+        position="relative"
+        height="calc(var(--viewport-height, 1vh) * 100 - var(--header-height))"
+        marginTop="var(--header-height)"
+        overflow="hidden"
       >
-        {right}
-      </Right>
+        <Left>{(!mobile || !hideLeftOnMobile) && left}</Left>
+        <Right
+          variants={variants}
+          initial="desktop"
+          animate={controls}
+          hideLeftOnMobile={hideLeftOnMobile}
+        >
+          {right}
+        </Right>
+      </Box>
     </div>
   );
 };
