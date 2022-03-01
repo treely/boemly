@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { RichText } from './RichText';
-import { storybookAvatarUrl } from '../../test/storybookMedia';
+import { storybookCoverUrl } from '../../test/storybookMedia';
 
 export default {
   title: 'components/RichText',
@@ -46,9 +46,9 @@ function add(a, b) {
 
 Go to [Tree.ly](https://tree.ly)
 
-## Link
+## Image
 
-![Tux, the Linux mascot](${storybookAvatarUrl})
+![A forest from above](${storybookCoverUrl})
 `;
 
 export const Default = Template.bind({});

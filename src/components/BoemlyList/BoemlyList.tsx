@@ -1,7 +1,7 @@
-import { Box, Center, List, ListIcon, ListItem, Text } from '@chakra-ui/react';
+import { Box, Center, List, ListIcon, ListItem, ListProps, Text } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 
-export interface BoemlyListProps {
+export interface BoemlyListProps extends ListProps {
   listItems: {
     id: number | string;
     text: string;
@@ -16,8 +16,9 @@ export const BoemlyList: React.FC<BoemlyListProps> = ({
   icon = <Box width="1.5" height="1.5" borderRadius="full" bg="black" />,
   ordered = false,
   textColor = 'black',
+  ...props
 }: BoemlyListProps) => (
-  <List spacing="4" as={ordered ? 'ol' : 'ul'}>
+  <List spacing="4" as={ordered ? 'ol' : 'ul'} {...props}>
     {listItems.map(({ id, text }, index) => (
       <ListItem key={id}>
         <ListIcon

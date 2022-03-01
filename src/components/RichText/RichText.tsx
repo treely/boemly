@@ -79,10 +79,10 @@ export const RichText: React.FC<RichTextProps> = ({
             </Box>
           ),
           ul: ({ children }: ListComponentProps) => (
-            <BoemlyList listItems={getListItems(children)} />
+            <BoemlyList listItems={getListItems(children)} mb="12" />
           ),
           ol: ({ children }: ListComponentProps) => (
-            <BoemlyList listItems={getListItems(children)} ordered />
+            <BoemlyList listItems={getListItems(children)} ordered mb="12" />
           ),
           a: ({ children, href }: LinkComponentProps) => (
             <Link size="md" href={href}>
