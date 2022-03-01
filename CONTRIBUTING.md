@@ -101,7 +101,7 @@ runs:
 # Structure
 
 Each component consists of the component itself, a test file, a stories file, maybe some styles,
-and an index files to export everything that can be used by the user of the design system.
+and an index files to export everything that can be used by the user of the component library.
 
 ```bash
 .

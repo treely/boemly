@@ -7,7 +7,7 @@ export default create({
   colorPrimary: COLORS.primary[500],
   colorSecondary: COLORS.gray[300],
 
-  brandTitle: 'Boemly - the design system maintained by Tree.ly',
+  brandTitle: 'Boemly - the component library maintained by Tree.ly',
   brandUrl: 'https://boemly.tree.ly',
   brandImage: 'https://cdn.tree.ly/assets/v3/logo_boemly.svg',
 });

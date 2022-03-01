@@ -6,7 +6,7 @@
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 [![https://www.npmjs.com/package/boemly](https://img.shields.io/npm/v/boemly/latest.svg)](https://www.npmjs.com/package/boemly)
 
-Boemly is the open source design system maintained by Tree.ly based on
+Boemly is the open source component library maintained by Tree.ly based on
 [ChakraUI](https://chakra-ui.com/).
 
 ## 🏃‍♀️ Getting started
