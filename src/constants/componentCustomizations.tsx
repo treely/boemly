@@ -1,6 +1,5 @@
 import React from 'react';
 import { CaretDown } from 'phosphor-react';
-import { FONTS } from './customizations';
 
 export const CustomizedHeading = {
   baseStyle: {
@@ -11,13 +10,13 @@ export const CustomizedHeading = {
     '4xl': {
       fontSize: ['5xl', null, null, '7xl'],
       lineHeight: ['9', null, null, '11'],
-      fontFamily: 'GintoNord',
+      fontFamily: 'var(--boemly-fonts-display)',
       fontWeight: 'bold',
     },
     '3xl': {
       fontSize: ['3xl', null, null, '6xl'],
       lineHeight: ['9', null, null, '10'],
-      fontFamily: 'GintoNord',
+      fontFamily: 'var(--boemly-fonts-display)',
       fontWeight: 'bold',
     },
     '2xl': {
@@ -27,7 +26,7 @@ export const CustomizedHeading = {
     '2xlMono': {
       fontSize: '4xl',
       lineHeight: '9',
-      fontFamily: FONTS.mono,
+      fontFamily: 'var(--boemly-fonts-mono)',
     },
     xl: { fontSize: '2xl', lineHeight: '7' },
     lg: { fontSize: 'xl', lineHeight: '5' },
@@ -63,12 +62,12 @@ export const CustomizedText = {
     lgMonoNormal: {
       fontSize: 'xl',
       lineHeight: '8',
-      fontFamily: FONTS.mono,
+      fontFamily: 'var(--boemly-fonts-mono)',
     },
     lgMonoUppercase: {
       fontSize: 'xl',
       lineHeight: '8',
-      fontFamily: FONTS.mono,
+      fontFamily: 'var(--boemly-fonts-mono)',
       textTransform: 'uppercase',
     },
 
@@ -93,12 +92,12 @@ export const CustomizedText = {
     mdMonoNormal: {
       fontSize: 'md',
       lineHeight: '6',
-      fontFamily: FONTS.mono,
+      fontFamily: 'var(--boemly-fonts-mono)',
     },
     mdMonoUppercase: {
       fontSize: 'md',
       lineHeight: '6',
-      fontFamily: FONTS.mono,
+      fontFamily: 'var(--boemly-fonts-mono)',
       textTransform: 'uppercase',
     },
 
@@ -123,12 +122,12 @@ export const CustomizedText = {
     smMonoNormal: {
       fontSize: 'sm',
       lineHeight: '4',
-      fontFamily: FONTS.mono,
+      fontFamily: 'var(--boemly-fonts-mono)',
     },
     smMonoUppercase: {
       fontSize: 'sm',
       lineHeight: '4',
-      fontFamily: FONTS.mono,
+      fontFamily: 'var(--boemly-fonts-mono)',
       textTransform: 'uppercase',
     },
 
@@ -153,12 +152,12 @@ export const CustomizedText = {
     xsMonoNormal: {
       fontSize: 'xs',
       lineHeight: '2',
-      fontFamily: FONTS.mono,
+      fontFamily: 'var(--boemly-fonts-mono)',
     },
     xsMonoUppercase: {
       fontSize: 'xs',
       lineHeight: '2',
-      fontFamily: FONTS.mono,
+      fontFamily: 'var(--boemly-fonts-mono)',
       textTransform: 'uppercase',
     },
   },

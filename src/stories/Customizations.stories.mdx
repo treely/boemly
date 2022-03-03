@@ -7,6 +7,41 @@ context/for every brand, but still keep it as simple as possible.
 
 In this document you can learn how to customize Boemly.
 
+## Fonts
+
+Boemly defaults to using [Inter](https://github.com/rsms/inter) for
+text and headings, [Space Mono](https://github.com/googlefonts/spacemono) for accents
+and code and to [Raleway](https://fonts.google.com/specimen/Raleway) as the display
+font.
+
+These fonts get loaded automatically from Google Fonts when you add the `BoemlyThemeProvider`
+to your project.
+
+To customize any or all of the fonts, you can pass the `fonts` property to the
+`BoemlyThemeProvider`. You will have to add imports for your custom fonts to your 
+projects CSS files.
+
+```tsx
+import { Button, BoemlyThemeProvider } from 'boemly';
+
+const fonts = {
+  body: 'Ubuntu',
+  heading: 'Ubuntu',
+  display: 'Montserrat',
+  mono: 'JetbrainsMono',
+};
+
+function App() {
+  return (
+    <BoemlyThemeProvider fonts={fonts}>
+      <Button>Button</Button>
+    </BoemlyThemeProvider>
+  );
+}
+
+export default App;
+```
+
 ## Colors
 
 To customize the colors of the app you can pass the `colors` property to the `BoemlyThemeProvider`:

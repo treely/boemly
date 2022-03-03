@@ -1,61 +1,8 @@
 import { css } from '@emotion/react';
 import { SLOW_TRANSITION_DURATION, MEDIUM_TRANSITION_DURATION } from './animations';
-import { TREELY_CDN_URI } from './cdn';
 import { EXTENDED_HEADER_HEIGHT, HEADER_HEIGHT } from './layout';
 
 const GLOBAL_STYLE = css`
-  //
-  // Fonts
-  //
-
-  // GintoNord
-  @font-face {
-    font-family: 'GintoNord';
-    src: url('${TREELY_CDN_URI}/assets/v3/fonts/ABCGintoNord-Bold.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 700;
-    font-display: block;
-  }
-
-  // Inter
-  @font-face {
-    font-family: 'Inter';
-    src: url('${TREELY_CDN_URI}/assets/v3/fonts/Inter-Regular.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-  }
-  @font-face {
-    font-family: 'Inter';
-    src: url('${TREELY_CDN_URI}/assets/v3/fonts/Inter-Medium.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 500;
-    font-display: block;
-  }
-  @font-face {
-    font-family: 'Inter';
-    src: url('${TREELY_CDN_URI}/assets/v3/fonts/Inter-SemiBold.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 600;
-    font-display: block;
-  }
-  @font-face {
-    font-family: 'Inter';
-    src: url('${TREELY_CDN_URI}/assets/v3/fonts/Inter-Bold.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 700;
-    font-display: block;
-  }
-
-  // SpaceMono
-  @font-face {
-    font-family: 'SpaceMono';
-    src: url('${TREELY_CDN_URI}/assets/v3/fonts/SpaceMono-Bold.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 700;
-    font-display: block;
-  }
-
   :root {
     // Layout
     --header-height: ${HEADER_HEIGHT}px;

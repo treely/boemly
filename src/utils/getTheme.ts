@@ -28,18 +28,20 @@ import {
   Z_INDICES,
 } from '../constants/customizations';
 import BorderRadiiCustomization from '../types/BorderRadiiCustomization';
+import FontsCustomization from '../types/FontsCustomization';
 
 interface Options {
   customColors: Colors;
+  customFonts: FontsCustomization;
   customRadii: BorderRadiiCustomization;
 }
 
-const getTheme = ({ customColors, customRadii }: Options) => {
+const getTheme = ({ customColors, customFonts, customRadii }: Options) => {
   return extendTheme({
     config: { cssVarPrefix: 'boemly' },
     colors: { ...COLORS, ...customColors },
     breakpoints: createBreakpoints(BREAKPOINTS),
-    fonts: FONTS,
+    fonts: { ...FONTS, ...customFonts },
     fontSizes: FONT_SIZES,
     lineHeights: LINE_HEIGHTS,
     radii: { ...RADII, ...customRadii },
