@@ -2,8 +2,9 @@ import { BREAKPOINT_LG, BREAKPOINT_MD, BREAKPOINT_SM, BREAKPOINT_XL } from './br
 
 export const FONTS = {
   body: 'Inter',
+  display: 'Raleway',
   heading: 'Inter',
-  mono: 'SpaceMono',
+  mono: 'Space Mono',
 };
 
 export const FONT_SIZES = {
