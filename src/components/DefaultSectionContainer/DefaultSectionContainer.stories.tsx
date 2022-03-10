@@ -2,16 +2,22 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { DefaultSectionContainer } from './DefaultSectionContainer';
-import { Center } from '@chakra-ui/react';
 
 export default {
   title: 'components/DefaultSectionContainer',
   component: DefaultSectionContainer,
   args: {
     children: (
-      <Center width="full" height="3xs" background="primary.300">
+      <div
+        style={{
+          backgroundColor: 'var(--boemly-colors-primary-500)',
+          height: '24rem',
+          width: '100%',
+          padding: '2rem',
+        }}
+      >
         Content
-      </Center>
+      </div>
     ),
   },
 } as ComponentMeta<typeof DefaultSectionContainer>;
