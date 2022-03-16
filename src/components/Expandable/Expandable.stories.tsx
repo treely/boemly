@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Heart } from 'phosphor-react';
@@ -10,12 +10,20 @@ export default {
   component: Expandable,
 } as ComponentMeta<typeof Expandable>;
 
+const Children: React.FC = () => {
+  useEffect(() => {
+    console.log('COMPONENT RENDERED');
+  }, []);
+
+  return <Heading>Children</Heading>;
+};
+
 const Template: ComponentStory<typeof Expandable> = (args) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Expandable {...args} isOpen={isOpen} onToggle={onToggle}>
-      <Heading>Children</Heading>
+      <Children />
     </Expandable>
   );
 };
