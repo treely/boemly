@@ -68,4 +68,32 @@ describe('The RichText component', () => {
 
     expect(screen.getByRole('heading', { level: 5 })).toHaveTextContent('Heading 4');
   });
+
+  it('displays a code block if the language is defined', () => {
+    setup({
+      content: `
+\`\`\`js
+function add(a, b) {
+  return a + b;
+}
+\`\`\`
+    `,
+    });
+
+    expect(screen.getByText('(a, b) {')).toBeInTheDocument();
+  });
+
+  it('displays a code block if the language is not defined', () => {
+    setup({
+      content: `
+\`\`\`
+function add(a, b) {
+  return a + b;
+}
+\`\`\`
+    `,
+    });
+
+    expect(screen.getByText('(a, b) {')).toBeInTheDocument();
+  });
 });

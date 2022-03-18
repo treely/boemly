@@ -3,6 +3,19 @@ import { Box, Heading, HeadingProps, Link, Text, TextProps } from '@chakra-ui/re
 import { ImageContainer } from './styles';
 import Markdown from 'markdown-to-jsx';
 import { BoemlyList } from '../BoemlyList';
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+import js from 'react-syntax-highlighter/dist/cjs/languages/hljs/javascript';
+import bash from 'react-syntax-highlighter/dist/cjs/languages/hljs/bash';
+import python from 'react-syntax-highlighter/dist/cjs/languages/hljs/python';
+import yaml from 'react-syntax-highlighter/dist/cjs/languages/hljs/yaml';
+import xml from 'react-syntax-highlighter/dist/cjs/languages/hljs/xml';
+import docco from 'react-syntax-highlighter/dist/cjs/styles/hljs/docco';
+
+SyntaxHighlighter.registerLanguage('javascript', js);
+SyntaxHighlighter.registerLanguage('bash', bash);
+SyntaxHighlighter.registerLanguage('python', python);
+SyntaxHighlighter.registerLanguage('yaml', yaml);
+SyntaxHighlighter.registerLanguage('xml', xml);
 
 export interface RichTextProps {
   content: string;
@@ -21,6 +34,10 @@ interface ListComponentProps {
 
 interface LinkComponentProps extends ComponentProps {
   href?: string;
+}
+
+interface CodeComponentProps extends ComponentProps {
+  className: string;
 }
 
 interface ImageComponentProps {
@@ -66,13 +83,20 @@ export const RichText: React.FC<RichTextProps> = ({
               {children}
             </Text>
           ),
-          code: ({ children }: ComponentProps) => (
-            <Box backgroundColor="black" borderRadius="lg" padding="4" mb="12">
-              <Text size="mdMonoNormal" color="white" {...textProps}>
-                {children}
-              </Text>
-            </Box>
-          ),
+          code: ({ className, children }: CodeComponentProps) => {
+            const language = className?.split('-')[1] || 'js';
+            return (
+              <Box backgroundColor="primary.50" borderRadius="lg" padding="2" mb="12">
+                <SyntaxHighlighter
+                  language={language}
+                  style={docco}
+                  customStyle={{ background: 'unset' }}
+                >
+                  {children}
+                </SyntaxHighlighter>
+              </Box>
+            );
+          },
           blockquote: ({ children }: ComponentProps) => (
             <Box mb="12" pl="4" borderLeft="solid" borderLeftWidth="medium">
               {children}
