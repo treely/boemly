@@ -11,6 +11,7 @@ export interface SplitScreenProps {
   right: ReactNode;
   mobileIsOpen?: boolean;
   hideLeftOnMobile?: boolean;
+  apportionment?: number;
 }
 
 export const SplitScreen: React.FC<SplitScreenProps> = ({
@@ -18,6 +19,7 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
   right,
   mobileIsOpen = false,
   hideLeftOnMobile = false,
+  apportionment = 42,
 }: SplitScreenProps) => {
   useResizeEventListener();
 
@@ -28,8 +30,8 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
 
   const variants = {
     desktop: { top: 0, height: '100%' },
-    mobileClosed: { top: 110, height: 'calc(100% - 110px)' },
-    mobileOpen: { top: height - 40, height: 'calc(100% - 110px)' },
+    mobileClosed: { top: 'var(--header-height)', height: 'calc(100% - var(--header-height))' },
+    mobileOpen: { top: height - 40, height: 'calc(100% - var(--header-height))' },
   };
 
   const mobileAndLeftNotHidden = mobile && !hideLeftOnMobile;
@@ -50,12 +52,13 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
         marginTop="var(--header-height)"
         overflow="hidden"
       >
-        <Left>{(!mobile || !hideLeftOnMobile) && left}</Left>
+        <Left apportionment={apportionment}>{(!mobile || !hideLeftOnMobile) && left}</Left>
         <Right
           variants={variants}
           initial="desktop"
           animate={controls}
           hideLeftOnMobile={hideLeftOnMobile}
+          apportionment={100 - apportionment}
         >
           {right}
         </Right>

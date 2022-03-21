@@ -2,26 +2,30 @@ import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
 import { BREAKPOINT_MD } from '../../constants/breakpoints';
 
-export const Left = styled.div`
+interface ApportionmentProp {
+  apportionment: number;
+}
+
+export const Left = styled.div<ApportionmentProp>`
   position: absolute;
-  width: 42%;
+  width: ${({ apportionment }) => apportionment}%;
   height: 100%;
   top: 0;
 
   @media screen and (max-width: ${BREAKPOINT_MD}) {
     width: 100%;
-    top: 0;
     height: 100%;
+    top: 0;
   }
 `;
 
-interface RightProps {
+interface RightProps extends ApportionmentProp {
   hideLeftOnMobile?: boolean;
 }
 
 export const Right = styled(motion.div)<RightProps>`
   position: absolute;
-  width: 58%;
+  width: ${({ apportionment }) => apportionment}%;
   right: 0;
 
   @media screen and (max-width: ${BREAKPOINT_MD}) {

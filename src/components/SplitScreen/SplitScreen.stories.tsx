@@ -39,3 +39,10 @@ HideLeftOnMobile.args = {
   hideLeftOnMobile: true,
   mobileIsOpen: false,
 };
+
+export const Apportionment = Template.bind({});
+Apportionment.args = {
+  hideLeftOnMobile: false,
+  mobileIsOpen: false,
+  apportionment: 60,
+};

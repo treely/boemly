@@ -26,6 +26,13 @@ describe('The SplitScreen component', () => {
     expect(screen.getByText('right')).toBeInTheDocument();
   });
 
+  it('renders correct if the apportionment is changed', () => {
+    setup({ apportionment: 60 });
+
+    expect(screen.getByText('left')).toBeInTheDocument();
+    expect(screen.getByText('right')).toBeInTheDocument();
+  });
+
   describe('on mobile', () => {
     beforeAll(() => {
       global.matchMedia = jest.fn().mockReturnValue({
