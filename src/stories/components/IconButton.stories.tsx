@@ -1,21 +1,28 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Button } from '../..';
+import { IconButton } from '../..';
 import { Heart } from 'phosphor-react';
 
 export default {
-  title: 'Components/Button',
-  component: Button,
+  title: 'Components/IconButton',
+  component: IconButton,
   argTypes: {
-    onClick: { action: 'Button clicked' },
-    children: { defaultValue: 'Button' },
+    icon: {
+      defaultValue: <Heart />,
+    },
+    'aria-label': {
+      type: { name: 'string', required: true },
+      defaultValue: 'Heart button',
+      control: { type: 'text' },
+    },
+    onClick: { action: 'IconButton clicked' },
     size: {
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      options: ['xs', 'sm', 'md', 'lg'],
       control: { type: 'radio' },
     },
     variant: {
-      options: ['solid', 'outline', 'outlineWhite', 'link'],
+      options: ['solid', 'outline', 'outlineWhite'],
       control: { type: 'radio' },
     },
     colorScheme: {
@@ -24,24 +31,17 @@ export default {
     },
     isLoading: { control: { type: 'boolean' } },
     isDisabled: { control: { type: 'boolean' } },
-    isFullWidth: { control: { type: 'boolean' } },
+    isRound: { control: { type: 'boolean' } },
   },
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof IconButton>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof IconButton> = (args) => <IconButton {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
 
-export const Link = Template.bind({});
-Link.args = {
-  size: 'md',
-  variant: 'link',
-};
-
 export const Outline = Template.bind({});
 Outline.args = {
-  children: 'Button',
   size: 'md',
   variant: 'outline',
 };
@@ -63,35 +63,25 @@ ColorScheme.args = {
 
 export const Size = Template.bind({});
 Size.args = {
-  size: 'xl',
+  size: 'lg',
 };
 
-export const FullWidth = Template.bind({});
-FullWidth.args = {
+export const IsRound = Template.bind({});
+IsRound.args = {
   size: 'md',
-  isFullWidth: true,
+  isRound: true,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
+  icon: <Heart />,
   size: 'md',
   isDisabled: true,
 };
 
 export const IsLoading = Template.bind({});
 IsLoading.args = {
+  icon: <Heart />,
   size: 'md',
   isLoading: true,
-};
-
-export const LeftIcon = Template.bind({});
-LeftIcon.args = {
-  size: 'md',
-  leftIcon: <Heart />,
-};
-
-export const RightIcon = Template.bind({});
-RightIcon.args = {
-  size: 'md',
-  rightIcon: <Heart />,
 };
