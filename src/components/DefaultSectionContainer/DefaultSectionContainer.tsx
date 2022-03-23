@@ -1,11 +1,15 @@
 import React from 'react';
-import { Box, BoxProps } from '@chakra-ui/react';
+import { Box, StyleProps } from '@chakra-ui/react';
 
-export const DefaultSectionContainer: React.FC<BoxProps> = ({
+export interface DefaultSectionContainerProps extends StyleProps {
+  children: JSX.Element | JSX.Element[];
+}
+
+export const DefaultSectionContainer: React.FC<DefaultSectionContainerProps> = ({
   children,
   backgroundColor,
   ...props
-}: BoxProps) => (
+}: DefaultSectionContainerProps) => (
   <Box
     position="relative"
     paddingY={backgroundColor ? ['12', null, '28'] : 'unset'}

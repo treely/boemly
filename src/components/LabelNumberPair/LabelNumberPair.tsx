@@ -1,19 +1,50 @@
+import { Box, StyleProps } from '@chakra-ui/react';
 import React from 'react';
 import { OverflownText } from '../OverflownText';
 
-export interface LabelNumberPairProps {
+export interface LabelNumberPairProps extends StyleProps {
   label: string;
   number: string;
+  caption?: string;
+  size?: 'sm' | 'md' | 'lg';
 }
+
+const sizes = {
+  sm: {
+    label: 'xsLowNormal',
+    number: 'smMonoNormal',
+    caption: 'xsLowNormal',
+  },
+  md: {
+    label: 'xsLowNormal',
+    number: 'mdMonoNormal',
+    caption: 'xsLowNormal',
+  },
+  lg: {
+    label: 'smLowNormal',
+    number: 'lgMonoNormal',
+    caption: 'xsLowNormal',
+  },
+};
 
 export const LabelNumberPair: React.FC<LabelNumberPairProps> = ({
   label,
   number,
+  caption,
+  size = 'md',
+  ...styleProps
 }: LabelNumberPairProps) => (
-  <div>
-    <OverflownText size="xsLowNormal">{label}</OverflownText>
-    <OverflownText size="lgMonoNormal" color="black">
+  <Box {...styleProps}>
+    <OverflownText size={sizes[size].label} color="black">
+      {label}
+    </OverflownText>
+    <OverflownText size={sizes[size].number} color="black">
       {number}
     </OverflownText>
-  </div>
+    {caption && (
+      <OverflownText size={sizes[size].caption} color="gray.500" mt="1">
+        {caption}
+      </OverflownText>
+    )}
+  </Box>
 );

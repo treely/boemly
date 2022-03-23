@@ -25,4 +25,16 @@ describe('The LabelNumberPair component', () => {
 
     expect(screen.getByText(defaultProps.number)).toBeInTheDocument();
   });
+
+  it('displays the caption if a caption is given', () => {
+    setup({ caption: 'Caption' });
+
+    expect(screen.getByText('Caption')).toBeInTheDocument();
+  });
+
+  it('allows to set the size', () => {
+    setup({ size: 'lg' });
+
+    expect(screen.getByText(defaultProps.number)).toBeInTheDocument();
+  });
 });
