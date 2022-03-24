@@ -11,9 +11,9 @@ export default {
       <div
         style={{
           backgroundColor: 'var(--boemly-colors-primary-500)',
-          height: '24rem',
+          height: 'var(--boemly-sizes-sm)',
           width: '100%',
-          padding: '2rem',
+          padding: 'var(--boemly-space-8)',
         }}
       >
         Content

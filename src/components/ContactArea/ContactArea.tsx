@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Divider, Flex, Heading, Text } from '@chakra-ui/react';
+import { Button, Divider, Heading, Text } from '@chakra-ui/react';
 import { ArrowRight } from 'phosphor-react';
 import { AvatarWithName, AvatarWithNameProps } from '../AvatarWithName/AvatarWithName';
+import { Container } from '../Container';
 
 export interface ContactAreaProps {
   title: string;
@@ -25,12 +26,8 @@ export const ContactArea: React.FC<ContactAreaProps> = ({
       {text}
     </Text>
 
-    <Flex
-      borderStyle="solid"
-      borderWidth="thin"
-      borderColor="gray.200"
-      borderRadius="2xl"
-      padding="6"
+    <Container
+      display="flex"
       flexDir={['column', null, null, 'row']}
       alignItems={['flex-start', null, null, 'center']}
       justifyContent="space-between"
@@ -45,6 +42,6 @@ export const ContactArea: React.FC<ContactAreaProps> = ({
       >
         {link.text}
       </Button>
-    </Flex>
+    </Container>
   </>
 );

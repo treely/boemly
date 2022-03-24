@@ -20,7 +20,7 @@ export const MobileMenuBurger: React.FC<MobileMenuBurgerProps> = ({
   const controls = useAnimation();
 
   const topVariants = {
-    open: { rotate: 45, y: 6, x: 1 },
+    open: { rotate: 45, y: 7, x: 0 },
     close: { rotate: 0, y: 0, x: 0 },
   };
   const centerVariants = {
@@ -28,7 +28,7 @@ export const MobileMenuBurger: React.FC<MobileMenuBurgerProps> = ({
     close: { x: 0, opacity: 1 },
   };
   const bottomVariants = {
-    open: { rotate: -45, y: -6, x: 1 },
+    open: { rotate: -45, y: -7, x: 0 },
     close: { rotate: 0, y: 0, x: 0 },
   };
 
@@ -55,7 +55,6 @@ export const MobileMenuBurger: React.FC<MobileMenuBurgerProps> = ({
           position="relative"
           width="4"
           height="4"
-          padding="px"
           flexDirection="column"
           justifyContent="space-between"
           overflow="hidden"

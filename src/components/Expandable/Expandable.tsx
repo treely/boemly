@@ -2,6 +2,7 @@ import { Box, Heading, IconButton, Flex, Text, Spinner } from '@chakra-ui/react'
 import { motion, useAnimation } from 'framer-motion';
 import { CaretDown, CaretUp } from 'phosphor-react';
 import React, { useEffect } from 'react';
+import { Container } from '../Container';
 
 export interface ExpandableProps {
   icon: JSX.Element;
@@ -54,13 +55,10 @@ export const Expandable: React.FC<ExpandableProps> = ({
   }, [isOpen]);
 
   return (
-    <Box
-      borderRadius="xl"
+    <Container
       borderColor={isActive ? 'black' : 'gray.200'}
       borderWidth={isActive ? '2px' : '1px'}
       boxShadow={isActive ? 'lg' : 'unset'}
-      padding="6"
-      backgroundColor="white"
       overflow="hidden"
     >
       <Flex flexDir="row" justifyContent="space-between" alignItems="center">
@@ -97,6 +95,6 @@ export const Expandable: React.FC<ExpandableProps> = ({
           <Box pt="6">{children}</Box>
         )}
       </motion.div>
-    </Box>
+    </Container>
   );
 };

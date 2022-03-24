@@ -23,8 +23,8 @@ export const BoemlySteps: React.FC<BoemlyStepsProps> = ({
         let point: JSX.Element;
 
         const defaultProps = {
-          width: '1.5rem',
-          height: '1.5rem',
+          width: '6',
+          height: '6',
           borderRadius: 'full',
           justifyContent: 'center',
           alignItems: 'center',

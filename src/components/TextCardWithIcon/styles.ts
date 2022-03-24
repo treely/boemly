@@ -25,9 +25,12 @@ interface IconContainerProps {
   displayAs: 'row' | 'column';
 }
 export const IconContainer = styled.div<IconContainerProps>`
-  width: ${({ displayAs }) => (displayAs === 'row' ? '4.3rem' : '2rem')};
-  min-width: ${({ displayAs }) => (displayAs === 'row' ? '4.3rem' : '2rem')};
-  height: ${({ displayAs }) => (displayAs === 'row' ? '4.3rem' : '2rem')};
+  width: ${({ displayAs }) =>
+    displayAs === 'row' ? 'var(--boemly-space-16)' : 'var(--boemly-space-8)'};
+  min-width: ${({ displayAs }) =>
+    displayAs === 'row' ? 'var(--boemly-space-16)' : 'var(--boemly-space-8)'};
+  height: ${({ displayAs }) =>
+    displayAs === 'row' ? 'var(--boemly-space-16)' : 'var(--boemly-space-8)'};
 
   background-color: ${({ displayAs }) =>
     displayAs === 'row' ? 'var(--boemly-colors-primary-50)' : 'transparent'};
@@ -46,6 +49,8 @@ interface InnerIconContainerProps {
 }
 export const InnerIconContainer = styled.div<InnerIconContainerProps>`
   position: relative;
-  width: ${({ displayAs }) => (displayAs === 'row' ? '1.75rem' : '2rem')};
-  height: ${({ displayAs }) => (displayAs === 'row' ? '1.75rem' : '2rem')};
+  width: ${({ displayAs }) =>
+    displayAs === 'row' ? 'var(--boemly-space-7)' : 'var(--boemly-space-8)'};
+  height: ${({ displayAs }) =>
+    displayAs === 'row' ? 'var(--boemly-space-7)' : 'var(--boemly-space-8)'};
 `;
