@@ -1,5 +1,6 @@
 export * from './components/AvatarWithName';
 export * from './components/ContactArea';
+export * from './components/Container';
 export * from './components/DatePersonPair';
 export * from './components/DefaultSectionContainer';
 export * from './components/DefaultSectionHeader';
