@@ -30,7 +30,7 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
 
   const variants = {
     desktop: { top: 0, height: '100%' },
-    mobileClosed: { top: 'var(--header-height)', height: 'calc(100% - var(--header-height))' },
+    mobileClosed: { top: 'var(--boemly-space-28)', height: 'calc(100% - var(--header-height))' },
     mobileOpen: { top: height - 40, height: 'calc(100% - var(--header-height))' },
   };
 
