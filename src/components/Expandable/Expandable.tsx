@@ -63,9 +63,15 @@ export const Expandable: React.FC<ExpandableProps> = ({
     >
       <Flex flexDir="row" justifyContent="space-between" alignItems="center">
         <Flex flexDir="row" alignItems="center">
-          <Box width="20" height="20" display={['none', null, null, 'unset']}>
+          <Flex
+            width="20"
+            height="20"
+            display={['none', null, null, 'flex']}
+            alignItems="center"
+            justifyContent="center"
+          >
             {icon}
-          </Box>
+          </Flex>
           <Box ml={['0', null, null, '8']}>
             <Flex flexDir="row" alignItems="center">
               <Text size="xsLowBold" color="gray.500" mr="2">
