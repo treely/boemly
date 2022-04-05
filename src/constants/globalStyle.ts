@@ -8,9 +8,6 @@ const GLOBAL_STYLE = css`
     --header-height: ${HEADER_HEIGHT}px;
     --extended-header-height: ${EXTENDED_HEADER_HEIGHT}px;
 
-    --default-hero-height: calc(100vh - var(--boemly-space-24));
-    --small-hero-height: var(--boemly-sizes-lg);
-
     // Transitions
     --medium-transition-duration: ${MEDIUM_TRANSITION_DURATION}s;
     --long-transition-duration: ${SLOW_TRANSITION_DURATION}s;
