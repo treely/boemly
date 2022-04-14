@@ -6,12 +6,14 @@ import { BoemlyAlert } from './BoemlyAlert';
 export default {
   title: 'components/BoemlyAlert',
   component: BoemlyAlert,
+  argTypes: {
+    title: { type: { name: 'string' } },
+    text: { type: { name: 'string' } },
+    onClose: { action: 'Close Boemly alert' },
+  },
 } as ComponentMeta<typeof BoemlyAlert>;
 
 const Template: ComponentStory<typeof BoemlyAlert> = (args) => <BoemlyAlert {...args} />;
-
-// eslint-disable-next-line no-console
-const onClose = () => console.log('Close');
 
 export const Info = Template.bind({});
 Info.args = {
@@ -47,5 +49,4 @@ Closeable.args = {
   title: 'Title',
   text: 'Text',
   isClosable: true,
-  onClose,
 };
