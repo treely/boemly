@@ -2,6 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 
 import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
+import { COLOR_SCHEMES } from '../../constants/docs';
 
 export default {
   title: 'Tokens/Colors',
@@ -44,45 +45,9 @@ export const Colors = () => (
       <ColorRow colorToken="transparent" />
       <ColorRow colorToken="black" />
       <ColorRow colorToken="white" />
-      {colorWeights.map((weight) => (
-        <ColorRow colorToken={`primary.${weight}`} />
-      ))}
-      {colorWeights.map((weight) => (
-        <ColorRow colorToken={`gray.${weight}`} />
-      ))}
-      {colorWeights.map((weight) => (
-        <ColorRow colorToken={`red.${weight}`} />
-      ))}
-      {colorWeights.map((weight) => (
-        <ColorRow colorToken={`orange.${weight}`} />
-      ))}
-      {colorWeights.map((weight) => (
-        <ColorRow colorToken={`yellow.${weight}`} />
-      ))}
-      {colorWeights.map((weight) => (
-        <ColorRow colorToken={`green.${weight}`} />
-      ))}
-      {colorWeights.map((weight) => (
-        <ColorRow colorToken={`teal.${weight}`} />
-      ))}
-      {colorWeights.map((weight) => (
-        <ColorRow colorToken={`blue.${weight}`} />
-      ))}
-      {colorWeights.map((weight) => (
-        <ColorRow colorToken={`cyan.${weight}`} />
-      ))}
-      {colorWeights.map((weight) => (
-        <ColorRow colorToken={`purple.${weight}`} />
-      ))}
-      {colorWeights.map((weight) => (
-        <ColorRow colorToken={`pink.${weight}`} />
-      ))}
-      {colorWeights.map((weight) => (
-        <ColorRow colorToken={`blackAlpha.${weight}`} />
-      ))}
-      {colorWeights.map((weight) => (
-        <ColorRow colorToken={`whiteAlpha.${weight}`} />
-      ))}
+      {COLOR_SCHEMES.map((color) =>
+        colorWeights.map((weight) => <ColorRow colorToken={`${color}.${weight}`} />)
+      )}
     </Tbody>
   </Table>
 );

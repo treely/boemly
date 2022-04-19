@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Badge } from '../..';
+import { COLOR_SCHEMES } from '../../constants/docs';
 
 export default {
   title: 'Components/Badge',
@@ -13,27 +14,7 @@ export default {
       control: { type: 'radio' },
     },
     colorScheme: {
-      options: [
-        'primary',
-        'whiteAlpha',
-        'blackAlpha',
-        'gray',
-        'red',
-        'orange',
-        'yellow',
-        'green',
-        'teal',
-        'blue',
-        'cyan',
-        'purple',
-        'pink',
-        'linkedin',
-        'facebook',
-        'messenger',
-        'whatsapp',
-        'twitter',
-        'telegram',
-      ],
+      options: COLOR_SCHEMES,
       control: { type: 'radio' },
       defaultValue: 'primary',
     },

@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Button } from '../..';
 import { Heart } from 'phosphor-react';
+import { COLOR_SCHEMES } from '../../constants/docs';
 
 export default {
   title: 'Components/Button',
@@ -19,7 +20,7 @@ export default {
       control: { type: 'radio' },
     },
     colorScheme: {
-      options: ['primary', 'gray', 'orange', 'green'],
+      options: COLOR_SCHEMES,
       control: { type: 'radio' },
     },
     isLoading: { control: { type: 'boolean' } },
