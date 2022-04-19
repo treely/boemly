@@ -36,6 +36,7 @@ export * from './components/Wrapper';
 
 export {
   Avatar,
+  Badge,
   Box,
   Button,
   Center,
