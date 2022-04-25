@@ -32,3 +32,10 @@ LastStepActive.args = {
   steps,
   currentStep: 4,
 };
+
+export const Horizontal = Template.bind({});
+Horizontal.args = {
+  steps,
+  orientation: 'horizontal',
+  currentStep: 2,
+};
