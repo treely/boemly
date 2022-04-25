@@ -1,6 +1,8 @@
 import React from 'react';
-import { Flex, Text, useToken } from '@chakra-ui/react';
+import { Flex, Text, useToken, Stack } from '@chakra-ui/react';
+import type { StackDirection } from '@chakra-ui/react';
 import { Check } from 'phosphor-react';
+import StepDivider from './StepDivider';
 
 export interface BoemlyStepsProps {
   steps: {
@@ -8,16 +10,44 @@ export interface BoemlyStepsProps {
     onClick: () => void;
   }[];
   currentStep: number;
+  orientation?: 'vertical' | 'horizontal';
 }
+
+type StackProps = {
+  vertical: {
+    direction?: StackDirection;
+    divider?: JSX.Element;
+  };
+  horizontal: {
+    direction?: StackDirection;
+    divider?: JSX.Element;
+  };
+};
+
+const stackProps: StackProps = {
+  vertical: {
+    direction: 'column',
+    divider: undefined,
+  },
+  horizontal: {
+    direction: 'row',
+    divider: <StepDivider />,
+  },
+};
 
 export const BoemlySteps: React.FC<BoemlyStepsProps> = ({
   steps,
   currentStep,
+  orientation = 'vertical',
 }: BoemlyStepsProps) => {
   const [white] = useToken('color', ['white']);
 
   return (
-    <Flex flexDir="column">
+    <Stack
+      spacing="4"
+      direction={stackProps[orientation].direction}
+      divider={stackProps[orientation].divider}
+    >
       {steps.map(({ text, onClick }, index) => {
         const stepNum = index + 1;
         let point: JSX.Element;
@@ -59,14 +89,7 @@ export const BoemlySteps: React.FC<BoemlyStepsProps> = ({
         }
 
         return (
-          <Flex
-            key={stepNum}
-            mt="4"
-            flexDir="row"
-            alignItems="center"
-            cursor="pointer"
-            onClick={onClick}
-          >
+          <Flex key={stepNum} flexDir="row" alignItems="center" cursor="pointer" onClick={onClick}>
             {point}
             <Text size="smLowNormal" color="black" ml="3">
               {text}
@@ -74,6 +97,6 @@ export const BoemlySteps: React.FC<BoemlyStepsProps> = ({
           </Flex>
         );
       })}
-    </Flex>
+    </Stack>
   );
 };

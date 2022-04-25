@@ -59,4 +59,16 @@ describe('The BoemlySteps component', () => {
 
     expect(onClickSpy).toHaveBeenCalledTimes(1);
   });
+
+  it('does not contain a divider if the orientation prop is undefined', () => {
+    setup();
+
+    expect(screen.queryAllByTestId('step-divider').length).toBe(0);
+  });
+
+  it('contains three dividers if the orientation is set to horizontal', () => {
+    setup({ orientation: 'horizontal' });
+
+    expect(screen.queryAllByTestId('step-divider').length).toBe(3);
+  });
 });
