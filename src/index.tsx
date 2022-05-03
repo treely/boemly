@@ -26,6 +26,7 @@ export * from './components/RichText';
 export * from './components/Shape';
 export * from './components/ShapesCard';
 export * from './components/SplitScreen';
+export * from './components/Slider';
 export * from './components/TextCardWithIcon';
 export * from './components/BoemlyAccordion';
 export * from './components/BoemlyAlert';

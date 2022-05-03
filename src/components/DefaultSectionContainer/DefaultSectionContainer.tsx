@@ -1,5 +1,6 @@
+import type { StyleProps } from '@chakra-ui/react';
 import React from 'react';
-import { Box, StyleProps } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 export interface DefaultSectionContainerProps extends StyleProps {
   children: JSX.Element | JSX.Element[];

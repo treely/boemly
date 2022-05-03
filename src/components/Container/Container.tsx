@@ -1,4 +1,5 @@
-import { Box, StyleProps } from '@chakra-ui/react';
+import type { StyleProps } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import React from 'react';
 
 export interface ContainerProps extends StyleProps {

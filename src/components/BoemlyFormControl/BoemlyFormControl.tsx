@@ -1,3 +1,4 @@
+import type { StyleProps } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 import {
   Checkbox,
@@ -23,7 +24,7 @@ import {
 } from '@chakra-ui/react';
 import { CaretDown, CaretUp, Check, WarningOctagon } from 'phosphor-react';
 
-export interface BoemlyFormControlProps {
+export interface BoemlyFormControlProps extends StyleProps {
   id: string;
   size?: string;
   label?: string;
@@ -70,6 +71,8 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
   isInvalid = false,
   isReadOnly = false,
   isDisabled = false,
+
+  ...styleProps
 }: BoemlyFormControlProps) => {
   const [primary700, red500] = useToken('colors', ['primary.700', 'red.500']);
 
@@ -107,7 +110,13 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
   };
 
   return (
-    <FormControl id={id} isInvalid={isInvalid} isReadOnly={isReadOnly} isDisabled={isDisabled}>
+    <FormControl
+      id={id}
+      {...styleProps}
+      isInvalid={isInvalid}
+      isReadOnly={isReadOnly}
+      isDisabled={isDisabled}
+    >
       {label && (
         <FormLabel fontSize="sm" lineHeight="1">
           {label}
