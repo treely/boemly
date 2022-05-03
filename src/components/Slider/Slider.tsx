@@ -1,5 +1,5 @@
 import type { StyleProps } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Slider,
   SliderTrack,
@@ -30,12 +30,9 @@ export const BoemlySlider: React.FC<SliderProps> = ({
   unit = '',
   ...styleProps
 }: SliderProps) => {
-  const [currentValue, setCurrentValue] = useState(defaultValue || (max - min) / 2);
-
-  const _onChange = (value: number) => {
-    onChange(value);
-    setCurrentValue(value);
-  };
+  const initialValue = useMemo(() => defaultValue || (max - min) / 2, [defaultValue, min, max]);
+  const [sliderValue, setSliderValue] = useState(initialValue);
+  const [inputValue, setInputValue] = useState(initialValue.toString());
 
   return (
     <Flex flexDir="row" alignItems="center" {...styleProps}>
@@ -45,8 +42,12 @@ export const BoemlySlider: React.FC<SliderProps> = ({
       <Slider
         aria-label={ariaLabel}
         defaultValue={defaultValue}
-        value={currentValue}
-        onChange={_onChange}
+        value={sliderValue}
+        onChange={(value: number) => {
+          setSliderValue(value);
+          setInputValue(value.toString());
+          onChange(value);
+        }}
         focusThumbOnChange={false}
         min={min}
         max={max}
@@ -73,13 +74,18 @@ export const BoemlySlider: React.FC<SliderProps> = ({
         id={`slider-input-${ariaLabel}`}
         rightAddonsOrElements={unit ? [<InputRightAddon key="unit">{unit}</InputRightAddon>] : []}
         size="sm"
-        width="3xs"
+        width="28"
+        minWidth="28"
         inputProps={{
           type: 'number',
-          value: currentValue,
+          value: inputValue,
           onChange: (event) => {
             event.preventDefault();
-            _onChange(parseInt(event.target.value));
+            if (event.target.value) {
+              setSliderValue(parseInt(event.target.value));
+              onChange(parseInt(event.target.value));
+            }
+            setInputValue(event.target.value);
           },
         }}
         ml="4"

@@ -16,6 +16,10 @@ const setup = (props = {}) => {
 };
 
 describe('The Slider component', () => {
+  afterEach(() => {
+    onChangeSpy.mockRestore();
+  });
+
   it('displays a slider', () => {
     setup();
 
@@ -34,6 +38,25 @@ describe('The Slider component', () => {
     fireEvent.input(screen.getByRole('spinbutton'), { target: { value: '12' } });
 
     expect(onChangeSpy).toHaveBeenCalledWith(12);
+  });
+
+  it('calls the onChange function with 0 if the input is empty', () => {
+    setup();
+
+    fireEvent.input(screen.getByRole('spinbutton'), { target: { value: '' } });
+
+    expect(onChangeSpy).toHaveBeenCalledTimes(0);
+  });
+
+  it('calls the onChange function if the slider is dragged', () => {
+    setup();
+
+    fireEvent.mouseDown(screen.getByRole('slider'), {
+      clientX: 0,
+      clientY: 0,
+    });
+
+    expect(onChangeSpy).toHaveBeenCalledWith(0);
   });
 
   it('displays the unit if given', () => {
