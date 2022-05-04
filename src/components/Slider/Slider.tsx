@@ -74,8 +74,7 @@ export const BoemlySlider: React.FC<SliderProps> = ({
         id={`slider-input-${ariaLabel}`}
         rightAddonsOrElements={unit ? [<InputRightAddon key="unit">{unit}</InputRightAddon>] : []}
         size="sm"
-        width="28"
-        minWidth="28"
+        width="auto"
         inputProps={{
           type: 'number',
           value: inputValue,
@@ -89,6 +88,8 @@ export const BoemlySlider: React.FC<SliderProps> = ({
             }
             setInputValue(event.target.value);
           },
+          width: '16',
+          minWidth: '16',
         }}
         ml="4"
       />
