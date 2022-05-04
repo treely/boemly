@@ -82,8 +82,10 @@ export const BoemlySlider: React.FC<SliderProps> = ({
           onChange: (event) => {
             event.preventDefault();
             if (event.target.value) {
-              setSliderValue(parseInt(event.target.value));
-              onChange(parseInt(event.target.value));
+              const value: number = parseInt(event.target.value);
+              const outputValue: number = value > max ? max : value < min ? min : value;
+              setSliderValue(outputValue);
+              onChange(outputValue);
             }
             setInputValue(event.target.value);
           },

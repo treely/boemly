@@ -40,12 +40,28 @@ describe('The Slider component', () => {
     expect(onChangeSpy).toHaveBeenCalledWith(12);
   });
 
-  it('calls the onChange function with 0 if the input is empty', () => {
+  it('does not call the onChange function if the input value is an empty string', () => {
     setup();
 
     fireEvent.input(screen.getByRole('spinbutton'), { target: { value: '' } });
 
     expect(onChangeSpy).toHaveBeenCalledTimes(0);
+  });
+
+  it('calls the onChange function with the minimum if the value in the input field is lower then minimum', () => {
+    setup();
+
+    fireEvent.input(screen.getByRole('spinbutton'), { target: { value: '-1' } });
+
+    expect(onChangeSpy).toHaveBeenCalledWith(0);
+  });
+
+  it('calls the onChange function with the maximum if the value in the input field is higher then maximum', () => {
+    setup();
+
+    fireEvent.input(screen.getByRole('spinbutton'), { target: { value: '101' } });
+
+    expect(onChangeSpy).toHaveBeenCalledWith(100);
   });
 
   it('calls the onChange function if the slider is dragged', () => {
