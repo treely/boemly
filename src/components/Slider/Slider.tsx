@@ -30,7 +30,10 @@ export const BoemlySlider: React.FC<SliderProps> = ({
   unit = '',
   ...styleProps
 }: SliderProps) => {
-  const initialValue = useMemo(() => defaultValue || (max - min) / 2, [defaultValue, min, max]);
+  const initialValue = useMemo(
+    () => defaultValue || min + (max - min) / 2,
+    [defaultValue, min, max]
+  );
   const [sliderValue, setSliderValue] = useState(initialValue);
   const [inputValue, setInputValue] = useState(initialValue.toString());
 
