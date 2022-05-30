@@ -34,4 +34,10 @@ describe('The Layout component', () => {
 
     expect(screen.getByText('footer')).toBeInTheDocument();
   });
+
+  it('renders the banner prop if it is given', () => {
+    setup({ banner: 'banner' });
+
+    expect(screen.getByText('banner')).toBeInTheDocument();
+  });
 });

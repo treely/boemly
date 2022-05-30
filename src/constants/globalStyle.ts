@@ -1,12 +1,13 @@
 import { css } from '@emotion/react';
 import { SLOW_TRANSITION_DURATION, MEDIUM_TRANSITION_DURATION } from './animations';
-import { EXTENDED_HEADER_HEIGHT, HEADER_HEIGHT } from './layout';
+import { BANNER_HEIGHT, EXTENDED_HEADER_HEIGHT, HEADER_HEIGHT } from './layout';
 
 const GLOBAL_STYLE = css`
   :root {
     // Layout
     --header-height: ${HEADER_HEIGHT}px;
     --extended-header-height: ${EXTENDED_HEADER_HEIGHT}px;
+    --banner-height: ${BANNER_HEIGHT}px;
 
     // Transitions
     --medium-transition-duration: ${MEDIUM_TRANSITION_DURATION}s;
