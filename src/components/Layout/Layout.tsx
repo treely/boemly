@@ -20,7 +20,7 @@ export const Layout: React.FC<LayoutProps> = ({
   body,
   footer,
   hideFooter,
-  banner = '',
+  banner,
 }: LayoutProps) => {
   const { y } = useWindowScroll();
   const [headerExtended, setHeaderExtended] = useState(extendableHeader);
@@ -36,21 +36,14 @@ export const Layout: React.FC<LayoutProps> = ({
   return (
     <>
       {banner && (
-        <Box
-          width="full"
-          position="fixed"
-          top="0"
-          left="0"
-          height="var(--banner-height)"
-          zIndex="docked"
-        >
+        <Box width="full" zIndex="docked">
           {banner}
         </Box>
       )}
       <Box
         as="header"
-        position="fixed"
-        top={banner ? 'var(--banner-height)' : '0'}
+        position="sticky"
+        top="0"
         left="0"
         width="full"
         height={[
@@ -70,7 +63,20 @@ export const Layout: React.FC<LayoutProps> = ({
       >
         {header}
       </Box>
-      <Box as="main" position="relative" marginTop={banner ? 'var(--banner-height)' : '0'}>
+      <Box
+        as="main"
+        position="relative"
+        marginTop={[
+          'calc(-1 * var(--header-height))',
+          null,
+          headerExtended
+            ? 'calc(-1 * var(--extended-header-height))'
+            : 'calc(-1 * var(--header-height))',
+        ]}
+        css={css`
+          transition: var(--default-ease) var(--medium-transition-duration) margin-top;
+        `}
+      >
         {body}
       </Box>
       {!hideFooter && <footer>{footer}</footer>}
