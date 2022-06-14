@@ -4,6 +4,7 @@ export * from './components/Container';
 export * from './components/DatePersonPair';
 export * from './components/DefaultSectionContainer';
 export * from './components/DefaultSectionHeader';
+export * from './components/DeleteConfirm';
 export * from './components/Expandable';
 export * from './components/Footer';
 export * from './components/ForceClientSideRender';
