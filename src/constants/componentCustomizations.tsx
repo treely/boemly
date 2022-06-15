@@ -438,16 +438,28 @@ export const CustomizedSelect = {
   },
   sizes: {
     lg: {
-      fontSize: 'lg',
+      field: {
+        fontSize: 'lg',
+        borderRadius: inputSizes.lg.borderRadius,
+      },
     },
     md: {
-      fontSize: 'md',
+      field: {
+        fontSize: 'md',
+        borderRadius: inputSizes.md.borderRadius,
+      },
     },
     sm: {
-      fontSize: 'sm',
+      field: {
+        fontSize: 'sm',
+        borderRadius: inputSizes.sm.borderRadius,
+      },
     },
     xs: {
-      fontSize: 'xs',
+      field: {
+        fontSize: 'xs',
+        borderRadius: inputSizes.sm.borderRadius,
+      },
     },
   },
 };
