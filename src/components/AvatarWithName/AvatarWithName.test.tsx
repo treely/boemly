@@ -32,4 +32,16 @@ describe('The AvatarWithName component', () => {
 
     expect(screen.getByRole('img')).toHaveAttribute('alt', 'alt');
   });
+
+  it('renders in horizontal orientation', () => {
+    setup({ orientation: 'horizontal' });
+
+    expect(screen.getByTestId('avatar-with-name-horizontal')).toBeInTheDocument();
+  });
+
+  it('renders in vertical orientation', () => {
+    setup({ orientation: 'vertical' });
+
+    expect(screen.getByTestId('avatar-with-name-vertical')).toBeInTheDocument();
+  });
 });

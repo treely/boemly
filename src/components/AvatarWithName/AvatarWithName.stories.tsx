@@ -11,9 +11,17 @@ export default {
 
 const Template: ComponentStory<typeof AvatarWithName> = (args) => <AvatarWithName {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Horizontal = Template.bind({});
+Horizontal.args = {
   name: 'Lukas Bals',
   description: 'Engineer',
   image: <img alt="Alt text" src={storybookAvatarUrl} />,
+};
+
+export const Vertical = Template.bind({});
+Vertical.args = {
+  name: 'Lukas Bals',
+  description: 'Engineer',
+  image: <img alt="Alt text" src={storybookAvatarUrl} />,
+  orientation: 'vertical',
 };

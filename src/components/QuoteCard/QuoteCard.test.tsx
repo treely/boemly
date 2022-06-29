@@ -27,6 +27,6 @@ describe('The QuoteCard component', () => {
   it('displays the avatar', () => {
     setup();
 
-    expect(screen.getByTestId('avatar-with-name')).toBeInTheDocument();
+    expect(screen.getByTestId('avatar-with-name-horizontal')).toBeInTheDocument();
   });
 });

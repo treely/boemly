@@ -35,7 +35,7 @@ describe('The ContactArea component', () => {
   it('displays an avatar', () => {
     setup();
 
-    expect(screen.getByTestId('avatar-with-name')).toBeInTheDocument();
+    expect(screen.getByTestId('avatar-with-name-horizontal')).toBeInTheDocument();
   });
 
   it('display the link as a button', () => {
