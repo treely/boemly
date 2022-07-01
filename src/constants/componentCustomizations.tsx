@@ -42,31 +42,31 @@ export const CustomizedText = {
   },
   sizes: {
     xlRegularNormal: {
-      fontSize: '4xl',
-      lineHeight: '10',
+      fontSize: ['xl', null, null, '4xl'],
+      lineHeight: ['8', null, null, '10'],
     },
     xlRegularNormalBold: {
-      fontSize: '4xl',
-      lineHeight: '10',
+      fontSize: ['xl', null, null, '4xl'],
+      lineHeight: ['8', null, null, '10'],
       fontWeight: '600',
     },
     xlLowNormal: {
-      fontSize: '4xl',
-      lineHeight: '9',
+      fontSize: ['xl', null, null, '4xl'],
+      lineHeight: ['5', null, null, '9'],
     },
     xlLowBold: {
-      fontSize: '4xl',
-      lineHeight: '9',
+      fontSize: ['xl', null, null, '4xl'],
+      lineHeight: ['5', null, null, '9'],
       fontWeight: '600',
     },
     xlMonoNormal: {
-      fontSize: '4xl',
-      lineHeight: '10',
+      fontSize: ['xl', null, null, '4xl'],
+      lineHeight: ['8', null, null, '10'],
       fontFamily: 'var(--boemly-fonts-mono)',
     },
     xlMonoUppercase: {
-      fontSize: '4xl',
-      lineHeight: '10',
+      fontSize: ['xl', null, null, '4xl'],
+      lineHeight: ['8', null, null, '10'],
       fontFamily: 'var(--boemly-fonts-mono)',
       textTransform: 'uppercase',
     },
