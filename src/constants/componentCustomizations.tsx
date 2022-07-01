@@ -41,6 +41,36 @@ export const CustomizedText = {
     color: 'gray.500',
   },
   sizes: {
+    xlRegularNormal: {
+      fontSize: '4xl',
+      lineHeight: '10',
+    },
+    xlRegularNormalBold: {
+      fontSize: '4xl',
+      lineHeight: '10',
+      fontWeight: '600',
+    },
+    xlLowNormal: {
+      fontSize: '4xl',
+      lineHeight: '9',
+    },
+    xlLowBold: {
+      fontSize: '4xl',
+      lineHeight: '9',
+      fontWeight: '600',
+    },
+    xlMonoNormal: {
+      fontSize: '4xl',
+      lineHeight: '10',
+      fontFamily: 'var(--boemly-fonts-mono)',
+    },
+    xlMonoUppercase: {
+      fontSize: '4xl',
+      lineHeight: '10',
+      fontFamily: 'var(--boemly-fonts-mono)',
+      textTransform: 'uppercase',
+    },
+
     lgRegularNormal: {
       fontSize: 'xl',
       lineHeight: '8',
