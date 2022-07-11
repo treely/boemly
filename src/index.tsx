@@ -11,6 +11,8 @@ export * from './components/ForceClientSideRender';
 export * from './components/Gradient';
 export * from './components/Header';
 export * from './components/HeroCard';
+export * from './components/ImageRadioItem';
+export * from './components/ImageRadioGroup';
 export * from './components/LabelNumberPair';
 export * from './components/LabelTextPair';
 export * from './components/Layout';
