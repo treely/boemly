@@ -1,0 +1,1 @@
+export { ImageRadioItem } from './ImageRadioItem';
