@@ -1,4 +1,4 @@
-export const COLOR_SCHEMES = [
+export const COLOR_SCHEMES: ButtonColorScheme[] = [
   'primary',
   'whiteAlpha',
   'blackAlpha',

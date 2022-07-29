@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Tag } from '../..';
-import { COLOR_SCHEMES } from '../../constants/docs';
+import { COLOR_SCHEMES } from '../../constants/colorSchemes';
 
 export default {
   title: 'Components/Tag',

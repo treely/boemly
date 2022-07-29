@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 
 import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
-import { COLOR_SCHEMES } from '../../constants/docs';
+import { COLOR_SCHEMES } from '../../constants/colorSchemes';
 
 export default {
   title: 'Tokens/Colors',

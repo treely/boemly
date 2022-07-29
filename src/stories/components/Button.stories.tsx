@@ -3,7 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Button } from '../..';
 import { Heart } from 'phosphor-react';
-import { COLOR_SCHEMES } from '../../constants/docs';
+import { COLOR_SCHEMES } from '../../constants/colorSchemes';
+import { BUTTON_VARIANTS } from '../../constants/buttonVariants';
 
 export default {
   title: 'Components/Button',
@@ -16,7 +17,7 @@ export default {
       control: { type: 'radio' },
     },
     variant: {
-      options: ['solid', 'outline', 'outlineWhite', 'link'],
+      options: BUTTON_VARIANTS,
       control: { type: 'radio' },
     },
     colorScheme: {

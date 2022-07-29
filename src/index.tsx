@@ -17,6 +17,7 @@ export * from './components/LabelNumberPair';
 export * from './components/LabelTextPair';
 export * from './components/Layout';
 export * from './components/BoemlyList';
+export * from './components/BoemlyModal';
 export * from './components/MobileMenuBurger';
 export * from './components/OverflownText';
 export * from './components/PageContainer';
