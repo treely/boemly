@@ -1,4 +1,4 @@
-import type { StyleProps } from '@chakra-ui/react';
+import { Divider, StyleProps } from '@chakra-ui/react';
 import { Box } from '@chakra-ui/react';
 import React from 'react';
 
@@ -7,6 +7,7 @@ export interface ContainerProps extends StyleProps {
   elevation?: 'none' | 'sm' | 'lg';
   padding?: 'md' | 'lg';
   fullWidth?: boolean;
+  header?: JSX.Element | JSX.Element[];
 }
 
 const elevations = {
@@ -37,6 +38,7 @@ export const Container: React.FC<ContainerProps> = ({
   elevation = 'sm',
   padding = 'md',
   fullWidth = true,
+  header,
   ...styleProps
 }: ContainerProps) => (
   <Box
@@ -46,11 +48,19 @@ export const Container: React.FC<ContainerProps> = ({
     backgroundColor="white"
     borderStyle="solid"
     boxShadow={elevations[elevation].boxShadow}
-    paddingX={paddings[padding].paddingX}
-    paddingY={paddings[padding].paddingY}
     display={fullWidth ? 'block' : 'inline-block'}
     {...styleProps}
   >
-    {children}
+    {header && (
+      <>
+        <Box paddingX={paddings[padding].paddingX} paddingY={paddings[padding].paddingY}>
+          {header}
+        </Box>
+        <Divider />
+      </>
+    )}
+    <Box paddingX={paddings[padding].paddingX} paddingY={paddings[padding].paddingY}>
+      {children}
+    </Box>
   </Box>
 );

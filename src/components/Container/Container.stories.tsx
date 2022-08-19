@@ -24,3 +24,6 @@ Padding.args = { padding: 'lg' };
 
 export const NotFullWidth = Template.bind({});
 NotFullWidth.args = { fullWidth: false };
+
+export const WithHeader = Template.bind({});
+WithHeader.args = { header: <div>Header</div> };

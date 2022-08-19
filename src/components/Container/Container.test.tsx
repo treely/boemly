@@ -36,4 +36,10 @@ describe('The Container component', () => {
 
     expect(screen.getByText('Children')).toBeInTheDocument();
   });
+
+  it('renders a header if a header is giver', () => {
+    setup({ header: <div>Header</div> });
+
+    expect(screen.getByText('Header')).toBeInTheDocument();
+  });
 });
