@@ -30,11 +30,17 @@ describe('The BoemlyFormControl component', () => {
   it('displays a select field if inputType select is given', () => {
     setup({
       inputType: 'Select',
-      selectOptions: [{ value: 'value', label: 'Label' }],
+      selectOptions: [
+        { value: 'value-1', label: 'Label 1' },
+        { value: 'value-2', label: 'Label 2', disabled: true },
+      ],
     });
 
     expect(screen.getByRole('combobox')).toBeInTheDocument();
-    expect(screen.getByRole('option')).toHaveAttribute('value', 'value');
+    expect(screen.getAllByRole('option')[0]).toHaveAttribute('value', 'value-1');
+    expect(screen.getAllByRole('option')[0]).not.toHaveAttribute('disabled');
+    expect(screen.getAllByRole('option')[1]).toHaveAttribute('value', 'value-2');
+    expect(screen.getAllByRole('option')[1]).toHaveAttribute('disabled');
   });
 
   it('displays a checkbox field if the inputType checkbox is given', () => {

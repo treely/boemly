@@ -36,7 +36,7 @@ export interface BoemlyFormControlProps extends StyleProps {
   inputProps?: InputProps;
   numberInputProps?: NumberInputProps;
   selectProps?: SelectProps;
-  selectOptions?: { value: string; label: string }[];
+  selectOptions?: { value: string; label: string; disabled?: boolean }[];
   checkboxProps?: CheckboxProps;
 
   // Inner input elements
@@ -96,7 +96,11 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
         return (
           <Select bgColor="white" {...selectProps}>
             {selectOptions.map((selectOption) => (
-              <option key={selectOption.value} value={selectOption.value}>
+              <option
+                key={selectOption.value}
+                value={selectOption.value}
+                disabled={selectOption.disabled}
+              >
                 {selectOption.label}
               </option>
             ))}
