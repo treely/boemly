@@ -48,8 +48,8 @@ export const Container: React.FC<ContainerProps> = ({
     backgroundColor="white"
     borderStyle="solid"
     boxShadow={elevations[elevation].boxShadow}
-    display={fullWidth ? 'block' : 'inline-block'}
-    {...styleProps}
+    display={fullWidth ? 'flex' : 'inline-flex'}
+    flexDirection="column"
   >
     {header && (
       <>
@@ -59,7 +59,12 @@ export const Container: React.FC<ContainerProps> = ({
         <Divider />
       </>
     )}
-    <Box paddingX={paddings[padding].paddingX} paddingY={paddings[padding].paddingY}>
+    <Box
+      height="full"
+      paddingX={paddings[padding].paddingX}
+      paddingY={paddings[padding].paddingY}
+      {...styleProps}
+    >
       {children}
     </Box>
   </Box>
