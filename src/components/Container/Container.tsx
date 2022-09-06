@@ -48,8 +48,8 @@ export const Container: React.FC<ContainerProps> = ({
     backgroundColor="white"
     borderStyle="solid"
     boxShadow={elevations[elevation].boxShadow}
-    display={fullWidth ? 'flex' : 'inline-flex'}
-    flexDirection="column"
+    display={fullWidth ? 'block' : 'inline-block'}
+    {...styleProps}
   >
     {header && (
       <>
