@@ -23,6 +23,7 @@ import {
   useToken,
 } from '@chakra-ui/react';
 import { CaretDown, CaretUp, Check, WarningOctagon } from 'phosphor-react';
+import { DatePicker, DatePickerProps } from '../DatePicker/DatePicker';
 
 export interface BoemlyFormControlProps extends StyleProps {
   id: string;
@@ -32,12 +33,13 @@ export interface BoemlyFormControlProps extends StyleProps {
   errorMessage?: string;
 
   // Input type
-  inputType?: 'Input' | 'NumberInput' | 'Select' | 'Checkbox';
+  inputType?: 'Input' | 'NumberInput' | 'Select' | 'Checkbox' | 'DatePicker';
   inputProps?: InputProps;
   numberInputProps?: NumberInputProps;
   selectProps?: SelectProps;
   selectOptions?: { value: string; label: string; disabled?: boolean }[];
   checkboxProps?: CheckboxProps;
+  datePickerProps?: DatePickerProps;
 
   // Inner input elements
   leftAddonsOrElements?: ReactNode[];
@@ -63,6 +65,7 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
   selectProps,
   selectOptions = [],
   checkboxProps,
+  datePickerProps,
 
   leftAddonsOrElements = [],
   rightAddonsOrElements = [],
@@ -108,6 +111,8 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
         );
       case 'Checkbox':
         return <Checkbox {...checkboxProps} />;
+      case 'DatePicker':
+        return <DatePicker {...datePickerProps} />;
       default:
         return <Input bgColor="white" {...inputProps} />;
     }

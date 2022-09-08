@@ -49,6 +49,12 @@ describe('The BoemlyFormControl component', () => {
     expect(screen.getByRole('checkbox')).toBeInTheDocument();
   });
 
+  it('displays a date picker field if the inputType DatePicker is given', () => {
+    setup({ inputType: 'DatePicker' });
+
+    expect(screen.getByTestId('datepicker-input1')).toBeInTheDocument();
+  });
+
   it('displays a label if one is given', () => {
     setup({ label: 'Label' });
 

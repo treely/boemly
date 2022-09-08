@@ -119,6 +119,13 @@ Checkbox.args = {
   checkboxProps: { children: 'Checkbox' },
 };
 
+export const DatePicker = Template.bind({});
+DatePicker.args = {
+  id: 'date-picker',
+  inputType: 'DatePicker',
+  datePickerProps: { yearRange: { start: 2000, end: 2050 }, locale: 'de' },
+};
+
 export const InputWithLeftAddon = Template.bind({});
 InputWithLeftAddon.args = {
   id: 'input-with-left-addon',
