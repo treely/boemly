@@ -59,12 +59,7 @@ export const Container: React.FC<ContainerProps> = ({
         <Divider />
       </>
     )}
-    <Box
-      height="full"
-      paddingX={paddings[padding].paddingX}
-      paddingY={paddings[padding].paddingY}
-      {...styleProps}
-    >
+    <Box height="full" paddingX={paddings[padding].paddingX} paddingY={paddings[padding].paddingY}>
       {children}
     </Box>
   </Box>
