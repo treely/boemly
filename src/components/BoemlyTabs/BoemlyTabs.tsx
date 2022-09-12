@@ -22,7 +22,7 @@ export const BoemlyTabs: FC<BoemlyTabsProps> = ({
 
   return (
     <Box>
-      <Flex width="full" gap="8" overflowX="scroll">
+      <Flex width="full" gap="8" overflowX="auto">
         {tabs.map((tab) => (
           <TabButton
             key={tab.key}
