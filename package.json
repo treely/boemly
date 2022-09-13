@@ -51,7 +51,6 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@size-limit/preset-big-lib": "^8.1.0",
-    "@size-limit/webpack-css": "^8.1.0",
     "@storybook/addon-essentials": "^6.5.4",
     "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-links": "^6.5.4",
@@ -98,10 +97,7 @@
       "!**/*.stories.{js,jsx,ts,tsx}",
       "!**/src/test/**",
       "!**/src/index.tsx"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
-    }
+    ]
   },
   "description": "Boemly is the open source component library maintained by Tree.ly.",
   "repository": {

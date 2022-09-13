@@ -13,11 +13,10 @@ import { CalendarBlank, CaretLeft, CaretRight } from 'phosphor-react';
 import React from 'react';
 import { useState } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import de from 'date-fns/locale/de';
 import en from 'date-fns/locale/en-US';
 import fr from 'date-fns/locale/fr';
-import { css } from '@emotion/react';
+import datePickerStyle from './styles';
 
 export interface DatePickerProps {
   yearRange?: { start: number; end: number };
@@ -101,23 +100,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   registerLocale('fr', fr);
 
   return (
-    <Box
-      css={css`
-        .react-datepicker {
-          border-radius: var(--boemly-radii-xl);
-        }
-        .react-datepicker__header {
-          border-top-left-radius: var(--boemly-radii-xl);
-          border-top-right-radius: var(--boemly-radii-xl);
-        }
-        .react-datepicker__day--selected {
-          background-color: var(--boemly-colors-green-500);
-        }
-        .react-datepicker__day--outside-month {
-          color: var(--boemly-colors-gray-500);
-        }
-      `}
-    >
+    <Box css={datePickerStyle}>
       <ReactDatePicker
         renderCustomHeader={({
           date,
