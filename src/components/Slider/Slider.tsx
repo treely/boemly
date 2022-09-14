@@ -39,7 +39,7 @@ export const BoemlySlider: React.FC<SliderProps> = ({
 
   return (
     <Flex flexDir="row" alignItems="center" {...styleProps}>
-      <Text size="xsLowNormal" mr="4" flexShrink="0">
+      <Text size="xsLowNormal" mr="4" flexShrink={0}>
         {min} {unit}
       </Text>
       <Slider
@@ -69,7 +69,7 @@ export const BoemlySlider: React.FC<SliderProps> = ({
           <Box backgroundColor="primary.500" borderRadius="full" width="1.5" height="1.5" />
         </SliderThumb>
       </Slider>
-      <Text size="xsLowNormal" ml="4" flexShrink="0">
+      <Text size="xsLowNormal" ml="4" flexShrink={0}>
         {max} {unit}
       </Text>
 
