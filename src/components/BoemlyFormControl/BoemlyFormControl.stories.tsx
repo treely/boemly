@@ -123,7 +123,12 @@ export const DatePicker = Template.bind({});
 DatePicker.args = {
   id: 'date-picker',
   inputType: 'DatePicker',
-  datePickerProps: { yearRange: { start: 2000, end: 2050 }, locale: 'de' },
+  datePickerProps: {
+    yearRange: { start: 2000, end: 2050 },
+    locale: 'en',
+    value: new Date('2022-01-01'),
+    onChange: (date) => console.log(date),
+  },
 };
 
 export const InputWithLeftAddon = Template.bind({});

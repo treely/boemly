@@ -52,7 +52,7 @@ describe('The BoemlyFormControl component', () => {
   it('displays a date picker field if the inputType DatePicker is given', () => {
     setup({ inputType: 'DatePicker' });
 
-    expect(screen.getByTestId('datepicker-input1')).toBeInTheDocument();
+    expect(screen.getByTestId('datepicker-input')).toBeInTheDocument();
   });
 
   it('displays a label if one is given', () => {
