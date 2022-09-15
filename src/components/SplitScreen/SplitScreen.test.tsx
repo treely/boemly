@@ -14,6 +14,17 @@ const setup = (props = {}) => {
 };
 
 describe('The SplitScreen component', () => {
+  beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation(() => ({
+        matches: false,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+      })),
+    });
+  });
+
   it('renders the left prop', () => {
     setup();
 
@@ -35,10 +46,13 @@ describe('The SplitScreen component', () => {
 
   describe('on mobile', () => {
     beforeAll(() => {
-      global.matchMedia = jest.fn().mockReturnValue({
-        matches: true,
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
+      Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation(() => ({
+          matches: true,
+          addListener: jest.fn(),
+          removeListener: jest.fn(),
+        })),
       });
     });
 

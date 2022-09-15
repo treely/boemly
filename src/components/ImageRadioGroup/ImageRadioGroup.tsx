@@ -3,6 +3,7 @@ import React, { FC, createContext } from 'react';
 export interface ImageRadioGroupProps {
   onChange?: (nextValue: string | number) => void;
   value?: string | number;
+  children?: JSX.Element | JSX.Element[];
 }
 
 export const ImageRadioGroupContext = createContext<ImageRadioGroupProps>({});

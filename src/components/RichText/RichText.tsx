@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Box, Heading, HeadingProps, Link, Text, TextProps } from '@chakra-ui/react';
 import { ImageContainer } from './styles';
 import Markdown from 'markdown-to-jsx';
@@ -24,7 +24,7 @@ export interface RichTextProps {
 }
 
 interface ComponentProps {
-  children: ReactNode;
+  children: string | string[];
 }
 
 type ListChildren = { key: string; props: { children: string } }[];

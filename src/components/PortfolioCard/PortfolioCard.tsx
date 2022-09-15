@@ -71,7 +71,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({
       </SimpleGrid>
 
       {button && (
-        <Button isFullWidth mt="6" size="lg" onClick={button.onClick}>
+        <Button width="full" mt="6" size="lg" onClick={button.onClick}>
           {button.text}
         </Button>
       )}
