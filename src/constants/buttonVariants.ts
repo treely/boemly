@@ -1,1 +1,7 @@
-export const BUTTON_VARIANTS: ButtonVariant[] = ['solid', 'outline', 'outlineWhite', 'link'];
+export const BUTTON_VARIANTS: ButtonVariant[] = [
+  'ghost',
+  'link',
+  'outline',
+  'outlineWhite',
+  'solid',
+];

@@ -1,1 +1,1 @@
-type ButtonVariant = 'solid' | 'outline' | 'outlineWhite' | 'link';
+type ButtonVariant = 'ghost' | 'link' | 'outline' | 'outlineWhite' | 'solid';

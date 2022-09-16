@@ -57,6 +57,13 @@ OutlineWhite.parameters = {
   backgrounds: { default: 'dark' },
 };
 
+export const Ghost = Template.bind({});
+Ghost.args = {
+  children: 'Button',
+  size: 'md',
+  variant: 'ghost',
+};
+
 export const ColorScheme = Template.bind({});
 ColorScheme.args = {
   size: 'md',
