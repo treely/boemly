@@ -42,4 +42,10 @@ describe('The BoemlyModal component', () => {
 
     expect(screen.getByText('Trigger')).toBeInTheDocument();
   });
+
+  it('renders without error in specific size', () => {
+    setup({ size: '2xl' });
+
+    expect(screen.getByText(defaultProps.title)).toBeInTheDocument();
+  });
 });
