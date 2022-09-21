@@ -1,22 +1,14 @@
+import { Box } from '@chakra-ui/react';
 import {
-  Box,
-  Flex,
-  forwardRef,
-  IconButton,
-  Input,
-  InputGroup,
-  InputRightElement,
-  Select,
-  Spacer,
-} from '@chakra-ui/react';
-import { CalendarBlank, CaretLeft, CaretRight } from 'phosphor-react';
+  CalendarBlank,
+  CaretDoubleLeft,
+  CaretDoubleRight,
+  CaretLeft,
+  CaretRight,
+} from 'phosphor-react';
 import React from 'react';
-import ReactDatePicker, { registerLocale } from 'react-datepicker';
-import de from 'date-fns/locale/de';
-import en from 'date-fns/locale/en-US';
-import fr from 'date-fns/locale/fr';
+import ReactDatePicker from 'react-date-picker/dist/entry.nostyle';
 import datePickerStyle from './styles';
-import { dateFormat, months } from './constants';
 
 export interface DatePickerProps {
   yearRange?: { start: number; end: number };
@@ -25,105 +17,27 @@ export interface DatePickerProps {
   onChange?: (date: Date) => void;
 }
 
-export const DatePicker: React.FC<DatePickerProps> = ({
-  yearRange = { start: new Date().getFullYear() - 100, end: new Date().getFullYear() + 100 },
-  locale = 'en',
-  value,
-  onChange,
-}: DatePickerProps) => {
-  const CustomInput = forwardRef(({ value, onClick }, ref) => (
-    <InputGroup>
-      <Input
-        data-testid="datepicker-input"
-        className="custom-input"
-        onClick={onClick}
-        ref={ref}
-        variant="outline"
-        value={value}
-        type="input"
-        readOnly
-      />
-      <InputRightElement children={<CalendarBlank size="16" />} />
-    </InputGroup>
-  ));
-
-  const years = Array.from(
-    { length: yearRange.end - yearRange.start + 1 },
-    (_, i) => yearRange.start + i
-  );
-
-  registerLocale('de', de);
-  registerLocale('en', en);
-  registerLocale('fr', fr);
-
+export const DatePicker: React.FC<DatePickerProps> = ({ value, onChange }: DatePickerProps) => {
   return (
     <Box css={datePickerStyle}>
       <ReactDatePicker
-        renderCustomHeader={({
-          date,
-          changeYear,
-          changeMonth,
-          decreaseMonth,
-          increaseMonth,
-          prevMonthButtonDisabled,
-          nextMonthButtonDisabled,
-        }) => (
-          <Flex margin="2" justifyContent="center">
-            <IconButton
-              aria-label="caret-left"
-              variant="ghost"
-              size="sm"
-              onClick={decreaseMonth}
-              disabled={prevMonthButtonDisabled}
-            >
-              <CaretLeft />
-            </IconButton>
-            <Spacer width="2" />
-            <Select
-              width="auto"
-              size="sm"
-              value={date.getFullYear()}
-              onChange={({ target: { value } }) => changeYear(parseInt(value, 10))}
-              data-testid="datepicker-select-year"
-            >
-              {years.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </Select>
-            <Spacer width="2" />
-            <Select
-              width="auto"
-              size="sm"
-              value={months[locale][date.getMonth()]}
-              onChange={({ target: { value } }) => changeMonth(months[locale].indexOf(value))}
-              data-testid="datepicker-select-month"
-            >
-              {months[locale].map((month) => (
-                <option key={month} value={month}>
-                  {month}
-                </option>
-              ))}
-            </Select>
-            <Spacer width="2" />
-            <IconButton
-              aria-label="caret-right"
-              variant="ghost"
-              size="sm"
-              onClick={increaseMonth}
-              disabled={nextMonthButtonDisabled}
-            >
-              <CaretRight />
-            </IconButton>
-          </Flex>
-        )}
-        selected={value}
-        onChange={(date: Date) => onChange && onChange(date)}
-        locale={locale}
-        dateFormat={dateFormat[locale]}
-        customInput={<CustomInput />}
-        showPopperArrow={false}
+        calendarAriaLabel="open-calender"
+        dayAriaLabel="day-input"
+        monthAriaLabel="month-input"
+        yearAriaLabel="year-input"
+        navigationAriaLabel="calender-navigation"
+        nextAriaLabel="next-month"
+        next2AriaLabel="next-year"
+        prevAriaLabel="previous-month"
+        prev2AriaLabel="previous-year"
+        onChange={onChange}
+        value={value}
+        clearIcon={null}
+        calendarIcon={<CalendarBlank />}
+        nextLabel={<CaretRight />}
+        next2Label={<CaretDoubleRight />}
+        prevLabel={<CaretLeft />}
+        prev2Label={<CaretDoubleLeft />}
       />
     </Box>
   );

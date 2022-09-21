@@ -4,6 +4,7 @@ import { Heart } from 'phosphor-react';
 import { render, screen } from '../../test/testUtils';
 import { BoemlyFormControlProps } from './BoemlyFormControl';
 import { BoemlyFormControl } from '.';
+import 'jest-canvas-mock';
 
 const defaultProps: BoemlyFormControlProps = {
   id: 'form-id',
@@ -52,7 +53,10 @@ describe('The BoemlyFormControl component', () => {
   it('displays a date picker field if the inputType DatePicker is given', () => {
     setup({ inputType: 'DatePicker' });
 
-    expect(screen.getByTestId('datepicker-input')).toBeInTheDocument();
+    expect(screen.getByLabelText('day-input')).toBeInTheDocument();
+    expect(screen.getByLabelText('month-input')).toBeInTheDocument();
+    expect(screen.getByLabelText('year-input')).toBeInTheDocument();
+    expect(screen.getByLabelText('open-calender')).toBeInTheDocument();
   });
 
   it('displays a label if one is given', () => {

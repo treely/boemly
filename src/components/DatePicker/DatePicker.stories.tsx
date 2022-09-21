@@ -7,10 +7,10 @@ export default {
   component: DatePicker,
 } as ComponentMeta<typeof DatePicker>;
 
-const Template: ComponentStory<typeof DatePicker> = (args) => {
-  const [date, setDate] = useState(new Date('2022-01-01'));
+const Template: ComponentStory<typeof DatePicker> = () => {
+  const [value, onChange] = useState(new Date());
 
-  return <DatePicker {...args} value={date} onChange={setDate} />;
+  return <DatePicker value={value} onChange={onChange} />;
 };
 
 export const Default = Template.bind({});
