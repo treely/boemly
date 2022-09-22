@@ -1,4 +1,4 @@
-import type { StyleProps } from '@chakra-ui/react';
+import { StyleProps } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 import {
   Checkbox,
@@ -24,10 +24,11 @@ import {
 } from '@chakra-ui/react';
 import { CaretDown, CaretUp, Check, WarningOctagon } from 'phosphor-react';
 import { DatePicker, DatePickerProps } from '../DatePicker/DatePicker';
+import InputSize from '../../types/InputSize';
 
 export interface BoemlyFormControlProps extends StyleProps {
   id: string;
-  size?: string;
+  size?: InputSize;
   label?: string;
   helperText?: string;
   errorMessage?: string;
@@ -112,7 +113,7 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
       case 'Checkbox':
         return <Checkbox {...checkboxProps} />;
       case 'DatePicker':
-        return <DatePicker {...datePickerProps} />;
+        return <DatePicker size={size} {...datePickerProps} />;
       default:
         return <Input bgColor="white" {...inputProps} />;
     }
@@ -131,18 +132,22 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
           {label}
         </FormLabel>
       )}
-      <InputGroup size={size}>
-        {leftAddonsOrElements.map((addonOrElement) => addonOrElement)}
+      {inputType === 'DatePicker' ? (
+        renderInputField()
+      ) : (
+        <InputGroup size={size}>
+          {leftAddonsOrElements.map((addonOrElement) => addonOrElement)}
 
-        {renderInputField()}
+          {renderInputField()}
 
-        {isValid && inputType === 'Input' && (
-          <InputRightElement>
-            <Check size={20} color={primary700} data-testid="check" />
-          </InputRightElement>
-        )}
-        {rightAddonsOrElements.map((addonOrElement) => addonOrElement)}
-      </InputGroup>
+          {isValid && inputType === 'Input' && (
+            <InputRightElement>
+              <Check size={20} color={primary700} data-testid="check" />
+            </InputRightElement>
+          )}
+          {rightAddonsOrElements.map((addonOrElement) => addonOrElement)}
+        </InputGroup>
+      )}
       {helperText && <FormHelperText>{helperText}</FormHelperText>}
       {errorMessage && (
         <FormErrorMessage>

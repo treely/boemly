@@ -10,49 +10,33 @@ import {
 } from '@chakra-ui/react';
 import { Heart } from 'phosphor-react';
 import { BoemlyFormControl } from './BoemlyFormControl';
+import { INPUT_SIZES } from '../../constants/inputSizes';
 
 export default {
   title: 'components/BoemlyFormControl',
   component: BoemlyFormControl,
+  argTypes: {
+    id: { control: { type: 'text' } },
+    inputType: {
+      options: ['Input', 'NumberInput', 'Select', 'Checkbox', 'DatePicker'],
+      control: { type: 'radio' },
+    },
+    size: {
+      options: INPUT_SIZES,
+      control: { type: 'radio' },
+    },
+    label: { control: { type: 'text' } },
+    helperText: { control: { type: 'text' } },
+    errorMessage: { control: { type: 'text' } },
+    isInvalid: { control: { type: 'boolean' } },
+    isValid: { control: { type: 'boolean' } },
+    isDisabled: { control: { type: 'boolean' } },
+    isReadOnly: { control: { type: 'boolean' } },
+  },
 } as ComponentMeta<typeof BoemlyFormControl>;
 
 const Template: ComponentStory<typeof BoemlyFormControl> = (args) => (
   <BoemlyFormControl {...args} />
-);
-
-export const States = () => (
-  <Box maxW="xs">
-    <Box mb="4">
-      <BoemlyFormControl id="default-state" label="Default state" />
-    </Box>
-    <Box mb="4">
-      <BoemlyFormControl id="valid-state" label="Valid state" isValid />
-    </Box>
-    <Box mb="4">
-      <BoemlyFormControl
-        id="invalid-state"
-        label="Invalid state"
-        isInvalid
-        errorMessage="Error message"
-      />
-    </Box>
-    <Box mb="4">
-      <BoemlyFormControl
-        id="disabled-state"
-        label="Disabled state"
-        isDisabled
-        inputProps={{ value: 'Disabled value' }}
-      />
-    </Box>
-    <Box>
-      <BoemlyFormControl
-        id="read-only-state"
-        label="Read only state"
-        isReadOnly
-        inputProps={{ value: 'Read only value' }}
-      />
-    </Box>
-  </Box>
 );
 
 export const InputOnly = Template.bind({});
@@ -170,3 +154,38 @@ InputWithRightElement.args = {
     </InputRightElement>,
   ],
 };
+
+export const StatesOverview = () => (
+  <Box maxW="xs">
+    <Box mb="4">
+      <BoemlyFormControl id="default-state" label="Default state" />
+    </Box>
+    <Box mb="4">
+      <BoemlyFormControl id="valid-state" label="Valid state" isValid />
+    </Box>
+    <Box mb="4">
+      <BoemlyFormControl
+        id="invalid-state"
+        label="Invalid state"
+        isInvalid
+        errorMessage="Error message"
+      />
+    </Box>
+    <Box mb="4">
+      <BoemlyFormControl
+        id="disabled-state"
+        label="Disabled state"
+        isDisabled
+        inputProps={{ value: 'Disabled value' }}
+      />
+    </Box>
+    <Box>
+      <BoemlyFormControl
+        id="read-only-state"
+        label="Read only state"
+        isReadOnly
+        inputProps={{ value: 'Read only value' }}
+      />
+    </Box>
+  </Box>
+);

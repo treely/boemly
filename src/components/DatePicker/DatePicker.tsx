@@ -5,24 +5,26 @@ import {
   IconButton,
   Input,
   InputGroup,
-  InputRightElement,
+  InputRightAddon,
   Select,
   Spacer,
 } from '@chakra-ui/react';
 import { CalendarBlank, CaretLeft, CaretRight } from 'phosphor-react';
-import React from 'react';
+import React, { useMemo } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import de from 'date-fns/locale/de';
 import en from 'date-fns/locale/en-US';
 import fr from 'date-fns/locale/fr';
 import datePickerStyle from './styles';
 import { dateFormat, months } from './constants';
+import InputSize from '../../types/InputSize';
 
 export interface DatePickerProps {
   yearRange?: { start: number; end: number };
   locale?: 'de' | 'en' | 'fr';
   value?: Date;
   onChange?: (date: Date) => void;
+  size?: InputSize;
 }
 
 export const DatePicker: React.FC<DatePickerProps> = ({
@@ -30,9 +32,10 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   locale = 'en',
   value,
   onChange,
+  size = 'md',
 }: DatePickerProps) => {
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
-    <InputGroup>
+    <InputGroup size={size}>
       <Input
         data-testid="datepicker-input"
         className="custom-input"
@@ -43,13 +46,16 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         type="input"
         readOnly
       />
-      <InputRightElement children={<CalendarBlank size="16" />} />
+      <InputRightAddon>
+        <CalendarBlank size={16} />
+      </InputRightAddon>
     </InputGroup>
   ));
 
-  const years = Array.from(
-    { length: yearRange.end - yearRange.start + 1 },
-    (_, i) => yearRange.start + i
+  const years = useMemo(
+    () =>
+      Array.from({ length: yearRange.end - yearRange.start + 1 }, (_, i) => yearRange.start + i),
+    [yearRange]
   );
 
   registerLocale('de', de);

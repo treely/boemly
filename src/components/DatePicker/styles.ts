@@ -7,7 +7,7 @@ const datePickerStyle = css`
   .react-datepicker__navigation-icon::before {
     border-color: var(--boemly-colors-gray-300);
     border-style: solid;
-    border-width: var(--boemly-space-1) var(--boemly-space-1) 0 0;
+    border-width: var(--boemly-space-px) var(--boemly-space-px) 0 0;
     content: '';
     display: block;
     height: var(--boemly-space-1);
@@ -27,12 +27,11 @@ const datePickerStyle = css`
   .react-datepicker-popper[data-placement^='bottom'] .react-datepicker__triangle::after {
     box-sizing: content-box;
     position: absolute;
-    border: var(--boemly-space-2) solid var(--boemly-colors-transparent);
+    border: var(--boemly-space-px) solid var(--boemly-colors-transparent);
     height: 0;
-    width: 1px;
+    width: var(--boemly-space-px);
     content: '';
     z-index: var(--boemly-zIndices-hide);
-    border-width: var(--boemly-space-2);
     left: -var(--boemly-space-1);
   }
   .react-datepicker-popper[data-placement^='top'] .react-datepicker__triangle::before,
@@ -53,7 +52,7 @@ const datePickerStyle = css`
     top: 0;
   }
   .react-datepicker-popper[data-placement^='bottom'] .react-datepicker__triangle::before {
-    top: -1px;
+    top: -var(--boemly-space-px);
     border-bottom-color: var(--boemly-colors-gray-200);
   }
 
@@ -70,7 +69,7 @@ const datePickerStyle = css`
     bottom: 0;
   }
   .react-datepicker-popper[data-placement^='top'] .react-datepicker__triangle::before {
-    bottom: -1px;
+    bottom: -var(--boemly-space-px);
     border-top-color: var(--boemly-colors-gray-200);
   }
 
@@ -86,7 +85,7 @@ const datePickerStyle = css`
     background-color: var(--boemly-colors-white);
     color: var(--boemly-colors-black);
     border-radius: var(--boemly-radii-xl);
-    border: 1px solid var(--boemly-colors-gray-200);
+    border: var(--boemly-space-px) solid var(--boemly-colors-gray-200);
     display: inline-block;
     position: relative;
   }
@@ -140,7 +139,7 @@ const datePickerStyle = css`
   .react-datepicker__header {
     text-align: center;
     background-color: var(--boemly-colors-gray-100);
-    border-bottom: 1px solid var(--boemly-colors-gray-200);
+    border-bottom: var(--boemly-space-px) solid var(--boemly-colors-gray-200);
     border-top-left-radius: var(--boemly-radii-xl);
     padding: var(--boemly-space-2) 0;
     position: relative;
@@ -227,7 +226,7 @@ const datePickerStyle = css`
 
   .react-datepicker__navigation-icon {
     position: relative;
-    top: -1px;
+    top: -var(--boemly-space-px);
     font-size: var(--boemly-fontSizes-lg);
     width: 0;
   }
@@ -327,12 +326,12 @@ const datePickerStyle = css`
 
   .react-datepicker__time-container {
     float: right;
-    border-left: 1px solid var(--boemly-colors-gray-200);
+    border-left: var(--boemly-space-px) solid var(--boemly-colors-gray-200);
     width: var(--boemly-space-20);
   }
   .react-datepicker__time-container--with-today-button {
     display: inline;
-    border: 1px solid var(--boemly-colors-gray-200);
+    border: var(--boemly-space-px) solid var(--boemly-colors-gray-200);
     border-radius: var(--boemly-radii-md);
     position: absolute;
     right: -var(--boemly-space-20);
@@ -385,7 +384,7 @@ const datePickerStyle = css`
     .react-datepicker__time-box
     ul.react-datepicker__time-list
     li.react-datepicker__time-list-item--selected {
-    background-color: var(--boemly-colors-primary-600);
+    background-color: var(--boemly-colors-primary-800);
     color: var(--boemly-colors-white);
     font-weight: bold;
   }
@@ -394,7 +393,7 @@ const datePickerStyle = css`
     .react-datepicker__time-box
     ul.react-datepicker__time-list
     li.react-datepicker__time-list-item--selected:hover {
-    background-color: var(--boemly-colors-primary-600);
+    background-color: var(--boemly-colors-primary-800);
   }
   .react-datepicker__time-container
     .react-datepicker__time
@@ -459,7 +458,7 @@ const datePickerStyle = css`
   .react-datepicker__quarter--in-selecting-range,
   .react-datepicker__quarter--in-range {
     border-radius: var(--boemly-radii-md);
-    background-color: var(--boemly-colors-primary-600);
+    background-color: var(--boemly-colors-primary-800);
     color: var(--boemly-colors-white);
   }
   .react-datepicker__month--selected:hover,
@@ -505,7 +504,7 @@ const datePickerStyle = css`
   .react-datepicker__quarter-text--highlighted,
   .react-datepicker__year-text--highlighted {
     border-radius: var(--boemly-radii-md);
-    background-color: var(--boemly-colors-primary-600);
+    background-color: var(--boemly-colors-primary-800);
     color: var(--boemly-colors-white);
   }
   .react-datepicker__day--highlighted:hover,
@@ -527,7 +526,7 @@ const datePickerStyle = css`
   .react-datepicker__year-text--in-selecting-range,
   .react-datepicker__year-text--in-range {
     border-radius: var(--boemly-radii-md);
-    background-color: var(--boemly-colors-primary-600);
+    background-color: var(--boemly-colors-primary-800);
     color: var(--boemly-colors-white);
   }
   .react-datepicker__day--selected:hover,
@@ -549,7 +548,7 @@ const datePickerStyle = css`
   .react-datepicker__quarter-text--keyboard-selected,
   .react-datepicker__year-text--keyboard-selected {
     border-radius: var(--boemly-radii-md);
-    background-color: var(--boemly-colors-primary-600);
+    background-color: var(--boemly-colors-primary-800);
     color: var(--boemly-colors-white);
   }
   .react-datepicker__day--keyboard-selected:hover,

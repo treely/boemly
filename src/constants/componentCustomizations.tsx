@@ -467,6 +467,12 @@ export const CustomizedSelect = {
     focusBorderColor: 'black',
   },
   sizes: {
+    xl: {
+      field: {
+        ...inputSizes.xl,
+        fontSize: 'xl',
+      },
+    },
     lg: {
       field: {
         fontSize: 'lg',
@@ -612,6 +618,21 @@ export const CustomizedTooltip = {
 export const CustomizedCheckbox = {
   defaultProps: {
     colorScheme: 'primary',
+  },
+  sizes: {
+    xl: {
+      icon: {
+        w: '8',
+        h: '8',
+      },
+      control: {
+        w: '8',
+        h: '8',
+      },
+      label: {
+        fontSize: 'xl',
+      },
+    },
   },
 };
 
