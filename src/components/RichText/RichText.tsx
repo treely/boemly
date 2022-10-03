@@ -83,6 +83,11 @@ export const RichText: React.FC<RichTextProps> = ({
               {children}
             </Text>
           ),
+          span: ({ children }: ComponentProps) => (
+            <Text size="mdRegularNormal" color="gray.800" {...textProps}>
+              {children}
+            </Text>
+          ),
           code: ({ className, children }: CodeComponentProps) => {
             const language = className?.split('-')[1] || 'js';
             return (
