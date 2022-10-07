@@ -9,6 +9,7 @@ export interface BoemlyListProps extends ListProps {
   icon?: ReactNode;
   ordered?: boolean;
   textColor?: string;
+  textSize?: TextSize;
 }
 
 export const BoemlyList: React.FC<BoemlyListProps> = ({
@@ -16,11 +17,12 @@ export const BoemlyList: React.FC<BoemlyListProps> = ({
   icon = <Box width="1.5" height="1.5" borderRadius="full" bg="black" />,
   ordered = false,
   textColor = 'black',
+  textSize = 'mdRegularNormal',
   ...props
 }: BoemlyListProps) => (
   <List spacing="4" as={ordered ? 'ol' : 'ul'} {...props}>
     {listItems.map(({ id, text }, index) => (
-      <ListItem key={id}>
+      <ListItem key={id} display="flex" alignItems="center">
         <ListIcon
           as={() => (
             <Center width="6" height="6" bg="primary.50" borderRadius="lg" float="left" mr="4">
@@ -35,7 +37,7 @@ export const BoemlyList: React.FC<BoemlyListProps> = ({
           )}
         />
 
-        <Text size="mdRegularNormal" color={textColor}>
+        <Text size={textSize} color={textColor}>
           {text}
         </Text>
       </ListItem>
