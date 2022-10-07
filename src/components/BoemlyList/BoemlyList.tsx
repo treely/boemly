@@ -1,15 +1,18 @@
 import { Box, Center, List, ListIcon, ListItem, ListProps, Text } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 
-export interface BoemlyListProps extends ListProps {
+export interface BoemlyListStyleProps extends ListProps {
+  icon?: ReactNode;
+  textColor?: string;
+  textSize?: TextSize;
+}
+
+export interface BoemlyListProps extends BoemlyListStyleProps {
   listItems: {
     id: number | string;
     text: string;
   }[];
-  icon?: ReactNode;
   ordered?: boolean;
-  textColor?: string;
-  textSize?: TextSize;
 }
 
 export const BoemlyList: React.FC<BoemlyListProps> = ({

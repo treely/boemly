@@ -10,6 +10,7 @@ import python from 'react-syntax-highlighter/dist/cjs/languages/hljs/python';
 import yaml from 'react-syntax-highlighter/dist/cjs/languages/hljs/yaml';
 import xml from 'react-syntax-highlighter/dist/cjs/languages/hljs/xml';
 import docco from 'react-syntax-highlighter/dist/cjs/styles/hljs/docco';
+import { BoemlyListStyleProps } from '../BoemlyList/BoemlyList';
 
 SyntaxHighlighter.registerLanguage('javascript', js);
 SyntaxHighlighter.registerLanguage('bash', bash);
@@ -21,6 +22,7 @@ export interface RichTextProps {
   content: string;
   headingProps?: HeadingProps;
   textProps?: TextProps;
+  listProps?: BoemlyListStyleProps;
 }
 
 interface ComponentProps {
@@ -53,6 +55,7 @@ export const RichText: React.FC<RichTextProps> = ({
   content,
   headingProps = {},
   textProps = {},
+  listProps = {},
 }: RichTextProps) => (
   <Box {...textProps}>
     <Markdown
@@ -108,10 +111,10 @@ export const RichText: React.FC<RichTextProps> = ({
             </Box>
           ),
           ul: ({ children }: ListComponentProps) => (
-            <BoemlyList listItems={getListItems(children)} mb="12" />
+            <BoemlyList listItems={getListItems(children)} mb="12" {...listProps} />
           ),
           ol: ({ children }: ListComponentProps) => (
-            <BoemlyList listItems={getListItems(children)} ordered mb="12" />
+            <BoemlyList listItems={getListItems(children)} ordered mb="12" {...listProps} />
           ),
           a: ({ children, href }: LinkComponentProps) => (
             <Link size="md" href={href}>
