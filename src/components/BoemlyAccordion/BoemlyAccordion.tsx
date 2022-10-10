@@ -42,6 +42,7 @@ export const BoemlyAccordion: React.FC<BoemlyAccordionProps> = ({
             <RichText
               headingProps={{ color: textColor }}
               textProps={{ color: textColor }}
+              listProps={{ textColor: textColor }}
               content={value}
             />
           </AccordionPanel>
