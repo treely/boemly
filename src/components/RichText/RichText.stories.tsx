@@ -112,3 +112,9 @@ CustomOrderedList.args = {
   `,
   listProps: { textColor: 'primary.500', textSize: 'xsMonoUppercase' },
 };
+
+export const InlineContent = Template.bind({});
+InlineContent.args = {
+  content:
+    'Inline *content* gets **rendered** in line, just like [markdown-to-jsx](https://github.com/probablyup/markdown-to-jsx) handles it.',
+};
