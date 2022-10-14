@@ -45,6 +45,30 @@ const setup = (props = {}) => {
 };
 
 describe('The RichText component', () => {
+  it('displays single line content as inline', () => {
+    setup({
+      content: '*Emphasised Text*',
+    });
+
+    expect(screen.getByTestId('rt-wrapper-span')).toBeInTheDocument();
+    expect(screen.queryByTestId('rt-wrapper-div')).not.toBeInTheDocument();
+
+    expect(screen.getByText('Emphasised Text').parentElement).toBe(
+      screen.getByTestId('rt-wrapper-span')
+    );
+  });
+
+  it('displays multi line content as a block', () => {
+    setup();
+
+    expect(screen.getByTestId('rt-wrapper-div')).toBeInTheDocument();
+    expect(screen.queryByTestId('rt-wrapper-span')).not.toBeInTheDocument();
+
+    expect(screen.getByRole('heading', { level: 2 }).parentElement).toBe(
+      screen.getByTestId('rt-wrapper-div')
+    );
+  });
+
   it('displays the h1 from the Markdown as h2', () => {
     setup();
 
