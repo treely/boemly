@@ -103,6 +103,13 @@ Checkbox.args = {
   checkboxProps: { children: 'Checkbox' },
 };
 
+export const Textarea = Template.bind({});
+Textarea.args = {
+  id: 'textarea',
+  inputType: 'Textarea',
+  textareaProps: { placeholder: 'Textarea' },
+};
+
 export const DatePicker = Template.bind({});
 DatePicker.args = {
   id: 'date-picker',
