@@ -13,6 +13,7 @@ import {
   CustomizedSelect,
   CustomizedTable,
   CustomizedText,
+  CustomizedTextarea,
   CustomizedTooltip,
 } from '../constants/componentCustomizations';
 import {
@@ -62,6 +63,7 @@ const getTheme = ({ customColors, customFonts, customRadii }: Options) => {
       Select: CustomizedSelect,
       Table: CustomizedTable,
       Text: CustomizedText,
+      Textarea: CustomizedTextarea,
       Tooltip: CustomizedTooltip,
     },
   });

@@ -1,25 +1,27 @@
-import { StyleProps } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 import {
   Checkbox,
   CheckboxProps,
-  Text,
   FormControl,
   FormErrorMessage,
   FormHelperText,
   FormLabel,
-  InputGroup,
-  InputRightElement,
   Input,
+  InputGroup,
+  InputProps,
+  InputRightElement,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
   NumberInput,
   NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-  Select,
-  InputProps,
   NumberInputProps,
+  NumberInputStepper,
+  Select,
   SelectProps,
+  StyleProps,
+  Text,
+  Textarea,
+  TextareaProps,
   useToken,
 } from '@chakra-ui/react';
 import { CaretDown, CaretUp, Check, WarningOctagon } from 'phosphor-react';
@@ -34,13 +36,14 @@ export interface BoemlyFormControlProps extends StyleProps {
   errorMessage?: string;
 
   // Input type
-  inputType?: 'Input' | 'NumberInput' | 'Select' | 'Checkbox' | 'DatePicker';
+  inputType?: 'Input' | 'NumberInput' | 'Select' | 'Checkbox' | 'DatePicker' | 'Textarea';
   inputProps?: InputProps;
   numberInputProps?: NumberInputProps;
   selectProps?: SelectProps;
   selectOptions?: { value: string; label: string; disabled?: boolean }[];
   checkboxProps?: CheckboxProps;
   datePickerProps?: DatePickerProps;
+  textareaProps?: TextareaProps;
 
   // Inner input elements
   leftAddonsOrElements?: ReactNode[];
@@ -67,6 +70,7 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
   selectOptions = [],
   checkboxProps,
   datePickerProps,
+  textareaProps,
 
   leftAddonsOrElements = [],
   rightAddonsOrElements = [],
@@ -114,6 +118,8 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
         return <Checkbox {...checkboxProps} />;
       case 'DatePicker':
         return <DatePicker size={size} {...datePickerProps} />;
+      case 'Textarea':
+        return <Textarea bgColor="white" {...textareaProps} />;
       default:
         return <Input bgColor="white" {...inputProps} />;
     }

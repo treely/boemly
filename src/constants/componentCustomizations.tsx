@@ -460,6 +460,39 @@ export const CustomizedPinInput = {
   },
 };
 
+export const CustomizedTextarea = {
+  sizes: {
+    xl: {
+      ...CustomizedText.sizes.mdRegularNormal,
+      py: '2',
+      px: '4',
+      borderRadius: 'xl',
+    },
+    lg: {
+      ...CustomizedText.sizes.mdLowNormal,
+      py: '2',
+      px: '4',
+      borderRadius: 'lg',
+    },
+    md: {
+      ...CustomizedText.sizes.smRegularNormal,
+      py: '2',
+      px: '4',
+      borderRadius: 'lg',
+    },
+    sm: {
+      ...CustomizedText.sizes.smLowNormal,
+      py: '2',
+      px: '3',
+      borderRadius: 'md',
+    },
+  },
+  defaultProps: {
+    size: 'lg',
+    focusBorderColor: 'black',
+  },
+};
+
 export const CustomizedSelect = {
   defaultProps: {
     variant: 'outline',
