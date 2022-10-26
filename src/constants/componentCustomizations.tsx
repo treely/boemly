@@ -616,6 +616,11 @@ export const CustomizedCheckbox = {
   defaultProps: {
     colorScheme: 'primary',
   },
+  baseStyle: {
+    control: {
+      backgroundColor: 'white',
+    },
+  },
   sizes: {
     xl: {
       icon: {
