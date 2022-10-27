@@ -1,4 +1,13 @@
-import { Box, Center, List, ListIcon, ListItem, ListProps, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Center,
+  List,
+  ListIcon,
+  ListItem,
+  ListProps,
+  Text,
+  useMultiStyleConfig,
+} from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 
 export interface BoemlyListStyleProps extends ListProps {
@@ -22,28 +31,39 @@ export const BoemlyList: React.FC<BoemlyListProps> = ({
   textColor = 'black',
   textSize = 'mdRegularNormal',
   ...props
-}: BoemlyListProps) => (
-  <List spacing="4" as={ordered ? 'ol' : 'ul'} {...props}>
-    {listItems.map(({ id, text }, index) => (
-      <ListItem key={id} display="flex" alignItems="center">
-        <ListIcon
-          as={() => (
-            <Center width="6" height="6" bg="primary.50" borderRadius="lg" float="left" mr="4">
-              {ordered ? (
-                <Text size="xsLowBold" color="black">
-                  {index + 1}
-                </Text>
-              ) : (
-                icon
-              )}
-            </Center>
-          )}
-        />
+}: BoemlyListProps) => {
+  const styles = useMultiStyleConfig('List', props);
 
-        <Text size={textSize} color={textColor}>
-          {text}
-        </Text>
-      </ListItem>
-    ))}
-  </List>
-);
+  return (
+    <List spacing="4" as={ordered ? 'ol' : 'ul'} {...props}>
+      {listItems.map(({ id, text }, index) => (
+        <ListItem key={id} display="flex" alignItems="center">
+          <ListIcon
+            as={() => (
+              <Center
+                __css={styles.icon}
+                width="6"
+                height="6"
+                borderRadius="lg"
+                float="left"
+                mr="4"
+              >
+                {ordered ? (
+                  <Text size="xsLowBold" color="black">
+                    {index + 1}
+                  </Text>
+                ) : (
+                  icon
+                )}
+              </Center>
+            )}
+          />
+
+          <Text size={textSize} color={textColor}>
+            {text}
+          </Text>
+        </ListItem>
+      ))}
+    </List>
+  );
+};

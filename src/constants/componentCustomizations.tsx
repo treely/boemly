@@ -733,3 +733,18 @@ export const CustomizedTable = {
     },
   },
 };
+
+export const CustomizedList = {
+  baseStyle: {
+    icon: {
+      backgroundColor: 'primary.50',
+    },
+  },
+  variants: {
+    light: {
+      icon: {
+        backgroundColor: 'primary.200',
+      },
+    },
+  },
+};
