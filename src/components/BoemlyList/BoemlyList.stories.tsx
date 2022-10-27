@@ -10,6 +10,7 @@ export default {
   component: BoemlyList,
   argTypes: {
     ordered: { control: { type: 'boolean' } },
+    variant: { options: ['default', 'light'], control: { type: 'radio' } },
     textColor: { control: { type: 'color' } },
     textSize: {
       options: TEXT_SIZES,
