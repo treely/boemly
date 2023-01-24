@@ -44,6 +44,7 @@ export const BoemlyList: React.FC<BoemlyListProps> = ({
                 __css={styles.icon}
                 width="6"
                 height="6"
+                minWidth="6"
                 borderRadius="lg"
                 float="left"
                 mr="4"
