@@ -5,10 +5,12 @@ import { DatePicker } from '.';
 import { DatePickerProps } from './DatePicker';
 
 const onChangeSpy = jest.fn();
+const onSelectSpy = jest.fn();
 
 const defaultProps: DatePickerProps = {
   value: new Date('2022-01-01'),
   onChange: onChangeSpy,
+  onSelect: onSelectSpy,
 };
 
 const setup = (props = {}) => {
@@ -19,13 +21,23 @@ const setup = (props = {}) => {
 describe('The DatePicker component', () => {
   afterEach(() => {
     onChangeSpy.mockRestore();
+    onSelectSpy.mockRestore();
   });
 
-  it('displays a field with the current date ', () => {
+  it('displays a field with the current date', () => {
     setup();
 
     expect(screen.getByTestId('datepicker-input')).toHaveValue(
       `${new Date('2022-01-01').toLocaleDateString('en')}`
+    );
+  });
+
+  it('displays the placeholder', () => {
+    setup({ placeholder: 'datepicker-placeholder' });
+
+    expect(screen.getByTestId('datepicker-input')).toHaveAttribute(
+      'placeholder',
+      'datepicker-placeholder'
     );
   });
 
@@ -38,6 +50,7 @@ describe('The DatePicker component', () => {
     fireEvent.click(screen.getByText('12'));
 
     expect(onChangeSpy).toHaveBeenCalledWith(new Date('2022-01-12'));
+    expect(onSelectSpy).toHaveBeenCalledWith(new Date('2022-01-12'));
   });
 
   it('changes the date if a year is selected', async () => {
@@ -50,6 +63,7 @@ describe('The DatePicker component', () => {
     fireEvent.click(screen.getByText('12'));
 
     expect(onChangeSpy).toHaveBeenCalledWith(new Date('2020-01-12'));
+    expect(onSelectSpy).toHaveBeenCalledWith(new Date('2020-01-12'));
   });
 
   it('changes the date if a month is selected', async () => {
@@ -64,5 +78,6 @@ describe('The DatePicker component', () => {
     fireEvent.click(screen.getByText('12'));
 
     expect(onChangeSpy).toHaveBeenCalledWith(new Date('2022-02-12'));
+    expect(onSelectSpy).toHaveBeenCalledWith(new Date('2022-02-12'));
   });
 });

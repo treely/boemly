@@ -24,6 +24,8 @@ export interface DatePickerProps {
   locale?: 'de' | 'en' | 'fr';
   value?: Date;
   onChange?: (date: Date) => void;
+  onSelect?: (date: Date) => void;
+  placeholder?: string;
   size?: InputSize;
 }
 
@@ -32,6 +34,8 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   locale = 'en',
   value,
   onChange,
+  onSelect,
+  placeholder,
   size = 'md',
 }: DatePickerProps) => {
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
@@ -44,6 +48,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         variant="outline"
         value={value}
         type="input"
+        placeholder={placeholder}
         readOnly
       />
       <InputRightAddon>
@@ -125,6 +130,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
           </Flex>
         )}
         selected={value}
+        onSelect={(date: Date) => onSelect && onSelect(date)}
         onChange={(date: Date) => onChange && onChange(date)}
         locale={locale}
         dateFormat={dateFormat[locale]}
