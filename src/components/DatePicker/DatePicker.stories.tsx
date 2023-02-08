@@ -18,11 +18,21 @@ export default {
     yearRange: {
       control: { type: 'object' },
     },
+    placeholder: { type: 'string', defaultValue: 'Placeholder' },
+    onSelect: {
+      type: 'function',
+      description: 'Gets called everytime the user clicks on a date',
+    },
+    onChange: {
+      type: 'function',
+      description:
+        'Only gets called if the date the user clicked on is not the one provided in `value`',
+    },
   },
 } as ComponentMeta<typeof DatePicker>;
 
 const Template: ComponentStory<typeof DatePicker> = (args) => {
-  const [date, setDate] = useState(new Date('2022-01-01'));
+  const [date, setDate] = useState<Date | undefined>(undefined);
 
   return <DatePicker {...args} value={date} onChange={setDate} />;
 };
