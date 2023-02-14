@@ -5,12 +5,13 @@ import {
   IconButton,
   Input,
   InputGroup,
+  InputProps,
   InputRightAddon,
   Select,
   Spacer,
 } from '@chakra-ui/react';
 import { CalendarBlank, CaretLeft, CaretRight } from 'phosphor-react';
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import de from 'date-fns/locale/de';
 import en from 'date-fns/locale/en-US';
@@ -38,7 +39,9 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   placeholder,
   size = 'md',
 }: DatePickerProps) => {
-  const CustomInput = forwardRef(({ value, onClick }, ref) => (
+  const datePickerRef = useRef<ReactDatePicker>(null);
+
+  const CustomInput = forwardRef<InputProps, typeof Input>(({ value, onClick }, ref) => (
     <InputGroup size={size}>
       <Input
         data-testid="datepicker-input"
@@ -51,8 +54,14 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         placeholder={placeholder}
         readOnly
       />
-      <InputRightAddon>
-        <CalendarBlank size={16} />
+      <InputRightAddon
+        _hover={{ cursor: 'pointer' }}
+        onClick={(ev) => {
+          onClick && onClick(ev as any);
+          datePickerRef.current?.setFocus();
+        }}
+      >
+        <CalendarBlank size={16} data-testid="calendar-icon" />
       </InputRightAddon>
     </InputGroup>
   ));
@@ -70,6 +79,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   return (
     <Box css={datePickerStyle}>
       <ReactDatePicker
+        ref={datePickerRef}
         renderCustomHeader={({
           date,
           changeYear,
