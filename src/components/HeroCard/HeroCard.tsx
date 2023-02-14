@@ -26,7 +26,8 @@ export const HeroCard: React.FC<HeroCardProps> = ({
     borderRadius="2xl"
     css={css`
       & span,
-      div {
+      div,
+      img {
         border-radius: var(--boemly-radii-2xl);
       }
     `}

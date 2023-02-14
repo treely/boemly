@@ -40,7 +40,8 @@ export const ShapeContainer = styled.div<ShapeContainerProps>`
   ${({ radius }) => `border-${radius}-radius`}: var(--boemly-radii-full);
 
   & span,
-  div {
+  div,
+  img {
     ${({ radius }) => `border-${radius}-radius`}: var(--boemly-radii-full);
   }
 
