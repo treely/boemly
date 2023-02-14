@@ -80,4 +80,16 @@ describe('The DatePicker component', () => {
     expect(onChangeSpy).toHaveBeenCalledWith(new Date('2022-02-12'));
     expect(onSelectSpy).toHaveBeenCalledWith(new Date('2022-02-12'));
   });
+
+  it('also allows to change the date when clicking on the icon', () => {
+    setup();
+
+    fireEvent.click(screen.getByTestId('calendar-icon'));
+
+    fireEvent.click(screen.getByTestId('calendar-icon'));
+    fireEvent.click(screen.getByText('12'));
+
+    expect(onChangeSpy).toHaveBeenCalledWith(new Date('2022-01-12'));
+    expect(onSelectSpy).toHaveBeenCalledWith(new Date('2022-01-12'));
+  });
 });
