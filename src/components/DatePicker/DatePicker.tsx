@@ -5,6 +5,7 @@ import {
   IconButton,
   Input,
   InputGroup,
+  InputGroupProps,
   InputProps,
   InputRightAddon,
   Select,
@@ -18,16 +19,16 @@ import en from 'date-fns/locale/en-US';
 import fr from 'date-fns/locale/fr';
 import datePickerStyle from './styles';
 import { dateFormat, months } from './constants';
-import InputSize from '../../types/InputSize';
 
-export interface DatePickerProps {
+export interface DatePickerProps extends Omit<InputGroupProps, 'onChange' | 'onSelect'> {
   yearRange?: { start: number; end: number };
   locale?: 'de' | 'en' | 'fr';
   value?: Date;
+  placeholder?: string;
+
+  // These collide with the props inherited from `InputGroupProps`
   onChange?: (date: Date) => void;
   onSelect?: (date: Date) => void;
-  placeholder?: string;
-  size?: InputSize;
 }
 
 export const DatePicker: React.FC<DatePickerProps> = ({
@@ -37,12 +38,12 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   onChange,
   onSelect,
   placeholder,
-  size = 'md',
+  ...inputGroupProps
 }: DatePickerProps) => {
   const datePickerRef = useRef<ReactDatePicker>(null);
 
   const CustomInput = forwardRef<InputProps, typeof Input>(({ value, onClick }, ref) => (
-    <InputGroup size={size}>
+    <InputGroup {...inputGroupProps}>
       <Input
         data-testid="datepicker-input"
         className="custom-input"

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { DatePicker } from './DatePicker';
-import { INPUT_SIZES } from '../../constants/inputSizes';
 
 export default {
   title: 'components/DatePicker',
@@ -11,17 +10,13 @@ export default {
       options: ['en', 'de', 'fr'],
       control: { type: 'radio' },
     },
-    size: {
-      options: INPUT_SIZES,
-      control: { type: 'radio' },
-    },
     yearRange: {
       control: { type: 'object' },
     },
     placeholder: { type: 'string', defaultValue: 'Placeholder' },
     onSelect: {
       type: 'function',
-      description: 'Gets called everytime the user clicks on a date',
+      description: 'Gets called every time the user clicks on a date',
     },
     onChange: {
       type: 'function',
