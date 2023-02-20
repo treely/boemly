@@ -5,7 +5,7 @@ import React from 'react';
 export interface ContainerProps extends StyleProps {
   children: JSX.Element | JSX.Element[];
   elevation?: 'none' | 'sm' | 'lg';
-  padding?: 'md' | 'lg';
+  padding?: 'none' | 'md' | 'lg';
   fullWidth?: boolean;
   header?: JSX.Element | JSX.Element[];
 }
@@ -23,6 +23,10 @@ const elevations = {
 };
 
 const paddings = {
+  none: {
+    paddingX: '0',
+    paddingY: '0',
+  },
   md: {
     paddingX: '5',
     paddingY: '5',
