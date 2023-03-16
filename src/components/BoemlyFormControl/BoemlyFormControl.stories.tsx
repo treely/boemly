@@ -18,7 +18,7 @@ export default {
   argTypes: {
     id: { control: { type: 'text' } },
     inputType: {
-      options: ['Input', 'NumberInput', 'Select', 'Checkbox', 'DatePicker'],
+      options: ['Input', 'NumberInput', 'Select', 'Checkbox', 'DatePicker', 'Textarea', 'Slider'],
       control: { type: 'radio' },
     },
     size: {
@@ -119,6 +119,21 @@ DatePicker.args = {
     locale: 'en',
     value: new Date('2022-01-01'),
     onChange: (date) => console.log(date),
+  },
+};
+
+export const Slider = Template.bind({});
+Slider.args = {
+  id: 'slider',
+  inputType: 'Slider',
+  sliderProps: {
+    onChange: (value) => console.log(value),
+    ariaLabel: 'slider',
+    defaultValue: 0,
+    min: 0,
+    max: 500,
+    unit: 'ha',
+    minW: 'full',
   },
 };
 

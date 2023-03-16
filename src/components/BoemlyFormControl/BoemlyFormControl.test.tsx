@@ -55,6 +55,12 @@ describe('The BoemlyFormControl component', () => {
     expect(screen.getByTestId('datepicker-input')).toBeInTheDocument();
   });
 
+  it('displays a slider if the inputType Slider is given', () => {
+    setup({ inputType: 'Slider' });
+
+    expect(screen.getByRole('slider')).toBeInTheDocument();
+  });
+
   it('displays a label if one is given', () => {
     setup({ label: 'Label' });
 

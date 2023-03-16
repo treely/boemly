@@ -27,6 +27,8 @@ import {
 import { CaretDown, CaretUp, Check, WarningOctagon } from 'phosphor-react';
 import { DatePicker, DatePickerProps } from '../DatePicker/DatePicker';
 import InputSize from '../../types/InputSize';
+import { SliderProps } from '../Slider/Slider';
+import { Slider } from '../Slider';
 
 export interface BoemlyFormControlProps extends StyleProps {
   id: string;
@@ -36,7 +38,14 @@ export interface BoemlyFormControlProps extends StyleProps {
   errorMessage?: string;
 
   // Input type
-  inputType?: 'Input' | 'NumberInput' | 'Select' | 'Checkbox' | 'DatePicker' | 'Textarea';
+  inputType?:
+    | 'Input'
+    | 'NumberInput'
+    | 'Select'
+    | 'Checkbox'
+    | 'DatePicker'
+    | 'Textarea'
+    | 'Slider';
   inputProps?: InputProps;
   numberInputProps?: NumberInputProps;
   selectProps?: SelectProps;
@@ -44,6 +53,7 @@ export interface BoemlyFormControlProps extends StyleProps {
   checkboxProps?: CheckboxProps;
   datePickerProps?: DatePickerProps;
   textareaProps?: TextareaProps;
+  sliderProps?: SliderProps;
 
   // Inner input elements
   leftAddonsOrElements?: ReactNode[];
@@ -71,6 +81,7 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
   checkboxProps,
   datePickerProps,
   textareaProps,
+  sliderProps,
 
   leftAddonsOrElements = [],
   rightAddonsOrElements = [],
@@ -120,6 +131,8 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
         return <DatePicker size={size} {...datePickerProps} />;
       case 'Textarea':
         return <Textarea bgColor="white" {...textareaProps} />;
+      case 'Slider':
+        return <Slider onChange={() => undefined} ariaLabel={label || 'slider'} {...sliderProps} />;
       default:
         return <Input bgColor="white" {...inputProps} />;
     }
