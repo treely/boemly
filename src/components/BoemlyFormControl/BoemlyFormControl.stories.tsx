@@ -133,7 +133,6 @@ Slider.args = {
     min: 0,
     max: 500,
     unit: 'ha',
-    minW: 'full',
   },
 };
 

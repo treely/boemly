@@ -16,6 +16,17 @@ const setup = (props = {}) => {
 };
 
 describe('The Slider component', () => {
+  beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation(() => ({
+        matches: false,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+      })),
+    });
+  });
+
   afterEach(() => {
     onChangeSpy.mockRestore();
   });

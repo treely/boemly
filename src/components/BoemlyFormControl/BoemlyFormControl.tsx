@@ -22,6 +22,7 @@ import {
   Text,
   Textarea,
   TextareaProps,
+  useMediaQuery,
   useToken,
 } from '@chakra-ui/react';
 import { CaretDown, CaretUp, Check, WarningOctagon } from 'phosphor-react';
@@ -29,6 +30,7 @@ import { DatePicker, DatePickerProps } from '../DatePicker/DatePicker';
 import InputSize from '../../types/InputSize';
 import { SliderProps } from '../Slider/Slider';
 import { Slider } from '../Slider';
+import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 
 export interface BoemlyFormControlProps extends StyleProps {
   id: string;
@@ -93,6 +95,7 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
 
   ...styleProps
 }: BoemlyFormControlProps) => {
+  const [isMobile] = useMediaQuery(BREAKPOINT_MD_QUERY);
   const [primary700, red500] = useToken('colors', ['primary.700', 'red.500']);
 
   const renderInputField = () => {
@@ -147,11 +150,15 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
       isDisabled={isDisabled}
     >
       {label && (
-        <FormLabel fontSize="sm" lineHeight="1">
+        <FormLabel
+          fontSize="sm"
+          lineHeight="1"
+          position={inputType === 'Slider' && isMobile ? 'absolute' : 'unset'}
+        >
           {label}
         </FormLabel>
       )}
-      {inputType === 'DatePicker' ? (
+      {inputType === ('DatePicker' || 'Slider') ? (
         renderInputField()
       ) : (
         <InputGroup size={size}>
