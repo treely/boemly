@@ -52,7 +52,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
 
   useEffect(() => {
     controls.start(isOpen ? 'open' : 'close');
-  }, [isOpen]);
+  }, [isOpen, controls]);
 
   return (
     <Container

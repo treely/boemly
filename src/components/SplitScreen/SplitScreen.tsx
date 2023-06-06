@@ -42,7 +42,8 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
     } else {
       controls.start('desktop');
     }
-  }, [mobileIsOpen, height]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mobileIsOpen, height, controls]);
 
   return (
     <div ref={ref}>

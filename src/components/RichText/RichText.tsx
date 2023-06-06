@@ -110,7 +110,7 @@ export const RichText: React.FC<RichTextProps> = ({
           </Text>
         ),
         code: ({ className, children }: CodeComponentProps) => {
-          const language = className?.split('-')[1] || 'js';
+          const language = className ? className.split('-')[1] : 'js';
           return (
             <Box backgroundColor="primary.50" borderRadius="lg" padding="2" mb="12">
               <SyntaxHighlighter

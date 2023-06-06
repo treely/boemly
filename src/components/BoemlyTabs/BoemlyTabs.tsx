@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import TabButton from './TabButton';
 
@@ -20,6 +20,8 @@ export const BoemlyTabs: FC<BoemlyTabsProps> = ({
     onChange && onChange(newTabKey);
   };
 
+  const tab = useMemo(() => tabs.find((tab) => tab.key === activeTabKey), [tabs, activeTabKey]);
+
   return (
     <Box>
       <Flex width="full" gap="8" overflowX="auto">
@@ -35,7 +37,7 @@ export const BoemlyTabs: FC<BoemlyTabsProps> = ({
 
       <Box color="gray.200" borderTop="1px" mt="-1px" />
 
-      <Box mt="2">{tabs.find((tab) => tab.key === activeTabKey)?.content}</Box>
+      {tab && <Box mt="2">{tab.content}</Box>}
     </Box>
   );
 };

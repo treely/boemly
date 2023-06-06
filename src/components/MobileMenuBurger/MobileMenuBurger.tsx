@@ -42,7 +42,7 @@ export const MobileMenuBurger: React.FC<MobileMenuBurgerProps> = ({
 
   useEffect(() => {
     controls.start(isOpen ? 'open' : 'close');
-  }, [isOpen]);
+  }, [isOpen, controls]);
 
   return (
     <IconButton

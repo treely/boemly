@@ -13,7 +13,7 @@ export const ForceClientSideRender: React.FC<ForceClientSideRenderProps> = ({
     if (typeof window !== 'undefined') {
       setRender(true);
     }
-  });
+  }, []);
 
   if (render) return children;
   return null;

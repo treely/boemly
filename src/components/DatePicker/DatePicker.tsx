@@ -59,7 +59,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         _hover={{ cursor: 'pointer' }}
         onClick={(ev) => {
           onClick && onClick(ev as any);
-          datePickerRef.current?.setFocus();
+          datePickerRef.current && datePickerRef.current.setFocus();
         }}
       >
         <CalendarBlank size={16} data-testid="calendar-icon" />

@@ -41,12 +41,14 @@ export const ImageRadioItem: FC<ImageRadioItemProps> = ({
 
   useEffect(() => {
     controls.start(isDisabled ? 'disabled' : isActivated ? 'selected' : 'default');
-  }, [isDisabled]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDisabled, controls]);
 
   useEffect(() => {
     if (isDisabled) return;
     controls.start(isActivated ? 'selected' : 'default');
-  }, [isActivated]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isActivated, controls]);
 
   const onMouseEnterHandler = () => {
     if (isDisabled) return;
