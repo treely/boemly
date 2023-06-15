@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import { Tooltip } from '../..';
 
@@ -7,27 +7,20 @@ export default {
   title: 'Components/Tooltip',
   component: Tooltip,
   argTypes: {
-    children: {
-      defaultValue: <span>Hover me</span>,
-    },
     'aria-label': {
       type: { name: 'string' },
-      defaultValue: 'Tooltip',
       control: { type: 'text' },
     },
-    label: { defaultValue: 'Label', control: { type: 'text' } },
+    label: { control: { type: 'text' } },
     shouldWrapChildren: {
       control: { type: 'boolean' },
-      defaultValue: false,
       description: 'Is needed if you want to wrap a disabled element like a button',
     },
     hasArrow: {
       control: { type: 'boolean' },
-      defaultValue: false,
     },
     isDisabled: {
       control: { type: 'boolean' },
-      defaultValue: false,
     },
     placement: {
       options: [
@@ -48,33 +41,41 @@ export default {
         'bottom-end',
       ],
       control: { type: 'radio' },
-      defaultValue: 'bottom',
     },
     closeOnClick: {
       control: { type: 'boolean' },
-      defaultValue: false,
     },
     closeOnEsc: {
       control: { type: 'boolean' },
-      defaultValue: false,
     },
     closeOnMouseDown: {
       control: { type: 'boolean' },
-      defaultValue: false,
     },
     defaultIsOpen: {
       control: { type: 'boolean' },
-      defaultValue: false,
     },
     gutter: {
       type: { name: 'number' },
       control: { type: 'number' },
-      defaultValue: 8,
     },
   },
-} as ComponentMeta<typeof Tooltip>;
+  args: {
+    children: <span>Hover me</span>,
+    'aria-label': 'Tooltip',
+    label: 'Label',
+    shouldWrapChildren: false,
+    hasArrow: false,
+    isDisabled: false,
+    placement: 'bottom',
+    closeOnClick: false,
+    closeOnEsc: false,
+    closeOnMouseDown: false,
+    defaultIsOpen: false,
+    gutter: 8,
+  },
+} as Meta<typeof Tooltip>;
 
-const Template: ComponentStory<typeof Tooltip> = (args) => <Tooltip {...args} />;
+const Template: StoryFn<typeof Tooltip> = (args) => <Tooltip {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};

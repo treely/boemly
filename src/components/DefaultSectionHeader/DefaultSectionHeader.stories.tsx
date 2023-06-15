@@ -1,16 +1,14 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { DefaultSectionHeader } from './DefaultSectionHeader';
 
 export default {
   title: 'components/DefaultSectionHeader',
   component: DefaultSectionHeader,
-} as ComponentMeta<typeof DefaultSectionHeader>;
+} as Meta<typeof DefaultSectionHeader>;
 
-const Template: ComponentStory<typeof DefaultSectionHeader> = (args) => (
-  <DefaultSectionHeader {...args} />
-);
+const Template: StoryFn<typeof DefaultSectionHeader> = (args) => <DefaultSectionHeader {...args} />;
 
 export const justTitle = Template.bind({});
 justTitle.args = {

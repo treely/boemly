@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { useDisclosure } from '@chakra-ui/react';
 
 import { MobileMenuBurger } from './MobileMenuBurger';
@@ -7,9 +7,9 @@ import { MobileMenuBurger } from './MobileMenuBurger';
 export default {
   title: 'components/MobileMenuBurger',
   component: MobileMenuBurger,
-} as ComponentMeta<typeof MobileMenuBurger>;
+} as Meta<typeof MobileMenuBurger>;
 
-const Template: ComponentStory<typeof MobileMenuBurger> = (args) => {
+const Template: StoryFn<typeof MobileMenuBurger> = (args) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return <MobileMenuBurger {...args} isOpen={isOpen} onClose={onToggle} onOpen={onToggle} />;

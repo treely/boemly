@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { PortfolioCard } from './PortfolioCard';
 import { storybookCoverUrl } from '../../test/storybookMedia';
@@ -7,9 +7,9 @@ import { storybookCoverUrl } from '../../test/storybookMedia';
 export default {
   title: 'components/PortfolioCard',
   component: PortfolioCard,
-} as ComponentMeta<typeof PortfolioCard>;
+} as Meta<typeof PortfolioCard>;
 
-const Template: ComponentStory<typeof PortfolioCard> = (args) => <PortfolioCard {...args} />;
+const Template: StoryFn<typeof PortfolioCard> = (args) => <PortfolioCard {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { SplitScreen } from './SplitScreen';
 
@@ -18,9 +18,9 @@ export default {
       </div>
     ),
   },
-} as ComponentMeta<typeof SplitScreen>;
+} as Meta<typeof SplitScreen>;
 
-const Template: ComponentStory<typeof SplitScreen> = (args) => <SplitScreen {...args} />;
+const Template: StoryFn<typeof SplitScreen> = (args) => <SplitScreen {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

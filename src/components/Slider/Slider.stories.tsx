@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { BoemlySlider as Slider } from './Slider';
 
@@ -9,14 +9,16 @@ export default {
   argTypes: {
     ariaLabel: {
       type: { name: 'string', required: true },
-      defaultValue: 'Label',
       control: { type: 'text' },
     },
     onChange: { action: 'Slider changed' },
   },
-} as ComponentMeta<typeof Slider>;
+  args: {
+    ariaLabel: 'Label',
+  },
+} as Meta<typeof Slider>;
 
-const Template: ComponentStory<typeof Slider> = (args) => <Slider {...args} />;
+const Template: StoryFn<typeof Slider> = (args) => <Slider {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};

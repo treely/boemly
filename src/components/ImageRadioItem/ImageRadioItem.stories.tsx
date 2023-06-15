@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { ImageRadioItem } from '.';
 import { storybookMapThumbnailUrl } from '../../test/storybookMedia';
@@ -12,9 +12,9 @@ export default {
     title: 'Title',
     value: 'value',
   },
-} as ComponentMeta<typeof ImageRadioItem>;
+} as Meta<typeof ImageRadioItem>;
 
-const Template: ComponentStory<typeof ImageRadioItem> = (args) => <ImageRadioItem {...args} />;
+const Template: StoryFn<typeof ImageRadioItem> = (args) => <ImageRadioItem {...args} />;
 
 export const DefaultProps = Template.bind({});
 DefaultProps.args = {};

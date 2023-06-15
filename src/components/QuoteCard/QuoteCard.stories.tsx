@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { QuoteCard } from './QuoteCard';
 import { storybookAvatarUrl } from '../../test/storybookMedia';
@@ -7,9 +7,9 @@ import { storybookAvatarUrl } from '../../test/storybookMedia';
 export default {
   title: 'components/QuoteCard',
   component: QuoteCard,
-} as ComponentMeta<typeof QuoteCard>;
+} as Meta<typeof QuoteCard>;
 
-const Template: ComponentStory<typeof QuoteCard> = (args) => <QuoteCard {...args} />;
+const Template: StoryFn<typeof QuoteCard> = (args) => <QuoteCard {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

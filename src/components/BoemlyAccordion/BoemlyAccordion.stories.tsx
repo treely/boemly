@@ -1,14 +1,14 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { BoemlyAccordion } from './BoemlyAccordion';
 
 export default {
   title: 'components/BoemlyAccordion',
   component: BoemlyAccordion,
-} as ComponentMeta<typeof BoemlyAccordion>;
+} as Meta<typeof BoemlyAccordion>;
 
-const Template: ComponentStory<typeof BoemlyAccordion> = (args) => <BoemlyAccordion {...args} />;
+const Template: StoryFn<typeof BoemlyAccordion> = (args) => <BoemlyAccordion {...args} />;
 
 const rows = [
   { id: 1, key: 'Key 1', value: 'Value 1' },

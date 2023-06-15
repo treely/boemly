@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import { Button } from '../..';
 import { Heart } from 'phosphor-react';
@@ -11,7 +11,6 @@ export default {
   component: Button,
   argTypes: {
     onClick: { action: 'Button clicked' },
-    children: { defaultValue: 'Button' },
     size: {
       options: ['xs', 'sm', 'md', 'lg', 'xl'],
       control: { type: 'radio' },
@@ -28,9 +27,12 @@ export default {
     isDisabled: { control: { type: 'boolean' } },
     isFullWidth: { control: { type: 'boolean' } },
   },
-} as ComponentMeta<typeof Button>;
+  args: {
+    children: 'Button',
+  },
+} as Meta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
@@ -43,7 +45,6 @@ Link.args = {
 
 export const Outline = Template.bind({});
 Outline.args = {
-  children: 'Button',
   size: 'md',
   variant: 'outline',
 };
@@ -59,7 +60,6 @@ OutlineWhite.parameters = {
 
 export const Ghost = Template.bind({});
 Ghost.args = {
-  children: 'Button',
   size: 'md',
   variant: 'ghost',
 };

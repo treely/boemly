@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { LabelNumberPair } from './LabelNumberPair';
 
@@ -10,9 +10,9 @@ export default {
     label: 'Label',
     number: '1.23',
   },
-} as ComponentMeta<typeof LabelNumberPair>;
+} as Meta<typeof LabelNumberPair>;
 
-const Template: ComponentStory<typeof LabelNumberPair> = (args) => <LabelNumberPair {...args} />;
+const Template: StoryFn<typeof LabelNumberPair> = (args) => <LabelNumberPair {...args} />;
 
 export const DefaultProps = Template.bind({});
 DefaultProps.args = {};

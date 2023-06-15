@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { DatePicker } from './DatePicker';
 
 export default {
@@ -13,7 +13,7 @@ export default {
     yearRange: {
       control: { type: 'object' },
     },
-    placeholder: { type: 'string', defaultValue: 'Placeholder' },
+    placeholder: { type: 'string' },
     onSelect: {
       type: 'function',
       description: 'Gets called every time the user clicks on a date',
@@ -24,9 +24,12 @@ export default {
         'Only gets called if the date the user clicked on is not the one provided in `value`',
     },
   },
-} as ComponentMeta<typeof DatePicker>;
+  args: {
+    placeholder: 'Placeholder',
+  },
+} as Meta<typeof DatePicker>;
 
-const Template: ComponentStory<typeof DatePicker> = (args) => {
+const Template: StoryFn<typeof DatePicker> = (args) => {
   const [date, setDate] = useState<Date | undefined>(undefined);
 
   return <DatePicker {...args} value={date} onChange={setDate} />;

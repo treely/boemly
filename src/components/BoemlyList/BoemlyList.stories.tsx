@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { Heart } from 'phosphor-react';
 import { BoemlyList } from './BoemlyList';
@@ -17,9 +17,9 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as ComponentMeta<typeof BoemlyList>;
+} as Meta<typeof BoemlyList>;
 
-const Template: ComponentStory<typeof BoemlyList> = (args) => <BoemlyList {...args} />;
+const Template: StoryFn<typeof BoemlyList> = (args) => <BoemlyList {...args} />;
 
 const listItems = [
   { id: 1, text: 'One' },

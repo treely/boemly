@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { Layout } from './Layout';
 
@@ -44,9 +44,9 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as ComponentMeta<typeof Layout>;
+} as Meta<typeof Layout>;
 
-const Template: ComponentStory<typeof Layout> = (args) => <Layout {...args} />;
+const Template: StoryFn<typeof Layout> = (args) => <Layout {...args} />;
 
 export const DefaultProps = Template.bind({});
 DefaultProps.args = {};

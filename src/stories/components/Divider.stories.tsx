@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import { Box, Divider } from '../..';
 
@@ -10,17 +10,19 @@ export default {
     variant: {
       options: ['solid', 'dashed'],
       control: { type: 'radio' },
-      defaultValue: 'solid',
     },
     orientation: {
       options: ['vertical', 'horizontal'],
       control: { type: 'radio' },
-      defaultValue: 'horizontal',
     },
   },
-} as ComponentMeta<typeof Divider>;
+  args: {
+    variant: 'solid',
+    orientation: 'horizontal',
+  },
+} as Meta<typeof Divider>;
 
-const Template: ComponentStory<typeof Divider> = (args) => (
+const Template: StoryFn<typeof Divider> = (args) => (
   <Box width="md" height="md">
     <Divider {...args} />
   </Box>

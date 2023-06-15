@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { DeleteConfirm } from './DeleteConfirm';
 import { Button, useDisclosure } from '@chakra-ui/react';
@@ -8,15 +8,20 @@ export default {
   title: 'components/DeleteConfirm',
   component: DeleteConfirm,
   argTypes: {
-    title: { type: { name: 'string' }, defaultValue: 'Delete' },
+    title: { type: { name: 'string' } },
     text: { type: { name: 'string' } },
-    deleteText: { type: { name: 'string' }, defaultValue: 'Delete' },
-    cancelText: { type: { name: 'string' }, defaultValue: 'Cancel' },
+    deleteText: { type: { name: 'string' } },
+    cancelText: { type: { name: 'string' } },
     onDelete: { action: 'Delete' },
   },
-} as ComponentMeta<typeof DeleteConfirm>;
+  args: {
+    title: 'Delete',
+    deleteText: 'Delete',
+    cancelText: 'Cancel',
+  },
+} as Meta<typeof DeleteConfirm>;
 
-const Template: ComponentStory<typeof DeleteConfirm> = (args) => {
+const Template: StoryFn<typeof DeleteConfirm> = (args) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (

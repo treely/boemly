@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { storybookAvatarUrl } from '../../test/storybookMedia';
 import { DatePersonPair } from './DatePersonPair';
@@ -7,9 +7,9 @@ import { DatePersonPair } from './DatePersonPair';
 export default {
   title: 'components/DatePersonPair',
   component: DatePersonPair,
-} as ComponentMeta<typeof DatePersonPair>;
+} as Meta<typeof DatePersonPair>;
 
-const Template: ComponentStory<typeof DatePersonPair> = (args) => <DatePersonPair {...args} />;
+const Template: StoryFn<typeof DatePersonPair> = (args) => <DatePersonPair {...args} />;
 
 export const DateOnly = Template.bind({});
 DateOnly.args = {

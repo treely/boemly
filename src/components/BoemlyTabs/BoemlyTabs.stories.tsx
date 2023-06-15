@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { BoemlyTabs } from './BoemlyTabs';
 
@@ -12,9 +12,9 @@ export default {
       { key: 'tab-2', title: 'Tab 2 Title', content: <div>Tab 2 Content</div> },
     ],
   },
-} as ComponentMeta<typeof BoemlyTabs>;
+} as Meta<typeof BoemlyTabs>;
 
-const Template: ComponentStory<typeof BoemlyTabs> = (args) => <BoemlyTabs {...args} />;
+const Template: StoryFn<typeof BoemlyTabs> = (args) => <BoemlyTabs {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};

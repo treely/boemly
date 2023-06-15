@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { RichText } from './RichText';
 import { storybookCoverUrl } from '../../test/storybookMedia';
@@ -13,9 +13,9 @@ export default {
     textProps: { control: { type: 'object' } },
     listProps: { control: { type: 'object' } },
   },
-} as ComponentMeta<typeof RichText>;
+} as Meta<typeof RichText>;
 
-const Template: ComponentStory<typeof RichText> = (args) => <RichText {...args} />;
+const Template: StoryFn<typeof RichText> = (args) => <RichText {...args} />;
 
 const richText = `
 # Heading 1

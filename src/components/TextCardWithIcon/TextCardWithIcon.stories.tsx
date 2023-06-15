@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { TextCardWithIcon } from './TextCardWithIcon';
 import { Heart } from 'phosphor-react';
@@ -12,9 +12,9 @@ export default {
     text: 'Text',
     icon: <Heart size={28} />,
   },
-} as ComponentMeta<typeof TextCardWithIcon>;
+} as Meta<typeof TextCardWithIcon>;
 
-const Template: ComponentStory<typeof TextCardWithIcon> = (args) => <TextCardWithIcon {...args} />;
+const Template: StoryFn<typeof TextCardWithIcon> = (args) => <TextCardWithIcon {...args} />;
 
 export const DefaultProps = Template.bind({});
 DefaultProps.args = {};

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import { Select } from '../..';
 
@@ -22,9 +22,9 @@ export default {
     onChange: { action: 'Select changed' },
     value: { control: { type: 'text' } },
   },
-} as ComponentMeta<typeof Select>;
+} as Meta<typeof Select>;
 
-const Template: ComponentStory<typeof Select> = (args) => (
+const Template: StoryFn<typeof Select> = (args) => (
   <Select {...args}>
     <option value="option_1">Option 1</option>
     <option value="option_2">Option 2</option>

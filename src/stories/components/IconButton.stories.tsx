@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import { IconButton } from '../..';
 import { Heart } from 'phosphor-react';
@@ -10,12 +10,8 @@ export default {
   title: 'Components/IconButton',
   component: IconButton,
   argTypes: {
-    icon: {
-      defaultValue: <Heart />,
-    },
     'aria-label': {
       type: { name: 'string', required: true },
-      defaultValue: 'Heart button',
       control: { type: 'text' },
     },
     onClick: { action: 'IconButton clicked' },
@@ -35,9 +31,13 @@ export default {
     isDisabled: { control: { type: 'boolean' } },
     isRound: { control: { type: 'boolean' } },
   },
-} as ComponentMeta<typeof IconButton>;
+  args: {
+    icon: <Heart />,
+    'aria-label': 'Heart button',
+  },
+} as Meta<typeof IconButton>;
 
-const Template: ComponentStory<typeof IconButton> = (args) => <IconButton {...args} />;
+const Template: StoryFn<typeof IconButton> = (args) => <IconButton {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

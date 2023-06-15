@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Flex } from '@chakra-ui/react';
 
 import { ImageRadioGroup } from '.';
@@ -30,9 +30,9 @@ export default {
   title: 'components/ImageRadioGroup',
 
   component: Wrapper,
-} as ComponentMeta<typeof Wrapper>;
+} as Meta<typeof Wrapper>;
 
-const Template: ComponentStory<typeof Wrapper> = () => <Wrapper />;
+const Template: StoryFn<typeof Wrapper> = () => <Wrapper />;
 
 export const DefaultProps = Template.bind({});
 DefaultProps.args = {};

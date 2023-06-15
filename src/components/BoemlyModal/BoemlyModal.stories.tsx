@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { BoemlyModal } from './BoemlyModal';
 import { useDisclosure } from '@chakra-ui/react';
@@ -13,9 +13,9 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as ComponentMeta<typeof BoemlyModal>;
+} as Meta<typeof BoemlyModal>;
 
-const Template: ComponentStory<typeof BoemlyModal> = (args) => {
+const Template: StoryFn<typeof BoemlyModal> = (args) => {
   const { onOpen, onClose, isOpen } = useDisclosure();
 
   return (

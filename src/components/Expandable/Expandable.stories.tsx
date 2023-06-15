@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { Heart } from 'phosphor-react';
 import { Heading, Tag, useDisclosure } from '@chakra-ui/react';
@@ -8,7 +8,7 @@ import { Expandable } from './Expandable';
 export default {
   title: 'components/Expandable',
   component: Expandable,
-} as ComponentMeta<typeof Expandable>;
+} as Meta<typeof Expandable>;
 
 const Children: React.FC = () => {
   useEffect(() => {
@@ -18,7 +18,7 @@ const Children: React.FC = () => {
   return <Heading>Children</Heading>;
 };
 
-const Template: ComponentStory<typeof Expandable> = (args) => {
+const Template: StoryFn<typeof Expandable> = (args) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { storybookAvatarUrl } from '../../test/storybookMedia';
 import { ContactArea } from './ContactArea';
@@ -7,9 +7,9 @@ import { ContactArea } from './ContactArea';
 export default {
   title: 'components/ContactArea',
   component: ContactArea,
-} as ComponentMeta<typeof ContactArea>;
+} as Meta<typeof ContactArea>;
 
-const Template: ComponentStory<typeof ContactArea> = (args) => <ContactArea {...args} />;
+const Template: StoryFn<typeof ContactArea> = (args) => <ContactArea {...args} />;
 
 export const DefaultProps = Template.bind({});
 DefaultProps.args = {

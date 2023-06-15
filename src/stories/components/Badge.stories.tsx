@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import { Badge } from '../..';
 import { COLOR_SCHEMES } from '../../constants/colorSchemes';
@@ -8,7 +8,6 @@ export default {
   title: 'Components/Badge',
   component: Badge,
   argTypes: {
-    children: { defaultValue: 'Badge' },
     variant: {
       options: ['solid', 'subtle', 'outline'],
       control: { type: 'radio' },
@@ -16,12 +15,15 @@ export default {
     colorScheme: {
       options: COLOR_SCHEMES,
       control: { type: 'radio' },
-      defaultValue: 'primary',
     },
   },
-} as ComponentMeta<typeof Badge>;
+  args: {
+    children: 'Badge',
+    colorScheme: 'primary',
+  },
+} as Meta<typeof Badge>;
 
-const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />;
+const Template: StoryFn<typeof Badge> = (args) => <Badge {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

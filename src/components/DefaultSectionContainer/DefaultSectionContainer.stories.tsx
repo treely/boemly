@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { DefaultSectionContainer } from './DefaultSectionContainer';
 
@@ -20,9 +20,9 @@ export default {
       </div>
     ),
   },
-} as ComponentMeta<typeof DefaultSectionContainer>;
+} as Meta<typeof DefaultSectionContainer>;
 
-const Template: ComponentStory<typeof DefaultSectionContainer> = (args) => (
+const Template: StoryFn<typeof DefaultSectionContainer> = (args) => (
   <DefaultSectionContainer {...args} />
 );
 

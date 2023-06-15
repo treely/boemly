@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { storybookAvatarUrl } from '../../test/storybookMedia';
 import { AvatarWithName } from './AvatarWithName';
@@ -7,9 +7,9 @@ import { AvatarWithName } from './AvatarWithName';
 export default {
   title: 'components/AvatarWithName',
   component: AvatarWithName,
-} as ComponentMeta<typeof AvatarWithName>;
+} as Meta<typeof AvatarWithName>;
 
-const Template: ComponentStory<typeof AvatarWithName> = (args) => <AvatarWithName {...args} />;
+const Template: StoryFn<typeof AvatarWithName> = (args) => <AvatarWithName {...args} />;
 
 export const Horizontal = Template.bind({});
 Horizontal.args = {

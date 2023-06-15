@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { BoemlyAlert } from './BoemlyAlert';
 
@@ -11,9 +11,9 @@ export default {
     text: { type: { name: 'string' } },
     onClose: { action: 'Close Boemly alert' },
   },
-} as ComponentMeta<typeof BoemlyAlert>;
+} as Meta<typeof BoemlyAlert>;
 
-const Template: ComponentStory<typeof BoemlyAlert> = (args) => <BoemlyAlert {...args} />;
+const Template: StoryFn<typeof BoemlyAlert> = (args) => <BoemlyAlert {...args} />;
 
 export const Info = Template.bind({});
 Info.args = {

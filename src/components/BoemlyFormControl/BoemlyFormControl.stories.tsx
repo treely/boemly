@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import {
   Box,
@@ -33,11 +33,9 @@ export default {
     isDisabled: { control: { type: 'boolean' } },
     isReadOnly: { control: { type: 'boolean' } },
   },
-} as ComponentMeta<typeof BoemlyFormControl>;
+} as Meta<typeof BoemlyFormControl>;
 
-const Template: ComponentStory<typeof BoemlyFormControl> = (args) => (
-  <BoemlyFormControl {...args} />
-);
+const Template: StoryFn<typeof BoemlyFormControl> = (args) => <BoemlyFormControl {...args} />;
 
 export const InputOnly = Template.bind({});
 InputOnly.args = {
