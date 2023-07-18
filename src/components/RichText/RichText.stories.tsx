@@ -9,6 +9,7 @@ export default {
   title: 'components/RichText',
   component: RichText,
   argTypes: {
+    options: { control: { type: 'object' } },
     headingProps: { control: { type: 'object' } },
     textProps: { control: { type: 'object' } },
     listProps: { control: { type: 'object' } },

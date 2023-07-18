@@ -120,4 +120,31 @@ function add(a, b) {
 
     expect(screen.getByText('(a, b) {')).toBeInTheDocument();
   });
+
+  describe('provides an option interface that', () => {
+    it('forces multi line content as inline', () => {
+      setup({ options: { forceInline: true } });
+
+      expect(screen.getByTestId('rt-wrapper-span')).toBeInTheDocument();
+      expect(screen.queryByTestId('rt-wrapper-div')).not.toBeInTheDocument();
+
+      expect(screen.getByRole('heading', { level: 2 }).parentElement).toBe(
+        screen.getByTestId('rt-wrapper-span')
+      );
+    });
+
+    it('forces single line content as a block', () => {
+      setup({
+        options: { forceBlock: true },
+        content: '*Emphasised Text*',
+      });
+
+      expect(screen.getByTestId('rt-wrapper-div')).toBeInTheDocument();
+      expect(screen.queryByTestId('rt-wrapper-span')).not.toBeInTheDocument();
+
+      expect(screen.getByText('Emphasised Text').parentElement).toBe(
+        screen.getByTestId('rt-wrapper-div')
+      );
+    });
+  });
 });
