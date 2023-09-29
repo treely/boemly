@@ -10,7 +10,7 @@ import {
 import React, { ReactNode } from 'react';
 
 export interface BoemlyModalProps {
-  title: string;
+  title: string | ReactNode;
   content: ReactNode;
   onClose: () => void;
   isOpen: boolean;

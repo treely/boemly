@@ -22,7 +22,7 @@ describe('The BoemlyModal component', () => {
   it('displays the title', () => {
     setup();
 
-    expect(screen.getByText(defaultProps.title)).toBeInTheDocument();
+    expect(screen.getByText('Title')).toBeInTheDocument();
   });
 
   it('displays the content', () => {
@@ -46,6 +46,6 @@ describe('The BoemlyModal component', () => {
   it('renders without error in specific size', () => {
     setup({ size: '2xl' });
 
-    expect(screen.getByText(defaultProps.title)).toBeInTheDocument();
+    expect(screen.getByText('Title')).toBeInTheDocument();
   });
 });

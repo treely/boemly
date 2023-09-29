@@ -2,7 +2,7 @@ import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 
 import { BoemlyModal } from './BoemlyModal';
-import { useDisclosure } from '@chakra-ui/react';
+import { Flex, Heading, Text, useDisclosure } from '@chakra-ui/react';
 
 export default {
   title: 'components/BoemlyModal',
@@ -47,6 +47,21 @@ export const Size = Template.bind({});
 Size.args = {
   isOpen: true,
   title: 'Title',
+  content: <div>Content</div>,
+  footer: <button>Button</button>,
+  size: '3xl',
+};
+
+export const WithCustomTitle = Template.bind({});
+WithCustomTitle.args = {
+  title: (
+    <Flex flexDir="row">
+      <Heading color="red">Custom title</Heading>
+      <Text color="grey" size="1px">
+        -with custom subtitle
+      </Text>
+    </Flex>
+  ),
   content: <div>Content</div>,
   footer: <button>Button</button>,
   size: '3xl',
