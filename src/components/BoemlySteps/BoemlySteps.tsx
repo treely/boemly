@@ -7,7 +7,7 @@ import StepDivider from './StepDivider';
 export interface BoemlyStepsProps {
   steps: {
     text: string;
-    onClick: () => void;
+    onClick?: () => void;
   }[];
   currentStep: number;
   orientation?: 'vertical' | 'horizontal';
@@ -89,7 +89,13 @@ export const BoemlySteps: React.FC<BoemlyStepsProps> = ({
         }
 
         return (
-          <Flex key={stepNum} flexDir="row" alignItems="center" cursor="pointer" onClick={onClick}>
+          <Flex
+            key={stepNum}
+            flexDir="row"
+            alignItems="center"
+            cursor={onClick ? 'pointer' : undefined}
+            onClick={onClick}
+          >
             {point}
             <Text size="smLowNormal" color="black" ml="3">
               {text}

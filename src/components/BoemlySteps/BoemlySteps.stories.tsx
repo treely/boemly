@@ -39,3 +39,9 @@ Horizontal.args = {
   orientation: 'horizontal',
   currentStep: 2,
 };
+
+export const NotClickable = Template.bind({});
+NotClickable.args = {
+  steps: [{ text: 'Step 1' }, { text: 'Step 2' }, { text: 'Step 3' }, { text: 'Step 4' }],
+  currentStep: 2,
+};
