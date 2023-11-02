@@ -16,7 +16,7 @@ export interface BoemlyModalProps {
   isOpen: boolean;
   trigger: ReactNode;
   footer?: ReactNode;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | 'full';
 }
 
 export const BoemlyModal: React.FC<BoemlyModalProps> = ({
