@@ -1,6 +1,6 @@
 import { Box, Button, Center, Divider, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react';
 import { css } from '@emotion/react';
-import { Heart } from 'phosphor-react';
+import { Heart } from '@phosphor-icons/react';
 import React, { ReactNode } from 'react';
 
 export interface PortfolioCardProps {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CaretDown } from 'phosphor-react';
+import { CaretDown } from '@phosphor-icons/react';
 
 export const CustomizedHeading = {
   baseStyle: {

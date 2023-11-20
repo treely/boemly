@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Button } from '../..';
-import { Heart } from 'phosphor-react';
+import { Heart } from '@phosphor-icons/react';
 import { COLOR_SCHEMES } from '../../constants/colorSchemes';
 import { BUTTON_VARIANTS } from '../../constants/buttonVariants';
 

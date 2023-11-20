@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart } from 'phosphor-react';
+import { Heart } from '@phosphor-icons/react';
 import { render, screen } from '../../test/testUtils';
 import { BoemlyListProps } from './BoemlyList';
 import { BoemlyList } from '.';

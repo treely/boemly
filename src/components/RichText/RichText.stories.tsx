@@ -3,7 +3,7 @@ import { StoryFn, Meta } from '@storybook/react';
 
 import { RichText } from './RichText';
 import { storybookCoverUrl } from '../../test/storybookMedia';
-import { Heart } from 'phosphor-react';
+import { Heart } from '@phosphor-icons/react';
 
 export default {
   title: 'components/RichText',

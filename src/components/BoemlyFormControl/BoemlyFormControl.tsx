@@ -25,7 +25,7 @@ import {
   useMediaQuery,
   useToken,
 } from '@chakra-ui/react';
-import { CaretDown, CaretUp, Check, WarningOctagon } from 'phosphor-react';
+import { CaretDown, CaretUp, Check, WarningOctagon } from '@phosphor-icons/react';
 import { DatePicker, DatePickerProps } from '../DatePicker/DatePicker';
 import InputSize from '../../types/InputSize';
 import { SliderProps } from '../Slider/Slider';

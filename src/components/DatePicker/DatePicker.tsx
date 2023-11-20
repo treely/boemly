@@ -11,7 +11,7 @@ import {
   Select,
   Spacer,
 } from '@chakra-ui/react';
-import { CalendarBlank, CaretLeft, CaretRight } from 'phosphor-react';
+import { CalendarBlank, CaretLeft, CaretRight } from '@phosphor-icons/react';
 import React, { useMemo, useRef } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import de from 'date-fns/locale/de';

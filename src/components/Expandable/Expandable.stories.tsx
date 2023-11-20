@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 
-import { Heart } from 'phosphor-react';
+import { Heart } from '@phosphor-icons/react';
 import { Heading, Tag, useDisclosure } from '@chakra-ui/react';
 import { Expandable } from './Expandable';
 
