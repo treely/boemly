@@ -2,7 +2,7 @@ import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 
 import { TextCardWithIcon } from './TextCardWithIcon';
-import { Heart } from 'phosphor-react';
+import { Heart } from '@phosphor-icons/react';
 
 export default {
   title: 'components/TextCardWithIcon',

@@ -1,6 +1,6 @@
 import { Box, Divider, Heading, SimpleGrid, Text, useToken } from '@chakra-ui/react';
 import { css } from '@emotion/react';
-import { ArrowsOutSimple, MapPin } from 'phosphor-react';
+import { ArrowsOutSimple, MapPin } from '@phosphor-icons/react';
 import React, { ReactNode } from 'react';
 
 export interface ProjectCardProps {

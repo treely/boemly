@@ -1,7 +1,7 @@
 import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 
-import { Heart } from 'phosphor-react';
+import { Heart } from '@phosphor-icons/react';
 import { BoemlyList } from './BoemlyList';
 import { TEXT_SIZES } from '../../constants/textSizes';
 

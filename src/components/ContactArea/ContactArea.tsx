@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Divider, Heading, Text } from '@chakra-ui/react';
-import { ArrowRight } from 'phosphor-react';
+import { ArrowRight } from '@phosphor-icons/react';
 import { AvatarWithName, AvatarWithNameProps } from '../AvatarWithName/AvatarWithName';
 import { Container } from '../Container';
 

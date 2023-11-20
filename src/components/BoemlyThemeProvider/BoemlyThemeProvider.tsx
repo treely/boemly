@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChakraProvider, Colors } from '@chakra-ui/react';
-import { IconContext } from 'phosphor-react';
+import { IconContext } from '@phosphor-icons/react';
 import { Global } from '@emotion/react';
 import getTheme from '../../utils/getTheme';
 import iconCustomizations from '../../constants/iconCustomizations';

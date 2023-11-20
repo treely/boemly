@@ -8,7 +8,7 @@ import {
   InputRightAddon,
   InputRightElement,
 } from '@chakra-ui/react';
-import { Heart } from 'phosphor-react';
+import { Heart } from '@phosphor-icons/react';
 import { BoemlyFormControl } from './BoemlyFormControl';
 import { INPUT_SIZES } from '../../constants/inputSizes';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Text, useToken, Stack } from '@chakra-ui/react';
 import type { StackDirection } from '@chakra-ui/react';
-import { Check } from 'phosphor-react';
+import { Check } from '@phosphor-icons/react';
 import StepDivider from './StepDivider';
 
 export interface BoemlyStepsProps {

@@ -39,7 +39,7 @@
   "size-limit": [
     {
       "path": "dist/boemly.cjs.production.min.js",
-      "limit": "1.2 MB"
+      "limit": "1.8 MB"
     },
     {
       "path": "dist/boemly.esm.js",
@@ -84,9 +84,9 @@
     "@chakra-ui/react": "^2.0.0",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@phosphor-icons/react": "^2.0.14",
     "framer-motion": "^7.3.6",
     "markdown-to-jsx": "^7.1.6",
-    "phosphor-react": "^1.4.0",
     "react-datepicker": "^4.8.0",
     "react-syntax-highlighter": "^15.5.0",
     "react-use": "^17.4.0"

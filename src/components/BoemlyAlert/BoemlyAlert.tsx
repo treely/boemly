@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Alert, CloseButton, Flex, Text, useToken } from '@chakra-ui/react';
-import { CheckCircle, Info, WarningCircle, WarningOctagon } from 'phosphor-react';
+import { CheckCircle, Info, WarningCircle, WarningOctagon } from '@phosphor-icons/react';
 
 export interface BoemlyAlertProps {
   status?: 'success' | 'error' | 'warning' | 'info';
