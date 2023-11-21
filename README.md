@@ -1,6 +1,6 @@
 # 🌳 Boemly
 
-![Boemly logo](https://cdn.tree.ly/assets/v3/boemly-banner@2x.webp)
+![Boemly banner](https://cdn.tree.ly/assets/v3/boemly-banner@2x.webp)
 
 [![Actions Status](https://github.com/treely/boemly/workflows/CI/badge.svg?branch=main)](https://github.com/treely/boemly/actions)
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
