@@ -1,6 +1,7 @@
 import {
   Box,
   Center,
+  Flex,
   List,
   ListIcon,
   ListItem,
@@ -37,28 +38,36 @@ export const BoemlyList: React.FC<BoemlyListProps> = ({
   return (
     <List spacing="4" as={ordered ? 'ol' : 'ul'} {...props}>
       {listItems.map(({ id, text }, index) => (
-        <ListItem key={id} display="flex" alignItems="center">
-          <ListIcon
-            as={() => (
-              <Center
-                __css={styles.icon}
-                width="6"
-                height="6"
-                minWidth="6"
-                borderRadius="lg"
-                float="left"
-                mr="4"
-              >
-                {ordered ? (
-                  <Text size="xsLowBold" color="black">
-                    {index + 1}
-                  </Text>
-                ) : (
-                  icon
-                )}
-              </Center>
-            )}
-          />
+        <ListItem key={id} display="flex" alignItems="baseline">
+          <Flex alignItems="center" position="relative">
+            {/* Insert a zero-width character so that `align-items: baseline` 
+                aligns the icon to the first line of the text */}
+            <Text size={textSize} as="span">
+              &zwnj;
+            </Text>
+
+            <ListIcon
+              as={() => (
+                <Center
+                  __css={styles.icon}
+                  width="6"
+                  height="6"
+                  minWidth="6"
+                  borderRadius="lg"
+                  float="left"
+                  mr="4"
+                >
+                  {ordered ? (
+                    <Text size="xsLowBold" color="black">
+                      {index + 1}
+                    </Text>
+                  ) : (
+                    icon
+                  )}
+                </Center>
+              )}
+            />
+          </Flex>
 
           <Text size={textSize} color={textColor}>
             {text}
