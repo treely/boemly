@@ -1,6 +1,9 @@
 import { css } from '@emotion/react';
 
 const datePickerStyle = css`
+  .react-datepicker__aria-live {
+    display: none;
+  }
   .react-datepicker__year-read-view--down-arrow,
   .react-datepicker__month-read-view--down-arrow,
   .react-datepicker__month-year-read-view--down-arrow,
