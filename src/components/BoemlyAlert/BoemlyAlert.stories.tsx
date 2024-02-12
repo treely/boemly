@@ -15,6 +15,12 @@ export default {
 
 const Template: StoryFn<typeof BoemlyAlert> = (args) => <BoemlyAlert {...args} />;
 
+export const Loading = Template.bind({});
+Loading.args = {
+  status: 'loading',
+  text: 'Is loading...',
+};
+
 export const Info = Template.bind({});
 Info.args = {
   text: 'Info',
