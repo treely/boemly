@@ -52,6 +52,9 @@ export const DefaultSectionHeader: React.FC<DefaultSectionHeaderProps> = ({
             color: textProps.color || 'gray.500',
             size: isHero ? 'lgRegularNormal' : 'mdRegularNormal',
           }}
+          listProps={{
+            textColor: (textProps.color as string) || 'gray.500',
+          }}
         />
       </Box>
     )}
