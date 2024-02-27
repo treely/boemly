@@ -460,6 +460,14 @@ export const CustomizedPinInput = {
   },
 };
 
+export const CustomizedProgress = {
+  baseStyle: {
+    track: {
+      borderRadius: 'full',
+    },
+  },
+};
+
 export const CustomizedTextarea = {
   sizes: {
     xl: {
