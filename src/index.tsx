@@ -61,6 +61,7 @@ export {
   MenuButton,
   MenuList,
   MenuItem,
+  Progress,
   Select,
   SimpleGrid,
   Spacer,
