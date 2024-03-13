@@ -27,6 +27,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <Box
+      height="full"
       position="relative"
       borderRadius="2xl"
       boxShadow="lg"
