@@ -4,8 +4,10 @@ interface TextCardWithIconContainerProps {
   displayAs: 'row' | 'column';
 }
 export const TextCardWithIconContainer = styled.div<TextCardWithIconContainerProps>`
-  box-shadow: var(--boemly-shadows-lg);
+  border: 1.5px solid var(--boemly-colors-gray-200);
   border-radius: var(--boemly-radii-2xl);
+
+  height: var(--boemly-sizes-full);
 
   padding: var(--boemly-space-8) var(--boemly-space-6);
 
