@@ -5,7 +5,7 @@ export interface TextCardWithIconProps {
   title: string;
   text: string;
   icon: ReactNode;
-  height: 'full' | 'auto';
+  height?: 'full' | 'auto';
 
   displayAs?: 'row' | 'column';
 }
