@@ -6,6 +6,7 @@ import { TextCardWithIconProps } from './TextCardWithIcon';
 const defaultProps: TextCardWithIconProps = {
   title: 'Title',
   text: 'Text',
+  height: 'auto',
   icon: <img alt="Alt text" src="/src" />,
 };
 
