@@ -3,6 +3,8 @@ import { Header } from '.';
 import { render, screen } from '../../test/testUtils';
 import { HeaderProps } from './Header';
 
+const mockedResult = jest.fn().mockReturnValue({ isMobile: false });
+
 const defaultProps: HeaderProps = {
   left: 'left',
   center: 'center',
@@ -15,13 +17,34 @@ const setup = (props = {}) => {
 };
 
 describe('The Header component', () => {
+  beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation(() => ({
+        matches: false,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+      })),
+    });
+  });
+  afterEach(() => {
+    mockedResult.mockClear();
+  });
+
   it('renders the left prop', () => {
     setup();
 
     expect(screen.getByText('left')).toBeInTheDocument();
   });
 
-  it('renders the center prop', () => {
+  it('renders the center prop if the screen is not mobile', () => {
+    setup();
+
+    expect(screen.getByText('center')).toBeInTheDocument();
+  });
+
+  it('does not render the center prop if the screen is mobile', () => {
+    mockedResult.mockReturnValue({ isMobile: true });
     setup();
 
     expect(screen.getByText('center')).toBeInTheDocument();

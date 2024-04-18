@@ -15,12 +15,14 @@ export const Header: React.FC<HeaderProps> = ({ left, center, right }: HeaderPro
     alignItems="center"
     justifyContent="space-between"
   >
-    <Flex width="24%" flexDir="row" justifyContent="flex-start">
+    <Flex width={['76%', null, null, '24%']} flexDir="row" justifyContent="flex-start">
       {left}
     </Flex>
-    <Flex width="50%" flexDir="row" justifyContent="center">
+
+    <Flex display={['none', null, null, 'unset']} width="50%" flexDir="row" justifyContent="center">
       {center}
     </Flex>
+
     <Flex width="24%" flexDir="row" justifyContent="flex-end">
       {right}
     </Flex>
