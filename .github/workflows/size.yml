@@ -1,8 +1,10 @@
 name: Size
+
 on: [pull_request]
+
 jobs:
   size:
-    name: Check the size of the bundles
+    name: Size
 
     runs-on: ubuntu-latest
     env:

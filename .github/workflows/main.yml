@@ -1,8 +1,10 @@
-name: CI
+name: Test
+
 on: [push]
+
 jobs:
-  build:
-    name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
+  test:
+    name: Test
 
     runs-on: ${{ matrix.os }}
     strategy:

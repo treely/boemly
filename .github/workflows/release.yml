@@ -7,6 +7,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    environment: npm
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
