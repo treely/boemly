@@ -19,7 +19,7 @@ export const Header: React.FC<HeaderProps> = ({ left, center, right }: HeaderPro
       {left}
     </Flex>
 
-    <Flex display={['none', null, null, 'unset']} width="50%" flexDir="row" justifyContent="center">
+    <Flex display={['none', null, null, 'flex']} width="50%" flexDir="row" justifyContent="center">
       {center}
     </Flex>
 
