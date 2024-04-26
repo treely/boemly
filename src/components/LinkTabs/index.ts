@@ -1,0 +1,1 @@
+export { LinkTabs } from './LinkTabs';

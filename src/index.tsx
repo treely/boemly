@@ -16,6 +16,7 @@ export * from './components/ImageRadioGroup';
 export * from './components/LabelNumberPair';
 export * from './components/LabelTextPair';
 export * from './components/Layout';
+export * from './components/LinkTabs';
 export * from './components/BoemlyList';
 export * from './components/BoemlyModal';
 export * from './components/MobileMenuBurger';
