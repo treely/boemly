@@ -46,3 +46,10 @@ Apportionment.args = {
   mobileIsOpen: false,
   apportionment: 60,
 };
+
+export const NoHeaderGap = Template.bind({});
+NoHeaderGap.args = {
+  hideLeftOnMobile: false,
+  mobileIsOpen: false,
+  showHeaderGap: false,
+};

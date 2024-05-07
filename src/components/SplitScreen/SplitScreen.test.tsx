@@ -44,6 +44,13 @@ describe('The SplitScreen component', () => {
     expect(screen.getByText('right')).toBeInTheDocument();
   });
 
+  it('renders without an error if the header gap is not shown', () => {
+    setup({ showHeaderGap: false });
+
+    expect(screen.getByText('left')).toBeInTheDocument();
+    expect(screen.getByText('right')).toBeInTheDocument();
+  });
+
   describe('on mobile', () => {
     beforeAll(() => {
       Object.defineProperty(window, 'matchMedia', {

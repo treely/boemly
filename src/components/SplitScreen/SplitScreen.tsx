@@ -12,6 +12,7 @@ export interface SplitScreenProps {
   mobileIsOpen?: boolean;
   hideLeftOnMobile?: boolean;
   apportionment?: number;
+  showHeaderGap?: boolean;
 }
 
 export const SplitScreen: React.FC<SplitScreenProps> = ({
@@ -20,6 +21,7 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
   mobileIsOpen = false,
   hideLeftOnMobile = false,
   apportionment = 42,
+  showHeaderGap = true,
 }: SplitScreenProps) => {
   useResizeEventListener();
 
@@ -34,10 +36,8 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
     mobileOpen: { top: height - 40, height: 'calc(100% - var(--boemly-space-28))' },
   };
 
-  const mobileAndLeftNotHidden = mobile && !hideLeftOnMobile;
-
   useEffect(() => {
-    if (mobileAndLeftNotHidden) {
+    if (mobile && !hideLeftOnMobile) {
       controls.start(mobileIsOpen ? 'mobileOpen' : 'mobileClosed');
     } else {
       controls.start('desktop');
@@ -50,7 +50,7 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
       <Box
         position="relative"
         height="calc(var(--viewport-height, 1vh) * 100 - var(--header-height))"
-        marginTop="var(--header-height)"
+        marginTop={showHeaderGap ? 'var(--header-height)' : '0'}
         overflow="hidden"
       >
         <Left apportionment={apportionment}>{(!mobile || !hideLeftOnMobile) && left}</Left>
