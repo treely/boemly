@@ -34,7 +34,7 @@
     "trailingComma": "es5"
   },
   "name": "boemly",
-  "author": "Tree.ly GmbH",
+  "author": "Tree.ly FlexCo",
   "module": "dist/boemly.esm.js",
   "size-limit": [
     {
