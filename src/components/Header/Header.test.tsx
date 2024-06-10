@@ -50,6 +50,12 @@ describe('The Header component', () => {
     expect(screen.getByText('center')).toBeInTheDocument();
   });
 
+  it('does not render the center prop if the hideCenter property is true', () => {
+    setup({ hideCenter: true });
+
+    expect(screen.queryByText('center')).not.toBeInTheDocument();
+  });
+
   it('renders the right prop', () => {
     setup();
 

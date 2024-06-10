@@ -5,9 +5,15 @@ export interface HeaderProps {
   left: ReactNode;
   center: ReactNode;
   right: ReactNode;
+  hideCenter?: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ left, center, right }: HeaderProps) => (
+export const Header: React.FC<HeaderProps> = ({
+  left,
+  center,
+  right,
+  hideCenter = false,
+}: HeaderProps) => (
   <Flex
     mx={['6', null, null, '8']}
     height="100%"
@@ -15,15 +21,25 @@ export const Header: React.FC<HeaderProps> = ({ left, center, right }: HeaderPro
     alignItems="center"
     justifyContent="space-between"
   >
-    <Flex width={['76%', null, null, '24%']} flexDir="row" justifyContent="flex-start">
+    <Flex
+      width={hideCenter ? '50%' : ['76%', null, null, '24%']}
+      flexDir="row"
+      justifyContent="flex-start"
+    >
       {left}
     </Flex>
+    {!hideCenter && (
+      <Flex
+        display={['none', null, null, 'flex']}
+        width="50%"
+        flexDir="row"
+        justifyContent="center"
+      >
+        {center}
+      </Flex>
+    )}
 
-    <Flex display={['none', null, null, 'flex']} width="50%" flexDir="row" justifyContent="center">
-      {center}
-    </Flex>
-
-    <Flex width="24%" flexDir="row" justifyContent="flex-end">
+    <Flex width={hideCenter ? '50%' : '24%'} flexDir="row" justifyContent="flex-end">
       {right}
     </Flex>
   </Flex>
