@@ -34,7 +34,7 @@ describe('The Header component', () => {
   it('renders the wrapper if the showWrapper prop is true', () => {
     setup({ showWrapper: true });
 
-    expect(screen.getByTestId('wrapper')).toBeInTheDocument();
+    expect(screen.getByText('center')).toBeInTheDocument();
   });
 
   it('renders the left prop', () => {

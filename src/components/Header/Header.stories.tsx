@@ -1,6 +1,7 @@
 import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 import { Header } from '.';
+import { Box } from '@chakra-ui/react';
 
 export default {
   title: 'components/Header',
@@ -43,7 +44,11 @@ export default {
   },
 } as Meta<typeof Header>;
 
-const Template: StoryFn<typeof Header> = (args) => <Header {...args} />;
+const Template: StoryFn<typeof Header> = (args) => (
+  <Box height="20" backgroundColor="primary.50">
+    <Header {...args} />
+  </Box>
+);
 
 export const DefaultProps = Template.bind({});
 DefaultProps.args = {};

@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import { Flex } from '@chakra-ui/react';
-import { Wrapper } from '../Wrapper';
 
 export interface HeaderProps {
   left: ReactNode;
@@ -17,13 +16,15 @@ export const Header: React.FC<HeaderProps> = ({
   hideCenter = false,
   showWrapper = false,
 }) => {
-  const Content = (
+  return (
     <Flex
-      mx={['6', null, null, '8']}
-      height="100%"
+      height="full"
       flexDir="row"
       alignItems="center"
       justifyContent="space-between"
+      maxWidth={showWrapper ? '7xl' : 'full'}
+      marginX={showWrapper ? 'auto' : ['6', null, null, '8']}
+      paddingX={showWrapper ? ['6', null, '8'] : undefined}
     >
       <Flex
         width={hideCenter ? '50%' : ['76%', null, null, '24%']}
@@ -48,5 +49,4 @@ export const Header: React.FC<HeaderProps> = ({
       </Flex>
     </Flex>
   );
-  return showWrapper ? <Wrapper>{Content}</Wrapper> : Content;
 };
