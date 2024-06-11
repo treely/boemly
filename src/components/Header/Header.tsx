@@ -1,11 +1,13 @@
 import React, { ReactNode } from 'react';
 import { Flex } from '@chakra-ui/react';
+import { Wrapper } from '../Wrapper';
 
 export interface HeaderProps {
   left: ReactNode;
   center: ReactNode;
   right: ReactNode;
   hideCenter?: boolean;
+  showWrapper?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -13,34 +15,38 @@ export const Header: React.FC<HeaderProps> = ({
   center,
   right,
   hideCenter = false,
-}: HeaderProps) => (
-  <Flex
-    mx={['6', null, null, '8']}
-    height="100%"
-    flexDir="row"
-    alignItems="center"
-    justifyContent="space-between"
-  >
+  showWrapper = false,
+}) => {
+  const Content = (
     <Flex
-      width={hideCenter ? '50%' : ['76%', null, null, '24%']}
+      mx={['6', null, null, '8']}
+      height="100%"
       flexDir="row"
-      justifyContent="flex-start"
+      alignItems="center"
+      justifyContent="space-between"
     >
-      {left}
-    </Flex>
-    {!hideCenter && (
       <Flex
-        display={['none', null, null, 'flex']}
-        width="50%"
+        width={hideCenter ? '50%' : ['76%', null, null, '24%']}
         flexDir="row"
-        justifyContent="center"
+        justifyContent="flex-start"
       >
-        {center}
+        {left}
       </Flex>
-    )}
+      {!hideCenter && (
+        <Flex
+          display={['none', null, null, 'flex']}
+          width="50%"
+          flexDir="row"
+          justifyContent="center"
+        >
+          {center}
+        </Flex>
+      )}
 
-    <Flex width={hideCenter ? '50%' : '24%'} flexDir="row" justifyContent="flex-end">
-      {right}
+      <Flex width={hideCenter ? '50%' : '24%'} flexDir="row" justifyContent="flex-end">
+        {right}
+      </Flex>
     </Flex>
-  </Flex>
-);
+  );
+  return showWrapper ? <Wrapper data-testid="wrapper">{Content}</Wrapper> : Content;
+};

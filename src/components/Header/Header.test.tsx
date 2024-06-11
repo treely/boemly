@@ -31,6 +31,12 @@ describe('The Header component', () => {
     mockedResult.mockClear();
   });
 
+  it('renders the wrapper if the showWrapper prop is true', () => {
+    setup({ showWrapper: true });
+
+    expect(screen.getByTestId('wrapper')).toBeInTheDocument();
+  });
+
   it('renders the left prop', () => {
     setup();
 
