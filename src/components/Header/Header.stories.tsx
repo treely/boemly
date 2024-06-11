@@ -37,9 +37,23 @@ export default {
       </div>
     ),
   },
+  argTypes: {
+    hideCenter: { control: { type: 'boolean' }, defaultValue: false },
+    showWrapper: { control: { type: 'boolean' }, defaultValue: false },
+  },
 } as Meta<typeof Header>;
 
 const Template: StoryFn<typeof Header> = (args) => <Header {...args} />;
 
 export const DefaultProps = Template.bind({});
 DefaultProps.args = {};
+
+export const hideCenter = Template.bind({});
+hideCenter.args = {
+  hideCenter: true,
+};
+
+export const showWrapper = Template.bind({});
+showWrapper.args = {
+  showWrapper: true,
+};

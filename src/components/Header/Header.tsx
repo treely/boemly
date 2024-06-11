@@ -48,5 +48,5 @@ export const Header: React.FC<HeaderProps> = ({
       </Flex>
     </Flex>
   );
-  return showWrapper ? <Wrapper data-testid="wrapper">{Content}</Wrapper> : Content;
+  return showWrapper ? <Wrapper>{Content}</Wrapper> : Content;
 };
