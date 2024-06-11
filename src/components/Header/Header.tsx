@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({
       paddingX={showWrapper ? ['6', null, '8'] : undefined}
     >
       <Flex
-        width={hideCenter ? '50%' : ['76%', null, null, '24%']}
+        width={hideCenter ? 'auto' : ['76%', null, null, '24%']}
         flexDir="row"
         justifyContent="flex-start"
       >
@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
         </Flex>
       )}
 
-      <Flex width={hideCenter ? '50%' : '24%'} flexDir="row" justifyContent="flex-end">
+      <Flex width={hideCenter ? 'auto' : '24%'} flexDir="row" justifyContent="flex-end">
         {right}
       </Flex>
     </Flex>
