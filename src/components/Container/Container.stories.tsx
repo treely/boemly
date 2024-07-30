@@ -9,6 +9,17 @@ export default {
   args: {
     children: <div>Children</div>,
   },
+  argTypes: {
+    elevation: {
+      options: ['none', 'sm', 'lg'],
+      control: { type: 'radio' },
+    },
+    padding: {
+      options: ['none', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+    fullWidth: { control: { type: 'boolean' } },
+  },
 } as Meta<typeof Container>;
 
 const Template: StoryFn<typeof Container> = (args) => <Container {...args} />;
