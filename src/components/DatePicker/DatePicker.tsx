@@ -30,7 +30,7 @@ export interface DatePickerProps extends Omit<InputGroupProps, 'onChange' | 'onS
 
   // These collide with the props inherited from `InputGroupProps`
   onChange?: (date: Date | undefined) => void;
-  onSelect?: (date: Date | undefined) => void;
+  onSelect?: (date: Date) => void;
 }
 
 export const DatePicker: React.FC<DatePickerProps> = ({
