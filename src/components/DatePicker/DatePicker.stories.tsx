@@ -41,3 +41,8 @@ export const WithYearRangeDefined = Template.bind({});
 WithYearRangeDefined.args = {
   yearRange: { start: 2020, end: 2040 },
 };
+
+export const Clearable = Template.bind({});
+Clearable.args = {
+  isClearable: true,
+};

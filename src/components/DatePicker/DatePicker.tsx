@@ -1,17 +1,18 @@
 import {
   Box,
   Flex,
-  forwardRef,
   IconButton,
   Input,
   InputGroup,
   InputGroupProps,
   InputProps,
   InputRightAddon,
+  InputRightElement,
   Select,
   Spacer,
+  forwardRef,
 } from '@chakra-ui/react';
-import { CalendarBlank, CaretLeft, CaretRight } from '@phosphor-icons/react';
+import { CalendarBlank, CaretLeft, CaretRight, X } from '@phosphor-icons/react';
 import React, { useMemo, useRef } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import de from 'date-fns/locale/de';
@@ -25,15 +26,17 @@ export interface DatePickerProps extends Omit<InputGroupProps, 'onChange' | 'onS
   locale?: 'de' | 'en' | 'fr';
   value?: Date;
   placeholder?: string;
+  isClearable?: boolean;
 
   // These collide with the props inherited from `InputGroupProps`
-  onChange?: (date: Date) => void;
-  onSelect?: (date: Date) => void;
+  onChange?: (date: Date | undefined) => void;
+  onSelect?: (date: Date | undefined) => void;
 }
 
 export const DatePicker: React.FC<DatePickerProps> = ({
   yearRange = { start: new Date().getFullYear() - 100, end: new Date().getFullYear() + 100 },
   locale = 'en',
+  isClearable = false,
   value,
   onChange,
   onSelect,
@@ -55,14 +58,32 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         placeholder={placeholder}
         readOnly
       />
-      <InputRightAddon
-        _hover={{ cursor: 'pointer' }}
-        onClick={(ev) => {
-          onClick && onClick(ev as any);
-          datePickerRef.current && datePickerRef.current.setFocus();
-        }}
-      >
-        <CalendarBlank size={16} data-testid="calendar-icon" />
+
+      {isClearable && value && (
+        <InputRightElement mr="12">
+          <IconButton
+            data-testid="clear-button"
+            aria-label="clear"
+            variant="ghost"
+            size="sm"
+            onClick={() => onChange && onChange(undefined)}
+            icon={<X size={16} />}
+          />
+        </InputRightElement>
+      )}
+
+      <InputRightAddon px="2">
+        <IconButton
+          data-testid="calendar-icon"
+          aria-label="open calendar"
+          size="sm"
+          variant="ghost"
+          icon={<CalendarBlank size={16} />}
+          onClick={(ev) => {
+            onClick && onClick(ev as any);
+            datePickerRef.current && datePickerRef.current.setFocus();
+          }}
+        />
       </InputRightAddon>
     </InputGroup>
   ));
