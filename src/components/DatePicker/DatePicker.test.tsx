@@ -92,4 +92,34 @@ describe('The DatePicker component', () => {
     expect(onChangeSpy).toHaveBeenCalledWith(new Date('2022-01-12'));
     expect(onSelectSpy).toHaveBeenCalledWith(new Date('2022-01-12'));
   });
+
+  it('does not display a clear button by default', () => {
+    setup();
+
+    fireEvent.click(screen.getByTestId('datepicker-input'));
+
+    fireEvent.click(screen.getByTestId('datepicker-input'));
+    fireEvent.click(screen.getByText('12'));
+
+    expect(screen.queryByTestId('clear-button')).not.toBeInTheDocument();
+  });
+
+  it('allows for clearing of the field if isClearable is true', () => {
+    setup({ isClearable: true });
+
+    fireEvent.click(screen.getByTestId('datepicker-input'));
+
+    fireEvent.click(screen.getByTestId('datepicker-input'));
+    fireEvent.click(screen.getByText('12'));
+
+    expect(onChangeSpy).toHaveBeenCalledWith(new Date('2022-01-12'));
+    expect(onSelectSpy).toHaveBeenCalledWith(new Date('2022-01-12'));
+
+    fireEvent.click(screen.getByTestId('clear-button'));
+
+    expect(onChangeSpy).toHaveBeenCalledWith(undefined);
+    expect(onChangeSpy).toHaveBeenCalledTimes(2);
+
+    expect(onSelectSpy).toHaveBeenCalledTimes(1);
+  });
 });
