@@ -37,6 +37,7 @@ export * from './components/BoemlySteps';
 export * from './components/BoemlyTabs';
 export * from './components/BoemlyThemeProvider';
 export * from './components/Wrapper';
+export * from './components/ConfirmAction';
 
 export {
   Avatar,
