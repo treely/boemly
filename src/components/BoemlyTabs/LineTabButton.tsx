@@ -1,15 +1,15 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Box, Button } from '@chakra-ui/react';
 
-interface TabButtonProps {
+interface LineTabButtonProps {
   onClick: () => void;
   title: string;
   isActive?: boolean;
 }
 
-const TabButton: FC<TabButtonProps> = ({ onClick, title, isActive = false }: TabButtonProps) => {
+const LineTabButton = ({ onClick, title, isActive = false }: LineTabButtonProps): JSX.Element => {
   return (
-    <Box data-testid="tabBottonBox">
+    <Box data-testid="lineTabButtonBox">
       <Button
         variant="link"
         color="primary.800"
@@ -22,7 +22,7 @@ const TabButton: FC<TabButtonProps> = ({ onClick, title, isActive = false }: Tab
       </Button>
       {isActive && (
         <Box
-          data-testid="tabBottonIndicator"
+          data-testid="lineTabButtonIndicator"
           backgroundColor="primary.700"
           borderTopRadius="full"
           height="3px"
@@ -32,4 +32,4 @@ const TabButton: FC<TabButtonProps> = ({ onClick, title, isActive = false }: Tab
   );
 };
 
-export default TabButton;
+export default LineTabButton;

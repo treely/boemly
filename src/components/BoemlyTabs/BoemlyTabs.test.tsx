@@ -1,6 +1,7 @@
 import React from 'react';
 import { screen, render, fireEvent } from '../../test/testUtils';
 import { BoemlyTabs, BoemlyTabsProps } from './BoemlyTabs';
+import { Alien, Heart } from '@phosphor-icons/react';
 
 const onChangeSpy = jest.fn();
 
@@ -36,10 +37,29 @@ describe('The BoemlyTabs component', () => {
   it('renders the active indicator on the active tab', async () => {
     setup();
 
-    const [firstTabButton] = screen.getAllByTestId('tabBottonBox');
-    const firstTabIndicator = screen.getByTestId('tabBottonIndicator');
+    const [firstTabButton] = screen.getAllByTestId('lineTabButtonBox');
+    const firstTabIndicator = screen.getByTestId('lineTabButtonIndicator');
 
     expect(firstTabButton).toBeInTheDocument();
     expect(firstTabButton).toContainElement(firstTabIndicator);
+  });
+
+  it('renders the SolidTabButton correctly when variant is solid', () => {
+    setup({
+      ...defaultProps,
+      variant: 'solid',
+      tabs: [
+        { key: 'tab-1', title: 'Tab 1 Title', content: <div>Tab 1 Content</div>, icon: <Heart /> },
+        { key: 'tab-2', title: 'Tab 2 Title', content: <div>Tab 2 Content</div>, icon: <Alien /> },
+      ],
+    });
+
+    const [firstTabButton] = screen.getAllByTestId('solidTabButtonBox');
+    const tabIndicators = screen.getAllByTestId('solidTabButtonIndicator');
+
+    expect(firstTabButton).toBeInTheDocument();
+    expect(firstTabButton).toHaveStyle('background-color: gray.100');
+    expect(tabIndicators.length).toBeGreaterThan(0);
+    expect(firstTabButton).toContainElement(tabIndicators[0]);
   });
 });
