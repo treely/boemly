@@ -4,31 +4,36 @@ import {
   Slider,
   SliderTrack,
   SliderFilledTrack,
-  SliderThumb,
-  Box,
   InputRightAddon,
   Flex,
   Text,
 } from '@chakra-ui/react';
 import { BoemlyFormControl } from '../BoemlyFormControl';
 import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
+import CustomSliderThumb from './CustomSliderThumb';
 
 export interface SliderProps extends StyleProps {
+  variant?: 'default' | 'boundary';
   defaultValue?: number;
   ariaLabel: string;
   min?: number;
   max?: number;
   onChange: (value: number) => void;
   unit?: string;
+  lowerBoundText?: string;
+  upperBoundText?: string;
 }
 
 export const BoemlySlider: React.FC<SliderProps> = ({
+  variant = 'default',
   defaultValue,
   ariaLabel,
   min = 0,
   max = 100,
   onChange,
   unit = '',
+  lowerBoundText = '',
+  upperBoundText = '',
   ...styleProps
 }: SliderProps) => {
   const [isMobile] = useMediaQuery(BREAKPOINT_MD_QUERY);
@@ -56,6 +61,69 @@ export const BoemlySlider: React.FC<SliderProps> = ({
     }
     setInputValue(event.target.value);
   };
+
+  if (variant === 'boundary') {
+    return (
+      <Flex
+        flexDir="column"
+        {...styleProps}
+        minW="full"
+        alignItems="center"
+        justifyContent="center"
+        mt="8"
+      >
+        <Flex flexDir="row" alignItems="center" justifyContent="center" width="full">
+          <Slider role="slider" width="10%" mr={2} cursor="default">
+            <SliderTrack backgroundColor="gray.200">
+              <SliderFilledTrack backgroundColor="gray.200" />
+            </SliderTrack>
+          </Slider>
+
+          <Slider
+            aria-label={ariaLabel}
+            defaultValue={defaultValue}
+            value={sliderValue}
+            onChange={sliderOnChange}
+            focusThumbOnChange={false}
+            min={min}
+            max={max}
+            width="80%"
+          >
+            <SliderTrack backgroundColor="primary.200">
+              <SliderFilledTrack backgroundColor="primary.500" />
+            </SliderTrack>
+            <CustomSliderThumb sliderValue={sliderValue} unit={unit} showTooltip={true} />
+          </Slider>
+
+          <Slider role="slider" width="10%" ml={2} cursor="default">
+            <SliderTrack backgroundColor="gray.200">
+              <SliderFilledTrack backgroundColor="gray.200" />
+            </SliderTrack>
+          </Slider>
+        </Flex>
+
+        <Flex flexDir="row" width="full" justifyContent="space-between">
+          <Flex flexDir="column" alignItems="center" ml="6%">
+            <Text fontSize="xs" color="gray.500">
+              {lowerBoundText}
+            </Text>
+            <Text fontSize="xs" as="b" color="black">
+              {min} {unit}
+            </Text>
+          </Flex>
+
+          <Flex flexDir="column" alignItems="center" mr="6%">
+            <Text fontSize="xs" color="gray.500">
+              {upperBoundText}
+            </Text>
+            <Text fontSize="xs" as="b" color="black">
+              {max} {unit}
+            </Text>
+          </Flex>
+        </Flex>
+      </Flex>
+    );
+  }
 
   return isMobile ? (
     <Flex flexDir="column" gap="2" {...styleProps} minW="full">
@@ -88,16 +156,7 @@ export const BoemlySlider: React.FC<SliderProps> = ({
           <SliderTrack backgroundColor="primary.200">
             <SliderFilledTrack backgroundColor="primary.500" />
           </SliderTrack>
-          <SliderThumb
-            width="5"
-            height="5"
-            boxShadow="base"
-            borderStyle="solid"
-            borderWidth="thin"
-            borderColor="gray.200"
-          >
-            <Box backgroundColor="primary.500" borderRadius="full" width="1.5" height="1.5" />
-          </SliderThumb>
+          <CustomSliderThumb sliderValue={sliderValue} />
         </Slider>
       </Flex>
 
@@ -127,16 +186,7 @@ export const BoemlySlider: React.FC<SliderProps> = ({
         <SliderTrack backgroundColor="primary.200">
           <SliderFilledTrack backgroundColor="primary.500" />
         </SliderTrack>
-        <SliderThumb
-          width="5"
-          height="5"
-          boxShadow="base"
-          borderStyle="solid"
-          borderWidth="thin"
-          borderColor="gray.200"
-        >
-          <Box backgroundColor="primary.500" borderRadius="full" width="1.5" height="1.5" />
-        </SliderThumb>
+        <CustomSliderThumb sliderValue={sliderValue} />
       </Slider>
       <Text size="xsLowNormal" ml="4" flexShrink={0}>
         {max} {unit}

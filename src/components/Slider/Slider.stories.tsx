@@ -38,3 +38,13 @@ WithCustomMinAndMax.args = {
   min: 10,
   max: 90,
 };
+
+export const WithLowerAndUpperBound = Template.bind({});
+WithLowerAndUpperBound.args = {
+  variant: 'boundary',
+  min: 10,
+  max: 90,
+  lowerBoundText: 'Lower bound',
+  upperBoundText: 'Upper bound',
+  unit: 'Vfm / ha',
+};
