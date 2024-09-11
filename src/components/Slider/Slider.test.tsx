@@ -122,5 +122,15 @@ describe('The Slider component', () => {
 
       expect(screen.getByRole('tooltip')).toBeInTheDocument();
     });
+
+    it('updates the slider value when the external value prop changes', () => {
+      const { rerender } = render(<Slider {...defaultProps} value={30} onChange={onChangeSpy} />);
+
+      expect(screen.getByRole('slider')).toHaveAttribute('aria-valuenow', '30');
+
+      rerender(<Slider {...defaultProps} value={70} onChange={onChangeSpy} />);
+
+      expect(screen.getByRole('slider')).toHaveAttribute('aria-valuenow', '70');
+    });
   });
 });

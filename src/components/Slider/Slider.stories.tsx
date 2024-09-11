@@ -42,6 +42,7 @@ WithCustomMinAndMax.args = {
 export const WithLowerAndUpperBound = Template.bind({});
 WithLowerAndUpperBound.args = {
   variant: 'boundary',
+  value: 45,
   min: 10,
   max: 90,
   lowerBoundText: 'Lower bound',
