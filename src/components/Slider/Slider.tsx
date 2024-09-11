@@ -1,5 +1,5 @@
 import { StyleProps, useMediaQuery } from '@chakra-ui/react';
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   Slider,
   SliderTrack,
@@ -15,6 +15,7 @@ import CustomSliderThumb from './CustomSliderThumb';
 export interface SliderProps extends StyleProps {
   variant?: 'default' | 'boundary';
   defaultValue?: number;
+  value?: number;
   ariaLabel: string;
   min?: number;
   max?: number;
@@ -27,6 +28,7 @@ export interface SliderProps extends StyleProps {
 export const BoemlySlider: React.FC<SliderProps> = ({
   variant = 'default',
   defaultValue,
+  value,
   ariaLabel,
   min = 0,
   max = 100,
@@ -39,16 +41,25 @@ export const BoemlySlider: React.FC<SliderProps> = ({
   const [isMobile] = useMediaQuery(BREAKPOINT_MD_QUERY);
 
   const initialValue = useMemo(
-    () => defaultValue ?? min + (max - min) / 2,
-    [defaultValue, min, max]
+    () => value ?? defaultValue ?? min + (max - min) / 2,
+    [defaultValue, min, max, value]
   );
+
   const [sliderValue, setSliderValue] = useState(initialValue);
   const [inputValue, setInputValue] = useState(initialValue.toString());
 
-  const sliderOnChange = (value: number) => {
-    setSliderValue(value);
-    setInputValue(value.toString());
-    onChange(value);
+  // Update internal sliderValue when the external value prop changes
+  useEffect(() => {
+    if (value !== undefined) {
+      setSliderValue(value);
+      setInputValue(value.toString());
+    }
+  }, [value]);
+
+  const sliderOnChange = (newValue: number) => {
+    setSliderValue(newValue);
+    setInputValue(newValue.toString());
+    onChange(newValue);
   };
 
   const inputOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
