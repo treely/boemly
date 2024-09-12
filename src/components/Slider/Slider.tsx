@@ -1,4 +1,4 @@
-import { StyleProps, useMediaQuery } from '@chakra-ui/react';
+import { Box, StyleProps, useMediaQuery } from '@chakra-ui/react';
 import React, { useEffect, useMemo, useState } from 'react';
 import {
   Slider,
@@ -48,6 +48,8 @@ export const BoemlySlider: React.FC<SliderProps> = ({
   const [sliderValue, setSliderValue] = useState(initialValue);
   const [inputValue, setInputValue] = useState(initialValue.toString());
 
+  const sliderHeight = 4;
+
   // Update internal sliderValue when the external value prop changes
   useEffect(() => {
     if (value !== undefined) {
@@ -84,11 +86,13 @@ export const BoemlySlider: React.FC<SliderProps> = ({
         mt="8"
       >
         <Flex flexDir="row" alignItems="center" justifyContent="center" width="full">
-          <Slider role="slider" width="10%" mr={2} cursor="default">
-            <SliderTrack backgroundColor="gray.200">
-              <SliderFilledTrack backgroundColor="gray.200" />
-            </SliderTrack>
-          </Slider>
+          <Box
+            height={`${sliderHeight}px`}
+            width="10%"
+            mr={2}
+            backgroundColor="gray.200"
+            borderRadius="full"
+          />
 
           <Slider
             aria-label={ariaLabel}
@@ -106,11 +110,13 @@ export const BoemlySlider: React.FC<SliderProps> = ({
             <CustomSliderThumb sliderValue={sliderValue} unit={unit} showTooltip={true} />
           </Slider>
 
-          <Slider role="slider" width="10%" ml={2} cursor="default">
-            <SliderTrack backgroundColor="gray.200">
-              <SliderFilledTrack backgroundColor="gray.200" />
-            </SliderTrack>
-          </Slider>
+          <Box
+            height={`${sliderHeight}px`}
+            width="10%"
+            ml={2}
+            backgroundColor="gray.200"
+            borderRadius="full"
+          />
         </Flex>
 
         <Flex flexDir="row" width="full" justifyContent="space-between">

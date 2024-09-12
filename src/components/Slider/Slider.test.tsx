@@ -98,7 +98,7 @@ describe('The Slider component', () => {
     it('displays a boundary slider', () => {
       setup({ variant: 'boundary' });
 
-      expect(screen.getAllByRole('slider')).toHaveLength(3);
+      expect(screen.getByRole('slider')).toBeInTheDocument();
     });
 
     it('displays the correct boundary slider min and max texts', () => {
