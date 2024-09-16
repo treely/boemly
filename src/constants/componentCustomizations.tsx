@@ -1,5 +1,5 @@
-import React from 'react';
-import { CaretDown } from '@phosphor-icons/react';
+import BorderBottomStyles from '../types/BorderBottomStyles';
+import { FONT_SIZES } from './customizations';
 
 export const CustomizedHeading = {
   baseStyle: {
@@ -392,6 +392,12 @@ const inputSizes = {
     height: '8',
     borderRadius: 'md',
   },
+  xs: {
+    ...CustomizedText.sizes.xsLowNormal,
+    px: '2',
+    height: '6',
+    borderRadius: 'md',
+  },
 };
 
 export const CustomizedInput = {
@@ -502,38 +508,67 @@ export const CustomizedTextarea = {
 };
 
 export const CustomizedSelect = {
-  defaultProps: {
-    variant: 'outline',
-    icon: <CaretDown size={10} />,
-    focusBorderColor: 'black',
-  },
   sizes: {
-    xl: {
-      field: inputSizes.xl,
-    },
-    lg: {
-      field: {
-        fontSize: inputSizes.lg.fontSize,
-        borderRadius: inputSizes.lg.borderRadius,
-      },
-    },
-    md: {
-      field: {
-        fontSize: inputSizes.md.fontSize,
-        borderRadius: inputSizes.md.borderRadius,
-      },
+    xs: {
+      height: inputSizes.xs.height,
+      fontSize: inputSizes.xs.fontSize,
+      borderRadius: inputSizes.xs.borderRadius,
+      badgeSize: FONT_SIZES.xs,
     },
     sm: {
-      field: {
-        fontSize: inputSizes.sm.fontSize,
-        borderRadius: inputSizes.sm.borderRadius,
-      },
+      ...CustomizedText.sizes.smLowNormal,
+      height: inputSizes.sm.height,
+      fontSize: inputSizes.sm.fontSize,
+      borderRadius: inputSizes.sm.borderRadius,
+      badgeSize: FONT_SIZES.xs,
     },
-    xs: {
-      field: {
-        fontSize: 'xs',
-        borderRadius: inputSizes.sm.borderRadius,
-      },
+    md: {
+      ...CustomizedText.sizes.smRegularNormal,
+      height: inputSizes.md.height,
+      fontSize: inputSizes.md.fontSize,
+      borderRadius: inputSizes.md.borderRadius,
+      badgeSize: FONT_SIZES.xs,
+    },
+    lg: {
+      ...CustomizedText.sizes.mdLowNormal,
+      height: inputSizes.lg.height,
+      fontSize: inputSizes.lg.fontSize,
+      borderRadius: inputSizes.lg.borderRadius,
+      badgeSize: FONT_SIZES.sm,
+    },
+  },
+  variants: {
+    filled: {
+      backgroundColor: 'gray.100',
+      border: '0.063rem',
+      borderColor: 'transparent',
+      borderRadius: 'md',
+      borderBottomWidth: '0.063rem',
+      borderBottomStyle: 'solid' as BorderBottomStyles,
+    },
+    unstyled: {
+      backgroundColor: 'transparent',
+      border: '0px',
+      borderColor: 'white',
+      borderRadius: '0px',
+      borderBottomWidth: '0px',
+      borderBottomStyle: 'solid' as BorderBottomStyles,
+    },
+    flushed: {
+      backgroundColor: 'transparent',
+      border: '0px',
+      borderColor: 'gray.200',
+      borderRadius: '0px',
+      borderBottomWidth: '0.063rem',
+      borderBottomStyle: 'solid' as BorderBottomStyles,
+    },
+    outline: {
+      backgroundColor: 'transparent',
+      border: '0.063rem solid',
+      borderColor: 'gray.200',
+      borderRadius: 'md',
+      borderBottomWidth: '0.063rem',
+      borderBottomStyle: 'solid' as BorderBottomStyles,
     },
   },
 };

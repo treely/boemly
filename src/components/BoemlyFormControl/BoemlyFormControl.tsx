@@ -16,8 +16,6 @@ import {
   NumberInputField,
   NumberInputProps,
   NumberInputStepper,
-  Select,
-  SelectProps,
   StyleProps,
   Text,
   Textarea,
@@ -28,9 +26,9 @@ import {
 import { CaretDown, CaretUp, Check, WarningOctagon } from '@phosphor-icons/react';
 import { DatePicker, DatePickerProps } from '../DatePicker/DatePicker';
 import InputSize from '../../types/InputSize';
-import { SliderProps } from '../Slider/Slider';
-import { Slider } from '../Slider';
+import { Slider, SliderProps } from '../..';
 import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
+import { Select, BoemlySelectProps } from '../Select';
 
 export interface BoemlyFormControlProps extends StyleProps {
   id: string;
@@ -50,7 +48,7 @@ export interface BoemlyFormControlProps extends StyleProps {
     | 'Slider';
   inputProps?: InputProps;
   numberInputProps?: NumberInputProps;
-  selectProps?: SelectProps;
+  selectProps?: BoemlySelectProps;
   selectOptions?: { value: string; label: string; disabled?: boolean }[];
   checkboxProps?: CheckboxProps;
   datePickerProps?: DatePickerProps;
@@ -116,17 +114,11 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
         );
       case 'Select':
         return (
-          <Select bgColor="white" {...selectProps}>
-            {selectOptions.map((selectOption) => (
-              <option
-                key={selectOption.value}
-                value={selectOption.value}
-                disabled={selectOption.disabled}
-              >
-                {selectOption.label}
-              </option>
-            ))}
-          </Select>
+          <Select
+            bgColor="white"
+            {...{ isDisabled, isInvalid, ...selectProps }}
+            options={selectOptions}
+          />
         );
       case 'Checkbox':
         return <Checkbox {...checkboxProps} />;

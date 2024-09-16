@@ -1,7 +1,7 @@
 import React from 'react';
 import { InputLeftElement, InputRightElement } from '@chakra-ui/react';
 import { Heart } from '@phosphor-icons/react';
-import { render, screen } from '../../test/testUtils';
+import { fireEvent, render, screen } from '../../test/testUtils';
 import { BoemlyFormControlProps } from './BoemlyFormControl';
 import { BoemlyFormControl } from '.';
 
@@ -47,11 +47,13 @@ describe('The BoemlyFormControl component', () => {
       ],
     });
 
-    expect(screen.getByRole('combobox')).toBeInTheDocument();
-    expect(screen.getAllByRole('option')[0]).toHaveAttribute('value', 'value-1');
-    expect(screen.getAllByRole('option')[0]).not.toHaveAttribute('disabled');
-    expect(screen.getAllByRole('option')[1]).toHaveAttribute('value', 'value-2');
-    expect(screen.getAllByRole('option')[1]).toHaveAttribute('disabled');
+    fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
+    const option1 = screen.getByText('Label 1');
+    const option1Div = option1.closest('div');
+    expect(option1Div).toHaveStyle('cursor: pointer');
+    const option2 = screen.getByText('Label 2');
+    const option2Div = option2.closest('div');
+    expect(option2Div).toHaveStyle('cursor: not-allowed');
   });
 
   it('displays a checkbox field if the inputType checkbox is given', () => {
