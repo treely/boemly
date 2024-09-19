@@ -1,1 +1,1 @@
-export { BoemlySlider as Slider } from './Slider';
+export { BoemlySlider as Slider, SliderProps } from './Slider';

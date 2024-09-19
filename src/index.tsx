@@ -38,6 +38,7 @@ export * from './components/BoemlyTabs';
 export * from './components/BoemlyThemeProvider';
 export * from './components/Wrapper';
 export * from './components/ConfirmAction';
+export * from './components/Select';
 
 export {
   Avatar,
@@ -63,7 +64,6 @@ export {
   MenuList,
   MenuItem,
   Progress,
-  Select,
   SimpleGrid,
   Spacer,
   Spinner,
