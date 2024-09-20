@@ -333,9 +333,13 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
             p="2"
             borderRadius="lg"
             boxShadow="md"
-            position="relative"
-            maxWidth={isFullWidth ? '100%' : 'auto'}
             role="listbox"
+            bg="white"
+            position="absolute"
+            top="100%"
+            left="0"
+            zIndex="docked"
+            width={isFullWidth ? '100%' : 'auto'}
           >
             {isSearchable && (
               <InputGroup mb="4">
@@ -385,7 +389,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
             )}
             <VStack
               position="relative"
-              zIndex={10}
+              zIndex="docked"
               bg="white"
               mt="2"
               mb="2"
