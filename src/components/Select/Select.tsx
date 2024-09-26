@@ -3,13 +3,17 @@ import {
   Box,
   Input,
   IconButton,
-  VStack,
   Checkbox,
   Text,
   Flex,
   Button,
   InputGroup,
   InputLeftElement,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItemOption,
+  Portal,
   SelectProps,
   useToken,
 } from '@chakra-ui/react';
@@ -30,6 +34,7 @@ export interface BoemlySelectProps extends Omit<SelectProps, 'onChange' | 'value
   clearAllText?: string;
   placeholder?: string;
   searchPlaceholder?: string;
+  noOptionsPlaceholder?: string;
   isDisabled?: boolean;
   isInvalid?: boolean;
   isFullWidth?: boolean;
@@ -40,6 +45,7 @@ export interface BoemlySelectProps extends Omit<SelectProps, 'onChange' | 'value
   size?: 'xs' | 'sm' | 'md' | 'lg';
   variant?: 'filled' | 'unstyled' | 'flushed' | 'outline';
   onChange?: (value: string[]) => void;
+  onClose?: () => void;
   options: Option[];
 }
 
@@ -47,6 +53,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
   color = 'black',
   placeholder = 'Select an option',
   searchPlaceholder = placeholder,
+  noOptionsPlaceholder = 'No options available',
   clearAllText = 'Clear All',
   isDisabled = false,
   isInvalid = false,
@@ -60,23 +67,20 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
   backgroundColor = CustomizedSelect.variants[variant].backgroundColor,
   value,
   onChange,
+  onClose,
   options,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-  const [focusedOptionIndex, setFocusedOptionIndex] = useState<number>(0);
-  const selectRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const menuButtonRef = useRef<HTMLDivElement>(null);
   const [primary500] = useToken('colors', ['primary.500']);
   const [space3, space0] = useToken('space', ['3', '0']);
 
   useEffect(() => {
     setSelectedOptions(value || []);
-
-    const firstSelectedIndex = options.findIndex((opt) => opt.value === (value && value[0]));
-    setFocusedOptionIndex(firstSelectedIndex !== -1 ? firstSelectedIndex : 0);
-  }, [value, options]);
+  }, [value]);
 
   const filteredOptions = useMemo(() => {
     if (isSearchable && searchTerm) {
@@ -87,36 +91,11 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
     return options;
   }, [options, searchTerm, isSearchable]);
 
-  // Close dropdown if user clicked outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  const toggleDropdown = useCallback(() => {
-    if (!isDisabled) {
-      setIsOpen((prev) => !prev);
-    }
-  }, [isDisabled]);
-
   useEffect(() => {
     if (isOpen && isSearchable && inputRef.current) {
       inputRef.current.focus();
     }
   }, [isOpen, isSearchable]);
-
-  useEffect(() => {
-    if (!isOpen && isMultiple) {
-      setFocusedOptionIndex(0); // set focus to first element when closing dropdown, for multiple
-    }
-  }, [isOpen, isMultiple]);
 
   // Handle selecting an option
   const handleOptionSelect = useCallback(
@@ -158,308 +137,215 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
     onChange && onChange([]);
   }, [onChange]);
 
-  const handleArrowDown = useCallback(
-    (event: KeyboardEvent, optionsLength: number) => {
-      event.preventDefault();
-      // Move focus between buttons and options
-      if (focusedOptionIndex === -1) {
-        const clearAllButton = document.getElementById('clear-all-button');
-        if (clearAllButton) clearAllButton.focus();
-        setFocusedOptionIndex(-2);
-      } else if (focusedOptionIndex === -2) {
-        setFocusedOptionIndex(0);
-      } else {
-        setFocusedOptionIndex((prevIndex) => (prevIndex === optionsLength - 1 ? 0 : prevIndex + 1));
-      }
-    },
-    [focusedOptionIndex]
-  );
-
-  const handleArrowUp = useCallback(
-    (event: KeyboardEvent, optionsLength: number) => {
-      event.preventDefault();
-      // Move focus between buttons and options
-      if (focusedOptionIndex === 0) {
-        const clearAllButton = document.getElementById('clear-all-button');
-        if (clearAllButton) clearAllButton.focus();
-        setFocusedOptionIndex(-2);
-      } else if (focusedOptionIndex === -2) {
-        const selectAllButton = document.getElementById('select-all-button');
-        if (selectAllButton) selectAllButton.focus();
-        setFocusedOptionIndex(-1);
-      } else {
-        setFocusedOptionIndex((prevIndex) => (prevIndex === 0 ? optionsLength - 1 : prevIndex - 1));
-      }
-    },
-    [focusedOptionIndex]
-  );
-
-  const handleEnterPressed = useCallback(
-    (event: KeyboardEvent, optionsLength: number) => {
-      event.preventDefault();
-      if (focusedOptionIndex === -1) {
-        onSelectAll();
-      } else if (focusedOptionIndex === -2) {
-        onClearAll();
-      } else if (focusedOptionIndex >= 0 && focusedOptionIndex < optionsLength) {
-        const selectedOption = filteredOptions[focusedOptionIndex];
-        handleOptionSelect(selectedOption.value, selectedOption.disabled || false);
-      }
-    },
-    [filteredOptions, focusedOptionIndex, handleOptionSelect, onClearAll, onSelectAll]
-  );
-
-  const handleSpaceKeyPressed = useCallback(
-    (event: KeyboardEvent, optionsLength: number) => {
-      event.preventDefault();
-      if (isMultiple) {
-        if (focusedOptionIndex >= 0 && focusedOptionIndex < optionsLength) {
-          const selectedOption = filteredOptions[focusedOptionIndex];
-          handleOptionSelect(selectedOption.value, selectedOption.disabled || false);
-        }
-      } else if (focusedOptionIndex >= 0 && focusedOptionIndex < optionsLength) {
-        const selectedOption = filteredOptions[focusedOptionIndex];
-        handleOptionSelect(selectedOption.value, selectedOption.disabled || false);
-        setIsOpen(false); // For single-select, close dropdown
-      }
-    },
-    [focusedOptionIndex, filteredOptions, handleOptionSelect, isMultiple]
-  );
-
-  const handleKeyDown = useCallback(
-    (event: KeyboardEvent) => {
-      // Prevent handling keyboard navigation when typing in the search input
-      if (inputRef.current && inputRef.current === document.activeElement) {
-        return;
-      }
-
-      if (!isOpen) return;
-
-      const optionsLength = filteredOptions.length;
-
-      if (event.key === 'ArrowDown') {
-        handleArrowDown(event, optionsLength);
-      } else if (event.key === 'ArrowUp') {
-        handleArrowUp(event, optionsLength);
-      } else if (event.key === 'Enter') {
-        handleEnterPressed(event, optionsLength);
-      } else if (event.key === ' ') {
-        handleSpaceKeyPressed(event, optionsLength);
-      } else if (event.key === 'Escape') {
-        setIsOpen(false);
-      }
-    },
-    [
-      isOpen,
-      filteredOptions,
-      handleArrowDown,
-      handleArrowUp,
-      handleEnterPressed,
-      handleSpaceKeyPressed,
-    ]
-  );
-
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-    } else {
-      window.removeEventListener('keydown', handleKeyDown);
+  // max height for the menu options, to show that there are more items to scroll
+  const dynamicMaxHeight = useMemo(() => {
+    if (isMultiple && isSearchable) {
+      return '52';
+    } else if (isMultiple) {
+      return '48';
+    } else if (isSearchable) {
+      return '52';
     }
 
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, handleKeyDown]);
+    return '40';
+  }, [isMultiple, isSearchable]);
 
   return (
-    <Box position="relative" width={isFullWidth ? '100%' : 'auto'} ref={selectRef}>
-      <Flex
-        onClick={toggleDropdown}
-        border={CustomizedSelect.variants[variant].border}
-        borderColor={isInvalid ? 'red' : borderColor}
-        borderRadius={CustomizedSelect.variants[variant].borderRadius}
-        borderBottomWidth={CustomizedSelect.variants[variant].borderBottomWidth}
-        borderBottomStyle={CustomizedSelect.variants[variant].borderBottomStyle}
-        p="2"
-        height={CustomizedSelect.sizes[size].height}
-        align="center"
-        cursor={isDisabled ? 'not-allowed' : 'pointer'}
-        bg={isDisabled ? 'gray.200' : backgroundColor}
-        position="relative"
-        aria-expanded={isOpen}
-        aria-haspopup="listbox"
-        role="combobox"
-        aria-labelledby="select-label"
-      >
-        <Text id="select-label" fontSize={CustomizedSelect.sizes[size].fontSize} color={color}>
-          {selectedOptions.length > 0 && isMultiple ? (
-            <>
-              {placeholder}
-              <Badge
-                colorScheme="primary"
-                fontSize={CustomizedSelect.sizes[size].badgeSize}
-                borderRadius="md"
-                px="1"
-                ml="1"
-              >
-                {selectedOptions.length}
-              </Badge>
-            </>
-          ) : selectedOptions.length > 0 && !isMultiple ? (
-            (() => {
-              const selectedOption = options.find((opt) => opt.value === selectedOptions[0]);
-              return selectedOption ? selectedOption.label : null;
-            })()
-          ) : (
-            placeholder
-          )}
-        </Text>
-        <IconButton
-          aria-label="Toggle Dropdown"
-          icon={isOpen ? <CaretUp color={color} /> : <CaretDown color={color} />}
-          variant="unstyled"
-          size="sm"
-          ml="auto"
-          paddingInline={`${space3} ${space0}`}
-          pointerEvents="none"
-        />
-      </Flex>
-
-      {/* Dropdown options */}
-      {isOpen && (
+    <Menu
+      isLazy
+      closeOnSelect={!isMultiple}
+      initialFocusRef={isSearchable ? inputRef : undefined}
+      isOpen={isDisabled ? false : isOpen}
+      onOpen={() => !isDisabled && setIsOpen(true)}
+      onClose={() => {
+        setIsOpen(false);
+        if (onClose) onClose();
+      }}
+      matchWidth
+    >
+      {({ isOpen }) => (
         <>
-          <Box
-            borderWidth="1px"
-            borderColor="gray.100"
-            mt="2"
+          <MenuButton
+            ref={menuButtonRef}
+            as={Flex}
+            border={CustomizedSelect.variants[variant].border}
+            borderColor={isInvalid ? 'red' : borderColor}
+            borderRadius={CustomizedSelect.variants[variant].borderRadius}
+            borderBottomWidth={CustomizedSelect.variants[variant].borderBottomWidth}
+            borderBottomStyle={CustomizedSelect.variants[variant].borderBottomStyle}
             p="2"
-            borderRadius="lg"
-            boxShadow="md"
-            role="listbox"
-            bg="white"
-            position="absolute"
-            top="100%"
-            left="0"
-            zIndex="docked"
+            height={CustomizedSelect.sizes[size].height}
+            align="center"
+            cursor={isDisabled ? 'not-allowed' : 'pointer'}
+            bg={isDisabled ? 'gray.200' : backgroundColor}
+            position="relative"
+            aria-expanded={isOpen}
+            aria-haspopup="listbox"
+            role="combobox"
             width={isFullWidth ? '100%' : 'auto'}
+            tabIndex={isDisabled ? -1 : 0}
           >
-            {isSearchable && (
-              <InputGroup mb="4">
-                <InputLeftElement pointerEvents="none" alignItems="center" h="100%">
-                  <MagnifyingGlass color="gray.500" />
-                </InputLeftElement>
-                <Input
-                  size="md"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  placeholder={searchPlaceholder}
-                  isDisabled={isDisabled}
-                  borderColor="gray.200"
-                  focusBorderColor="black"
-                  ref={inputRef}
-                  aria-label="Search options"
-                />
-              </InputGroup>
-            )}
-            {isMultiple && (
-              <Flex flexDir="row" justifyContent="flex-end">
-                <Button
-                  id="select-all-button"
-                  size="sm"
-                  onClick={onSelectAll}
-                  color="blue.500"
-                  mr="3"
-                  tabIndex={0}
-                  variant="unstyled"
-                  onFocus={() => setFocusedOptionIndex(-1)}
-                >
-                  {selectAllText}
-                </Button>
-                <Button
-                  id="clear-all-button"
-                  size="sm"
-                  onClick={onClearAll}
-                  color="blue.500"
-                  mr="3"
-                  tabIndex={0}
-                  variant="unstyled"
-                  onFocus={() => setFocusedOptionIndex(-2)}
-                >
-                  {clearAllText}
-                </Button>
-              </Flex>
-            )}
-            <VStack
-              position="relative"
-              zIndex="docked"
-              bg="white"
-              mt="2"
-              mb="2"
-              width="100%"
-              maxHeight="200px"
-              overflowY="auto"
-            >
-              {filteredOptions.length > 0 ? (
-                filteredOptions.map(({ value, label, disabled = false }, index) => {
-                  const searchIndex = label.toLowerCase().indexOf(searchTerm.toLowerCase());
-                  const isMatch = searchIndex !== -1;
-
-                  let beforeMatch = label.slice(0, searchIndex);
-                  let match = label.slice(searchIndex, searchIndex + searchTerm.length);
-                  let afterMatch = label.slice(searchIndex + searchTerm.length);
-
-                  return (
-                    <Flex
-                      key={value}
-                      id={`option-${value}`}
-                      width="100%"
-                      p="2"
-                      align="center"
-                      justify="space-between"
-                      onClick={() => handleOptionSelect(value, disabled)}
-                      cursor={disabled ? 'not-allowed' : 'pointer'}
-                      _focus={{ outline: 'none', bg: 'gray.100' }}
-                      _hover={disabled ? {} : { bg: 'gray.100' }}
+            <Flex alignItems="center" justifyContent="space-between">
+              <Text
+                id="select-label"
+                fontSize={CustomizedSelect.sizes[size].fontSize}
+                color={color}
+                isTruncated
+                whiteSpace="nowrap"
+                overflow="hidden"
+                textOverflow="ellipsis"
+                flexShrink={1}
+              >
+                {selectedOptions.length > 0 && isMultiple ? (
+                  <>
+                    {placeholder}
+                    <Badge
+                      colorScheme="primary"
+                      fontSize={CustomizedSelect.sizes[size].badgeSize}
                       borderRadius="md"
-                      opacity={disabled ? 0.5 : 1}
-                      role="option"
-                      aria-selected={selectedOptions.includes(value)}
-                      bg={index === focusedOptionIndex ? 'gray.100' : 'white'}
-                      tabIndex={0}
-                      onFocus={() => setFocusedOptionIndex(index)}
+                      px="1"
+                      ml="1"
+                      flexShrink={0}
                     >
-                      <Text fontSize={CustomizedSelect.sizes[size].fontSize}>
-                        {isMatch ? (
-                          <>
-                            {beforeMatch}
-                            <Text as="span" fontWeight="600" color="black">
-                              {match}
-                            </Text>
-                            {afterMatch}
-                          </>
-                        ) : (
-                          label
-                        )}
-                      </Text>
-                      {isMultiple ? (
-                        <Checkbox
-                          isChecked={selectedOptions.includes(value)}
-                          pointerEvents="none"
-                          iconColor="black"
-                          isDisabled={disabled}
-                          tabIndex={-1}
-                        />
-                      ) : (
-                        selectedOptions.includes(value) && <Check color={primary500} size={16} />
-                      )}
-                    </Flex>
-                  );
-                })
-              ) : (
-                <Text p="2">No options available</Text>
+                      {selectedOptions.length}
+                    </Badge>
+                  </>
+                ) : selectedOptions.length > 0 && !isMultiple ? (
+                  (() => {
+                    const selectedOption = options.find((opt) => opt.value === selectedOptions[0]);
+                    return selectedOption ? selectedOption.label : null;
+                  })()
+                ) : (
+                  placeholder
+                )}
+              </Text>
+              <IconButton
+                aria-label="Toggle Dropdown"
+                icon={isOpen ? <CaretUp color={color} /> : <CaretDown color={color} />}
+                variant="unstyled"
+                size="sm"
+                ml="auto"
+                paddingInline={`${space3} ${space0}`}
+                pointerEvents="none"
+                tabIndex={-1}
+              />
+            </Flex>
+          </MenuButton>
+
+          <Portal>
+            <MenuList
+              borderWidth="1px"
+              borderColor="gray.100"
+              mt="2"
+              p="2"
+              borderRadius="lg"
+              boxShadow="md"
+              role="listbox"
+              bg="white"
+              maxHeight={dynamicMaxHeight}
+              overflowY="auto"
+              zIndex="popover"
+            >
+              {isSearchable && (
+                <InputGroup mb="4">
+                  <InputLeftElement pointerEvents="none" alignItems="center" h="100%">
+                    <MagnifyingGlass color="gray.500" />
+                  </InputLeftElement>
+                  <Input
+                    size="md"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    placeholder={searchPlaceholder}
+                    isDisabled={isDisabled}
+                    borderColor="gray.200"
+                    focusBorderColor="black"
+                    ref={inputRef}
+                    aria-label="Search options"
+                  />
+                </InputGroup>
               )}
-            </VStack>
-          </Box>
+              {isMultiple && (
+                <Flex flexDir="row" justifyContent="flex-end">
+                  <Button
+                    id="select-all-button"
+                    size="sm"
+                    onClick={onSelectAll}
+                    color="blue.500"
+                    mr="3"
+                    variant="unstyled"
+                  >
+                    {selectAllText}
+                  </Button>
+                  <Button
+                    id="clear-all-button"
+                    size="sm"
+                    onClick={onClearAll}
+                    color="blue.500"
+                    mr="3"
+                    variant="unstyled"
+                  >
+                    {clearAllText}
+                  </Button>
+                </Flex>
+              )}
+
+              <Box mt="2" mb="2" display="flex" flexDirection="column" gap="2">
+                {filteredOptions.length > 0 ? (
+                  filteredOptions.map(({ value, label, disabled = false }) => {
+                    const searchIndex = label.toLowerCase().indexOf(searchTerm.toLowerCase());
+                    const isMatch = searchIndex !== -1;
+
+                    let beforeMatch = label.slice(0, searchIndex);
+                    let match = label.slice(searchIndex, searchIndex + searchTerm.length);
+                    let afterMatch = label.slice(searchIndex + searchTerm.length);
+
+                    return (
+                      <MenuItemOption
+                        key={value}
+                        onClick={() => handleOptionSelect(value, disabled)}
+                        isDisabled={disabled}
+                        borderRadius={CustomizedSelect.variants[variant].borderRadius}
+                        icon={null}
+                        iconSpacing="0"
+                      >
+                        <Flex justify="space-between" align="center" width="100%">
+                          <Text fontSize={CustomizedSelect.sizes[size].fontSize}>
+                            {isMatch ? (
+                              <>
+                                {beforeMatch}
+                                <Text as="span" fontWeight="600" color="black">
+                                  {match}
+                                </Text>
+                                {afterMatch}
+                              </>
+                            ) : (
+                              label
+                            )}
+                          </Text>
+                          {isMultiple && (
+                            <Checkbox
+                              isChecked={selectedOptions.includes(value)}
+                              pointerEvents="none"
+                              iconColor="black"
+                              isDisabled={disabled}
+                              tabIndex={-1}
+                            />
+                          )}
+                          {!isMultiple && selectedOptions.includes(value) && (
+                            <Check color={primary500} size={16} />
+                          )}
+                        </Flex>
+                      </MenuItemOption>
+                    );
+                  })
+                ) : (
+                  <Text p="2"> {noOptionsPlaceholder} </Text>
+                )}
+              </Box>
+            </MenuList>
+          </Portal>
         </>
       )}
-    </Box>
+    </Menu>
   );
 };

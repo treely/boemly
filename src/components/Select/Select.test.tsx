@@ -150,4 +150,21 @@ describe('The Select component', () => {
 
     expect(toggleButton).toHaveAttribute('aria-expanded', 'false');
   });
+
+  // check the onClose handler
+  it('calls onClose when dropdown is closed', () => {
+    const onCloseMock = jest.fn();
+    render(<Select color="black" options={mockOptions} onClose={onCloseMock} />);
+
+    const toggleButton = screen.getByRole('combobox');
+
+    fireEvent.click(toggleButton);
+    expect(toggleButton).toHaveAttribute('aria-expanded', 'true');
+
+    fireEvent.click(toggleButton);
+    expect(toggleButton).toHaveAttribute('aria-expanded', 'false');
+
+    // Check if onClose was called
+    expect(onCloseMock).toHaveBeenCalledTimes(1);
+  });
 });
