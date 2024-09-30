@@ -1,12 +1,11 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-
-import { Tag } from '../..';
+import { BoemlyTag, BoemlyTagProps } from './BoemlyTag';
 import { COLOR_SCHEMES } from '../../constants/colorSchemes';
 
 export default {
-  title: 'Components/Tag',
-  component: Tag,
+  title: 'components/BoemlyTag',
+  component: BoemlyTag,
   argTypes: {
     variant: {
       options: ['solid', 'subtle', 'outline'],
@@ -20,6 +19,13 @@ export default {
       options: COLOR_SCHEMES,
       control: { type: 'radio' },
     },
+    isClosable: {
+      options: [true, false],
+      control: { type: 'boolean' },
+    },
+    onClose: {
+      action: 'closed',
+    },
   },
   args: {
     children: 'Tag',
@@ -27,21 +33,24 @@ export default {
     size: 'md',
     colorScheme: 'primary',
   },
-} as Meta<typeof Tag>;
+} as Meta<typeof BoemlyTag>;
 
-const Template: StoryFn<typeof Tag> = (args) => <Tag {...args} />;
+const Template: StoryFn<BoemlyTagProps> = (args) => <BoemlyTag {...args} />;
 
 export const Subtle = Template.bind({});
 Subtle.args = {
   variant: 'subtle',
+  isClosable: true,
 };
 
 export const Solid = Template.bind({});
 Solid.args = {
   variant: 'solid',
+  isClosable: true,
 };
 
 export const Outline = Template.bind({});
 Outline.args = {
   variant: 'outline',
+  isClosable: true,
 };
