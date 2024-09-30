@@ -536,6 +536,13 @@ export const CustomizedSelect = {
       borderRadius: inputSizes.lg.borderRadius,
       badgeSize: FONT_SIZES.sm,
     },
+    xl: {
+      ...CustomizedText.sizes.mdLowNormal,
+      height: inputSizes.lg.height,
+      fontSize: inputSizes.lg.fontSize,
+      borderRadius: inputSizes.lg.borderRadius,
+      badgeSize: FONT_SIZES.lg,
+    },
   },
   variants: {
     filled: {

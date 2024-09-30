@@ -38,7 +38,7 @@ describe('The BoemlyFormControl component', () => {
     expect(screen.getByRole('spinbutton')).toHaveAttribute('inputmode', 'decimal');
   });
 
-  it('displays a select field if inputType select is given', () => {
+  it('displays a select field if inputType select is given', async () => {
     setup({
       inputType: 'Select',
       selectOptions: [
@@ -48,12 +48,17 @@ describe('The BoemlyFormControl component', () => {
     });
 
     fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
-    const option1 = screen.getByText('Label 1');
-    const option1Div = option1.closest('div');
-    expect(option1Div).toHaveStyle('cursor: pointer');
-    const option2 = screen.getByText('Label 2');
-    const option2Div = option2.closest('div');
-    expect(option2Div).toHaveStyle('cursor: not-allowed');
+
+    const option1 = await screen.findByText('Label 1');
+    const option1Div = option1.closest('button');
+    const option1Styles = window.getComputedStyle(option1Div!);
+    expect(option1Styles.cursor).toBe('default');
+
+    const option2 = await screen.findByText('Label 2');
+    const option2Div = option2.closest('button');
+    const option2Styles = window.getComputedStyle(option2Div!);
+    expect(option2Styles.cursor).toBe('not-allowed');
+    expect(option2Div).toHaveAttribute('disabled');
   });
 
   it('displays a checkbox field if the inputType checkbox is given', () => {
