@@ -35,6 +35,7 @@ export * from './components/BoemlyAlert';
 export * from './components/BoemlyFormControl';
 export * from './components/BoemlySteps';
 export * from './components/BoemlyTabs';
+export * from './components/BoemlyTag';
 export * from './components/BoemlyThemeProvider';
 export * from './components/Wrapper';
 export * from './components/ConfirmAction';
