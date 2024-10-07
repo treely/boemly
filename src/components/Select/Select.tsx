@@ -239,7 +239,6 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
               mt="2"
               p="2"
               borderRadius="lg"
-              boxShadow="md"
               role="listbox"
               bg="white"
               maxHeight={dynamicMaxHeight}
@@ -304,7 +303,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
                         key={value}
                         onClick={() => handleOptionSelect(value, disabled)}
                         isDisabled={disabled}
-                        borderRadius={CustomizedSelect.variants[variant].borderRadius}
+                        borderRadius="md"
                         icon={null}
                         iconSpacing="0"
                       >
