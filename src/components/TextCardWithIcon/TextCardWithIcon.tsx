@@ -1,11 +1,14 @@
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Button } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
+import { css } from '@emotion/react';
 
 export interface TextCardWithIconProps {
   title: string;
   text: string;
   icon: ReactNode;
+  image?: ReactNode;
   height?: 'full' | 'auto';
+  button?: { text: string; onClick: () => void };
 
   displayAs?: 'row' | 'column';
 }
@@ -14,30 +17,20 @@ export const TextCardWithIcon: React.FC<TextCardWithIconProps> = ({
   title,
   text,
   icon,
+  image,
   height = 'auto',
   displayAs = 'row',
-}: TextCardWithIconProps) => (
-  <Box
-    px="6"
-    py="8"
-    marginBottom="4"
-    border="1.5px solid var(--boemly-colors-gray-200)"
-    borderRadius="2xl"
-    data-testid="text-card-with-icon"
-    display="flex"
-    alignItems={displayAs === 'row' ? 'center' : 'flex-start'}
-    flexDir={displayAs}
-    height={height}
-    backgroundColor="white"
-  >
+  button,
+}: TextCardWithIconProps) => {
+  const Icon = (
     <Box
       width={displayAs === 'row' ? '16' : '8'}
       minWidth={displayAs === 'row' ? '16' : '8'}
       height={displayAs === 'row' ? '16' : '8'}
       backgroundColor={displayAs === 'row' ? 'primary.50' : 'transparent'}
       borderRadius={displayAs === 'row' ? 'full' : '0'}
-      mr="8"
-      mb={displayAs === 'row' ? '0' : '6'}
+      mr={image ? '0' : '8'}
+      mb={displayAs === 'row' || image ? '0' : '6'}
       display="flex"
       alignItems="center"
       justifyContent="space-around"
@@ -50,11 +43,53 @@ export const TextCardWithIcon: React.FC<TextCardWithIconProps> = ({
         {icon}
       </Box>
     </Box>
-    <div>
-      <Heading as="h6" size="xs" mb="2">
-        {title}
-      </Heading>
-      <Text size="smRegularNormal">{text}</Text>
-    </div>
-  </Box>
-);
+  );
+
+  return (
+    <Box
+      px="6"
+      py="8"
+      marginBottom="4"
+      border="1.5px solid var(--boemly-colors-gray-200)"
+      borderRadius="2xl"
+      data-testid="text-card-with-icon"
+      display="flex"
+      alignItems={displayAs === 'row' ? 'center' : 'flex-start'}
+      flexDir={displayAs}
+      height={height}
+      backgroundColor="white"
+    >
+      {image && displayAs === 'column' && (
+        <Box
+          position="relative"
+          height="36"
+          width="full"
+          css={css`
+            & span,
+            div,
+            img {
+              border-radius: var(--boemly-radii-xl);
+            }
+          `}
+        >
+          {image}
+        </Box>
+      )}
+      {!image && Icon}
+      <div>
+        <Flex alignItems="center" gap="2" mb={image ? '2' : '0'} mt={image ? '6' : '0'}>
+          {image && Icon}
+          <Heading as="h6" size="xs" mb="2">
+            {title}
+          </Heading>
+        </Flex>
+        <Text size="smRegularNormal">{text}</Text>
+        {button && (
+          <Button width="full" mt="6" size="lg" onClick={button.onClick}>
+            {button.text}
+          </Button>
+        )}
+      </div>
+    </Box>
+  );
+};
