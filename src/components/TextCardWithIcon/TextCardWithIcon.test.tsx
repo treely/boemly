@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextCardWithIcon } from '.';
-import { render, screen } from '../../test/testUtils';
+import { fireEvent, render, screen } from '../../test/testUtils';
 import { TextCardWithIconProps } from './TextCardWithIcon';
 
 const defaultProps: TextCardWithIconProps = {
@@ -32,5 +32,27 @@ describe('The TextCardWithIcon component', () => {
     setup();
 
     expect(screen.getByRole('img')).toHaveAttribute('alt', 'Alt text');
+  });
+
+  it('displays the image', () => {
+    setup({ image: <img alt="Alt text" src="/src" />, displaysAs: 'column' });
+
+    expect(screen.getByRole('img')).toHaveAttribute('alt', 'Alt text');
+  });
+
+  it('displays a button if one is passed in', () => {
+    const onClickSpy = jest.fn();
+    setup({
+      button: {
+        onClick: onClickSpy,
+        text: 'Button text',
+      },
+    });
+
+    expect(screen.getByRole('button')).toHaveTextContent('Button text');
+
+    fireEvent.click(screen.getByRole('button'));
+
+    expect(onClickSpy).toHaveBeenCalledTimes(1);
   });
 });
