@@ -76,20 +76,28 @@ export const TextCardWithIcon: React.FC<TextCardWithIconProps> = ({
         </Box>
       )}
       {!image && Icon}
-      <div>
-        <Flex alignItems="center" gap="2" mb={image ? '2' : '0'} mt={image ? '6' : '0'}>
+      <Flex flexDirection="column">
+        <Flex
+          alignItems="center"
+          justifyContent="flex-start"
+          gap="2"
+          mb={image ? '2' : '0'}
+          mt={image ? '6' : '0'}
+        >
           {image && Icon}
           <Heading as="h6" size="xs" mb="2">
             {title}
           </Heading>
         </Flex>
-        <Text size="smRegularNormal">{text}</Text>
-        {button && (
-          <Button width="full" mt="6" size="lg" onClick={button.onClick}>
-            {button.text}
-          </Button>
-        )}
-      </div>
+        <Text size="smRegularNormal" marginBottom="6">
+          {text}
+        </Text>
+      </Flex>
+      {button && (
+        <Button mt="auto" size="lg" onClick={button.onClick}>
+          {button.text}
+        </Button>
+      )}
     </Box>
   );
 };
