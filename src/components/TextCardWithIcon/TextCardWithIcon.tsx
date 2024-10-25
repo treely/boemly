@@ -45,6 +45,12 @@ export const TextCardWithIcon: React.FC<TextCardWithIconProps> = ({
     </Box>
   );
 
+  const ButtonElement = button && (
+    <Button mt="auto" size="lg" onClick={button.onClick} maxWidth="24">
+      {button.text}
+    </Button>
+  );
+
   return (
     <Box
       px="6"
@@ -85,19 +91,16 @@ export const TextCardWithIcon: React.FC<TextCardWithIconProps> = ({
           mt={image ? '6' : '0'}
         >
           {image && Icon}
-          <Heading as="h6" size="xs" mb="2">
+          <Heading as="h6" size="xs" mb={image ? '0' : '2'}>
             {title}
           </Heading>
         </Flex>
-        <Text size="smRegularNormal" marginBottom="6">
+        <Text size="smRegularNormal" marginBottom="4">
           {text}
         </Text>
+        {displayAs === 'row' && ButtonElement}
       </Flex>
-      {button && (
-        <Button mt="auto" size="lg" onClick={button.onClick}>
-          {button.text}
-        </Button>
-      )}
+      {displayAs === 'column' && ButtonElement}
     </Box>
   );
 };
