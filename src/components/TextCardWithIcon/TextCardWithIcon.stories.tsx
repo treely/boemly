@@ -40,12 +40,10 @@ WithImage.args = {
 export const WithButton = Template.bind({});
 WithButton.args = {
   displayAs: 'column',
-  image: (
-    <img
-      src={storybookCoverUrl}
-      alt="Alt"
-      style={{ height: '100%', width: '100%', objectFit: 'cover' }}
-    />
-  ),
+  button: { text: 'Button', onClick: () => alert('Button clicked') },
+};
+export const AsRowWithButton = Template.bind({});
+AsRowWithButton.args = {
+  displayAs: 'row',
   button: { text: 'Button', onClick: () => alert('Button clicked') },
 };
