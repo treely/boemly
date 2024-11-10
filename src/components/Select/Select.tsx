@@ -110,7 +110,8 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
             ? prevSelectedOptions.filter((val) => val !== optionValue)
             : [...prevSelectedOptions, optionValue];
         } else {
-          newSelectedOptions = [optionValue];
+          const isOptionSelected = prevSelectedOptions.includes(optionValue);
+          newSelectedOptions = isOptionSelected ? [] : [optionValue]; // Deselect if selected, otherwise select
           setIsOpen(false); // Close dropdown for single select
         }
 
@@ -139,15 +140,13 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
 
   // max height for the menu options, to show that there are more items to scroll
   const dynamicMaxHeight = useMemo(() => {
-    if (isMultiple && isSearchable) {
-      return '52';
+    if ((isMultiple && isSearchable) || isSearchable) {
+      return '72';
     } else if (isMultiple) {
-      return '48';
-    } else if (isSearchable) {
-      return '52';
+      return '80';
     }
 
-    return '40';
+    return '60';
   }, [isMultiple, isSearchable]);
 
   return (
@@ -293,6 +292,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
                   filteredOptions.map(({ value, label, disabled = false }) => {
                     const searchIndex = label.toLowerCase().indexOf(searchTerm.toLowerCase());
                     const isMatch = searchIndex !== -1;
+                    const isSelected = selectedOptions.includes(value);
 
                     let beforeMatch = label.slice(0, searchIndex);
                     let match = label.slice(searchIndex, searchIndex + searchTerm.length);
@@ -306,9 +306,14 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
                         borderRadius="md"
                         icon={null}
                         iconSpacing="0"
+                        bg={isSelected ? 'primary.100' : 'transparent'}
                       >
                         <Flex justify="space-between" align="center" width="100%">
-                          <Text fontSize={CustomizedSelect.sizes[size].fontSize}>
+                          <Text
+                            fontSize={CustomizedSelect.sizes[size].fontSize}
+                            fontWeight={isSelected ? 'bold' : 'normal'}
+                            color={isSelected ? 'black' : color}
+                          >
                             {isMatch ? (
                               <>
                                 {beforeMatch}
@@ -330,9 +335,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
                               tabIndex={-1}
                             />
                           )}
-                          {!isMultiple && selectedOptions.includes(value) && (
-                            <Check color={primary500} size={16} />
-                          )}
+                          {!isMultiple && isSelected && <Check color={primary500} size={16} />}
                         </Flex>
                       </MenuItemOption>
                     );
