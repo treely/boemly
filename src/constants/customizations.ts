@@ -1,10 +1,10 @@
 import { BREAKPOINT_LG, BREAKPOINT_MD, BREAKPOINT_SM, BREAKPOINT_XL } from './breakpoints';
 
 export const FONTS = {
-  body: 'Inter',
-  display: 'Raleway',
-  heading: 'Inter',
-  mono: 'Space Mono',
+  body: 'Inter, ui-sans-serif, system-ui, sans-serif',
+  display: 'Raleway, ui-sans-serif, system-ui, sans-serif',
+  heading: 'Inter, ui-sans-serif, system-ui, sans-serif',
+  mono: 'Space Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
 };
 
 export const FONT_SIZES = {
