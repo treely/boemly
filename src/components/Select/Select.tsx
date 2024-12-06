@@ -40,6 +40,7 @@ export interface BoemlySelectProps extends Omit<SelectProps, 'onChange' | 'value
   isFullWidth?: boolean;
   isSearchable?: boolean;
   isMultiple?: boolean;
+  preventDeselection?: boolean;
   selectAllText?: string;
   value?: string[];
   size?: 'xs' | 'sm' | 'md' | 'lg';
@@ -60,6 +61,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
   isFullWidth = true,
   isSearchable = false,
   isMultiple = false,
+  preventDeselection = false,
   selectAllText = 'Select All',
   size = 'md',
   variant = 'outline',
@@ -110,8 +112,22 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
             ? prevSelectedOptions.filter((val) => val !== optionValue)
             : [...prevSelectedOptions, optionValue];
         } else {
-          const isOptionSelected = prevSelectedOptions.includes(optionValue);
-          newSelectedOptions = isOptionSelected ? [] : [optionValue]; // Deselect if selected, otherwise select
+          // If preventDeselection is true, don't allow deselection of the selected option
+          if (preventDeselection) {
+            if (prevSelectedOptions.length === 0) {
+              // If no option is selected, select the clicked option
+              newSelectedOptions = [optionValue];
+            } else if (prevSelectedOptions[0] === optionValue) {
+              // If the clicked option is the same as the current selection, keep the selection and don't deselect
+              newSelectedOptions = prevSelectedOptions;
+            } else {
+              // If a different option is clicked, select the new option
+              newSelectedOptions = [optionValue];
+            }
+          } else {
+            const isOptionSelected = prevSelectedOptions.includes(optionValue);
+            newSelectedOptions = isOptionSelected ? [] : [optionValue]; // Deselect if selected, otherwise select
+          }
           setIsOpen(false); // Close dropdown for single select
         }
 
@@ -121,7 +137,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
 
       setSearchTerm(''); // Clear search term after selection
     },
-    [isMultiple, onChange]
+    [isMultiple, onChange, preventDeselection]
   );
 
   const onSelectAll = useCallback(() => {

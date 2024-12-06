@@ -67,6 +67,13 @@ WithPlaceholder.args = {
   options: commonOptions,
 };
 
+export const WithPreventDeselection = Template.bind({});
+WithPreventDeselection.args = {
+  color: 'black',
+  preventDeselection: true,
+  options: commonOptions,
+};
+
 export const Searchable = Template.bind({});
 Searchable.args = {
   isSearchable: true,
