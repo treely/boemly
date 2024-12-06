@@ -167,4 +167,117 @@ describe('The Select component', () => {
     // Check if onClose was called
     expect(onCloseMock).toHaveBeenCalledTimes(1);
   });
+
+  it('allows deselection when preventDeselection is false', () => {
+    const handleChange = jest.fn();
+
+    render(
+      <Select color="black" options={mockOptions} isMultiple={false} onChange={handleChange} />
+    );
+
+    const toggleButton = screen.getByRole('combobox');
+    fireEvent.click(toggleButton);
+
+    const option1 = screen.getByText('Option 1');
+    fireEvent.click(option1);
+
+    expect(handleChange).toHaveBeenCalledWith(['1']);
+    fireEvent.click(toggleButton);
+    // Click the same option again to deselect
+    fireEvent.click(option1);
+
+    expect(handleChange).toHaveBeenCalledWith(['1']);
+  });
+
+  it('prevents deselection when preventDeselection is true', () => {
+    const handleChange = jest.fn();
+
+    render(
+      <Select
+        color="black"
+        options={mockOptions}
+        isMultiple={false}
+        preventDeselection={true}
+        onChange={handleChange}
+      />
+    );
+
+    fireEvent.click(screen.getByRole('combobox'));
+    fireEvent.click(screen.getByText('Option 1'));
+
+    expect(handleChange).toHaveBeenCalledWith(['1']);
+
+    fireEvent.click(screen.getByRole('combobox'));
+    fireEvent.click(screen.getByRole('menuitemradio', { name: 'Option 1' })); // try to deselect
+
+    // check that the text in the combobox doesn't change
+    expect(screen.getByRole('combobox')).toHaveTextContent('Option 1');
+  });
+
+  it('allows switching between options when preventDeselection is true', () => {
+    const handleChange = jest.fn();
+
+    render(
+      <Select
+        color="black"
+        options={mockOptions}
+        isMultiple={false}
+        preventDeselection={true}
+        onChange={handleChange}
+      />
+    );
+
+    const toggleButton = screen.getByRole('combobox');
+    fireEvent.click(toggleButton);
+
+    const option1 = screen.getByText('Option 1');
+
+    fireEvent.click(option1);
+    expect(handleChange).toHaveBeenCalledWith(['1']);
+
+    expect(screen.getByRole('combobox')).toHaveTextContent('Option 1');
+
+    // re open dropdown and select another option
+    fireEvent.click(toggleButton);
+
+    const option2 = screen.getByText('Option 2');
+
+    fireEvent.click(option2);
+    expect(handleChange).toHaveBeenCalledWith(['2']);
+    // check that the text in the combobox did change
+    expect(screen.getByRole('combobox')).toHaveTextContent('Option 2');
+  });
+
+  it('handles disabled options correctly', () => {
+    const handleChange = jest.fn();
+
+    const optionsWithDisabled = [
+      { label: 'Option 1', value: '1', disabled: true },
+      { label: 'Option 2', value: '2' },
+      { label: 'Option 3', value: '3' },
+    ];
+
+    render(
+      <Select
+        color="black"
+        options={optionsWithDisabled}
+        isMultiple={false}
+        onChange={handleChange}
+      />
+    );
+
+    const toggleButton = screen.getByRole('combobox');
+    fireEvent.click(toggleButton);
+
+    const disabledOption = screen.getByText('Option 1');
+    const enabledOption = screen.getByText('Option 2');
+
+    // try to select disabled option
+    fireEvent.click(disabledOption);
+    expect(handleChange).not.toHaveBeenCalled();
+
+    // Select enabled option
+    fireEvent.click(enabledOption);
+    expect(handleChange).toHaveBeenCalledWith(['2']);
+  });
 });
