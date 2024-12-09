@@ -328,7 +328,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
                           <Text
                             fontSize={CustomizedSelect.sizes[size].fontSize}
                             fontWeight={isSelected ? 'bold' : 'normal'}
-                            color={isSelected ? 'black' : color}
+                            color="black"
                           >
                             {isMatch ? (
                               <>
