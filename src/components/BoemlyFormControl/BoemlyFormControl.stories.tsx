@@ -94,6 +94,17 @@ SelectWithDisabledOption.args = {
   ],
 };
 
+export const SelectWithPreventDeselection = Template.bind({});
+SelectWithPreventDeselection.args = {
+  id: 'select',
+  inputType: 'Select',
+  selectOptions: [
+    { value: 'option1', label: 'Option 1' },
+    { value: 'option2', label: 'Option 2' },
+  ],
+  selectProps: { preventDeselection: true },
+};
+
 export const Checkbox = Template.bind({});
 Checkbox.args = {
   id: 'checkbox',
