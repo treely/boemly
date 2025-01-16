@@ -44,6 +44,8 @@ export interface BoemlySelectProps extends Omit<SelectProps, 'onChange' | 'value
   selectAllText?: string;
   value?: string[];
   size?: 'xs' | 'sm' | 'md' | 'lg';
+  // dropdownWidth addresses the issue in Firefox browser by preventing  jerky scrolling and items disappearing when there are too many items.
+  dropdownWidth?: '3xs' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   variant?: 'filled' | 'unstyled' | 'flushed' | 'outline';
   onChange?: (value: string[]) => void;
   onClose?: () => void;
@@ -64,6 +66,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
   preventDeselection = false,
   selectAllText = 'Select All',
   size = 'md',
+  dropdownWidth,
   variant = 'outline',
   borderColor = CustomizedSelect.variants[variant].borderColor,
   backgroundColor = CustomizedSelect.variants[variant].backgroundColor,
@@ -259,6 +262,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
               maxHeight={dynamicMaxHeight}
               overflowY="auto"
               zIndex="popover"
+              width={dropdownWidth}
             >
               {isSearchable && (
                 <InputGroup mb="4">
