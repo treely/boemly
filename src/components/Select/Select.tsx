@@ -98,9 +98,13 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
 
   useEffect(() => {
     if (isOpen && isSearchable && inputRef.current) {
-      inputRef.current.focus();
+      requestAnimationFrame(() => {
+        if (inputRef.current) {
+          inputRef.current.focus();
+        }
+      });
     }
-  }, [isOpen, isSearchable]);
+  }, [filteredOptions.length, isOpen, isSearchable]);
 
   // Handle selecting an option
   const handleOptionSelect = useCallback(
