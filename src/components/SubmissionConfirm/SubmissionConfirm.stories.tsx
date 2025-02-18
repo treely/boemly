@@ -12,16 +12,22 @@ export default {
     text: { type: { name: 'string' } },
     submissionText: { type: { name: 'string' } },
     cancelText: { type: { name: 'string' } },
-    submissionColor: {
+    confirmButtonColor: {
       control: { type: 'text' },
     },
-    cancelColor: {
+    cancelButtonColor: {
+      control: { type: 'text' },
+    },
+    confirmButtonTextColor: {
+      control: { type: 'text' },
+    },
+    cancelButtonTextColor: {
       control: { type: 'text' },
     },
     onSubmit: { action: 'Delete' },
   },
   args: {
-    title: 'Sumbit',
+    title: 'Submit',
     submissionText: 'Ok',
     cancelText: 'Cancel',
   },
