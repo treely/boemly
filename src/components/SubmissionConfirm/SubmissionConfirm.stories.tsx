@@ -1,0 +1,49 @@
+import React from 'react';
+import { StoryFn, Meta } from '@storybook/react';
+
+import { SubmissionConfirm } from './SubmissionConfirm';
+import { Button, useDisclosure } from '@chakra-ui/react';
+
+export default {
+  title: 'components/SubmissionConfirm',
+  component: SubmissionConfirm,
+  argTypes: {
+    title: { type: { name: 'string' } },
+    text: { type: { name: 'string' } },
+    submissionText: { type: { name: 'string' } },
+    cancelText: { type: { name: 'string' } },
+    submissionColor: {
+      control: { type: 'text' },
+    },
+    cancelColor: {
+      control: { type: 'text' },
+    },
+    onSubmit: { action: 'Delete' },
+  },
+  args: {
+    title: 'Sumbit',
+    submissionText: 'Ok',
+    cancelText: 'Cancel',
+  },
+} as Meta<typeof SubmissionConfirm>;
+
+const Template: StoryFn<typeof SubmissionConfirm> = (args) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <SubmissionConfirm
+      {...args}
+      isOpen={isOpen}
+      onCancel={onClose}
+      trigger={<Button onClick={onOpen}>Trigger</Button>}
+    />
+  );
+};
+
+export const Default = Template.bind({});
+Default.args = {};
+
+export const WithText = Template.bind({});
+WithText.args = {
+  text: 'Text',
+};

@@ -40,6 +40,7 @@ export * from './components/BoemlyThemeProvider';
 export * from './components/Wrapper';
 export * from './components/ConfirmAction';
 export * from './components/Select';
+export * from './components/SubmissionConfirm';
 
 export {
   Avatar,
