@@ -4,7 +4,7 @@ import { render, screen } from '../../test/testUtils';
 import { BoemlyAccordionProps } from './BoemlyAccordion';
 
 const defaultProps: BoemlyAccordionProps = {
-  defaultIndex: 0,
+  defaultIndex: [0],
   rows: [{ id: 1, key: 'Heading', value: 'Text' }],
 };
 

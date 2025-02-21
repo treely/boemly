@@ -15,16 +15,18 @@ const rows = [
   { id: 2, key: 'Key 2', value: 'Value 2' },
 ];
 
+const defaultIndex = [0];
+
 export const Black = Template.bind({});
 Black.args = {
-  defaultIndex: 0,
+  defaultIndex,
   rows,
   variant: 'black',
 };
 
 export const White = Template.bind({});
 White.args = {
-  defaultIndex: 0,
+  defaultIndex,
   rows,
   variant: 'white',
 };
