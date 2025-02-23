@@ -17,7 +17,7 @@ export interface BoemlyAccordionProps {
     key: string;
     value: string;
   }[];
-  defaultIndex: number;
+  defaultIndex: number[];
 }
 
 export const BoemlyAccordion: React.FC<BoemlyAccordionProps> = ({
@@ -27,7 +27,7 @@ export const BoemlyAccordion: React.FC<BoemlyAccordionProps> = ({
 }: BoemlyAccordionProps) => {
   const textColor = variant === 'black' ? 'gray.500' : 'white';
   return (
-    <Accordion defaultIndex={[defaultIndex]} variant={variant}>
+    <Accordion defaultIndex={defaultIndex} variant={variant} allowToggle>
       {rows.map(({ id, key, value }) => (
         <AccordionItem key={id}>
           <AccordionButton>
