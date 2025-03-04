@@ -1,4 +1,5 @@
 import { CSSReset } from '@chakra-ui/react';
+import React from 'react';
 import { BoemlyThemeProvider } from '../src';
 
 export default {
@@ -11,7 +12,6 @@ export default {
     ),
   ],
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
