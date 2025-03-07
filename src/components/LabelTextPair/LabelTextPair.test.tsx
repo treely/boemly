@@ -37,4 +37,12 @@ describe('The LabelTextPair component', () => {
 
     expect(screen.getByText(defaultProps.text)).toBeInTheDocument();
   });
+
+  it('changes the color if isDisabled is true', () => {
+    setup({ caption: 'Caption', isDisabled: true });
+
+    expect(screen.getByText('Text')).toHaveStyle('color: gray.400');
+    expect(screen.getByText('Label')).toHaveStyle('color: gray.400');
+    expect(screen.getByText('Caption')).toHaveStyle('color: gray.400');
+  });
 });
