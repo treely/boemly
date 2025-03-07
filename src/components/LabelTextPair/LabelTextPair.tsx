@@ -8,6 +8,7 @@ export interface LabelTextPairProps extends StyleProps {
   text: string;
   caption?: string;
   size?: 'sm' | 'md' | 'lg';
+  isDisabled?: boolean;
 }
 
 const sizes = {
@@ -33,17 +34,18 @@ export const LabelTextPair: React.FC<LabelTextPairProps> = ({
   text,
   caption,
   size = 'md',
+  isDisabled = false,
   ...styleProps
 }: LabelTextPairProps) => (
   <Box {...styleProps}>
-    <OverflownText size={sizes[size].label} color="black">
+    <OverflownText size={sizes[size].label} color={isDisabled ? 'gray.400' : 'black'}>
       {label}
     </OverflownText>
-    <OverflownText size={sizes[size].text} color="black">
+    <OverflownText size={sizes[size].text} color={isDisabled ? 'gray.400' : 'black'}>
       {text}
     </OverflownText>
     {caption && (
-      <OverflownText size={sizes[size].caption} color="gray.500" mt="1">
+      <OverflownText size={sizes[size].caption} color={isDisabled ? 'gray.400' : 'black'} mt="1">
         {caption}
       </OverflownText>
     )}

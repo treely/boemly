@@ -21,3 +21,9 @@ export const WithCaption = Template.bind({});
 WithCaption.args = {
   caption: 'Caption',
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  caption: 'Caption',
+  isDisabled: true,
+};
