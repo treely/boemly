@@ -1,295 +1,304 @@
+import { defineRecipe } from '@chakra-ui/react';
 import BorderBottomStyles from '../types/BorderBottomStyles';
 import { FONT_SIZES } from './customizations';
 
-export const CustomizedHeading = {
-  baseStyle: {
+export const headingRecipe = defineRecipe({
+  base: {
     fontWeight: 'semibold',
     color: 'black',
   },
-  sizes: {
-    '4xl': {
-      fontSize: ['5xl', null, null, '7xl'],
-      lineHeight: ['9', null, null, '11'],
-      fontFamily: 'var(--boemly-fonts-display)',
-      fontWeight: 'bold',
+  variants: {
+    sizes: {
+      '4xl': {
+        fontSize: ['5xl', null, null, '7xl'],
+        lineHeight: ['9', null, null, '11'],
+        fontFamily: 'var(--boemly-fonts-display)',
+        fontWeight: 'bold',
+      },
+      '3xl': {
+        fontSize: ['3xl', null, null, '6xl'],
+        lineHeight: ['9', null, null, '10'],
+        fontFamily: 'var(--boemly-fonts-display)',
+        fontWeight: 'bold',
+      },
+      '2xl': {
+        fontSize: '4xl',
+        lineHeight: '9',
+      },
+      '2xlMono': {
+        fontSize: '4xl',
+        lineHeight: '9',
+        fontFamily: 'var(--boemly-fonts-mono)',
+      },
+      xl: { fontSize: '2xl', lineHeight: '7' },
+      lg: { fontSize: 'xl', lineHeight: '5' },
+      md: { fontSize: 'lg', lineHeight: '4' },
+      sm: { fontSize: 'md', lineHeight: '3' },
+      xs: { fontSize: 'sm', lineHeight: '1' },
     },
-    '3xl': {
-      fontSize: ['3xl', null, null, '6xl'],
-      lineHeight: ['9', null, null, '10'],
-      fontFamily: 'var(--boemly-fonts-display)',
-      fontWeight: 'bold',
-    },
-    '2xl': {
-      fontSize: '4xl',
-      lineHeight: '9',
-    },
-    '2xlMono': {
-      fontSize: '4xl',
-      lineHeight: '9',
-      fontFamily: 'var(--boemly-fonts-mono)',
-    },
-    xl: { fontSize: '2xl', lineHeight: '7' },
-    lg: { fontSize: 'xl', lineHeight: '5' },
-    md: { fontSize: 'lg', lineHeight: '4' },
-    sm: { fontSize: 'md', lineHeight: '3' },
-    xs: { fontSize: 'sm', lineHeight: '1' },
   },
-};
+});
 
-export const CustomizedText = {
-  baseStyle: {
+export const textRecipe = defineRecipe({
+  base: {
     color: 'gray.500',
   },
-  sizes: {
-    xlRegularNormal: {
-      fontSize: ['xl', null, null, '4xl'],
-      lineHeight: ['8', null, null, '10'],
-    },
-    xlRegularNormalBold: {
-      fontSize: ['xl', null, null, '4xl'],
-      lineHeight: ['8', null, null, '10'],
-      fontWeight: '600',
-    },
-    xlLowNormal: {
-      fontSize: ['xl', null, null, '4xl'],
-      lineHeight: ['5', null, null, '9'],
-    },
-    xlLowBold: {
-      fontSize: ['xl', null, null, '4xl'],
-      lineHeight: ['5', null, null, '9'],
-      fontWeight: '600',
-    },
-    xlMonoNormal: {
-      fontSize: ['xl', null, null, '4xl'],
-      lineHeight: ['8', null, null, '10'],
-      fontFamily: 'var(--boemly-fonts-mono)',
-    },
-    xlMonoUppercase: {
-      fontSize: ['xl', null, null, '4xl'],
-      lineHeight: ['8', null, null, '10'],
-      fontFamily: 'var(--boemly-fonts-mono)',
-      textTransform: 'uppercase',
-    },
+  variants: {
+    sizes: {
+      xlRegularNormal: {
+        fontSize: ['xl', null, null, '4xl'],
+        lineHeight: ['8', null, null, '10'],
+      },
+      xlRegularNormalBold: {
+        fontSize: ['xl', null, null, '4xl'],
+        lineHeight: ['8', null, null, '10'],
+        fontWeight: '600',
+      },
+      xlLowNormal: {
+        fontSize: ['xl', null, null, '4xl'],
+        lineHeight: ['5', null, null, '9'],
+      },
+      xlLowBold: {
+        fontSize: ['xl', null, null, '4xl'],
+        lineHeight: ['5', null, null, '9'],
+        fontWeight: '600',
+      },
+      xlMonoNormal: {
+        fontSize: ['xl', null, null, '4xl'],
+        lineHeight: ['8', null, null, '10'],
+        fontFamily: 'var(--boemly-fonts-mono)',
+      },
+      xlMonoUppercase: {
+        fontSize: ['xl', null, null, '4xl'],
+        lineHeight: ['8', null, null, '10'],
+        fontFamily: 'var(--boemly-fonts-mono)',
+        textTransform: 'uppercase',
+      },
 
-    lgRegularNormal: {
-      fontSize: 'xl',
-      lineHeight: '8',
-    },
-    lgRegularNormalBold: {
-      fontSize: 'xl',
-      lineHeight: '8',
-      fontWeight: '600',
-    },
-    lgLowNormal: {
-      fontSize: 'xl',
-      lineHeight: '5',
-    },
-    lgLowBold: {
-      fontSize: 'xl',
-      lineHeight: '5',
-      fontWeight: '600',
-    },
-    lgMonoNormal: {
-      fontSize: 'xl',
-      lineHeight: '8',
-      fontFamily: 'var(--boemly-fonts-mono)',
-    },
-    lgMonoUppercase: {
-      fontSize: 'xl',
-      lineHeight: '8',
-      fontFamily: 'var(--boemly-fonts-mono)',
-      textTransform: 'uppercase',
-    },
+      lgRegularNormal: {
+        fontSize: 'xl',
+        lineHeight: '8',
+      },
+      lgRegularNormalBold: {
+        fontSize: 'xl',
+        lineHeight: '8',
+        fontWeight: '600',
+      },
+      lgLowNormal: {
+        fontSize: 'xl',
+        lineHeight: '5',
+      },
+      lgLowBold: {
+        fontSize: 'xl',
+        lineHeight: '5',
+        fontWeight: '600',
+      },
+      lgMonoNormal: {
+        fontSize: 'xl',
+        lineHeight: '8',
+        fontFamily: 'var(--boemly-fonts-mono)',
+      },
+      lgMonoUppercase: {
+        fontSize: 'xl',
+        lineHeight: '8',
+        fontFamily: 'var(--boemly-fonts-mono)',
+        textTransform: 'uppercase',
+      },
 
-    mdRegularNormal: {
-      fontSize: 'md',
-      lineHeight: '6',
-    },
-    mdRegularNormalBold: {
-      fontSize: 'md',
-      lineHeight: '6',
-      fontWeight: '600',
-    },
-    mdLowNormal: {
-      fontSize: 'md',
-      lineHeight: '6',
-    },
-    mdLowBold: {
-      fontSize: 'md',
-      lineHeight: '6',
-      fontWeight: '600',
-    },
-    mdMonoNormal: {
-      fontSize: 'md',
-      lineHeight: '6',
-      fontFamily: 'var(--boemly-fonts-mono)',
-    },
-    mdMonoUppercase: {
-      fontSize: 'md',
-      lineHeight: '6',
-      fontFamily: 'var(--boemly-fonts-mono)',
-      textTransform: 'uppercase',
-    },
+      mdRegularNormal: {
+        fontSize: 'md',
+        lineHeight: '6',
+      },
+      mdRegularNormalBold: {
+        fontSize: 'md',
+        lineHeight: '6',
+        fontWeight: '600',
+      },
+      mdLowNormal: {
+        fontSize: 'md',
+        lineHeight: '6',
+      },
+      mdLowBold: {
+        fontSize: 'md',
+        lineHeight: '6',
+        fontWeight: '600',
+      },
+      mdMonoNormal: {
+        fontSize: 'md',
+        lineHeight: '6',
+        fontFamily: 'var(--boemly-fonts-mono)',
+      },
+      mdMonoUppercase: {
+        fontSize: 'md',
+        lineHeight: '6',
+        fontFamily: 'var(--boemly-fonts-mono)',
+        textTransform: 'uppercase',
+      },
 
-    smRegularNormal: {
-      fontSize: 'sm',
-      lineHeight: '4',
-    },
-    smRegularNormalBold: {
-      fontSize: 'sm',
-      lineHeight: '4',
-      fontWeight: '600',
-    },
-    smLowNormal: {
-      fontSize: 'sm',
-      lineHeight: '1',
-    },
-    smLowBold: {
-      fontSize: 'sm',
-      lineHeight: '1',
-      fontWeight: '600',
-    },
-    smMonoNormal: {
-      fontSize: 'sm',
-      lineHeight: '4',
-      fontFamily: 'var(--boemly-fonts-mono)',
-    },
-    smMonoUppercase: {
-      fontSize: 'sm',
-      lineHeight: '4',
-      fontFamily: 'var(--boemly-fonts-mono)',
-      textTransform: 'uppercase',
-    },
+      smRegularNormal: {
+        fontSize: 'sm',
+        lineHeight: '4',
+      },
+      smRegularNormalBold: {
+        fontSize: 'sm',
+        lineHeight: '4',
+        fontWeight: '600',
+      },
+      smLowNormal: {
+        fontSize: 'sm',
+        lineHeight: '1',
+      },
+      smLowBold: {
+        fontSize: 'sm',
+        lineHeight: '1',
+        fontWeight: '600',
+      },
+      smMonoNormal: {
+        fontSize: 'sm',
+        lineHeight: '4',
+        fontFamily: 'var(--boemly-fonts-mono)',
+      },
+      smMonoUppercase: {
+        fontSize: 'sm',
+        lineHeight: '4',
+        fontFamily: 'var(--boemly-fonts-mono)',
+        textTransform: 'uppercase',
+      },
 
-    xsRegularNormal: {
-      fontSize: 'xs',
-      lineHeight: '2',
-    },
-    xsRegularNormalBold: {
-      fontSize: 'xs',
-      lineHeight: '2',
-      fontWeight: '600',
-    },
-    xsLowNormal: {
-      fontSize: 'xs',
-      lineHeight: '0',
-    },
-    xsLowBold: {
-      fontSize: 'xs',
-      lineHeight: '0',
-      fontWeight: '600',
-    },
-    xsMonoNormal: {
-      fontSize: 'xs',
-      lineHeight: '2',
-      fontFamily: 'var(--boemly-fonts-mono)',
-    },
-    xsMonoUppercase: {
-      fontSize: 'xs',
-      lineHeight: '2',
-      fontFamily: 'var(--boemly-fonts-mono)',
-      textTransform: 'uppercase',
+      xsRegularNormal: {
+        fontSize: 'xs',
+        lineHeight: '2',
+      },
+      xsRegularNormalBold: {
+        fontSize: 'xs',
+        lineHeight: '2',
+        fontWeight: '600',
+      },
+      xsLowNormal: {
+        fontSize: 'xs',
+        lineHeight: '0',
+      },
+      xsLowBold: {
+        fontSize: 'xs',
+        lineHeight: '0',
+        fontWeight: '600',
+      },
+      xsMonoNormal: {
+        fontSize: 'xs',
+        lineHeight: '2',
+        fontFamily: 'var(--boemly-fonts-mono)',
+      },
+      xsMonoUppercase: {
+        fontSize: 'xs',
+        lineHeight: '2',
+        fontFamily: 'var(--boemly-fonts-mono)',
+        textTransform: 'uppercase',
+      },
     },
   },
-};
+});
 
-export const CustomizedButton = {
-  baseStyle: {
+export const buttonRecipe = defineRecipe({
+  base: {
     borderRadius: 'xl',
     whiteSpace: 'normal',
     wordWrap: 'break-word',
   },
+
   variants: {
-    solid: {
-      color: 'black',
-    },
-    link: {
-      color: 'black',
-      textDecoration: 'none',
-      _hover: {
-        opacity: '0.8',
+    variant: {
+      solid: {
+        color: 'black',
+      },
+      link: {
+        color: 'black',
         textDecoration: 'none',
+        _hover: {
+          opacity: '0.8',
+          textDecoration: 'none',
+        },
+      },
+      outline: {
+        color: 'black',
+        borderColor: 'gray.200',
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        background: 'white',
+        _hover: {
+          background: 'gray.50',
+        },
+        _active: {
+          background: 'gray.50',
+        },
+      },
+      outlineWhite: {
+        color: 'white',
+        borderColor: 'whiteAlpha.400',
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        _hover: {
+          background: 'whiteAlpha.200',
+          borderColor: 'whiteAlpha.800',
+        },
+        _active: {
+          background: 'whiteAlpha.300',
+          borderColor: 'whiteAlpha.800',
+        },
+      },
+      ghost: {
+        color: 'black',
+        _hover: {
+          background: 'primary.50',
+        },
+        _active: {
+          background: 'primary.100',
+        },
       },
     },
-    outline: {
-      color: 'black',
-      borderColor: 'gray.200',
-      borderWidth: '1px',
-      borderStyle: 'solid',
-      background: 'white',
-      _hover: {
-        background: 'gray.50',
+    sizes: {
+      xl: {
+        h: 16,
+        minW: 12,
+        px: 6,
+        ...textRecipe.variants?.size.smLowBold,
       },
-      _active: {
-        background: 'gray.50',
+      lg: {
+        h: 12,
+        minW: 12,
+        px: 6,
+        ...textRecipe.variants?.size.smLowBold,
       },
-    },
-    outlineWhite: {
-      color: 'white',
-      borderColor: 'whiteAlpha.400',
-      borderWidth: '1px',
-      borderStyle: 'solid',
-      _hover: {
-        background: 'whiteAlpha.200',
-        borderColor: 'whiteAlpha.800',
+      md: {
+        h: 10,
+        minW: 10,
+        px: 4,
+        ...textRecipe.variants?.size.smLowBold,
       },
-      _active: {
-        background: 'whiteAlpha.300',
-        borderColor: 'whiteAlpha.800',
+      sm: {
+        h: 8,
+        minW: 8,
+        borderRadius: 'lg',
+        px: 3,
+        ...textRecipe.variants?.size.smLowBold,
       },
-    },
-    ghost: {
-      color: 'black',
-      _hover: {
-        background: 'primary.50',
-      },
-      _active: {
-        background: 'primary.100',
+      xs: {
+        h: 6,
+        minW: 6,
+        borderRadius: 'lg',
+        px: 2,
+        ...textRecipe.variants?.size.xsLowBold,
       },
     },
   },
-  sizes: {
-    xl: {
-      h: 16,
-      minW: 12,
-      px: 6,
-      ...CustomizedText.sizes.smLowBold,
-    },
-    lg: {
-      h: 12,
-      minW: 12,
-      px: 6,
-      ...CustomizedText.sizes.smLowBold,
-    },
-    md: {
-      h: 10,
-      minW: 10,
-      px: 4,
-      ...CustomizedText.sizes.smLowBold,
-    },
-    sm: {
-      h: 8,
-      minW: 8,
-      borderRadius: 'lg',
-      px: 3,
-      ...CustomizedText.sizes.smLowBold,
-    },
-    xs: {
-      h: 6,
-      minW: 6,
-      borderRadius: 'lg',
-      px: 2,
-      ...CustomizedText.sizes.xsLowBold,
-    },
-  },
-  defaultProps: {
-    colorScheme: 'primary',
+
+  defaultVariants: {
+    // colorScheme: 'primary', TODO: Handle colorScheme in chakra-ui v3
     variant: 'solid',
   },
-};
+});
 
-export const CustomizedLink = {
-  baseStyle: {
+export const linkRecipe = defineRecipe({
+  base: {
     transition: 'opacity ease var(--medium-transition-duration)',
     textDecoration: 'underline',
 
@@ -297,24 +306,28 @@ export const CustomizedLink = {
       opacity: '0.8',
     },
   },
-  sizes: {
-    lg: {
-      fontSize: 'lg',
-    },
-    md: {
-      fontSize: 'md',
-    },
-    sm: {
-      fontSize: 'sm',
-    },
-    xs: {
-      fontSize: 'xs',
+
+  variants: {
+    sizes: {
+      lg: {
+        fontSize: 'lg',
+      },
+      md: {
+        fontSize: 'md',
+      },
+      sm: {
+        fontSize: 'sm',
+      },
+      xs: {
+        fontSize: 'xs',
+      },
     },
   },
-  defaultProps: {
-    size: 'sm',
+
+  defaultVariants: {
+    sizes: 'sm',
   },
-};
+});
 
 export const CustomizedAccordion = {
   baseStyle: {
