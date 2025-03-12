@@ -1,4 +1,4 @@
-import { defineRecipe } from '@chakra-ui/react';
+import { defineRecipe, defineSlotRecipe } from '@chakra-ui/react';
 import BorderBottomStyles from '../types/BorderBottomStyles';
 import { FONT_SIZES } from './customizations';
 
@@ -260,33 +260,33 @@ export const buttonRecipe = defineRecipe({
         h: 16,
         minW: 12,
         px: 6,
-        ...textRecipe.variants?.size.smLowBold,
+        ...textRecipe.variants?.sizes.smLowBold,
       },
       lg: {
         h: 12,
         minW: 12,
         px: 6,
-        ...textRecipe.variants?.size.smLowBold,
+        ...textRecipe.variants?.sizes.smLowBold,
       },
       md: {
         h: 10,
         minW: 10,
         px: 4,
-        ...textRecipe.variants?.size.smLowBold,
+        ...textRecipe.variants?.sizes.smLowBold,
       },
       sm: {
         h: 8,
         minW: 8,
         borderRadius: 'lg',
         px: 3,
-        ...textRecipe.variants?.size.smLowBold,
+        ...textRecipe.variants?.sizes.smLowBold,
       },
       xs: {
         h: 6,
         minW: 6,
         borderRadius: 'lg',
         px: 2,
-        ...textRecipe.variants?.size.xsLowBold,
+        ...textRecipe.variants?.sizes.xsLowBold,
       },
     },
   },
@@ -329,8 +329,9 @@ export const linkRecipe = defineRecipe({
   },
 });
 
-export const CustomizedAccordion = {
-  baseStyle: {
+export const accordionRecipe = defineSlotRecipe({
+  slots: ['button', 'container', 'icon', 'panel'],
+  base: {
     icon: {
       fontSize: '1rem',
       borderRadius: 'lg',
@@ -355,387 +356,433 @@ export const CustomizedAccordion = {
       paddingY: '2',
     },
   },
+
   variants: {
-    white: {
-      icon: {
-        color: 'primary.700',
-        background: 'white',
+    variant: {
+      white: {
+        icon: {
+          color: 'primary.700',
+          background: 'white',
+        },
+        container: {
+          borderColor: 'whiteAlpha.300',
+        },
       },
-      container: {
-        borderColor: 'whiteAlpha.300',
-      },
-    },
-    black: {
-      icon: {
-        color: 'white',
-        background: 'black',
-      },
-      container: {
-        borderColor: 'gray.300',
+      black: {
+        icon: {
+          color: 'white',
+          background: 'black',
+        },
+        container: {
+          borderColor: 'gray.300',
+        },
       },
     },
   },
-  defaultProps: {
+
+  defaultVariants: {
     variant: 'black',
   },
-};
+});
 
 const inputSizes = {
   xl: {
-    ...CustomizedText.sizes.mdLowNormal,
+    ...textRecipe.variants?.sizes.mdLowNormal,
     px: '4',
     height: '16',
     borderRadius: 'xl',
   },
   lg: {
-    ...CustomizedText.sizes.smLowNormal,
+    ...textRecipe.variants?.sizes.smLowNormal,
     px: '4',
     height: '12',
     borderRadius: 'lg',
   },
   md: {
-    ...CustomizedText.sizes.smLowNormal,
+    ...textRecipe.variants?.sizes.smLowNormal,
     px: '4',
     height: '10',
     borderRadius: 'lg',
   },
   sm: {
-    ...CustomizedText.sizes.smLowNormal,
+    ...textRecipe.variants?.sizes.smLowNormal,
     px: '3',
     height: '8',
     borderRadius: 'md',
   },
   xs: {
-    ...CustomizedText.sizes.xsLowNormal,
+    ...textRecipe.variants?.sizes.xsLowNormal,
     px: '2',
     height: '6',
     borderRadius: 'md',
   },
 };
 
-export const CustomizedInput = {
-  sizes: {
-    xl: {
-      field: inputSizes.xl,
-      addon: inputSizes.xl,
-    },
-    lg: {
-      field: inputSizes.lg,
-      addon: inputSizes.lg,
-    },
-    md: {
-      field: inputSizes.md,
-      addon: inputSizes.md,
-    },
-    sm: {
-      field: inputSizes.sm,
-      addon: inputSizes.sm,
+export const inputRecipe = defineRecipe({
+  variants: {
+    sizes: {
+      xl: {
+        field: inputSizes.xl,
+        addon: inputSizes.xl,
+      },
+      lg: {
+        field: inputSizes.lg,
+        addon: inputSizes.lg,
+      },
+      md: {
+        field: inputSizes.md,
+        addon: inputSizes.md,
+      },
+      sm: {
+        field: inputSizes.sm,
+        addon: inputSizes.sm,
+      },
     },
   },
-  defaultProps: {
-    size: 'lg',
-    focusBorderColor: 'black',
-  },
-};
 
-export const CustomizedNumberInput = {
-  sizes: CustomizedInput.sizes,
-  defaultProps: {
-    size: 'lg',
-    focusBorderColor: 'black',
+  defaultVariants: {
+    sizes: 'lg',
+    // focusBorderColor: 'black', TODO: Handle focusBorderColor in chakra-ui v3
   },
-};
+});
 
-export const CustomizedPinInput = {
-  sizes: {
-    xl: {
-      fontSize: inputSizes.xl.fontSize,
-      w: inputSizes.xl.height,
-      h: inputSizes.xl.height,
-      borderRadius: inputSizes.xl.borderRadius,
-    },
-    lg: {
-      fontSize: inputSizes.lg.fontSize,
-      w: inputSizes.lg.height,
-      h: inputSizes.lg.height,
-      borderRadius: inputSizes.lg.borderRadius,
-    },
-    md: {
-      fontSize: inputSizes.md.fontSize,
-      w: inputSizes.md.height,
-      h: inputSizes.md.height,
-      borderRadius: inputSizes.md.borderRadius,
-    },
-    sm: {
-      fontSize: inputSizes.sm.fontSize,
-      w: inputSizes.sm.height,
-      h: inputSizes.sm.height,
-      borderRadius: inputSizes.sm.borderRadius,
+export const numberInputRecipe = defineRecipe({
+  variants: {
+    sizes: {
+      xl: {
+        field: inputSizes.xl,
+        addon: inputSizes.xl,
+      },
+      lg: {
+        field: inputSizes.lg,
+        addon: inputSizes.lg,
+      },
+      md: {
+        field: inputSizes.md,
+        addon: inputSizes.md,
+      },
+      sm: {
+        field: inputSizes.sm,
+        addon: inputSizes.sm,
+      },
     },
   },
-  defaultProps: {
-    size: 'lg',
-    focusBorderColor: 'black',
-  },
-};
 
-export const CustomizedProgress = {
-  baseStyle: {
+  defaultVariants: {
+    sizes: 'lg',
+    // focusBorderColor: 'black', TODO: Handle focusBorderColor in chakra-ui v3
+  },
+});
+
+export const pinInputRecipe = defineRecipe({
+  variants: {
+    sizes: {
+      xl: {
+        fontSize: inputSizes.xl.fontSize,
+        w: inputSizes.xl.height,
+        h: inputSizes.xl.height,
+        borderRadius: inputSizes.xl.borderRadius,
+      },
+      lg: {
+        fontSize: inputSizes.lg.fontSize,
+        w: inputSizes.lg.height,
+        h: inputSizes.lg.height,
+        borderRadius: inputSizes.lg.borderRadius,
+      },
+      md: {
+        fontSize: inputSizes.md.fontSize,
+        w: inputSizes.md.height,
+        h: inputSizes.md.height,
+        borderRadius: inputSizes.md.borderRadius,
+      },
+      sm: {
+        fontSize: inputSizes.sm.fontSize,
+        w: inputSizes.sm.height,
+        h: inputSizes.sm.height,
+        borderRadius: inputSizes.sm.borderRadius,
+      },
+    },
+  },
+
+  defaultVariants: {
+    sizes: 'lg',
+    // focusBorderColor: 'black', TODO: Handle focusBorderColor in chakra-ui v3
+  },
+});
+
+export const progressRecipe = defineSlotRecipe({
+  slots: ['track'],
+  base: {
     track: {
       borderRadius: 'full',
     },
   },
-};
+});
 
-export const CustomizedTextarea = {
-  sizes: {
-    xl: {
-      ...CustomizedText.sizes.mdRegularNormal,
-      py: '2',
-      px: '4',
-      borderRadius: 'xl',
-    },
-    lg: {
-      ...CustomizedText.sizes.mdLowNormal,
-      py: '2',
-      px: '4',
-      borderRadius: 'lg',
-    },
-    md: {
-      ...CustomizedText.sizes.smRegularNormal,
-      py: '2',
-      px: '4',
-      borderRadius: 'lg',
-    },
-    sm: {
-      ...CustomizedText.sizes.smLowNormal,
-      py: '2',
-      px: '3',
-      borderRadius: 'md',
-    },
-  },
-  defaultProps: {
-    size: 'lg',
-    focusBorderColor: 'black',
-  },
-};
-
-export const CustomizedSelect = {
-  sizes: {
-    xs: {
-      height: inputSizes.xs.height,
-      fontSize: inputSizes.xs.fontSize,
-      borderRadius: inputSizes.xs.borderRadius,
-      badgeSize: FONT_SIZES.xs,
-    },
-    sm: {
-      ...CustomizedText.sizes.smLowNormal,
-      height: inputSizes.sm.height,
-      fontSize: inputSizes.sm.fontSize,
-      borderRadius: inputSizes.sm.borderRadius,
-      badgeSize: FONT_SIZES.xs,
-    },
-    md: {
-      ...CustomizedText.sizes.smRegularNormal,
-      height: inputSizes.md.height,
-      fontSize: inputSizes.md.fontSize,
-      borderRadius: inputSizes.md.borderRadius,
-      badgeSize: FONT_SIZES.xs,
-    },
-    lg: {
-      ...CustomizedText.sizes.mdLowNormal,
-      height: inputSizes.lg.height,
-      fontSize: inputSizes.lg.fontSize,
-      borderRadius: inputSizes.lg.borderRadius,
-      badgeSize: FONT_SIZES.sm,
-    },
-    xl: {
-      ...CustomizedText.sizes.mdLowNormal,
-      height: inputSizes.lg.height,
-      fontSize: inputSizes.lg.fontSize,
-      borderRadius: inputSizes.lg.borderRadius,
-      badgeSize: FONT_SIZES.lg,
-    },
-  },
+export const textareaRecipe = defineRecipe({
   variants: {
-    filled: {
-      backgroundColor: 'gray.100',
-      border: '0.063rem',
-      borderColor: 'transparent',
-      borderRadius: 'md',
-      borderBottomWidth: '0.063rem',
-      borderBottomStyle: 'solid' as BorderBottomStyles,
-    },
-    unstyled: {
-      backgroundColor: 'transparent',
-      border: '0px',
-      borderColor: 'white',
-      borderRadius: '0px',
-      borderBottomWidth: '0px',
-      borderBottomStyle: 'solid' as BorderBottomStyles,
-    },
-    flushed: {
-      backgroundColor: 'transparent',
-      border: '0px',
-      borderColor: 'gray.200',
-      borderRadius: '0px',
-      borderBottomWidth: '0.063rem',
-      borderBottomStyle: 'solid' as BorderBottomStyles,
-    },
-    outline: {
-      backgroundColor: 'transparent',
-      border: '0.063rem solid',
-      borderColor: 'gray.200',
-      borderRadius: 'md',
-      borderBottomWidth: '0.063rem',
-      borderBottomStyle: 'solid' as BorderBottomStyles,
-    },
-  },
-};
-
-export const CustomizedAvatar = {
-  sizes: {
-    '2xs': {
-      container: {
-        fontWeight: '600',
+    sizes: {
+      xl: {
+        ...textRecipe.variants?.sizes.mdRegularNormal,
+        py: '2',
+        px: '4',
+        borderRadius: 'xl',
       },
-      label: {
-        fontWeight: '600',
+      lg: {
+        ...textRecipe.variants?.sizes.mdLowNormal,
+        py: '2',
+        px: '4',
+        borderRadius: 'lg',
       },
-    },
-    xs: {
-      container: {
-        fontWeight: '600',
+      md: {
+        ...textRecipe.variants?.sizes.smRegularNormal,
+        py: '2',
+        px: '4',
+        borderRadius: 'lg',
       },
-      label: {
-        fontWeight: '600',
-      },
-    },
-    sm: {
-      container: {
-        ...CustomizedText.sizes.xsLowBold,
-      },
-      label: {
-        ...CustomizedText.sizes.xsLowBold,
-      },
-    },
-    md: {
-      container: {
-        width: '2.5rem',
-        height: '2.5rem',
-        ...CustomizedText.sizes.mdLowBold,
-      },
-      excessLabel: {
-        width: '2.5rem',
-        height: '2.5rem',
-      },
-      label: {
-        ...CustomizedText.sizes.mdLowBold,
-      },
-    },
-    lg: {
-      container: {
-        width: '3rem',
-        height: '3rem',
-        ...CustomizedText.sizes.mdLowBold,
-      },
-      excessLabel: {
-        width: '3rem',
-        height: '3rem',
-      },
-      label: {
-        ...CustomizedText.sizes.mdLowBold,
-      },
-    },
-    xl: {
-      container: {
-        width: '4rem',
-        height: '4rem',
-        ...CustomizedText.sizes.lgLowBold,
-      },
-      excessLabel: {
-        width: '4rem',
-        height: '4rem',
-      },
-      label: {
-        ...CustomizedText.sizes.lgLowBold,
-      },
-    },
-    '2xl': {
-      container: {
-        width: '6rem',
-        height: '6rem',
-        ...CustomizedHeading.sizes.xl,
-      },
-      excessLabel: {
-        width: '6rem',
-        height: '6rem',
-      },
-      label: {
-        ...CustomizedHeading.sizes.xl,
-      },
-    },
-    '3xl': {
-      container: {
-        width: '8rem',
-        height: '8rem',
-        ...CustomizedHeading.sizes['2xl'],
-      },
-      excessLabel: {
-        width: '8rem',
-        height: '8rem',
-      },
-      label: {
-        ...CustomizedHeading.sizes['2xl'],
+      sm: {
+        ...textRecipe.variants?.sizes.smLowNormal,
+        py: '2',
+        px: '3',
+        borderRadius: 'md',
       },
     },
   },
-};
 
-export const CustomizedAlert = {
-  baseStyle: {
+  defaultVariants: {
+    sizes: 'lg',
+    // focusBorderColor: 'black', TODO: Handle focusBorderColor in chakra-ui v3
+  },
+});
+
+export const selectRecipe = defineRecipe({
+  variants: {
+    sizes: {
+      xs: {
+        height: inputSizes.xs.height,
+        fontSize: inputSizes.xs.fontSize,
+        borderRadius: inputSizes.xs.borderRadius,
+        badgeSize: FONT_SIZES.xs,
+      },
+      sm: {
+        ...textRecipe.variants?.sizes.smLowNormal,
+        height: inputSizes.sm.height,
+        fontSize: inputSizes.sm.fontSize,
+        borderRadius: inputSizes.sm.borderRadius,
+        badgeSize: FONT_SIZES.xs,
+      },
+      md: {
+        ...textRecipe.variants?.sizes.smRegularNormal,
+        height: inputSizes.md.height,
+        fontSize: inputSizes.md.fontSize,
+        borderRadius: inputSizes.md.borderRadius,
+        badgeSize: FONT_SIZES.xs,
+      },
+      lg: {
+        ...textRecipe.variants?.sizes.mdLowNormal,
+        height: inputSizes.lg.height,
+        fontSize: inputSizes.lg.fontSize,
+        borderRadius: inputSizes.lg.borderRadius,
+        badgeSize: FONT_SIZES.sm,
+      },
+      xl: {
+        ...textRecipe.variants?.sizes.mdLowNormal,
+        height: inputSizes.lg.height,
+        fontSize: inputSizes.lg.fontSize,
+        borderRadius: inputSizes.lg.borderRadius,
+        badgeSize: FONT_SIZES.lg,
+      },
+    },
+    variant: {
+      filled: {
+        backgroundColor: 'gray.100',
+        border: '0.063rem',
+        borderColor: 'transparent',
+        borderRadius: 'md',
+        borderBottomWidth: '0.063rem',
+        borderBottomStyle: 'solid' as BorderBottomStyles,
+      },
+      unstyled: {
+        backgroundColor: 'transparent',
+        border: '0px',
+        borderColor: 'white',
+        borderRadius: '0px',
+        borderBottomWidth: '0px',
+        borderBottomStyle: 'solid' as BorderBottomStyles,
+      },
+      flushed: {
+        backgroundColor: 'transparent',
+        border: '0px',
+        borderColor: 'gray.200',
+        borderRadius: '0px',
+        borderBottomWidth: '0.063rem',
+        borderBottomStyle: 'solid' as BorderBottomStyles,
+      },
+      outline: {
+        backgroundColor: 'transparent',
+        border: '0.063rem solid',
+        borderColor: 'gray.200',
+        borderRadius: 'md',
+        borderBottomWidth: '0.063rem',
+        borderBottomStyle: 'solid' as BorderBottomStyles,
+      },
+    },
+  },
+});
+
+export const avatarRecipe = defineSlotRecipe({
+  slots: ['container', 'excessLabel', 'label'],
+  variants: {
+    sizes: {
+      '2xs': {
+        container: {
+          fontWeight: '600',
+        },
+        label: {
+          fontWeight: '600',
+        },
+      },
+      xs: {
+        container: {
+          fontWeight: '600',
+        },
+        label: {
+          fontWeight: '600',
+        },
+      },
+      sm: {
+        container: {
+          ...textRecipe.variants?.sizes.xsLowBold,
+        },
+        label: {
+          ...textRecipe.variants?.sizes.xsLowBold,
+        },
+      },
+      md: {
+        container: {
+          width: '2.5rem',
+          height: '2.5rem',
+          ...textRecipe.variants?.sizes.mdLowBold,
+        },
+        excessLabel: {
+          width: '2.5rem',
+          height: '2.5rem',
+        },
+        label: {
+          ...textRecipe.variants?.sizes.mdLowBold,
+        },
+      },
+      lg: {
+        container: {
+          width: '3rem',
+          height: '3rem',
+          ...textRecipe.variants?.sizes.mdLowBold,
+        },
+        excessLabel: {
+          width: '3rem',
+          height: '3rem',
+        },
+        label: {
+          ...textRecipe.variants?.sizes.mdLowBold,
+        },
+      },
+      xl: {
+        container: {
+          width: '4rem',
+          height: '4rem',
+          ...textRecipe.variants?.sizes.lgLowBold,
+        },
+        excessLabel: {
+          width: '4rem',
+          height: '4rem',
+        },
+        label: {
+          ...textRecipe.variants?.sizes.lgLowBold,
+        },
+      },
+      '2xl': {
+        container: {
+          width: '6rem',
+          height: '6rem',
+          ...headingRecipe.variants?.sizes.xl,
+        },
+        excessLabel: {
+          width: '6rem',
+          height: '6rem',
+        },
+        label: {
+          ...headingRecipe.variants?.sizes.xl,
+        },
+      },
+      '3xl': {
+        container: {
+          width: '8rem',
+          height: '8rem',
+          ...headingRecipe.variants?.sizes['2xl'],
+        },
+        excessLabel: {
+          width: '8rem',
+          height: '8rem',
+        },
+        label: {
+          ...headingRecipe.variants?.sizes['2xl'],
+        },
+      },
+    },
+  },
+});
+
+export const alertRecipe = defineSlotRecipe({
+  slots: ['container'],
+  base: {
     container: {
       borderRadius: 'md',
     },
   },
-};
+});
 
-export const CustomizedTooltip = {
-  baseStyle: {
+export const tooltipRecipe = defineRecipe({
+  base: {
     borderRadius: 'lg',
     px: '4',
     py: '2',
   },
-};
+});
 
-export const CustomizedCheckbox = {
-  defaultProps: {
-    colorScheme: 'primary',
-  },
-  baseStyle: {
+export const checkboxRecipe = defineSlotRecipe({
+  slots: ['control', 'icon', 'label'],
+  base: {
     control: {
       backgroundColor: 'white',
     },
   },
-  sizes: {
-    xl: {
-      icon: {
-        w: '8',
-        h: '8',
-      },
-      control: {
-        w: '8',
-        h: '8',
-      },
-      label: {
-        fontSize: 'xl',
+
+  variants: {
+    sizes: {
+      xl: {
+        icon: {
+          w: '8',
+          h: '8',
+        },
+        control: {
+          w: '8',
+          h: '8',
+        },
+        label: {
+          fontSize: 'xl',
+        },
       },
     },
   },
-};
 
-export const CustomizedTable = {
-  baseStyle: {
+  defaultVariants: {
+    // colorScheme: 'primary', TODO: Handle colorScheme in chakra-ui v3
+  },
+});
+
+export const tableRecipe = defineSlotRecipe({
+  slots: ['table', 'thead', 'tbody', 'tr', 'th', 'td', 'caption'],
+  base: {
     th: {
       color: 'gray.500',
       textTransform: 'unset',
@@ -744,70 +791,75 @@ export const CustomizedTable = {
       color: 'black',
     },
   },
-  sizes: {
-    sm: {
-      th: {
-        ...CustomizedText.sizes.smRegularNormalBold,
-      },
-      td: {
-        ...CustomizedText.sizes.smRegularNormal,
-      },
-      caption: {
-        ...CustomizedText.sizes.smRegularNormal,
-      },
-    },
-    md: {
-      th: {
-        ...CustomizedText.sizes.smRegularNormalBold,
-      },
-      td: {
-        ...CustomizedText.sizes.smRegularNormal,
-      },
-      caption: {
-        ...CustomizedText.sizes.smRegularNormal,
-      },
-    },
-    lg: {
-      th: {
-        ...CustomizedText.sizes.lgRegularNormalBold,
-      },
-      td: {
-        ...CustomizedText.sizes.lgRegularNormal,
-      },
-      caption: {
-        ...CustomizedText.sizes.lgRegularNormal,
-      },
-    },
-  },
   variants: {
-    minimal: {
-      table: {
-        backgroundColor: 'transparent',
+    sizes: {
+      sm: {
+        th: {
+          ...textRecipe.variants?.sizes.smRegularNormalBold,
+        },
+        td: {
+          ...textRecipe.variants?.sizes.smRegularNormal,
+        },
+        caption: {
+          ...textRecipe.variants?.sizes.smRegularNormal,
+        },
       },
-      th: {
-        paddingX: '0',
-        paddingY: '2',
-        letterSpacing: 'normal',
+      md: {
+        th: {
+          ...textRecipe.variants?.sizes.smRegularNormalBold,
+        },
+        td: {
+          ...textRecipe.variants?.sizes.smRegularNormal,
+        },
+        caption: {
+          ...textRecipe.variants?.sizes.smRegularNormal,
+        },
       },
-      td: {
-        paddingX: '0',
-        paddingY: '2',
+      lg: {
+        th: {
+          ...textRecipe.variants?.sizes.lgRegularNormalBold,
+        },
+        td: {
+          ...textRecipe.variants?.sizes.lgRegularNormal,
+        },
+        caption: {
+          ...textRecipe.variants?.sizes.lgRegularNormal,
+        },
+      },
+    },
+    variant: {
+      minimal: {
+        table: {
+          backgroundColor: 'transparent',
+        },
+        th: {
+          paddingX: '0',
+          paddingY: '2',
+          letterSpacing: 'normal',
+        },
+        td: {
+          paddingX: '0',
+          paddingY: '2',
+        },
       },
     },
   },
-};
+});
 
-export const CustomizedList = {
-  baseStyle: {
+export const listRecipe = defineSlotRecipe({
+  slots: ['icon'],
+  base: {
     icon: {
       backgroundColor: 'primary.50',
     },
   },
   variants: {
-    light: {
-      icon: {
-        backgroundColor: 'primary.200',
+    variant: {
+      light: {
+        icon: {
+          backgroundColor: 'primary.200',
+        },
       },
     },
   },
-};
+});
