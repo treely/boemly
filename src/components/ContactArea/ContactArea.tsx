@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Divider, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Separator, Heading, Text } from '@chakra-ui/react';
 import { ArrowRight } from '@phosphor-icons/react';
 import { AvatarWithName, AvatarWithNameProps } from '../AvatarWithName/AvatarWithName';
 import { Container } from '../Container';
@@ -18,7 +18,7 @@ export const ContactArea: React.FC<ContactAreaProps> = ({
   link,
 }: ContactAreaProps) => (
   <>
-    <Divider mt="12" display={['none', null, null, null, 'block']} />
+    <Separator mt="12" display={['none', null, null, null, 'block']} />
     <Heading size="lg" mt={['40', null, null, null, '10']}>
       {title}
     </Heading>
@@ -39,10 +39,9 @@ export const ContactArea: React.FC<ContactAreaProps> = ({
           mt={['6', null, null, '0']}
           colorScheme="whiteAlpha"
           variant="outline"
-          rightIcon={<ArrowRight />}
           onClick={link.onClick}
         >
-          {link.text}
+          {link.text} <ArrowRight />
         </Button>
       </Box>
     </Container>

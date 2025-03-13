@@ -1,12 +1,4 @@
-import {
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-} from '@chakra-ui/react';
+import { Dialog } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 
 export interface BoemlyModalProps {
@@ -16,6 +8,7 @@ export interface BoemlyModalProps {
   isOpen: boolean;
   trigger: ReactNode;
   footer?: ReactNode;
+  // TODO: Align size prop with Chakra UI Dialog size prop
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | 'full';
 }
 
@@ -32,15 +25,17 @@ export const BoemlyModal: React.FC<BoemlyModalProps> = ({
     <>
       {trigger}
 
-      <Modal isOpen={isOpen} onClose={onClose} size={size}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>{title}</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>{content}</ModalBody>
-          <ModalFooter>{footer}</ModalFooter>
-        </ModalContent>
-      </Modal>
+      <Dialog.Root isOpen={isOpen} onClose={onClose} size={size}>
+        <Dialog.Backdrop />
+        <Dialog.Positioner>
+          <Dialog.Content>
+            <Dialog.Header>{title}</Dialog.Header>
+            <Dialog.CloseTrigger />
+            <Dialog.Body>{content}</Dialog.Body>
+            <Dialog.Footer>{footer}</Dialog.Footer>
+          </Dialog.Content>
+        </Dialog.Positioner>
+      </Dialog.Root>
     </>
   );
 };

@@ -29,6 +29,7 @@ import InputSize from '../../types/InputSize';
 import { Slider, SliderProps } from '../..';
 import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 import { Select, BoemlySelectProps } from '../Select';
+// TODO: Migrate component
 
 export interface BoemlyFormControlProps extends StyleProps {
   id: string;

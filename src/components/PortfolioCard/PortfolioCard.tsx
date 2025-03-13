@@ -1,4 +1,4 @@
-import { Box, Button, Center, Divider, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, Button, Center, Separator, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react';
 import { css } from '@emotion/react';
 import { Heart } from '@phosphor-icons/react';
 import React, { ReactNode } from 'react';
@@ -58,8 +58,8 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({
           <Heart />
         </Center>
       </Flex>
-      <Divider colorScheme="gray.200" mt="6" mb="6" />
-      <SimpleGrid columns={2} spacing="6">
+      <Separator colorScheme="gray.200" mt="6" mb="6" />
+      <SimpleGrid columns={2} gap="6">
         {facts.map((fact) => (
           <Box key={fact.id}>
             <Text size="smLowNormal">{fact.key}</Text>

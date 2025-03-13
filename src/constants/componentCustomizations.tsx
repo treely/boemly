@@ -8,7 +8,7 @@ export const headingRecipe = defineRecipe({
     color: 'black',
   },
   variants: {
-    sizes: {
+    size: {
       '4xl': {
         fontSize: ['5xl', null, null, '7xl'],
         lineHeight: ['9', null, null, '11'],
@@ -44,7 +44,7 @@ export const textRecipe = defineRecipe({
     color: 'gray.500',
   },
   variants: {
-    sizes: {
+    size: {
       xlRegularNormal: {
         fontSize: ['xl', null, null, '4xl'],
         lineHeight: ['8', null, null, '10'],
@@ -255,38 +255,38 @@ export const buttonRecipe = defineRecipe({
         },
       },
     },
-    sizes: {
+    size: {
       xl: {
         h: 16,
         minW: 12,
         px: 6,
-        ...textRecipe.variants?.sizes.smLowBold,
+        ...textRecipe.variants?.size.smLowBold,
       },
       lg: {
         h: 12,
         minW: 12,
         px: 6,
-        ...textRecipe.variants?.sizes.smLowBold,
+        ...textRecipe.variants?.size.smLowBold,
       },
       md: {
         h: 10,
         minW: 10,
         px: 4,
-        ...textRecipe.variants?.sizes.smLowBold,
+        ...textRecipe.variants?.size.smLowBold,
       },
       sm: {
         h: 8,
         minW: 8,
         borderRadius: 'lg',
         px: 3,
-        ...textRecipe.variants?.sizes.smLowBold,
+        ...textRecipe.variants?.size.smLowBold,
       },
       xs: {
         h: 6,
         minW: 6,
         borderRadius: 'lg',
         px: 2,
-        ...textRecipe.variants?.sizes.xsLowBold,
+        ...textRecipe.variants?.size.xsLowBold,
       },
     },
   },
@@ -308,7 +308,7 @@ export const linkRecipe = defineRecipe({
   },
 
   variants: {
-    sizes: {
+    size: {
       lg: {
         fontSize: 'lg',
       },
@@ -325,7 +325,7 @@ export const linkRecipe = defineRecipe({
   },
 
   defaultVariants: {
-    sizes: 'sm',
+    size: 'sm',
   },
 });
 
@@ -385,33 +385,33 @@ export const accordionRecipe = defineSlotRecipe({
   },
 });
 
-const inputSizes = {
+const inputsize = {
   xl: {
-    ...textRecipe.variants?.sizes.mdLowNormal,
+    ...textRecipe.variants?.size.mdLowNormal,
     px: '4',
     height: '16',
     borderRadius: 'xl',
   },
   lg: {
-    ...textRecipe.variants?.sizes.smLowNormal,
+    ...textRecipe.variants?.size.smLowNormal,
     px: '4',
     height: '12',
     borderRadius: 'lg',
   },
   md: {
-    ...textRecipe.variants?.sizes.smLowNormal,
+    ...textRecipe.variants?.size.smLowNormal,
     px: '4',
     height: '10',
     borderRadius: 'lg',
   },
   sm: {
-    ...textRecipe.variants?.sizes.smLowNormal,
+    ...textRecipe.variants?.size.smLowNormal,
     px: '3',
     height: '8',
     borderRadius: 'md',
   },
   xs: {
-    ...textRecipe.variants?.sizes.xsLowNormal,
+    ...textRecipe.variants?.size.xsLowNormal,
     px: '2',
     height: '6',
     borderRadius: 'md',
@@ -420,92 +420,92 @@ const inputSizes = {
 
 export const inputRecipe = defineRecipe({
   variants: {
-    sizes: {
+    size: {
       xl: {
-        field: inputSizes.xl,
-        addon: inputSizes.xl,
+        field: inputsize.xl,
+        addon: inputsize.xl,
       },
       lg: {
-        field: inputSizes.lg,
-        addon: inputSizes.lg,
+        field: inputsize.lg,
+        addon: inputsize.lg,
       },
       md: {
-        field: inputSizes.md,
-        addon: inputSizes.md,
+        field: inputsize.md,
+        addon: inputsize.md,
       },
       sm: {
-        field: inputSizes.sm,
-        addon: inputSizes.sm,
+        field: inputsize.sm,
+        addon: inputsize.sm,
       },
     },
   },
 
   defaultVariants: {
-    sizes: 'lg',
+    size: 'lg',
     // focusBorderColor: 'black', TODO: Handle focusBorderColor in chakra-ui v3
   },
 });
 
 export const numberInputRecipe = defineRecipe({
   variants: {
-    sizes: {
+    size: {
       xl: {
-        field: inputSizes.xl,
-        addon: inputSizes.xl,
+        field: inputsize.xl,
+        addon: inputsize.xl,
       },
       lg: {
-        field: inputSizes.lg,
-        addon: inputSizes.lg,
+        field: inputsize.lg,
+        addon: inputsize.lg,
       },
       md: {
-        field: inputSizes.md,
-        addon: inputSizes.md,
+        field: inputsize.md,
+        addon: inputsize.md,
       },
       sm: {
-        field: inputSizes.sm,
-        addon: inputSizes.sm,
+        field: inputsize.sm,
+        addon: inputsize.sm,
       },
     },
   },
 
   defaultVariants: {
-    sizes: 'lg',
+    size: 'lg',
     // focusBorderColor: 'black', TODO: Handle focusBorderColor in chakra-ui v3
   },
 });
 
 export const pinInputRecipe = defineRecipe({
   variants: {
-    sizes: {
+    size: {
       xl: {
-        fontSize: inputSizes.xl.fontSize,
-        w: inputSizes.xl.height,
-        h: inputSizes.xl.height,
-        borderRadius: inputSizes.xl.borderRadius,
+        fontSize: inputsize.xl.fontSize,
+        w: inputsize.xl.height,
+        h: inputsize.xl.height,
+        borderRadius: inputsize.xl.borderRadius,
       },
       lg: {
-        fontSize: inputSizes.lg.fontSize,
-        w: inputSizes.lg.height,
-        h: inputSizes.lg.height,
-        borderRadius: inputSizes.lg.borderRadius,
+        fontSize: inputsize.lg.fontSize,
+        w: inputsize.lg.height,
+        h: inputsize.lg.height,
+        borderRadius: inputsize.lg.borderRadius,
       },
       md: {
-        fontSize: inputSizes.md.fontSize,
-        w: inputSizes.md.height,
-        h: inputSizes.md.height,
-        borderRadius: inputSizes.md.borderRadius,
+        fontSize: inputsize.md.fontSize,
+        w: inputsize.md.height,
+        h: inputsize.md.height,
+        borderRadius: inputsize.md.borderRadius,
       },
       sm: {
-        fontSize: inputSizes.sm.fontSize,
-        w: inputSizes.sm.height,
-        h: inputSizes.sm.height,
-        borderRadius: inputSizes.sm.borderRadius,
+        fontSize: inputsize.sm.fontSize,
+        w: inputsize.sm.height,
+        h: inputsize.sm.height,
+        borderRadius: inputsize.sm.borderRadius,
       },
     },
   },
 
   defaultVariants: {
-    sizes: 'lg',
+    size: 'lg',
     // focusBorderColor: 'black', TODO: Handle focusBorderColor in chakra-ui v3
   },
 });
@@ -521,27 +521,27 @@ export const progressRecipe = defineSlotRecipe({
 
 export const textareaRecipe = defineRecipe({
   variants: {
-    sizes: {
+    size: {
       xl: {
-        ...textRecipe.variants?.sizes.mdRegularNormal,
+        ...textRecipe.variants?.size.mdRegularNormal,
         py: '2',
         px: '4',
         borderRadius: 'xl',
       },
       lg: {
-        ...textRecipe.variants?.sizes.mdLowNormal,
+        ...textRecipe.variants?.size.mdLowNormal,
         py: '2',
         px: '4',
         borderRadius: 'lg',
       },
       md: {
-        ...textRecipe.variants?.sizes.smRegularNormal,
+        ...textRecipe.variants?.size.smRegularNormal,
         py: '2',
         px: '4',
         borderRadius: 'lg',
       },
       sm: {
-        ...textRecipe.variants?.sizes.smLowNormal,
+        ...textRecipe.variants?.size.smLowNormal,
         py: '2',
         px: '3',
         borderRadius: 'md',
@@ -550,46 +550,46 @@ export const textareaRecipe = defineRecipe({
   },
 
   defaultVariants: {
-    sizes: 'lg',
+    size: 'lg',
     // focusBorderColor: 'black', TODO: Handle focusBorderColor in chakra-ui v3
   },
 });
 
 export const selectRecipe = defineRecipe({
   variants: {
-    sizes: {
+    size: {
       xs: {
-        height: inputSizes.xs.height,
-        fontSize: inputSizes.xs.fontSize,
-        borderRadius: inputSizes.xs.borderRadius,
+        height: inputsize.xs.height,
+        fontSize: inputsize.xs.fontSize,
+        borderRadius: inputsize.xs.borderRadius,
         badgeSize: FONT_SIZES.xs,
       },
       sm: {
-        ...textRecipe.variants?.sizes.smLowNormal,
-        height: inputSizes.sm.height,
-        fontSize: inputSizes.sm.fontSize,
-        borderRadius: inputSizes.sm.borderRadius,
+        ...textRecipe.variants?.size.smLowNormal,
+        height: inputsize.sm.height,
+        fontSize: inputsize.sm.fontSize,
+        borderRadius: inputsize.sm.borderRadius,
         badgeSize: FONT_SIZES.xs,
       },
       md: {
-        ...textRecipe.variants?.sizes.smRegularNormal,
-        height: inputSizes.md.height,
-        fontSize: inputSizes.md.fontSize,
-        borderRadius: inputSizes.md.borderRadius,
+        ...textRecipe.variants?.size.smRegularNormal,
+        height: inputsize.md.height,
+        fontSize: inputsize.md.fontSize,
+        borderRadius: inputsize.md.borderRadius,
         badgeSize: FONT_SIZES.xs,
       },
       lg: {
-        ...textRecipe.variants?.sizes.mdLowNormal,
-        height: inputSizes.lg.height,
-        fontSize: inputSizes.lg.fontSize,
-        borderRadius: inputSizes.lg.borderRadius,
+        ...textRecipe.variants?.size.mdLowNormal,
+        height: inputsize.lg.height,
+        fontSize: inputsize.lg.fontSize,
+        borderRadius: inputsize.lg.borderRadius,
         badgeSize: FONT_SIZES.sm,
       },
       xl: {
-        ...textRecipe.variants?.sizes.mdLowNormal,
-        height: inputSizes.lg.height,
-        fontSize: inputSizes.lg.fontSize,
-        borderRadius: inputSizes.lg.borderRadius,
+        ...textRecipe.variants?.size.mdLowNormal,
+        height: inputsize.lg.height,
+        fontSize: inputsize.lg.fontSize,
+        borderRadius: inputsize.lg.borderRadius,
         badgeSize: FONT_SIZES.lg,
       },
     },
@@ -633,7 +633,7 @@ export const selectRecipe = defineRecipe({
 export const avatarRecipe = defineSlotRecipe({
   slots: ['container', 'excessLabel', 'label'],
   variants: {
-    sizes: {
+    size: {
       '2xs': {
         container: {
           fontWeight: '600',
@@ -652,80 +652,80 @@ export const avatarRecipe = defineSlotRecipe({
       },
       sm: {
         container: {
-          ...textRecipe.variants?.sizes.xsLowBold,
+          ...textRecipe.variants?.size.xsLowBold,
         },
         label: {
-          ...textRecipe.variants?.sizes.xsLowBold,
+          ...textRecipe.variants?.size.xsLowBold,
         },
       },
       md: {
         container: {
           width: '2.5rem',
           height: '2.5rem',
-          ...textRecipe.variants?.sizes.mdLowBold,
+          ...textRecipe.variants?.size.mdLowBold,
         },
         excessLabel: {
           width: '2.5rem',
           height: '2.5rem',
         },
         label: {
-          ...textRecipe.variants?.sizes.mdLowBold,
+          ...textRecipe.variants?.size.mdLowBold,
         },
       },
       lg: {
         container: {
           width: '3rem',
           height: '3rem',
-          ...textRecipe.variants?.sizes.mdLowBold,
+          ...textRecipe.variants?.size.mdLowBold,
         },
         excessLabel: {
           width: '3rem',
           height: '3rem',
         },
         label: {
-          ...textRecipe.variants?.sizes.mdLowBold,
+          ...textRecipe.variants?.size.mdLowBold,
         },
       },
       xl: {
         container: {
           width: '4rem',
           height: '4rem',
-          ...textRecipe.variants?.sizes.lgLowBold,
+          ...textRecipe.variants?.size.lgLowBold,
         },
         excessLabel: {
           width: '4rem',
           height: '4rem',
         },
         label: {
-          ...textRecipe.variants?.sizes.lgLowBold,
+          ...textRecipe.variants?.size.lgLowBold,
         },
       },
       '2xl': {
         container: {
           width: '6rem',
           height: '6rem',
-          ...headingRecipe.variants?.sizes.xl,
+          ...headingRecipe.variants?.size.xl,
         },
         excessLabel: {
           width: '6rem',
           height: '6rem',
         },
         label: {
-          ...headingRecipe.variants?.sizes.xl,
+          ...headingRecipe.variants?.size.xl,
         },
       },
       '3xl': {
         container: {
           width: '8rem',
           height: '8rem',
-          ...headingRecipe.variants?.sizes['2xl'],
+          ...headingRecipe.variants?.size['2xl'],
         },
         excessLabel: {
           width: '8rem',
           height: '8rem',
         },
         label: {
-          ...headingRecipe.variants?.sizes['2xl'],
+          ...headingRecipe.variants?.size['2xl'],
         },
       },
     },
@@ -758,7 +758,7 @@ export const checkboxRecipe = defineSlotRecipe({
   },
 
   variants: {
-    sizes: {
+    size: {
       xl: {
         icon: {
           w: '8',
@@ -792,38 +792,38 @@ export const tableRecipe = defineSlotRecipe({
     },
   },
   variants: {
-    sizes: {
+    size: {
       sm: {
         th: {
-          ...textRecipe.variants?.sizes.smRegularNormalBold,
+          ...textRecipe.variants?.size.smRegularNormalBold,
         },
         td: {
-          ...textRecipe.variants?.sizes.smRegularNormal,
+          ...textRecipe.variants?.size.smRegularNormal,
         },
         caption: {
-          ...textRecipe.variants?.sizes.smRegularNormal,
+          ...textRecipe.variants?.size.smRegularNormal,
         },
       },
       md: {
         th: {
-          ...textRecipe.variants?.sizes.smRegularNormalBold,
+          ...textRecipe.variants?.size.smRegularNormalBold,
         },
         td: {
-          ...textRecipe.variants?.sizes.smRegularNormal,
+          ...textRecipe.variants?.size.smRegularNormal,
         },
         caption: {
-          ...textRecipe.variants?.sizes.smRegularNormal,
+          ...textRecipe.variants?.size.smRegularNormal,
         },
       },
       lg: {
         th: {
-          ...textRecipe.variants?.sizes.lgRegularNormalBold,
+          ...textRecipe.variants?.size.lgRegularNormalBold,
         },
         td: {
-          ...textRecipe.variants?.sizes.lgRegularNormal,
+          ...textRecipe.variants?.size.lgRegularNormal,
         },
         caption: {
-          ...textRecipe.variants?.sizes.lgRegularNormal,
+          ...textRecipe.variants?.size.lgRegularNormal,
         },
       },
     },

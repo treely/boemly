@@ -21,6 +21,8 @@ import fr from 'date-fns/locale/fr';
 import datePickerStyle from './styles';
 import { dateFormat, months } from './constants';
 
+// TODO: Update and migrate whole DatePicker component
+
 export interface DatePickerProps extends Omit<InputGroupProps, 'onChange' | 'onSelect'> {
   yearRange?: { start: number; end: number };
   locale?: 'de' | 'en' | 'fr';

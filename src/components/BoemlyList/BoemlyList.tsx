@@ -1,17 +1,7 @@
-import {
-  Box,
-  Center,
-  Flex,
-  List,
-  ListIcon,
-  ListItem,
-  ListProps,
-  Text,
-  useMultiStyleConfig,
-} from '@chakra-ui/react';
+import { Box, Center, Flex, List, ListRootProps, Text, useRecipe } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 
-export interface BoemlyListStyleProps extends ListProps {
+export interface BoemlyListStyleProps extends ListRootProps {
   icon?: ReactNode;
   textColor?: string;
   textSize?: TextSize;
@@ -33,12 +23,21 @@ export const BoemlyList: React.FC<BoemlyListProps> = ({
   textSize = 'mdRegularNormal',
   ...props
 }: BoemlyListProps) => {
-  const styles = useMultiStyleConfig('List', props);
+  // https://www.chakra-ui.com/docs/theming/recipes#splitvariantprops
+  const recipe = useRecipe({ key: 'list' });
+  const [recipeProps] = recipe.splitVariantProps(props);
+  const styles = recipe(recipeProps);
 
   return (
-    <List spacing="4" as={ordered ? 'ol' : 'ul'} {...props}>
+    <List.Root
+      // display="flex"
+      // flexDirection="column"
+      gap="4"
+      as={ordered ? 'ol' : 'ul'}
+      {...props}
+    >
       {listItems.map(({ id, text }, index) => (
-        <ListItem key={id} display="flex" alignItems="baseline">
+        <List.Item key={id} display="flex" alignItems="baseline">
           <Flex alignItems="center" position="relative">
             {/* Insert a zero-width character so that `align-items: baseline` 
                 aligns the icon to the first line of the text */}
@@ -46,10 +45,10 @@ export const BoemlyList: React.FC<BoemlyListProps> = ({
               &zwnj;
             </Text>
 
-            <ListIcon
+            <List.Indicator
               as={() => (
                 <Center
-                  __css={styles.icon}
+                  css={styles}
                   width="6"
                   height="6"
                   minWidth="6"
@@ -72,8 +71,8 @@ export const BoemlyList: React.FC<BoemlyListProps> = ({
           <Text size={textSize} color={textColor}>
             {text}
           </Text>
-        </ListItem>
+        </List.Item>
       ))}
-    </List>
+    </List.Root>
   );
 };

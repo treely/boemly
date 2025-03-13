@@ -57,8 +57,8 @@ export const BoemlyAlert: React.FC<BoemlyAlertProps> = ({
   };
 
   return (
-    <Alert status={status}>
-      {renderIcon()}
+    <Alert.Root status={status === 'loading' ? 'neutral' : status}>
+      <Alert.Indicator>{renderIcon()}</Alert.Indicator>
       <Flex justifyContent="space-between" alignItems="center" width="100%">
         <Flex mx="4" flexDir="column">
           {title && (
@@ -72,6 +72,6 @@ export const BoemlyAlert: React.FC<BoemlyAlertProps> = ({
         </Flex>
         {isClosable && <CloseButton size="sm" onClick={onClose} />}
       </Flex>
-    </Alert>
+    </Alert.Root>
   );
 };

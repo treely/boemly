@@ -4,6 +4,8 @@ import React, { useEffect } from 'react';
 import { MEDIUM_TRANSITION_DURATION } from '../../constants/animations';
 import { MenuBurgerItem } from './styles';
 
+// TODO: Migrate whole component
+
 export interface MobileMenuBurgerProps {
   onOpen: () => void;
   onClose: () => void;

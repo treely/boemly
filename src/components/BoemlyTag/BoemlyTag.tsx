@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Tag, TagCloseButton, TagLabel, TagProps } from '@chakra-ui/react';
+import { Tag, TagRootProps } from '@chakra-ui/react';
 
-export interface BoemlyTagProps extends TagProps {
+export interface BoemlyTagProps extends TagRootProps {
   isClosable?: boolean;
   onClose?: () => void;
 }
@@ -24,9 +24,9 @@ export const BoemlyTag = ({
   if (!isVisible) return <></>;
 
   return (
-    <Tag {...props}>
-      <TagLabel>{children}</TagLabel>
-      {isClosable && <TagCloseButton onClick={handleClose} />}
-    </Tag>
+    <Tag.Root {...props}>
+      <Tag.Label>{children}</Tag.Label>
+      {isClosable && <Tag.CloseTrigger onClick={handleClose} />}
+    </Tag.Root>
   );
 };

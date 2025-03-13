@@ -7,7 +7,7 @@ import GLOBAL_STYLE from '../../constants/globalStyle';
 import BorderRadiiCustomization from '../../types/BorderRadiiCustomization';
 import FontsCustomization from '../../types/FontsCustomization';
 import getDefaultFontImports from '../../utils/getDefaultFontImports';
-import getSystem from '../../utils/getSystem';
+import { getSystem } from '../../theme';
 
 interface BoemlyThemeProviderProps {
   children: JSX.Element | JSX.Element[];

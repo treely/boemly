@@ -1,4 +1,4 @@
-import { Box, Divider, Flex, Heading, SimpleGrid, Text, useToken } from '@chakra-ui/react';
+import { Box, Separator, Flex, Heading, SimpleGrid, Text, useToken } from '@chakra-ui/react';
 import { css } from '@emotion/react';
 import { ArrowsOutSimple, MapPin } from '@phosphor-icons/react';
 import React, { ReactNode } from 'react';
@@ -55,7 +55,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <Heading as="h6" size="sm">
           {title}
         </Heading>
-        <SimpleGrid columns={2} spacing="6" mt="6">
+        <SimpleGrid columns={2} gap="6" mt="6">
           {facts.map((fact, index) => (
             <Box key={fact.id} display="flex" flexDirection="row" alignItems="center">
               {icons[index]}
@@ -66,7 +66,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
         </SimpleGrid>
       </Box>
-      <Divider colorScheme="gray.200" />
+      <Separator colorScheme="gray.200" />
       <Box padding="6" pb="8">
         <Heading size="lg" as="h6">
           {footerTitle}

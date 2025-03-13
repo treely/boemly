@@ -6,6 +6,8 @@ import { ImageRadioGroupContext } from '../ImageRadioGroup';
 import { generateVariants } from './variants';
 import { QUICK_TRANSITION_DURATION } from '../../constants/animations';
 
+// TODO: Migrate whole component
+
 export interface ImageRadioItemProps {
   thumbnail: ReactNode;
   title: string;

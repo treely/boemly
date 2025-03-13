@@ -38,7 +38,7 @@ export const ConfirmAction: React.FC<ConfirmActionProps> = ({
         <Button variant="ghost" onClick={onClose}>
           {cancelButton}
         </Button>
-        <Button colorScheme={confirmColorScheme} isLoading={confirmLoading} onClick={onConfirm}>
+        <Button colorScheme={confirmColorScheme} loading={confirmLoading} onClick={onConfirm}>
           {confirmButton}
         </Button>
       </Flex>

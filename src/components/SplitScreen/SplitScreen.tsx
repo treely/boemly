@@ -6,6 +6,8 @@ import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 import useResizeEventListener from '../../hooks/useResizeEventListener';
 import { Left, Right } from './styles';
 
+// TODO: Migrate whole component
+
 export interface SplitScreenProps {
   left: ReactNode;
   right: ReactNode;

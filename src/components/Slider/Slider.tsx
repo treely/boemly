@@ -12,6 +12,8 @@ import { BoemlyFormControl } from '../BoemlyFormControl';
 import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 import CustomSliderThumb from './CustomSliderThumb';
 
+// TODO: Migrate whole component
+
 export interface SliderProps extends StyleProps {
   variant?: 'default' | 'boundary';
   defaultValue?: number;

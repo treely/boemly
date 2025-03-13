@@ -1,13 +1,4 @@
-import {
-  Button,
-  Flex,
-  Heading,
-  Popover,
-  PopoverBody,
-  PopoverContent,
-  PopoverTrigger,
-  Text,
-} from '@chakra-ui/react';
+import { Button, Flex, Heading, Popover, Text } from '@chakra-ui/react';
 import React from 'react';
 
 export interface SubmissionConfirmProps {
@@ -52,10 +43,10 @@ export const SubmissionConfirm: React.FC<SubmissionConfirmProps> = ({
   onCancel,
   onSubmit,
 }: SubmissionConfirmProps) => (
-  <Popover placement={placement} onClose={onCancel} isOpen={isOpen}>
-    <PopoverTrigger>{trigger}</PopoverTrigger>
-    <PopoverContent px="6" py="5">
-      <PopoverBody padding="0">
+  <Popover.Root placement={placement} onClose={onCancel} isOpen={isOpen}>
+    <Popover.Trigger>{trigger}</Popover.Trigger>
+    <Popover.Content px="6" py="5">
+      <Popover.Body padding="0">
         <Heading size="sm">{title}</Heading>
         {text && (
           <Text size="smRegularNormal" mt="3">
@@ -67,7 +58,7 @@ export const SubmissionConfirm: React.FC<SubmissionConfirmProps> = ({
             size="sm"
             onClick={onCancel}
             colorScheme={cancelButtonColor}
-            textColor={cancelButtonTextColor}
+            color={cancelButtonTextColor}
             mr="5"
           >
             {cancelText}
@@ -76,12 +67,12 @@ export const SubmissionConfirm: React.FC<SubmissionConfirmProps> = ({
             size="sm"
             onClick={onSubmit}
             colorScheme={confirmButtonColor}
-            textColor={confirmButtonTextColor}
+            color={confirmButtonTextColor}
           >
             {submissionText}
           </Button>
         </Flex>
-      </PopoverBody>
-    </PopoverContent>
-  </Popover>
+      </Popover.Body>
+    </Popover.Content>
+  </Popover.Root>
 );

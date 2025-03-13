@@ -17,7 +17,7 @@ import {
   textareaRecipe,
   textRecipe,
   tooltipRecipe,
-} from '../constants/componentCustomizations';
+} from './constants/componentCustomizations';
 import {
   BREAKPOINTS,
   COLORS,
@@ -28,9 +28,9 @@ import {
   SIZES,
   SPACE,
   Z_INDICES,
-} from '../constants/customizations';
-import BorderRadiiCustomization from '../types/BorderRadiiCustomization';
-import FontsCustomization from '../types/FontsCustomization';
+} from './constants/customizations';
+import BorderRadiiCustomization from './types/BorderRadiiCustomization';
+import FontsCustomization from './types/FontsCustomization';
 
 interface Options {
   customColors: Color;
@@ -38,17 +38,21 @@ interface Options {
   customRadii: BorderRadiiCustomization;
 }
 
-const getSystem = ({ customColors, customFonts, customRadii }: Options) => {
+export const getSystem = ({
+  customColors = {},
+  customFonts = {},
+  customRadii = {},
+}: Partial<Options> = {}) => {
   return createSystem(defaultConfig, {
     cssVarsPrefix: 'boemly',
     theme: {
       tokens: {
-        colors: { ...COLORS, ...customColors },
+        colors: { ...COLORS, ...(customColors || {}) },
         breakpoints: BREAKPOINTS,
-        fonts: { ...FONTS, ...customFonts },
+        fonts: { ...FONTS, ...(customFonts || {}) },
         fontSizes: FONT_SIZES,
         lineHeights: LINE_HEIGHTS,
-        radii: { ...RADII, ...customRadii },
+        radii: { ...RADII, ...(customRadii || {}) },
         sizes: SIZES,
         spacing: SPACE,
         zIndex: Z_INDICES,
@@ -75,10 +79,13 @@ const getSystem = ({ customColors, customFonts, customRadii }: Options) => {
         table: tableRecipe,
       },
     },
-
     // TODO: Fix passing of color scheme
     // https://www.chakra-ui.com/docs/get-started/migration#colorscheme-prop
   });
 };
 
-export default getSystem;
+// Create a default theme with empty customizations
+const defaultTheme = getSystem();
+
+// Export the default theme for the Chakra CLI to use
+export default defaultTheme;

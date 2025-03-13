@@ -4,6 +4,8 @@ import { CaretDown, CaretUp } from '@phosphor-icons/react';
 import React, { useEffect } from 'react';
 import { Container } from '../Container';
 
+// TODO: Migrate whole component
+
 export interface ExpandableProps {
   icon: JSX.Element;
   tagline: string | JSX.Element;

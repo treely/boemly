@@ -1,16 +1,23 @@
-import type { StyleProps } from '@chakra-ui/react';
+import type { JsxStyleProps, TextProps } from '@chakra-ui/react';
 import { Box } from '@chakra-ui/react';
 import React from 'react';
 import { OverflownText } from '../OverflownText';
 
-export interface LabelTextPairProps extends StyleProps {
+export interface LabelTextPairProps extends JsxStyleProps {
   label: string;
   text: string;
   caption?: string;
   size?: 'sm' | 'md' | 'lg';
 }
 
-const sizes = {
+const sizes: Record<
+  'sm' | 'md' | 'lg',
+  {
+    label: TextProps['size'];
+    text: TextProps['size'];
+    caption: TextProps['size'];
+  }
+> = {
   sm: {
     label: 'xsLowNormal',
     text: 'smRegularNormalBold',
