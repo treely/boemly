@@ -39,7 +39,10 @@ describe('The ShapesCard component', () => {
 
   it('displays shapes if there are given', () => {
     setup({
-      shapes: [<img alt="Alt text 1" src="/src" />, <img alt="Alt text 2" src="/src" />],
+      shapes: [
+        <img key="1" alt="Alt text 1" src="/src" />,
+        <img key="2" alt="Alt text 2" src="/src" />,
+      ],
     });
 
     expect(screen.getAllByRole('img')).toHaveLength(2);

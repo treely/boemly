@@ -46,7 +46,9 @@ export const Colors = () => (
       <ColorRow colorToken="black" />
       <ColorRow colorToken="white" />
       {COLOR_SCHEMES.map((color) =>
-        colorWeights.map((weight) => <ColorRow colorToken={`${color}.${weight}`} />)
+        colorWeights.map((weight) => (
+          <ColorRow key={`${color}-${weight}`} colorToken={`${color}.${weight}`} />
+        ))
       )}
     </Tbody>
   </Table>
