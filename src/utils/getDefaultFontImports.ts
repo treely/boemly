@@ -7,7 +7,7 @@ import {
 import FontsCustomization from '../types/FontsCustomization';
 
 const getDefaultFontImports = (fontsCustomization: FontsCustomization) => {
-  let fontImports: SerializedStyles[] = [];
+  const fontImports: SerializedStyles[] = [];
 
   if (!fontsCustomization.display) fontImports.push(FONT_IMPORT_RALEWAY);
   if (!fontsCustomization.mono) fontImports.push(FONT_IMPORT_SPACEMONO);
