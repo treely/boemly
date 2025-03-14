@@ -150,7 +150,7 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
           {label}
         </FormLabel>
       )}
-      {inputType === ('DatePicker' || 'Slider') ? (
+      {inputType === 'DatePicker' || inputType === 'Slider' ? (
         renderInputField()
       ) : (
         <InputGroup size={size}>

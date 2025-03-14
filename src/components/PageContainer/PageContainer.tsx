@@ -4,7 +4,7 @@ import { Box } from '@chakra-ui/react';
 interface PageContainerProps {
   extendableHeader: boolean;
   backgroundColor?: string;
-  children: JSX.Element | JSX.Element[];
+  children: React.JSX.Element | React.JSX.Element[];
 }
 export const PageContainer: React.FC<PageContainerProps> = ({
   extendableHeader,

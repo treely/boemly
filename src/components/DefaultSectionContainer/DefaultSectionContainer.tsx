@@ -4,7 +4,7 @@ import { Box } from '@chakra-ui/react';
 import convertToKebabCase from '../../utils/convertToKebabCase';
 
 export interface DefaultSectionContainerProps extends StyleProps {
-  children: JSX.Element | JSX.Element[];
+  children: React.JSX.Element | React.JSX.Element[];
   title?: string;
 }
 

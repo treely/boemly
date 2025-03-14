@@ -1,32 +1,44 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { useDisclosure } from '@chakra-ui/react';
+import { fn } from '@storybook/test';
 
 import { MobileMenuBurger } from './MobileMenuBurger';
 
-export default {
+const meta = {
   title: 'components/MobileMenuBurger',
   component: MobileMenuBurger,
-} as Meta<typeof MobileMenuBurger>;
+  tags: ['autodocs'],
+} satisfies Meta<typeof MobileMenuBurger>;
 
-const Template: StoryFn<typeof MobileMenuBurger> = (args) => {
-  const { isOpen, onToggle } = useDisclosure();
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-  return <MobileMenuBurger {...args} isOpen={isOpen} onClose={onToggle} onOpen={onToggle} />;
+export const Default: Story = {
+  args: {
+    onOpen: fn(),
+    onClose: fn(),
+    isOpen: false,
+    color: 'black',
+  },
+  render: () => {
+    const { isOpen, onToggle } = useDisclosure();
+    return <MobileMenuBurger isOpen={isOpen} onClose={onToggle} onOpen={onToggle} color="black" />;
+  },
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  color: 'black',
-};
-
-export const White = Template.bind({});
-White.args = {
-  isOpen: false,
-  onOpen: () => alert('Open'),
-  onClose: () => alert('Close'),
-  color: 'white',
-};
-White.parameters = {
-  backgrounds: { default: 'dark' },
+export const White: Story = {
+  args: {
+    onOpen: fn(),
+    onClose: fn(),
+    isOpen: false,
+    color: 'white',
+  },
+  render: () => {
+    const { isOpen, onToggle } = useDisclosure();
+    return <MobileMenuBurger isOpen={isOpen} onClose={onToggle} onOpen={onToggle} color="white" />;
+  },
+  parameters: {
+    backgrounds: { default: 'dark' },
+  },
 };

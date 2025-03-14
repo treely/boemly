@@ -10,7 +10,7 @@ import FontsCustomization from '../../types/FontsCustomization';
 import getDefaultFontImports from '../../utils/getDefaultFontImports';
 
 interface BoemlyThemeProviderProps {
-  children: JSX.Element | JSX.Element[];
+  children: React.JSX.Element | React.JSX.Element[];
   colors?: Colors;
   fonts?: FontsCustomization;
   radii?: BorderRadiiCustomization;

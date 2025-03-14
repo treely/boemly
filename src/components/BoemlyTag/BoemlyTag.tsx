@@ -11,7 +11,7 @@ export const BoemlyTag = ({
   onClose,
   children,
   ...props
-}: BoemlyTagProps): JSX.Element => {
+}: BoemlyTagProps): React.JSX.Element => {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleClose = () => {

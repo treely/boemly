@@ -3,11 +3,11 @@ import { Box } from '@chakra-ui/react';
 import React from 'react';
 
 export interface ContainerProps extends StyleProps {
-  children: JSX.Element | JSX.Element[];
+  children: React.JSX.Element | React.JSX.Element[];
   elevation?: 'none' | 'sm' | 'lg';
   padding?: 'none' | 'md' | 'lg';
   fullWidth?: boolean;
-  header?: JSX.Element | JSX.Element[];
+  header?: React.JSX.Element | React.JSX.Element[];
 }
 
 const elevations = {
