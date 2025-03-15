@@ -18,3 +18,5 @@ type ButtonColorScheme =
   | 'whatsapp'
   | 'twitter'
   | 'telegram';
+
+export default ButtonColorScheme;
