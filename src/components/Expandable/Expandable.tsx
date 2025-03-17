@@ -1,10 +1,7 @@
-import { Box, Heading, IconButton, Flex, Text, Spinner } from '@chakra-ui/react';
-import { motion, useAnimation } from 'framer-motion';
+import { Box, Heading, IconButton, Flex, Text, Spinner, Collapsible } from '@chakra-ui/react';
 import { CaretDown, CaretUp } from '@phosphor-icons/react';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Container } from '../Container';
-
-// TODO: Migrate whole component
 
 export interface ExpandableProps {
   icon: JSX.Element;
@@ -31,30 +28,46 @@ export const Expandable: React.FC<ExpandableProps> = ({
   children,
   loading = false,
 }: ExpandableProps) => {
-  const controls = useAnimation();
+  // const controls = useAnimation();
 
-  const variants = {
-    open: {
-      height: 'auto',
-      opacity: 1,
-      transition: {
-        opacity: { delay: 0.2, duration: 0.1 },
-        height: { duration: 0.3 },
-      },
-    },
-    close: {
-      height: 0,
-      opacity: 0,
-      transition: {
-        opacity: { duration: 0.1 },
-        height: { duration: 0.3 },
-      },
-    },
-  };
+  // const variants = {
+  //   open: {
+  //     height: 'auto',
+  //     opacity: 1,
+  //     transition: {
+  //       opacity: { delay: 0.2, duration: 0.1 },
+  //       height: { duration: 0.3 },
+  //     },
+  //   },
+  //   close: {
+  //     height: 0,
+  //     opacity: 0,
+  //     transition: {
+  //       opacity: { duration: 0.1 },
+  //       height: { duration: 0.3 },
+  //     },
+  //   },
+  // };
 
-  useEffect(() => {
-    controls.start(isOpen ? 'open' : 'close');
-  }, [isOpen, controls]);
+  // useEffect(() => {
+  //   controls.start(isOpen ? 'open' : 'close');
+  // }, [isOpen, controls]);
+
+  // // Use the disclosure hook to help manage the state
+  // const { onOpen, onClose } = useDisclosure({
+  //   isOpen,
+  //   onOpen: () => {}, // These empty functions prevent conflicts with the parent-controlled state
+  //   onClose: () => {},
+  // });
+
+  // // Sync the disclosure state with the parent state
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     onOpen();
+  //   } else {
+  //     onClose();
+  //   }
+  // }, [isOpen, onOpen, onClose]);
 
   return (
     <Container
@@ -89,12 +102,29 @@ export const Expandable: React.FC<ExpandableProps> = ({
         <IconButton
           aria-label="Open/Close"
           variant="outline"
-          icon={isOpen ? <CaretUp /> : <CaretDown />}
-          isDisabled={!interactive}
+          disabled={!interactive}
           onClick={onToggle}
-        />
+        >
+          {isOpen ? <CaretUp /> : <CaretDown />}
+        </IconButton>
       </Flex>
-      <motion.div variants={variants} animate={controls} initial={isOpen ? 'open' : 'close'}>
+      <Collapsible.Root
+        in={isOpen}
+        animateOpacity
+        transition={{
+          enter: { duration: 0.3 },
+          exit: { duration: 0.3 },
+        }}
+      >
+        {loading ? (
+          <Box pt="6" textAlign="center">
+            <Spinner css={{ '--spinner-track-color': 'gray.200' }} color="primary.500" />
+          </Box>
+        ) : (
+          <Box pt="6">{children}</Box>
+        )}
+      </Collapsible.Root>
+      {/* <motion.div variants={variants} animate={controls} initial={isOpen ? 'open' : 'close'}>
         {loading ? (
           <Box pt="6" textAlign="center">
             <Spinner emptyColor="gray.200" color="primary.500" />
@@ -102,7 +132,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
         ) : (
           <Box pt="6">{children}</Box>
         )}
-      </motion.div>
+      </motion.div> */}
     </Container>
   );
 };

@@ -1,5 +1,6 @@
-import { Box, SliderThumb, Tooltip } from '@chakra-ui/react';
+import { Box, SliderThumb } from '@chakra-ui/react';
 import React from 'react';
+import { Tooltip } from '../ui/tooltip';
 
 interface CustomSliderThumbProps {
   sliderValue: number;

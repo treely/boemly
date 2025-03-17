@@ -24,7 +24,6 @@ const SolidTabButton = ({
         m="0"
         onClick={onClick}
         cursor="pointer"
-        leftIcon={icon}
         w="full"
         h="full"
         p="2"
@@ -34,7 +33,7 @@ const SolidTabButton = ({
           backgroundColor: isActive ? undefined : 'gray.50',
         }}
       >
-        {title}
+        {icon} {title}
       </Button>
     </Box>
   );

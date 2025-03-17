@@ -6,8 +6,6 @@ import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 import useResizeEventListener from '../../hooks/useResizeEventListener';
 import { Left, Right } from './styles';
 
-// TODO: Migrate whole component
-
 export interface SplitScreenProps {
   left: ReactNode;
   right: ReactNode;
@@ -27,7 +25,7 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
 }: SplitScreenProps) => {
   useResizeEventListener();
 
-  const [mobile] = useMediaQuery(BREAKPOINT_MD_QUERY);
+  const [mobile] = useMediaQuery([BREAKPOINT_MD_QUERY], {});
 
   const [ref, { height }] = useMeasure<HTMLDivElement>();
   const controls = useAnimation();

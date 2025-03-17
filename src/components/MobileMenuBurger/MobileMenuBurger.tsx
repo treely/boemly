@@ -4,8 +4,6 @@ import React, { useEffect } from 'react';
 import { MEDIUM_TRANSITION_DURATION } from '../../constants/animations';
 import { MenuBurgerItem } from './styles';
 
-// TODO: Migrate whole component
-
 export interface MobileMenuBurgerProps {
   onOpen: () => void;
   onClose: () => void;
@@ -52,35 +50,34 @@ export const MobileMenuBurger: React.FC<MobileMenuBurgerProps> = ({
       onClick={toggleOpen}
       variant="ghost"
       data-testid={isOpen ? 'x' : 'list'}
-      icon={
-        <Flex
-          position="relative"
-          width="4"
-          height="4"
-          flexDirection="column"
-          justifyContent="space-between"
-          overflow="hidden"
-        >
-          <MenuBurgerItem
-            animate={controls}
-            variants={topVariants}
-            transition={{ duration: MEDIUM_TRANSITION_DURATION }}
-            color={color}
-          />
-          <MenuBurgerItem
-            animate={controls}
-            variants={centerVariants}
-            transition={{ duration: MEDIUM_TRANSITION_DURATION }}
-            color={color}
-          />
-          <MenuBurgerItem
-            animate={controls}
-            variants={bottomVariants}
-            transition={{ duration: MEDIUM_TRANSITION_DURATION }}
-            color={color}
-          />
-        </Flex>
-      }
-    />
+    >
+      <Flex
+        position="relative"
+        width="4"
+        height="4"
+        flexDirection="column"
+        justifyContent="space-between"
+        overflow="hidden"
+      >
+        <MenuBurgerItem
+          animate={controls}
+          variants={topVariants}
+          transition={{ duration: MEDIUM_TRANSITION_DURATION }}
+          color={color}
+        />
+        <MenuBurgerItem
+          animate={controls}
+          variants={centerVariants}
+          transition={{ duration: MEDIUM_TRANSITION_DURATION }}
+          color={color}
+        />
+        <MenuBurgerItem
+          animate={controls}
+          variants={bottomVariants}
+          transition={{ duration: MEDIUM_TRANSITION_DURATION }}
+          color={color}
+        />
+      </Flex>
+    </IconButton>
   );
 };

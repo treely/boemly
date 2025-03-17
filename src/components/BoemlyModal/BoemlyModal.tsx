@@ -9,7 +9,8 @@ export interface BoemlyModalProps {
   trigger: ReactNode;
   footer?: ReactNode;
   // TODO: Align size prop with Chakra UI Dialog size prop
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | 'full';
+  // size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | 'full';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 }
 
 export const BoemlyModal: React.FC<BoemlyModalProps> = ({

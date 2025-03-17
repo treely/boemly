@@ -15,7 +15,7 @@ describe('The getDefaultFontImports function', () => {
     expect(fonts).toContain(FONT_IMPORT_SPACEMONO);
   });
   it('returns an array of all the uncustomized fonts.', () => {
-    const fonts = getDefaultFontImports({ body: 'Arial', heading: 'Arial' });
+    const fonts = getDefaultFontImports({ body: { value: 'Arial' }, heading: { value: 'Arial' } });
     expect(fonts.length).toBe(2);
     expect(fonts).toContain(FONT_IMPORT_RALEWAY);
     expect(fonts).toContain(FONT_IMPORT_SPACEMONO);

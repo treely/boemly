@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 import { BREAKPOINT_XL } from '../../constants/breakpoints';
 
-// TODO migrate to chakra-ui v3
-
 interface ShapeContainerProps {
   top?: string;
   right?: string;

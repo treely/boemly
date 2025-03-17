@@ -1,4 +1,4 @@
-import { Box, StyleProps, useMediaQuery } from '@chakra-ui/react';
+import { Box, JsxStyleProps, useMediaQuery } from '@chakra-ui/react';
 import React, { useEffect, useMemo, useState } from 'react';
 import {
   Slider,
@@ -14,7 +14,7 @@ import CustomSliderThumb from './CustomSliderThumb';
 
 // TODO: Migrate whole component
 
-export interface SliderProps extends StyleProps {
+export interface SliderProps extends JsxStyleProps {
   variant?: 'default' | 'boundary';
   defaultValue?: number;
   value?: number;
@@ -40,7 +40,7 @@ export const BoemlySlider: React.FC<SliderProps> = ({
   upperBoundText = '',
   ...styleProps
 }: SliderProps) => {
-  const [isMobile] = useMediaQuery(BREAKPOINT_MD_QUERY);
+  const [isMobile] = useMediaQuery([BREAKPOINT_MD_QUERY], {});
 
   const initialValue = useMemo(
     () => value ?? defaultValue ?? min + (max - min) / 2,
