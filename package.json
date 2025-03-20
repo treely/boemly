@@ -11,16 +11,29 @@
     "node": ">=18 <=22"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "start": "tsup --watch",
+    "build": "tsup",
+    "test": "jest --passWithNoTests",
+    "lint": "eslint src",
+    "prepare": "tsup",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "semantic-release": "semantic-release"
+  },
+  "tsup": {
+    "dts": true,
+    "bundle": false,
+    "treeshake": true,
+    "target": "node18",
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "entry": [
+      "src/**/*.ts"
+    ]
   },
   "husky": {
     "hooks": {
@@ -47,10 +60,10 @@
     }
   ],
   "devDependencies": {
-    "@babel/core": "^7.26.9",
-    "@babel/preset-env": "^7.22.4",
-    "@babel/preset-react": "^7.22.3",
-    "@babel/preset-typescript": "^7.21.5",
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
     "@emotion/react": "^11.14.0",
     "@mdx-js/react": "^3.1.0",
     "@size-limit/preset-big-lib": "^8.1.0",
@@ -67,22 +80,29 @@
     "@storybook/react-webpack5": "^8.6.3",
     "@storybook/test": "^8.6.3",
     "@storybook/theming": "^8.6.3",
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@types/jest": "^29.5.14",
     "@types/react": "^18.0.0",
     "@types/react-datepicker": "^4.4.2",
     "@types/react-dom": "^18.0.0",
     "@types/react-syntax-highlighter": "^15.5.5",
-    "babel-loader": "^8.4.1",
+    "@typescript-eslint/eslint-plugin": "^8.27.0",
+    "@typescript-eslint/parser": "^8.27.0",
+    "babel-jest": "^29.7.0",
+    "babel-loader": "^10.0.0",
+    "eslint": "^9.22.0",
     "husky": "^7.0.4",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-is": "^18.0.0",
     "semantic-release": "^19.0.2",
     "size-limit": "^8.1.0",
     "storybook": "^8.6.3",
-    "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
+    "tsup": "^8.4.0",
     "typescript": "^4.5.5"
   },
   "dependencies": {
@@ -103,7 +123,7 @@
   },
   "jest": {
     "setupFilesAfterEnv": [
-      "@testing-library/jest-dom/extend-expect",
+      "@testing-library/jest-dom",
       "./src/test/setupTests.ts"
     ],
     "collectCoverageFrom": [
@@ -111,7 +131,14 @@
       "!**/*.stories.{js,jsx,ts,tsx}",
       "!**/src/test/**",
       "!**/src/index.tsx"
-    ]
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx|js|jsx)$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@ark-ui/react)/)"
+    ],
+    "testEnvironment": "jsdom"
   },
   "description": "Boemly is the open source component library maintained by Tree.ly.",
   "repository": {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { ChakraProvider, Color } from '@chakra-ui/react';
 import { IconContext } from '@phosphor-icons/react';
 import { Global } from '@emotion/react';
@@ -10,7 +10,7 @@ import getDefaultFontImports from '../../utils/getDefaultFontImports';
 import { getSystem } from '../../theme';
 
 interface BoemlyThemeProviderProps {
-  children: JSX.Element | JSX.Element[];
+  children: ReactNode | ReactNode[];
   colors?: Color;
   fonts?: FontsCustomization;
   radii?: BorderRadiiCustomization;
