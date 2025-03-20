@@ -67,8 +67,9 @@
     "@storybook/react-webpack5": "^8.6.3",
     "@storybook/test": "^8.6.3",
     "@storybook/theming": "^8.6.3",
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@types/jest": "^29.5.14",
     "@types/react": "^18.0.0",
     "@types/react-datepicker": "^4.4.2",
     "@types/react-dom": "^18.0.0",
@@ -103,7 +104,7 @@
   },
   "jest": {
     "setupFilesAfterEnv": [
-      "@testing-library/jest-dom/extend-expect",
+      "@testing-library/jest-dom",
       "./src/test/setupTests.ts"
     ],
     "collectCoverageFrom": [
@@ -111,6 +112,12 @@
       "!**/*.stories.{js,jsx,ts,tsx}",
       "!**/src/test/**",
       "!**/src/index.tsx"
+    ],
+    "moduleNameMapper": {
+      "^@ark-ui/react/format$": "<rootDir>/node_modules/@ark-ui/react/dist/index.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!@chakra-ui/react|@ark-ui/react)"
     ]
   },
   "description": "Boemly is the open source component library maintained by Tree.ly.",

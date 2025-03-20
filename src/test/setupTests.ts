@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom';
 import resizeObserverPolyfill from 'resize-observer-polyfill';
 
 global.ResizeObserver = resizeObserverPolyfill;
