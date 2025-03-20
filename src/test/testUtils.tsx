@@ -3,8 +3,6 @@ import { render as rtlRender } from '@testing-library/react';
 
 import { BoemlyThemeProvider } from '../index';
 
-// TODO fix test setup
-
 interface WrapperProps {
   children: ReactNode | ReactNode[];
 }

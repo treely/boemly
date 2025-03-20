@@ -4,10 +4,6 @@
     [
       "@babel/preset-env",
       {
-        "targets": {
-          "chrome": 100,
-          "node": "current"
-        },
         "modules": "commonjs"
       }
     ],

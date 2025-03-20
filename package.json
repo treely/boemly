@@ -11,16 +11,29 @@
     "node": ">=18 <=22"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "start": "tsup --watch",
+    "build": "tsup",
+    "test": "jest --passWithNoTests",
+    "lint": "eslint src",
+    "prepare": "tsup",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "semantic-release": "semantic-release"
+  },
+  "tsup": {
+    "dts": true,
+    "bundle": false,
+    "treeshake": true,
+    "target": "node18",
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "entry": [
+      "src/**/*.ts"
+    ]
   },
   "husky": {
     "hooks": {
@@ -74,16 +87,22 @@
     "@types/react-datepicker": "^4.4.2",
     "@types/react-dom": "^18.0.0",
     "@types/react-syntax-highlighter": "^15.5.5",
+    "@typescript-eslint/eslint-plugin": "^8.27.0",
+    "@typescript-eslint/parser": "^8.27.0",
+    "babel-jest": "^29.7.0",
     "babel-loader": "^10.0.0",
+    "eslint": "^9.22.0",
     "husky": "^7.0.4",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-is": "^18.0.0",
     "semantic-release": "^19.0.2",
     "size-limit": "^8.1.0",
     "storybook": "^8.6.3",
-    "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
+    "tsup": "^8.4.0",
     "typescript": "^4.5.5"
   },
   "dependencies": {
@@ -113,12 +132,13 @@
       "!**/src/test/**",
       "!**/src/index.tsx"
     ],
-    "moduleNameMapper": {
-      "^@ark-ui/react/format$": "<rootDir>/node_modules/@ark-ui/react/dist/index.js"
+    "transform": {
+      "^.+\\.(ts|tsx|js|jsx)$": "babel-jest"
     },
     "transformIgnorePatterns": [
-      "node_modules/(?!@chakra-ui/react|@ark-ui/react)"
-    ]
+      "node_modules/(?!(@ark-ui/react)/)"
+    ],
+    "testEnvironment": "jsdom"
   },
   "description": "Boemly is the open source component library maintained by Tree.ly.",
   "repository": {
