@@ -47,10 +47,10 @@
     }
   ],
   "devDependencies": {
-    "@babel/core": "^7.26.9",
-    "@babel/preset-env": "^7.22.4",
-    "@babel/preset-react": "^7.22.3",
-    "@babel/preset-typescript": "^7.21.5",
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
     "@emotion/react": "^11.14.0",
     "@mdx-js/react": "^3.1.0",
     "@size-limit/preset-big-lib": "^8.1.0",
@@ -74,7 +74,7 @@
     "@types/react-datepicker": "^4.4.2",
     "@types/react-dom": "^18.0.0",
     "@types/react-syntax-highlighter": "^15.5.5",
-    "babel-loader": "^8.4.1",
+    "babel-loader": "^10.0.0",
     "husky": "^7.0.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
