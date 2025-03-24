@@ -1,6 +1,6 @@
 import React from 'react';
 import { Slider } from '.';
-import { fireEvent, render, screen } from '../../test/testUtils';
+import { fireEvent, render, screen, waitFor } from '../../test/testUtils';
 import { SliderProps } from './Slider';
 
 const onChangeSpy = jest.fn();
@@ -123,14 +123,15 @@ describe('The Slider component', () => {
       expect(screen.getByRole('tooltip')).toBeInTheDocument();
     });
 
-    it('updates the slider value when the external value prop changes', () => {
+    it('updates the slider value when the external value prop changes', async () => {
       const { rerender } = render(<Slider {...defaultProps} value={30} onChange={onChangeSpy} />);
 
       expect(screen.getByRole('slider')).toHaveAttribute('aria-valuenow', '30');
 
       rerender(<Slider {...defaultProps} value={70} onChange={onChangeSpy} />);
-
-      expect(screen.getByRole('slider')).toHaveAttribute('aria-valuenow', '70');
+      await waitFor(() =>
+        expect(screen.getByRole('slider')).toHaveAttribute('aria-valuenow', '70')
+      );
     });
   });
 });
