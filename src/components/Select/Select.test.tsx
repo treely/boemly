@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
+import { fireEvent, render, screen, waitFor } from '../../test/testUtils';
 import { Select } from '.';
 
 const mockOptions = [
@@ -20,17 +21,24 @@ describe('The Select component', () => {
     expect(screen.getByText('Select an option from these options')).toBeInTheDocument();
   });
 
-  it('opens dropdown when clicked', () => {
+  it('opens dropdown when clicked', async () => {
     render(<Select color="black" options={mockOptions} />);
     fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
-    expect(screen.getByText('Option 1')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('Option 1')).toBeInTheDocument();
+    });
   });
 
-  it('selects an option when clicked', () => {
+  it('selects an option when clicked', async () => {
     render(<Select color="black" options={mockOptions} />);
-    fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
+    });
     fireEvent.click(screen.getByText('Option 1'));
-    expect(screen.getByText('Option 1')).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(screen.getByText('Option 1')).toBeInTheDocument();
+    });
   });
 
   it('handles single selection mode', () => {
@@ -38,7 +46,7 @@ describe('The Select component', () => {
     expect(screen.getByText('Option 1')).toBeInTheDocument();
   });
 
-  it('handles multiple selection mode', () => {
+  it('handles multiple selection mode', async () => {
     render(
       <Select
         color="white"
@@ -48,14 +56,16 @@ describe('The Select component', () => {
         clearAllText="Clear All"
       />
     );
-    fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
+    });
     fireEvent.click(screen.getByText('Option 1'));
     fireEvent.click(screen.getByText('Option 2'));
     expect(screen.getByText('Option 1')).toBeInTheDocument();
     expect(screen.getByText('Option 2')).toBeInTheDocument();
   });
 
-  it('filters options when search term is entered', () => {
+  it('filters options when search term is entered', async () => {
     render(
       <Select
         color="black"
@@ -65,7 +75,9 @@ describe('The Select component', () => {
         clearAllText="Clear All"
       />
     );
-    fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
+    });
     fireEvent.change(screen.getByPlaceholderText('Select an option'), {
       target: { value: 'Option 1' },
     });
@@ -73,7 +85,7 @@ describe('The Select component', () => {
     expect(screen.queryByText('Option 2')).toBeNull();
   });
 
-  it('selects all options in multiple mode', () => {
+  it('selects all options in multiple mode', async () => {
     render(
       <Select
         color="black"
@@ -83,8 +95,12 @@ describe('The Select component', () => {
         clearAllText="Clear All"
       />
     );
-    fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
-    fireEvent.click(screen.getByText('Select All'));
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
+    });
+    await act(async () => {
+      fireEvent.click(screen.getByText('Select All'));
+    });
 
     // Find the options and navigate to their checkboxes
     const option1Text = screen.queryByText('Option 1');
@@ -97,12 +113,12 @@ describe('The Select component', () => {
     const option3Div = option3Text?.closest('div');
 
     // Check if the checkbox within the div have a data-checked attribute
-    expect(option1Div?.querySelector('label')).toHaveAttribute('data-checked');
-    expect(option2Div?.querySelector('label')).toHaveAttribute('data-checked');
-    expect(option3Div?.querySelector('label')).toHaveAttribute('data-checked');
+    expect(option1Div?.querySelector('label')).toHaveAttribute('data-state', 'checked');
+    expect(option2Div?.querySelector('label')).toHaveAttribute('data-state', 'checked');
+    expect(option3Div?.querySelector('label')).toHaveAttribute('data-state', 'checked');
   });
 
-  it('clears all selected options in multiple mode', () => {
+  it('clears all selected options in multiple mode', async () => {
     render(
       <Select
         color="black"
@@ -113,11 +129,15 @@ describe('The Select component', () => {
       />
     );
 
-    fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
+    });
 
     fireEvent.click(screen.getByText('Select All'));
 
-    fireEvent.click(screen.getByText('Clear All'));
+    await act(async () => {
+      fireEvent.click(screen.getByText('Clear All'));
+    });
 
     // Find the options and navigate to their checkboxes
     const option1Text = screen.queryByText('Option 1');
@@ -135,40 +155,48 @@ describe('The Select component', () => {
     expect(option3Div?.querySelector('label')).not.toHaveAttribute('data-checked');
   });
 
-  it('when dropdown is opened and closed, aria-expanded value changes', () => {
+  it('when dropdown is opened and closed, aria-expanded value changes', async () => {
     render(<Select color="black" options={mockOptions} />);
 
     const toggleButton = screen.getByRole('combobox');
 
     expect(toggleButton).toHaveAttribute('aria-expanded', 'false');
 
-    fireEvent.click(toggleButton);
+    await act(async () => {
+      fireEvent.click(toggleButton);
+    });
 
     expect(toggleButton).toHaveAttribute('aria-expanded', 'true');
 
-    fireEvent.click(toggleButton);
+    await act(async () => {
+      fireEvent.click(toggleButton);
+    });
 
     expect(toggleButton).toHaveAttribute('aria-expanded', 'false');
   });
 
   // check the onClose handler
-  it('calls onClose when dropdown is closed', () => {
+  it('calls onClose when dropdown is closed', async () => {
     const onCloseMock = jest.fn();
     render(<Select color="black" options={mockOptions} onClose={onCloseMock} />);
 
     const toggleButton = screen.getByRole('combobox');
 
-    fireEvent.click(toggleButton);
+    await act(async () => {
+      fireEvent.click(toggleButton);
+    });
     expect(toggleButton).toHaveAttribute('aria-expanded', 'true');
 
-    fireEvent.click(toggleButton);
+    await act(async () => {
+      fireEvent.click(toggleButton);
+    });
     expect(toggleButton).toHaveAttribute('aria-expanded', 'false');
 
     // Check if onClose was called
     expect(onCloseMock).toHaveBeenCalledTimes(1);
   });
 
-  it('allows deselection when preventDeselection is false', () => {
+  it('allows deselection when preventDeselection is false', async () => {
     const handleChange = jest.fn();
 
     render(
@@ -176,20 +204,26 @@ describe('The Select component', () => {
     );
 
     const toggleButton = screen.getByRole('combobox');
-    fireEvent.click(toggleButton);
+    await act(async () => {
+      fireEvent.click(toggleButton);
+    });
 
     const option1 = screen.getByText('Option 1');
-    fireEvent.click(option1);
+    await act(async () => {
+      fireEvent.click(option1);
+    });
 
     expect(handleChange).toHaveBeenCalledWith(['1']);
-    fireEvent.click(toggleButton);
-    // Click the same option again to deselect
-    fireEvent.click(option1);
+    await act(async () => {
+      fireEvent.click(toggleButton);
+      // Click the same option again to deselect
+      fireEvent.click(option1);
+    });
 
     expect(handleChange).toHaveBeenCalledWith(['1']);
   });
 
-  it('prevents deselection when preventDeselection is true', () => {
+  it('prevents deselection when preventDeselection is true', async () => {
     const handleChange = jest.fn();
 
     render(
@@ -202,19 +236,28 @@ describe('The Select component', () => {
       />
     );
 
-    fireEvent.click(screen.getByRole('combobox'));
-    fireEvent.click(screen.getByText('Option 1'));
+    await act(async () => {
+      fireEvent.click(screen.getByRole('combobox'));
+    });
+    await act(async () => {
+      fireEvent.click(screen.getByText('Option 1'));
+    });
 
     expect(handleChange).toHaveBeenCalledWith(['1']);
 
-    fireEvent.click(screen.getByRole('combobox'));
-    fireEvent.click(screen.getByRole('menuitemradio', { name: 'Option 1' })); // try to deselect
+    await act(async () => {
+      fireEvent.click(screen.getByRole('combobox'));
+    });
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole('menuitem', { name: 'Option 1' })); // try to deselect
+    });
 
     // check that the text in the combobox doesn't change
     expect(screen.getByRole('combobox')).toHaveTextContent('Option 1');
   });
 
-  it('allows switching between options when preventDeselection is true', () => {
+  it('allows switching between options when preventDeselection is true', async () => {
     const handleChange = jest.fn();
 
     render(
@@ -228,27 +271,35 @@ describe('The Select component', () => {
     );
 
     const toggleButton = screen.getByRole('combobox');
-    fireEvent.click(toggleButton);
+    await act(async () => {
+      fireEvent.click(toggleButton);
+    });
 
     const option1 = screen.getByText('Option 1');
 
-    fireEvent.click(option1);
+    await act(async () => {
+      fireEvent.click(option1);
+    });
     expect(handleChange).toHaveBeenCalledWith(['1']);
 
     expect(screen.getByRole('combobox')).toHaveTextContent('Option 1');
 
-    // re open dropdown and select another option
-    fireEvent.click(toggleButton);
+    await act(async () => {
+      // re open dropdown and select another option
+      fireEvent.click(toggleButton);
+    });
 
     const option2 = screen.getByText('Option 2');
 
-    fireEvent.click(option2);
+    await act(async () => {
+      fireEvent.click(option2);
+    });
     expect(handleChange).toHaveBeenCalledWith(['2']);
     // check that the text in the combobox did change
     expect(screen.getByRole('combobox')).toHaveTextContent('Option 2');
   });
 
-  it('handles disabled options correctly', () => {
+  it('handles disabled options correctly', async () => {
     const handleChange = jest.fn();
 
     const optionsWithDisabled = [
@@ -267,17 +318,23 @@ describe('The Select component', () => {
     );
 
     const toggleButton = screen.getByRole('combobox');
-    fireEvent.click(toggleButton);
+    await act(async () => {
+      fireEvent.click(toggleButton);
+    });
 
     const disabledOption = screen.getByText('Option 1');
     const enabledOption = screen.getByText('Option 2');
 
-    // try to select disabled option
-    fireEvent.click(disabledOption);
+    await act(async () => {
+      // try to select disabled option
+      fireEvent.click(disabledOption);
+    });
     expect(handleChange).not.toHaveBeenCalled();
 
-    // Select enabled option
-    fireEvent.click(enabledOption);
+    await act(async () => {
+      // Select enabled option
+      fireEvent.click(enabledOption);
+    });
     expect(handleChange).toHaveBeenCalledWith(['2']);
   });
 });
