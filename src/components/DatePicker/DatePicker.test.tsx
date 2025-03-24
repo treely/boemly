@@ -117,7 +117,7 @@ describe('The DatePicker component', () => {
 
     fireEvent.click(screen.getByTestId('clear-button'));
 
-    expect(onChangeSpy).toHaveBeenCalledWith(undefined);
+    expect(onChangeSpy).toHaveBeenCalledWith(null);
     expect(onChangeSpy).toHaveBeenCalledTimes(2);
 
     expect(onSelectSpy).toHaveBeenCalledTimes(1);
