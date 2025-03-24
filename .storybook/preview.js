@@ -14,7 +14,7 @@ export default {
     }),
     (Storybook) => (
       <BoemlyThemeProvider>
-        <CSSReset />
+        {/* <CSSReset /> */}
         <Storybook />
       </BoemlyThemeProvider>
     ),
