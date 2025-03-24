@@ -15,6 +15,7 @@ const CustomSliderThumb: React.FC<CustomSliderThumbProps> = ({
 }) => {
   const thumbContent = (
     <SliderThumb
+      index={0}
       width="5"
       height="5"
       boxShadow="base"
@@ -28,14 +29,19 @@ const CustomSliderThumb: React.FC<CustomSliderThumbProps> = ({
 
   return showTooltip ? (
     <Tooltip
-      label={`${sliderValue} ${unit}`}
-      placement="top"
-      hasArrow
-      isOpen={true}
-      backgroundColor="gray.900"
-      color="white"
-      fontSize="sm"
-      mt={-2}
+      content={`${sliderValue} ${unit}`}
+      positioning={{ placement: 'top' }}
+      showArrow
+      open={true}
+      contentProps={{
+        css: {
+          color: 'white',
+          backgroundColor: 'gray.900',
+          fontSize: 'sm',
+          mt: '-2',
+          position: 'relative',
+        },
+      }}
     >
       {thumbContent}
     </Tooltip>

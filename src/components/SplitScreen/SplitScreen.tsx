@@ -25,7 +25,7 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
 }: SplitScreenProps) => {
   useResizeEventListener();
 
-  const [mobile] = useMediaQuery([BREAKPOINT_MD_QUERY], {});
+  const [mobile] = useMediaQuery([BREAKPOINT_MD_QUERY], { fallback: [false] });
 
   const [ref, { height }] = useMeasure<HTMLDivElement>();
   const controls = useAnimation();

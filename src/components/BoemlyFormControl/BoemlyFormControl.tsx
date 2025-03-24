@@ -1,39 +1,30 @@
 import React, { ReactNode } from 'react';
 import {
   Checkbox,
-  CheckboxProps,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  FormLabel,
+  CheckboxRootProps,
   Input,
-  InputGroup,
   InputProps,
-  InputRightElement,
-  NumberDecrementStepper,
-  NumberIncrementStepper,
   NumberInput,
-  NumberInputField,
-  NumberInputProps,
-  NumberInputStepper,
-  StyleProps,
   Text,
   Textarea,
   TextareaProps,
   useMediaQuery,
   useToken,
+  Field,
+  NumberInputRootProps,
+  Box,
+  Flex,
 } from '@chakra-ui/react';
 import { CaretDown, CaretUp, Check, WarningOctagon } from '@phosphor-icons/react';
 import { DatePicker, DatePickerProps } from '../DatePicker/DatePicker';
-import InputSize from '../../types/InputSize';
 import { Slider, SliderProps } from '../..';
 import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 import { Select, BoemlySelectProps } from '../Select';
 // TODO: Migrate component
 
-export interface BoemlyFormControlProps extends StyleProps {
+export interface BoemlyFormControlProps extends Field.RootProps {
   id: string;
-  size?: InputSize;
+  size?: number;
   label?: string;
   helperText?: string;
   errorMessage?: string;
@@ -48,10 +39,10 @@ export interface BoemlyFormControlProps extends StyleProps {
     | 'Textarea'
     | 'Slider';
   inputProps?: InputProps;
-  numberInputProps?: NumberInputProps;
+  numberInputProps?: NumberInputRootProps;
   selectProps?: BoemlySelectProps;
   selectOptions?: { value: string; label: string; disabled?: boolean }[];
-  checkboxProps?: CheckboxProps;
+  checkboxProps?: CheckboxRootProps;
   datePickerProps?: DatePickerProps;
   textareaProps?: TextareaProps;
   sliderProps?: SliderProps;
@@ -69,7 +60,7 @@ export interface BoemlyFormControlProps extends StyleProps {
 
 export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
   id,
-  size = 'lg',
+  size = 12, // TODO: Find out what's equivalent to "lg"
   label,
   helperText,
   errorMessage,
@@ -94,24 +85,24 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
 
   ...styleProps
 }: BoemlyFormControlProps) => {
-  const [isMobile] = useMediaQuery(BREAKPOINT_MD_QUERY);
+  const [isMobile] = useMediaQuery([BREAKPOINT_MD_QUERY], { fallback: [false] });
   const [primary700, red500] = useToken('colors', ['primary.700', 'red.500']);
 
   const renderInputField = () => {
     switch (inputType) {
       case 'NumberInput':
         return (
-          <NumberInput {...numberInputProps}>
-            <NumberInputField bgColor="white" />
-            <NumberInputStepper>
-              <NumberIncrementStepper>
+          <NumberInput.Root {...numberInputProps}>
+            <NumberInput.Input bgColor="white" />
+            <NumberInput.Control>
+              <NumberInput.IncrementTrigger>
                 <CaretUp />
-              </NumberIncrementStepper>
-              <NumberDecrementStepper>
+              </NumberInput.IncrementTrigger>
+              <NumberInput.DecrementTrigger>
                 <CaretDown />
-              </NumberDecrementStepper>
-            </NumberInputStepper>
-          </NumberInput>
+              </NumberInput.DecrementTrigger>
+            </NumberInput.Control>
+          </NumberInput.Root>
         );
       case 'Select':
         return (
@@ -122,7 +113,14 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
           />
         );
       case 'Checkbox':
-        return <Checkbox {...checkboxProps} />;
+        return (
+          <Checkbox.Root {...checkboxProps}>
+            <Checkbox.Control>
+              <Checkbox.Indicator />
+            </Checkbox.Control>
+            <Checkbox.Label>{label}</Checkbox.Label>
+          </Checkbox.Root>
+        );
       case 'DatePicker':
         return <DatePicker size={size} {...datePickerProps} />;
       case 'Textarea':
@@ -135,47 +133,73 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
   };
 
   return (
-    <FormControl
+    <Field.Root
       id={id}
       {...styleProps}
-      isInvalid={isInvalid}
-      isReadOnly={isReadOnly}
-      isDisabled={isDisabled}
+      invalid={isInvalid}
+      readOnly={isReadOnly}
+      disabled={isDisabled}
     >
       {label && (
-        <FormLabel
-          fontSize="sm"
-          lineHeight="1"
-          position={inputType === 'Slider' && isMobile ? 'absolute' : 'unset'}
-        >
-          {label}
-        </FormLabel>
+        <Field.Label>
+          <Text
+            fontSize="sm"
+            lineHeight="1"
+            position={inputType === 'Slider' && isMobile ? 'absolute' : 'unset'}
+          >
+            {label}
+          </Text>
+        </Field.Label>
       )}
-      {inputType === ('DatePicker' || 'Slider') ? (
-        renderInputField()
+      {inputType === 'Input' ? (
+        <Box position="relative">
+          <Input bgColor="white" size={size} {...inputProps} />
+          <Box
+            position="absolute"
+            left="4"
+            top="50%"
+            transform="translateY(-50%)"
+            display="flex"
+            gap="2"
+          >
+            {leftAddonsOrElements.map((addonOrElement, index) => (
+              <Box key={index}>{addonOrElement}</Box>
+            ))}
+          </Box>
+          <Box
+            position="absolute"
+            right="4"
+            top="50%"
+            transform="translateY(-50%)"
+            display="flex"
+            gap="2"
+          >
+            {rightAddonsOrElements.map((addonOrElement, index) => (
+              <Box key={index}>{addonOrElement}</Box>
+            ))}
+            {isValid && <Check size={20} color={primary700} data-testid="check" />}
+          </Box>
+        </Box>
       ) : (
-        <InputGroup size={size}>
-          {leftAddonsOrElements.map((addonOrElement) => addonOrElement)}
-
+        <Flex alignItems="center">
+          {leftAddonsOrElements.map((addonOrElement, index) => (
+            <Box key={index}>{addonOrElement}</Box>
+          ))}
           {renderInputField()}
-
-          {isValid && inputType === 'Input' && (
-            <InputRightElement>
-              <Check size={20} color={primary700} data-testid="check" />
-            </InputRightElement>
-          )}
-          {rightAddonsOrElements.map((addonOrElement) => addonOrElement)}
-        </InputGroup>
+          {rightAddonsOrElements.map((addonOrElement, index) => (
+            <Box key={index}>{addonOrElement}</Box>
+          ))}
+        </Flex>
       )}
-      {helperText && <FormHelperText>{helperText}</FormHelperText>}
+      {helperText && <Field.HelperText>{helperText}</Field.HelperText>}
       {errorMessage && (
-        <FormErrorMessage>
+        <Field.ErrorText>
           <WarningOctagon color={red500} size={12} />
-          <Text size="xsRegularNormal" color="red.500" ml="2">
+          <Text fontSize="xs" color="red.500" ml="2">
             {errorMessage}
           </Text>
-        </FormErrorMessage>
+        </Field.ErrorText>
       )}
-    </FormControl>
+    </Field.Root>
   );
 };
