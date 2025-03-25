@@ -1,13 +1,6 @@
 import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-
-import {
-  Box,
-  InputLeftAddon,
-  InputLeftElement,
-  InputRightAddon,
-  InputRightElement,
-} from '@chakra-ui/react';
+import { Box, Input } from '@chakra-ui/react';
 import { Heart } from '@phosphor-icons/react';
 import { BoemlyFormControl } from './BoemlyFormControl';
 import { INPUT_SIZES } from '../../constants/inputSizes';
@@ -148,41 +141,25 @@ Slider.args = {
 export const InputWithLeftAddon = Template.bind({});
 InputWithLeftAddon.args = {
   id: 'input-with-left-addon',
-  leftAddonsOrElements: [
-    <InputLeftAddon key="1">
-      <Heart />
-    </InputLeftAddon>,
-  ],
+  leftAddonsOrElements: [<Heart />],
 };
 
 export const InputWithLeftElement = Template.bind({});
 InputWithLeftElement.args = {
   id: 'input-with-left-element',
-  leftAddonsOrElements: [
-    <InputLeftElement key="1">
-      <Heart />
-    </InputLeftElement>,
-  ],
+  leftAddonsOrElements: [<Heart />],
 };
 
 export const InputWithRightAddon = Template.bind({});
 InputWithRightAddon.args = {
   id: 'input-with-right-addon',
-  rightAddonsOrElements: [
-    <InputRightAddon key="1">
-      <Heart />
-    </InputRightAddon>,
-  ],
+  rightAddonsOrElements: [<Heart />],
 };
 
 export const InputWithRightElement = Template.bind({});
 InputWithRightElement.args = {
   id: 'input-with-right-element',
-  rightAddonsOrElements: [
-    <InputRightElement key="1">
-      <Heart />
-    </InputRightElement>,
-  ],
+  rightAddonsOrElements: [<Heart />],
 };
 
 export const StatesOverview = () => (
