@@ -20,7 +20,6 @@ import { DatePicker, DatePickerProps } from '../DatePicker/DatePicker';
 import { Slider, SliderProps } from '../..';
 import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 import { Select, BoemlySelectProps } from '../Select';
-// TODO: Migrate component
 
 export interface BoemlyFormControlProps extends Field.RootProps {
   id: string;
