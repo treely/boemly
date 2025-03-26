@@ -29,13 +29,11 @@ export const DatePersonPair: React.FC<DatePersonPairProps> = ({
           width="7"
           height="7"
           borderRadius="lg"
-          css={css`
-            & span,
-            div,
-            img {
-              border-radius: var(--boemly-radii-lg);
-            }
-          `}
+          css={{
+            '& span, div, img': {
+              borderRadius: 'var(--boemly-radii-lg)',
+            },
+          }}
         >
           {person.image}
         </Box>

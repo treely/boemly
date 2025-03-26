@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { ReactNode } from 'react';
-import { css } from '@emotion/react';
 
 export interface AvatarWithNameProps {
   name: string;
@@ -72,13 +71,11 @@ export const AvatarWithName: React.FC<AvatarWithNameProps> = ({
         width={['12', null, '14']}
         height={['12', null, '14']}
         borderRadius="xl"
-        css={css`
-          & span,
-          div,
-          img {
-            border-radius: var(--boemly-radii-xl);
-          }
-        `}
+        css={{
+          '& span, div, img': {
+            borderRadius: 'var(--boemly-radii-xl)',
+          },
+        }}
       >
         {image}
       </Box>
