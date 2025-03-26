@@ -28,7 +28,7 @@ export const BoemlyAlert: React.FC<BoemlyAlertProps> = ({
   const renderIcon = () => {
     switch (status) {
       case 'loading':
-        return <Spinner size="sm" color={blue500} />;
+        return <Spinner size="sm" color={blue500} data-testid="loading-icon" />;
       case 'success':
         return (
           <CheckCircle

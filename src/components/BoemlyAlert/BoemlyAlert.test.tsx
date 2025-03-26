@@ -51,7 +51,7 @@ describe('The BoemlyAlert component', () => {
     setup({ status: 'loading' });
 
     expect(screen.getByText('Text')).toBeInTheDocument();
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    expect(screen.getByTestId('loading-icon')).toBeInTheDocument();
   });
 
   it('displays the title if there is a title given', () => {

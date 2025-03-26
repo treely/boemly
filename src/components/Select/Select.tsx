@@ -16,8 +16,6 @@ import { CaretDown, CaretUp, MagnifyingGlass, Check } from '@phosphor-icons/reac
 import { Badge } from '../..';
 import { selectRecipe } from '../../constants/componentCustomizations';
 
-// TODO: Migrate whole component
-
 interface Option {
   label: string;
   value: string;
