@@ -1,4 +1,4 @@
-import { Box, Flex, IconButton, Input, InputProps, NativeSelect, Spacer } from '@chakra-ui/react';
+import { Flex, IconButton, Input, InputProps, NativeSelect, Spacer } from '@chakra-ui/react';
 import { CalendarBlank, CaretLeft, CaretRight, X } from '@phosphor-icons/react';
 import React, { forwardRef, useMemo, useRef } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
