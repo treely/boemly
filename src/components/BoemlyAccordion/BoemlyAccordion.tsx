@@ -18,10 +18,12 @@ export const BoemlyAccordion: React.FC<BoemlyAccordionProps> = ({
   defaultIndex,
 }: BoemlyAccordionProps) => {
   const textColor = variant === 'black' ? 'gray.500' : 'white';
+  const initialExpandedValues = defaultIndex.map((index) => rows[index].id.toString());
+
   return (
-    <Accordion.Root defaultIndex={defaultIndex} variant={variant} allowToggle>
+    <Accordion.Root defaultValue={initialExpandedValues} collapsible>
       {rows.map(({ id, key, value }) => (
-        <Accordion.Item key={id}>
+        <Accordion.Item key={id} value={id.toString()}>
           <Accordion.ItemTrigger>
             <Box flex="1" textAlign="left">
               <Heading as="h6" size="sm" color={variant} mr="8">
