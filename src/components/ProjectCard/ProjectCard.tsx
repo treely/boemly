@@ -40,14 +40,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         width="full"
         height="40"
         borderTopRadius="3xl"
-        css={css`
-          & span,
-          div,
-          img {
-            border-top-left-radius: var(--boemly-radii-3xl);
-            border-top-right-radius: var(--boemly-radii-3xl);
-          }
-        `}
+        css={{
+          '& span, div, img': {
+            borderTopLeftRadius: 'var(--boemly-radii-xl)',
+            borderTopRightRadius: 'var(--boemly-radii-xl)',
+          },
+        }}
       >
         {image}
       </Box>
