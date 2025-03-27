@@ -34,14 +34,15 @@ export default {
 } as Meta<typeof SubmissionConfirm>;
 
 const Template: StoryFn<typeof SubmissionConfirm> = (args) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { open, onOpen, onClose } = useDisclosure();
 
   return (
     <SubmissionConfirm
       {...args}
-      isOpen={isOpen}
+      isOpen={open}
       onCancel={onClose}
-      trigger={<Button onClick={onOpen}>Trigger</Button>}
+      triggerTitle="Trigger"
+      onTriggerClick={onOpen}
     />
   );
 };
