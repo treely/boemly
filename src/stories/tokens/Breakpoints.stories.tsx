@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
+import { Table, Text, useToken } from '../..';
 import { BREAKPOINTS } from '../../constants/customizations';
 
 export default {
@@ -16,29 +16,29 @@ const BreakpointRow = ({ breakpoint }: BreakpointRowProps) => {
   const [breakpointValue] = useToken('breakpoints', [breakpoint]);
 
   return (
-    <Tr>
-      <Td>
+    <Table.Row>
+      <Table.Cell>
         <Text size="mdMonoNormal">{breakpoint}</Text>
-      </Td>
-      <Td>
+      </Table.Cell>
+      <Table.Cell>
         <Text size="mdMonoNormal">{breakpointValue}</Text>
-      </Td>
-    </Tr>
+      </Table.Cell>
+    </Table.Row>
   );
 };
 
 export const Breakpoints = () => (
-  <Table variant="simple">
-    <Thead>
-      <Tr>
-        <Th>Token</Th>
-        <Th>Value</Th>
-      </Tr>
-    </Thead>
-    <Tbody>
+  <Table.Root>
+    <Table.Header>
+      <Table.Row>
+        <Table.ColumnHeader>Token</Table.ColumnHeader>
+        <Table.ColumnHeader>Value</Table.ColumnHeader>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
       {Object.keys(BREAKPOINTS).map((breakpoint) => (
         <BreakpointRow key={breakpoint} breakpoint={breakpoint} />
       ))}
-    </Tbody>
-  </Table>
+    </Table.Body>
+  </Table.Root>
 );

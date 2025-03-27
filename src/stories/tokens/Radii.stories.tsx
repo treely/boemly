@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
+import { Table, Text, Box, useToken } from '../..';
 import { RADII } from '../../constants/customizations';
 
 export default {
@@ -16,33 +16,33 @@ const RadiiRow = ({ radius }: RadiiRowProps) => {
   const [radiiValue] = useToken('radii', [radius]);
 
   return (
-    <Tr>
-      <Td>
+    <Table.Row>
+      <Table.Cell>
         <Text size="mdMonoNormal">{radius}</Text>
-      </Td>
-      <Td>
+      </Table.Cell>
+      <Table.Cell>
         <Text size="mdMonoNormal">{radiiValue}</Text>
-      </Td>
-      <Td>
+      </Table.Cell>
+      <Table.Cell>
         <Box bg="primary.500" width="sm" height="16" borderRadius={radius} />
-      </Td>
-    </Tr>
+      </Table.Cell>
+    </Table.Row>
   );
 };
 
 export const Radii = () => (
-  <Table variant="simple">
-    <Thead>
-      <Tr>
-        <Th>Token</Th>
-        <Th>Value</Th>
-        <Th>Example</Th>
-      </Tr>
-    </Thead>
-    <Tbody>
+  <Table.Root>
+    <Table.Header>
+      <Table.Row>
+        <Table.ColumnHeader>Token</Table.ColumnHeader>
+        <Table.ColumnHeader>Value</Table.ColumnHeader>
+        <Table.ColumnHeader>Example</Table.ColumnHeader>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
       {Object.keys(RADII).map((radii) => (
         <RadiiRow key={radii} radius={radii} />
       ))}
-    </Tbody>
-  </Table>
+    </Table.Body>
+  </Table.Root>
 );

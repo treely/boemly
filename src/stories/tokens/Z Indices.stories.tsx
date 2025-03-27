@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
+import { Table, Text, useToken } from '../..';
 import { Z_INDICES } from '../../constants/customizations';
 
 export default {
@@ -16,29 +16,29 @@ const ZIndexRow = ({ zIndex }: ZIndexRowProps) => {
   const [zIndexValue] = useToken('zIndices', [zIndex]);
 
   return (
-    <Tr>
-      <Td>
+    <Table.Row>
+      <Table.Cell>
         <Text size="mdMonoNormal">{zIndex}</Text>
-      </Td>
-      <Td>
+      </Table.Cell>
+      <Table.Cell>
         <Text size="mdMonoNormal">{zIndexValue}</Text>
-      </Td>
-    </Tr>
+      </Table.Cell>
+    </Table.Row>
   );
 };
 
 export const ZIndices = () => (
-  <Table variant="simple">
-    <Thead>
-      <Tr>
-        <Th>Token</Th>
-        <Th>Value</Th>
-      </Tr>
-    </Thead>
-    <Tbody>
+  <Table.Root>
+    <Table.Header>
+      <Table.Row>
+        <Table.ColumnHeader>Token</Table.ColumnHeader>
+        <Table.ColumnHeader>Value</Table.ColumnHeader>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
       {Object.keys(Z_INDICES).map((zIndex) => (
         <ZIndexRow key={zIndex} zIndex={zIndex} />
       ))}
-    </Tbody>
-  </Table>
+    </Table.Body>
+  </Table.Root>
 );

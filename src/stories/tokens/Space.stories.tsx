@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Box, Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
+import { Table, Text, Box, useToken } from '../..';
 import { SPACE } from '../../constants/customizations';
 
 export default {
@@ -16,33 +16,33 @@ const SpaceRow = ({ space }: SpaceRowProps) => {
   const [spaceValue] = useToken('space', [space]);
 
   return (
-    <Tr>
-      <Td>
+    <Table.Row>
+      <Table.Cell>
         <Text size="mdMonoNormal">{space}</Text>
-      </Td>
-      <Td>
+      </Table.Cell>
+      <Table.Cell>
         <Text size="mdMonoNormal">{spaceValue}</Text>
-      </Td>
-      <Td>
+      </Table.Cell>
+      <Table.Cell>
         <Box bg="primary.500" width={space} height="8" />
-      </Td>
-    </Tr>
+      </Table.Cell>
+    </Table.Row>
   );
 };
 
 export const Space = () => (
-  <Table variant="simple">
-    <Thead>
-      <Tr>
-        <Th>Token</Th>
-        <Th>Value</Th>
-        <Th>Example</Th>
-      </Tr>
-    </Thead>
-    <Tbody>
+  <Table.Root>
+    <Table.Header>
+      <Table.Row>
+        <Table.ColumnHeader>Token</Table.ColumnHeader>
+        <Table.ColumnHeader>Value</Table.ColumnHeader>
+        <Table.ColumnHeader>Example</Table.ColumnHeader>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
       {Object.keys(SPACE).map((space) => (
         <SpaceRow key={space} space={space} />
       ))}
-    </Tbody>
-  </Table>
+    </Table.Body>
+  </Table.Root>
 );

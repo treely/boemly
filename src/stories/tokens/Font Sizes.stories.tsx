@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
+import { Table, Text, useToken } from '../..';
 import { FONT_SIZES } from '../../constants/customizations';
 
 export default {
@@ -16,35 +16,35 @@ const FontSizeRow = ({ fontSize }: FontSizesRowProps) => {
   const [fontSizeValue] = useToken('fontSizes', [fontSize]);
 
   return (
-    <Tr>
-      <Td>
+    <Table.Row>
+      <Table.Cell>
         <Text size="mdMonoNormal">{fontSize}</Text>
-      </Td>
-      <Td>
+      </Table.Cell>
+      <Table.Cell>
         <Text size="mdMonoNormal">{fontSizeValue}</Text>
-      </Td>
-      <Td>
+      </Table.Cell>
+      <Table.Cell>
         <Text size="mdMonoNormal" fontSize={fontSize} lineHeight="100%">
           {`Font Size = ${fontSize}`}
         </Text>
-      </Td>
-    </Tr>
+      </Table.Cell>
+    </Table.Row>
   );
 };
 
 export const FontSizes = () => (
-  <Table variant="simple">
-    <Thead>
-      <Tr>
-        <Th>Token</Th>
-        <Th>Value</Th>
-        <Th>Example</Th>
-      </Tr>
-    </Thead>
-    <Tbody>
+  <Table.Root>
+    <Table.Header>
+      <Table.Row>
+        <Table.ColumnHeader>Token</Table.ColumnHeader>
+        <Table.ColumnHeader>Value</Table.ColumnHeader>
+        <Table.ColumnHeader>Example</Table.ColumnHeader>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
       {Object.keys(FONT_SIZES).map((fontSizes) => (
         <FontSizeRow key={fontSizes} fontSize={fontSizes} />
       ))}
-    </Tbody>
-  </Table>
+    </Table.Body>
+  </Table.Root>
 );
