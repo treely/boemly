@@ -39,7 +39,7 @@ export const LINE_HEIGHTS = {
 };
 
 export const COLORS = {
-  black: '#121212',
+  black: { value: '#121212' },
   primary: {
     50: { value: '#f3f6f5' },
     100: { value: '#f2fcf7' },

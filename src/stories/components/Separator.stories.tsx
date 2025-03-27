@@ -1,11 +1,11 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
-import { Box, Divider } from '../..';
+import { Box, Separator } from '../..';
 
 export default {
-  title: 'Components/Divider',
-  component: Divider,
+  title: 'Components/Separator',
+  component: Separator,
   argTypes: {
     variant: {
       options: ['solid', 'dashed'],
@@ -20,11 +20,11 @@ export default {
     variant: 'solid',
     orientation: 'horizontal',
   },
-} as Meta<typeof Divider>;
+} as Meta<typeof Separator>;
 
-const Template: StoryFn<typeof Divider> = (args) => (
+const Template: StoryFn<typeof Separator> = (args) => (
   <Box width="md" height="md">
-    <Divider {...args} />
+    <Separator {...args} />
   </Box>
 );
 

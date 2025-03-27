@@ -32,12 +32,15 @@ export default {
     isRound: { control: { type: 'boolean' } },
   },
   args: {
-    icon: <Heart />,
     'aria-label': 'Heart button',
   },
 } as Meta<typeof IconButton>;
 
-const Template: StoryFn<typeof IconButton> = (args) => <IconButton {...args} />;
+const Template: StoryFn<typeof IconButton> = (args) => (
+  <IconButton {...args}>
+    <Heart />
+  </IconButton>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};

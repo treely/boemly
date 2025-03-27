@@ -48,7 +48,6 @@ export {
   Box,
   Button,
   Center,
-  Separator,
   Flex,
   Grid,
   GridItem,
@@ -66,10 +65,10 @@ export {
   // MenuList,
   MenuItem,
   Progress,
+  Separator,
   SimpleGrid,
   Spacer,
   Spinner,
-  Tooltip,
   Table,
   // TableContainer,
   Tag,
@@ -85,3 +84,5 @@ export {
   // useToast,
   useToken,
 } from '@chakra-ui/react';
+
+export { Tooltip } from '../src/components/ui/tooltip';

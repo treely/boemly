@@ -33,13 +33,13 @@ import BorderRadiiCustomization from './types/BorderRadiiCustomization';
 import FontsCustomization from './types/FontsCustomization';
 
 interface Options {
-  customColors: Color;
+  // customColors: Partial<Color>;
   customFonts: FontsCustomization;
   customRadii: BorderRadiiCustomization;
 }
 
 export const getSystem = ({
-  customColors = {},
+  // customColors = {},
   customFonts = {},
   customRadii = {},
 }: Partial<Options> = {}) => {
@@ -47,7 +47,8 @@ export const getSystem = ({
     cssVarsPrefix: 'boemly',
     theme: {
       tokens: {
-        colors: { ...COLORS, ...(customColors || {}) },
+        // colors: { ...COLORS, ...(customColors || {}) },
+        colors: COLORS,
         breakpoints: BREAKPOINTS,
         fonts: { ...FONTS, ...(customFonts || {}) },
         fontSizes: FONT_SIZES,

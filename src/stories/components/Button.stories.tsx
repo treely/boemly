@@ -32,7 +32,7 @@ export default {
   },
 } as Meta<typeof Button>;
 
-const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
+const Template: StoryFn<typeof Button> = (args) => <Button {...args}>{args.children}</Button>;
 
 export const Primary = Template.bind({});
 Primary.args = {};
@@ -96,11 +96,19 @@ IsLoading.args = {
 export const LeftIcon = Template.bind({});
 LeftIcon.args = {
   size: 'md',
-  leftIcon: <Heart />,
+  children: (
+    <>
+      <Heart /> Button
+    </>
+  ),
 };
 
 export const RightIcon = Template.bind({});
 RightIcon.args = {
   size: 'md',
-  rightIcon: <Heart />,
+  rightIcon: (
+    <>
+      Button <Heart />
+    </>
+  ),
 };

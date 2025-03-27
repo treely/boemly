@@ -6,7 +6,7 @@ import { COLOR_SCHEMES } from '../../constants/colorSchemes';
 
 export default {
   title: 'Components/Progress',
-  component: Progress,
+  component: Progress.Root,
   argTypes: {
     size: { options: ['xs', 'sm', 'md', 'lg'], control: { type: 'radio' } },
     colorScheme: {
@@ -21,7 +21,13 @@ export default {
   },
 } as Meta<typeof Progress>;
 
-const Template: StoryFn<typeof Progress> = (args) => <Progress {...args} />;
+const Template: StoryFn<typeof Progress> = (args) => (
+  <Progress.Root {...args}>
+    <Progress.Track>
+      <Progress.Range />
+    </Progress.Track>
+  </Progress.Root>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

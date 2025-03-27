@@ -32,7 +32,7 @@
       "cjs"
     ],
     "entry": [
-      "src/**/*.ts"
+      "src/index.tsx"
     ]
   },
   "husky": {
