@@ -1,5 +1,4 @@
 import { Box, Separator, Flex, Heading, SimpleGrid, Text, useToken } from '@chakra-ui/react';
-import { css } from '@emotion/react';
 import { ArrowsOutSimple, MapPin } from '@phosphor-icons/react';
 import React, { ReactNode } from 'react';
 
@@ -42,8 +41,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         borderTopRadius="3xl"
         css={{
           '& span, div, img': {
-            borderTopLeftRadius: 'var(--boemly-radii-xl)',
-            borderTopRightRadius: 'var(--boemly-radii-xl)',
+            borderTopLeftRadius: 'var(--boemly-radii-3xl)',
+            borderTopRightRadius: 'var(--boemly-radii-3xl)',
           },
         }}
       >

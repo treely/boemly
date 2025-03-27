@@ -1,5 +1,4 @@
 import { Box, Button, Center, Separator, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react';
-import { css } from '@emotion/react';
 import { Heart } from '@phosphor-icons/react';
 import React, { ReactNode } from 'react';
 
@@ -28,14 +27,12 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({
       width="full"
       height="36"
       borderTopRadius="3xl"
-      css={css`
-        & span,
-        div,
-        img {
-          border-top-left-radius: var(--boemly-radii-3xl);
-          border-top-right-radius: var(--boemly-radii-3xl);
-        }
-      `}
+      css={{
+        '& span, div, img': {
+          borderTopLeftRadius: 'var(--boemly-radii-3xl)',
+          borderTopRightRadius: 'var(--boemly-radii-3xl)',
+        },
+      }}
     >
       {image}
     </Box>
