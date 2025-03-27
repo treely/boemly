@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { ReactNode } from 'react';
-import { css } from '@emotion/react';
 
 export interface DatePersonPairProps {
   date: string;

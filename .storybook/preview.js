@@ -1,4 +1,3 @@
-import { CSSReset } from '@chakra-ui/react';
 import React from 'react';
 import { BoemlyThemeProvider } from '../src';
 import { withThemeByClassName } from '@storybook/addon-themes';
@@ -14,7 +13,6 @@ export default {
     }),
     (Storybook) => (
       <BoemlyThemeProvider>
-        {/* <CSSReset /> */}
         <Storybook />
       </BoemlyThemeProvider>
     ),

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { ChakraProvider, Color } from '@chakra-ui/react';
+import { SystemContext } from '@chakra-ui/react';
 import { IconContext } from '@phosphor-icons/react';
 import { Global } from '@emotion/react';
 import iconCustomizations from '../../constants/iconCustomizations';
@@ -8,10 +8,11 @@ import BorderRadiiCustomization from '../../types/BorderRadiiCustomization';
 import FontsCustomization from '../../types/FontsCustomization';
 import getDefaultFontImports from '../../utils/getDefaultFontImports';
 import { getSystem } from '../../theme';
+import { Provider } from '../ui/provider';
 
 interface BoemlyThemeProviderProps {
   children: ReactNode | ReactNode[];
-  colors?: Color;
+  colors?: Record<string, string>;
   fonts?: FontsCustomization;
   radii?: BorderRadiiCustomization;
 }
@@ -21,13 +22,19 @@ export const BoemlyThemeProvider: React.FC<BoemlyThemeProviderProps> = ({
   colors = {},
   fonts = {},
   radii = {},
-}: BoemlyThemeProviderProps) => (
-  <>
-    <Global styles={[GLOBAL_STYLE, ...getDefaultFontImports(fonts)]} />
-    <ChakraProvider
-      value={getSystem({ customColors: colors, customFonts: fonts, customRadii: radii })}
-    >
-      <IconContext.Provider value={iconCustomizations}>{children}</IconContext.Provider>
-    </ChakraProvider>
-  </>
-);
+}: BoemlyThemeProviderProps) => {
+  const customTheme: SystemContext = getSystem({
+    customColors: colors,
+    customFonts: fonts,
+    customRadii: radii,
+  });
+
+  return (
+    <>
+      <Global styles={[GLOBAL_STYLE, ...getDefaultFontImports(fonts)]} />
+      <Provider theme={customTheme}>
+        <IconContext.Provider value={iconCustomizations}>{children}</IconContext.Provider>
+      </Provider>
+    </>
+  );
+};
