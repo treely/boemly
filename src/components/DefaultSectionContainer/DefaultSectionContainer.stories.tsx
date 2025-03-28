@@ -13,7 +13,7 @@ export default {
           backgroundColor: 'var(--boemly-colors-primary-500)',
           height: 'var(--boemly-sizes-sm)',
           width: '100%',
-          padding: 'var(--boemly-space-8)',
+          padding: 'var(--boemly-spacing-8)',
         }}
       >
         Content

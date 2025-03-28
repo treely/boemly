@@ -1,6 +1,5 @@
 import { Box, Heading, Text, Flex, Button } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
-import { css } from '@emotion/react';
 
 export interface TextCardWithIconProps {
   title: string;
@@ -70,13 +69,11 @@ export const TextCardWithIcon: React.FC<TextCardWithIconProps> = ({
           position="relative"
           height="36"
           width="full"
-          css={css`
-            & span,
-            div,
-            img {
-              border-radius: var(--boemly-radii-xl);
-            }
-          `}
+          css={{
+            '& span, div, img': {
+              borderRadius: 'var(--boemly-radii-xl)',
+            },
+          }}
         >
           {image}
         </Box>

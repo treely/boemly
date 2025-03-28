@@ -3,6 +3,7 @@ import { useAnimation } from 'framer-motion';
 import React, { useEffect } from 'react';
 import { MEDIUM_TRANSITION_DURATION } from '../../constants/animations';
 import { MenuBurgerItem } from './styles';
+import { Global } from '@emotion/react';
 
 export interface MobileMenuBurgerProps {
   onOpen: () => void;
@@ -45,39 +46,42 @@ export const MobileMenuBurger: React.FC<MobileMenuBurgerProps> = ({
   }, [isOpen, controls]);
 
   return (
-    <IconButton
-      aria-label="Menu toggle"
-      onClick={toggleOpen}
-      variant="ghost"
-      data-testid={isOpen ? 'x' : 'list'}
-    >
-      <Flex
-        position="relative"
-        width="4"
-        height="4"
-        flexDirection="column"
-        justifyContent="space-between"
-        overflow="hidden"
+    <>
+      <Global styles={MenuBurgerItem} />
+      <IconButton
+        aria-label="Menu toggle"
+        onClick={toggleOpen}
+        variant="ghost"
+        data-testid={isOpen ? 'x' : 'list'}
       >
-        <MenuBurgerItem
-          animate={controls}
-          variants={topVariants}
-          transition={{ duration: MEDIUM_TRANSITION_DURATION }}
-          color={color}
-        />
-        <MenuBurgerItem
-          animate={controls}
-          variants={centerVariants}
-          transition={{ duration: MEDIUM_TRANSITION_DURATION }}
-          color={color}
-        />
-        <MenuBurgerItem
-          animate={controls}
-          variants={bottomVariants}
-          transition={{ duration: MEDIUM_TRANSITION_DURATION }}
-          color={color}
-        />
-      </Flex>
-    </IconButton>
+        <Flex
+          position="relative"
+          width="4"
+          height="4"
+          flexDirection="column"
+          justifyContent="space-between"
+          overflow="hidden"
+        >
+          <MenuBurgerItem
+            animate={controls}
+            variants={topVariants}
+            transition={{ duration: MEDIUM_TRANSITION_DURATION }}
+            color={color}
+          />
+          <MenuBurgerItem
+            animate={controls}
+            variants={centerVariants}
+            transition={{ duration: MEDIUM_TRANSITION_DURATION }}
+            color={color}
+          />
+          <MenuBurgerItem
+            animate={controls}
+            variants={bottomVariants}
+            transition={{ duration: MEDIUM_TRANSITION_DURATION }}
+            color={color}
+          />
+        </Flex>
+      </IconButton>
+    </>
   );
 };

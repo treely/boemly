@@ -13,7 +13,7 @@ interface SpaceRowProps {
 }
 
 const SpaceRow = ({ space }: SpaceRowProps) => {
-  const [spaceValue] = useToken('space', [space]);
+  const spaceValue = SPACE[space]?.value;
 
   return (
     <Table.Row>

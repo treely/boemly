@@ -10,9 +10,9 @@ export default {
 } as Meta<typeof MobileMenuBurger>;
 
 const Template: StoryFn<typeof MobileMenuBurger> = (args) => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { open, onToggle } = useDisclosure();
 
-  return <MobileMenuBurger {...args} isOpen={isOpen} onClose={onToggle} onOpen={onToggle} />;
+  return <MobileMenuBurger {...args} isOpen={open} onClose={onToggle} onOpen={onToggle} />;
 };
 
 export const Default = Template.bind({});
