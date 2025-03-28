@@ -18,7 +18,6 @@ export interface SubmissionConfirmProps {
     | 'right-end'
     | 'left-start'
     | 'left-end';
-  isOpen: boolean;
   onCancel: () => void;
   onSubmit: () => void;
   triggerTitle: string;
@@ -35,12 +34,11 @@ export const SubmissionConfirm: React.FC<SubmissionConfirmProps> = ({
   confirmButtonTextColor = 'black',
   cancelButtonTextColor = 'black',
   placement = 'bottom-start',
-  isOpen,
   onCancel,
   onSubmit,
   onTriggerClick,
 }: SubmissionConfirmProps) => (
-  <Popover.Root positioning={{ placement: placement }} open={isOpen}>
+  <Popover.Root positioning={{ placement: placement }}>
     <Popover.Trigger asChild>
       <Button onClick={onTriggerClick}>{triggerTitle}</Button>
     </Popover.Trigger>
@@ -56,15 +54,17 @@ export const SubmissionConfirm: React.FC<SubmissionConfirmProps> = ({
                 </Text>
               )}
               <Flex flexDir="row" justifyContent="flex-end" mt="5">
-                <Button
-                  size="sm"
-                  onClick={onCancel}
-                  colorPalette={cancelButtonColor}
-                  color={cancelButtonTextColor}
-                  mr="5"
-                >
-                  {cancelText}
-                </Button>
+                <Popover.CloseTrigger>
+                  <Button
+                    size="sm"
+                    onClick={onCancel}
+                    colorPalette={cancelButtonColor}
+                    color={cancelButtonTextColor}
+                    mr="5"
+                  >
+                    {cancelText}
+                  </Button>
+                </Popover.CloseTrigger>
                 <Button
                   size="sm"
                   onClick={onSubmit}

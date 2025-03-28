@@ -17,16 +17,9 @@ export default {
 } as Meta<typeof ConfirmAction>;
 
 const Template: StoryFn<typeof ConfirmAction> = (args) => {
-  const { onOpen, onClose, open } = useDisclosure();
+  const { onOpen, open } = useDisclosure();
 
-  return (
-    <ConfirmAction
-      {...args}
-      trigger={<button onClick={onOpen}>Open modal</button>}
-      onClose={onClose}
-      isOpen={open}
-    />
-  );
+  return <ConfirmAction {...args} trigger={<button onClick={onOpen}>Open modal</button>} />;
 };
 
 export const Minimal = Template.bind({});

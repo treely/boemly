@@ -22,15 +22,10 @@ export default {
 } as Meta<typeof DeleteConfirm>;
 
 const Template: StoryFn<typeof DeleteConfirm> = (args) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { onOpen, onClose } = useDisclosure();
 
   return (
-    <DeleteConfirm
-      {...args}
-      isOpen={isOpen}
-      onCancel={onClose}
-      trigger={<Button onClick={onOpen}>Trigger</Button>}
-    />
+    <DeleteConfirm {...args} onCancel={onClose} triggerTitle="Trigger" onTriggerClick={onOpen} />
   );
 };
 

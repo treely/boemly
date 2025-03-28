@@ -13,7 +13,7 @@ interface ZIndexRowProps {
 }
 
 const ZIndexRow = ({ zIndex }: ZIndexRowProps) => {
-  const [zIndexValue] = useToken('zIndices', [zIndex]);
+  const zIndexValue = Z_INDICES[zIndex]?.value;
 
   return (
     <Table.Row>

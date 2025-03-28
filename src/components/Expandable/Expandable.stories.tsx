@@ -2,27 +2,33 @@ import React, { useEffect } from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 
 import { Heart } from '@phosphor-icons/react';
-import { Heading, Tag, useDisclosure } from '@chakra-ui/react';
+import { ChakraProvider, defaultSystem, Heading, Tag, useDisclosure } from '@chakra-ui/react';
 import { Expandable } from './Expandable';
+import { useTheme } from 'next-themes';
 
 export default {
   title: 'components/Expandable',
   component: Expandable,
+  decorators: [
+    (Story) => {
+      return (
+        <ChakraProvider value={defaultSystem}>
+          <Story />
+        </ChakraProvider>
+      );
+    },
+  ],
 } as Meta<typeof Expandable>;
 
 const Children: React.FC = () => {
-  useEffect(() => {
-    console.log('COMPONENT RENDERED');
-  }, []);
-
   return <Heading>Children</Heading>;
 };
 
 const Template: StoryFn<typeof Expandable> = (args) => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { open, onToggle } = useDisclosure();
 
   return (
-    <Expandable {...args} isOpen={isOpen} onToggle={onToggle}>
+    <Expandable {...args} isOpen={open} onToggle={onToggle}>
       <Children />
     </Expandable>
   );
@@ -48,9 +54,9 @@ WithTag.args = {
   title: 'Title',
   tagline: 'Tagline',
   tag: (
-    <Tag colorPalette="green" size="sm">
-      Tag
-    </Tag>
+    <Tag.Root colorPalette="green" size="sm">
+      <Tag.Label>Tag</Tag.Label>
+    </Tag.Root>
   ),
   icon: <Heart size={80} />,
 };

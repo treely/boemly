@@ -357,7 +357,7 @@ export const accordionRecipe = defineSlotRecipe({
   },
 
   variants: {
-    variant: {
+    visual: {
       white: {
         icon: {
           color: 'primary.700',
@@ -380,7 +380,7 @@ export const accordionRecipe = defineSlotRecipe({
   },
 
   defaultVariants: {
-    variant: 'black',
+    visual: 'black',
   },
 });
 
@@ -550,7 +550,7 @@ export const textareaRecipe = defineRecipe({
 
   defaultVariants: {
     size: 'lg',
-    // focusBorderColor: 'black', TODO: Handle focusBorderColor in chakra-ui v3
+    // focusBorderColor: 'black', // TODO: Handle focusBorderColor in chakra-ui v3
   },
 });
 
@@ -592,7 +592,7 @@ export const selectRecipe = defineRecipe({
         badgeSize: FONT_SIZES.lg,
       },
     },
-    variant: {
+    visual: {
       filled: {
         backgroundColor: 'gray.100',
         border: '0.063rem',
@@ -776,23 +776,24 @@ export const checkboxRecipe = defineSlotRecipe({
 });
 
 export const tableRecipe = defineSlotRecipe({
-  slots: ['table', 'thead', 'tbody', 'tr', 'th', 'td', 'caption'],
+  className: 'table',
+  slots: ['root', 'header', 'body', 'row', 'columnHeader', 'cell', 'caption'],
   base: {
-    th: {
+    columnHeader: {
       color: 'gray.500',
       textTransform: 'unset',
     },
-    td: {
+    cell: {
       color: 'black',
     },
   },
   variants: {
     size: {
       sm: {
-        th: {
+        columnHeader: {
           ...textRecipe.variants?.size.smRegularNormalBold,
         },
-        td: {
+        cell: {
           ...textRecipe.variants?.size.smRegularNormal,
         },
         caption: {
@@ -800,10 +801,10 @@ export const tableRecipe = defineSlotRecipe({
         },
       },
       md: {
-        th: {
+        columnHeader: {
           ...textRecipe.variants?.size.smRegularNormalBold,
         },
-        td: {
+        cell: {
           ...textRecipe.variants?.size.smRegularNormal,
         },
         caption: {
@@ -811,10 +812,10 @@ export const tableRecipe = defineSlotRecipe({
         },
       },
       lg: {
-        th: {
+        columnHeader: {
           ...textRecipe.variants?.size.lgRegularNormalBold,
         },
-        td: {
+        cell: {
           ...textRecipe.variants?.size.lgRegularNormal,
         },
         caption: {
@@ -822,17 +823,17 @@ export const tableRecipe = defineSlotRecipe({
         },
       },
     },
-    variant: {
+    visual: {
       minimal: {
-        table: {
+        root: {
           backgroundColor: 'transparent',
         },
-        th: {
+        columnHeader: {
           paddingX: '0',
           paddingY: '2',
           letterSpacing: 'normal',
         },
-        td: {
+        cell: {
           paddingX: '0',
           paddingY: '2',
         },
@@ -849,7 +850,7 @@ export const listRecipe = defineSlotRecipe({
     },
   },
   variants: {
-    variant: {
+    visual: {
       light: {
         icon: {
           backgroundColor: 'primary.200',

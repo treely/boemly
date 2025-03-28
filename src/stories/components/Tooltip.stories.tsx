@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
-import { Button, Tooltip } from '../..';
+import { Tooltip } from '../..';
 
 export default {
   title: 'Components/Tooltip',
@@ -16,13 +16,14 @@ export default {
       control: { type: 'boolean' },
       description: 'Is needed if you want to wrap a disabled element like a button',
     },
-    hasArrow: {
+    showArrow: {
       control: { type: 'boolean' },
     },
-    isDisabled: {
+    disabled: {
       control: { type: 'boolean' },
     },
-    placement: {
+    positioning: {
+      // TODO: fix positioning
       options: [
         'auto-start',
         'auto',
@@ -45,13 +46,16 @@ export default {
     closeOnClick: {
       control: { type: 'boolean' },
     },
-    closeOnEsc: {
+    closeOnEscape: {
       control: { type: 'boolean' },
     },
-    closeOnMouseDown: {
+    closeOnPointerDown: {
       control: { type: 'boolean' },
     },
-    defaultIsOpen: {
+    closeOnScroll: {
+      control: { type: 'boolean' },
+    },
+    defaultOpen: {
       control: { type: 'boolean' },
     },
     gutter: {
@@ -62,15 +66,15 @@ export default {
   args: {
     children: <span>Hover me</span>,
     'aria-label': 'Tooltip',
-    label: 'Label',
+    content: 'Label',
     shouldWrapChildren: false,
-    hasArrow: false,
-    isDisabled: false,
-    placement: 'bottom',
+    showArrow: false,
+    disabled: false,
+    positioning: { placement: 'bottom' },
     closeOnClick: false,
-    closeOnEsc: false,
+    closeOnEscape: false,
     closeOnMouseDown: false,
-    defaultIsOpen: false,
+    defaultOpen: false,
     gutter: 8,
   },
 } as Meta<typeof Tooltip>;

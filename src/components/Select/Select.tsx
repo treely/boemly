@@ -48,7 +48,7 @@ export interface BoemlySelectProps {
 }
 
 export const BoemlySelect: React.FC<BoemlySelectProps> = ({
-  // color = 'black',
+  color = 'black',
   placeholder = 'Select an option',
   searchPlaceholder = placeholder,
   noOptionsPlaceholder = 'No options available',
@@ -63,8 +63,8 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
   size = 'md',
   dropdownWidth,
   variant = 'outline',
-  borderColor = selectRecipe.variants?.variant[variant]?.borderColor,
-  backgroundColor = selectRecipe.variants?.variant[variant]?.backgroundColor,
+  borderColor = selectRecipe.variants?.visual[variant]?.borderColor,
+  backgroundColor = selectRecipe.variants?.visual[variant]?.backgroundColor,
   value,
   onChange,
   onClose,
@@ -168,7 +168,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
   }, [isMultiple, isSearchable]);
 
   return (
-    <Box border={selectRecipe.variants?.variant[variant]?.border || '1px solid'}>
+    <Box border={selectRecipe.variants?.visual[variant]?.border || '1px solid'}>
       <Menu.Root
         closeOnSelect={!isMultiple}
         open={isDisabled ? false : isOpen}
@@ -183,11 +183,11 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
         <Menu.Trigger asChild>
           <Flex
             ref={menuButtonRef}
-            border={selectRecipe.variants?.variant[variant]?.border}
+            border={selectRecipe.variants?.visual[variant]?.border}
             borderColor={isInvalid ? 'red' : borderColor}
-            borderRadius={selectRecipe.variants?.variant[variant]?.borderRadius}
-            borderBottomWidth={selectRecipe.variants?.variant[variant]?.borderBottomWidth}
-            borderBottomStyle={selectRecipe.variants?.variant[variant]?.borderBottomStyle}
+            borderRadius={selectRecipe.variants?.visual[variant]?.borderRadius}
+            borderBottomWidth={selectRecipe.variants?.visual[variant]?.borderBottomWidth}
+            borderBottomStyle={selectRecipe.variants?.visual[variant]?.borderBottomStyle}
             p="2"
             height={selectRecipe.variants?.size[size]?.height}
             align="center"
@@ -205,7 +205,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
             <Text
               id="select-label"
               fontSize={selectRecipe.variants?.size[size]?.fontSize}
-              // color={color}
+              color={color}
               truncate
               whiteSpace="nowrap"
               overflow="hidden"
@@ -244,7 +244,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
               pointerEvents="none"
               tabIndex={-1}
             >
-              {isOpen ? <CaretUp /*color={color}*/ /> : <CaretDown /*color={color}*/ />}
+              {isOpen ? <CaretUp color={color} /> : <CaretDown color={color} />}
             </IconButton>
           </Flex>
         </Menu.Trigger>

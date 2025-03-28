@@ -17,7 +17,7 @@ export const OverflownText: React.FC<TextProps> = ({ children, ...props }: TextP
   }, []);
 
   return (
-    <Tooltip label={children} isDisabled={!isOverflown}>
+    <Tooltip content={children} disabled={!isOverflown}>
       <Text position="relative" lineClamp={1} ref={ref} {...props}>
         {children}
       </Text>

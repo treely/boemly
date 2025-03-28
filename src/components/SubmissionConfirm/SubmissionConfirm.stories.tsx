@@ -39,7 +39,6 @@ const Template: StoryFn<typeof SubmissionConfirm> = (args) => {
   return (
     <SubmissionConfirm
       {...args}
-      isOpen={open}
       onCancel={onClose}
       triggerTitle="Trigger"
       onTriggerClick={onOpen}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-import { Box, Input } from '@chakra-ui/react';
+import { Box, ChakraProvider, defaultSystem } from '@chakra-ui/react';
 import { Heart } from '@phosphor-icons/react';
 import { BoemlyFormControl } from './BoemlyFormControl';
 import { INPUT_SIZES } from '../../constants/inputSizes';
@@ -8,6 +8,15 @@ import { INPUT_SIZES } from '../../constants/inputSizes';
 export default {
   title: 'components/BoemlyFormControl',
   component: BoemlyFormControl,
+  decorators: [
+    (Story) => {
+      return (
+        <ChakraProvider value={defaultSystem}>
+          <Story />
+        </ChakraProvider>
+      );
+    },
+  ],
   argTypes: {
     id: { control: { type: 'text' } },
     inputType: {

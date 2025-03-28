@@ -33,7 +33,7 @@ const ColorRow: React.FC<ColorRowProps> = ({ colorToken }: ColorRowProps) => {
 const colorWeights = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
 
 export const Colors = () => (
-  <Table.Root variant="line">
+  <Table.Root>
     <Table.Header>
       <Table.Row>
         <Table.ColumnHeader>Token</Table.ColumnHeader>
