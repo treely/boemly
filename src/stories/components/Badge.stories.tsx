@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Badge } from '../..';
-import { COLOR_SCHEMES } from '../../constants/colorSchemes';
+import { COLOR_PALETTES } from '../../constants/colorPalettes';
 
 export default {
   title: 'Components/Badge',
@@ -12,14 +12,14 @@ export default {
       options: ['solid', 'subtle', 'outline'],
       control: { type: 'radio' },
     },
-    colorScheme: {
-      options: COLOR_SCHEMES,
+    colorPalette: {
+      options: COLOR_PALETTES,
       control: { type: 'radio' },
     },
   },
   args: {
     children: 'Badge',
-    colorScheme: 'primary',
+    colorPalette: 'primary',
   },
 } as Meta<typeof Badge>;
 

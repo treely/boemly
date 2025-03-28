@@ -5,7 +5,7 @@ import { BoemlyTag, BoemlyTagProps } from './BoemlyTag';
 const defaultProps: BoemlyTagProps = {
   children: 'Test Tag',
   variant: 'solid',
-  colorScheme: 'blue',
+  colorPalette: 'blue',
 };
 
 const setup = (props: BoemlyTagProps = defaultProps) => {

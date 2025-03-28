@@ -48,7 +48,7 @@ WithTag.args = {
   title: 'Title',
   tagline: 'Tagline',
   tag: (
-    <Tag colorScheme="green" size="sm">
+    <Tag colorPalette="green" size="sm">
       Tag
     </Tag>
   ),

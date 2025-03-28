@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { Box, Table, Text, useToken } from '../..';
 
-import { COLOR_SCHEMES } from '../../constants/colorSchemes';
+import { COLOR_PALETTES } from '../../constants/colorPalettes';
 
 export default {
   title: 'Tokens/Colors',
@@ -45,7 +45,7 @@ export const Colors = () => (
       <ColorRow colorToken="transparent" />
       <ColorRow colorToken="black" />
       <ColorRow colorToken="white" />
-      {COLOR_SCHEMES.map((color) =>
+      {COLOR_PALETTES.map((color) =>
         colorWeights.map((weight) => <ColorRow colorToken={`${color}.${weight}`} />)
       )}
     </Table.Body>

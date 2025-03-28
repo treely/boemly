@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import { IconButton } from '../..';
 import { Heart } from '@phosphor-icons/react';
-import { COLOR_SCHEMES } from '../../constants/colorSchemes';
+import { COLOR_PALETTES } from '../../constants/colorPalettes';
 import { BUTTON_VARIANTS } from '../../constants/buttonVariants';
 
 export default {
@@ -23,8 +23,8 @@ export default {
       options: BUTTON_VARIANTS,
       control: { type: 'radio' },
     },
-    colorScheme: {
-      options: COLOR_SCHEMES,
+    colorPalette: {
+      options: COLOR_PALETTES,
       control: { type: 'radio' },
     },
     isLoading: { control: { type: 'boolean' } },
@@ -60,10 +60,10 @@ OutlineWhite.parameters = {
   backgrounds: { default: 'dark' },
 };
 
-export const ColorScheme = Template.bind({});
-ColorScheme.args = {
+export const ColorPalette = Template.bind({});
+ColorPalette.args = {
   size: 'md',
-  colorScheme: 'gray',
+  colorPalette: 'gray',
 };
 
 export const Size = Template.bind({});

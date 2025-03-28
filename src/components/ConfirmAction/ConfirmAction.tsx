@@ -11,7 +11,7 @@ export interface ConfirmActionProps {
   isOpen: boolean;
   title?: string;
   text?: string;
-  confirmColorScheme?: 'primary' | 'red';
+  confirmColorPalette?: 'primary' | 'red';
   confirmLoading?: boolean;
 }
 export const ConfirmAction: React.FC<ConfirmActionProps> = ({
@@ -23,7 +23,7 @@ export const ConfirmAction: React.FC<ConfirmActionProps> = ({
   title,
   text,
   onConfirm,
-  confirmColorScheme = 'primary',
+  confirmColorPalette = 'primary',
   confirmLoading = false,
 }: ConfirmActionProps) => (
   <BoemlyModal
@@ -38,7 +38,7 @@ export const ConfirmAction: React.FC<ConfirmActionProps> = ({
         <Button variant="ghost" onClick={onClose}>
           {cancelButton}
         </Button>
-        <Button colorScheme={confirmColorScheme} loading={confirmLoading} onClick={onConfirm}>
+        <Button colorPalette={confirmColorPalette} loading={confirmLoading} onClick={onConfirm}>
           {confirmButton}
         </Button>
       </Flex>

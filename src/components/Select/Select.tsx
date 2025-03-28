@@ -216,7 +216,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
                 <>
                   {placeholder}
                   <Badge
-                    colorScheme="primary"
+                    colorPalette="primary"
                     fontSize={selectRecipe.variants?.size[size].badgeSize.value}
                     borderRadius="md"
                     px="1"

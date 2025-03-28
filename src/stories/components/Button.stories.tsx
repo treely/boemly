@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import { Button } from '../..';
 import { Heart } from '@phosphor-icons/react';
-import { COLOR_SCHEMES } from '../../constants/colorSchemes';
+import { COLOR_PALETTES } from '../../constants/colorPalettes';
 import { BUTTON_VARIANTS } from '../../constants/buttonVariants';
 
 export default {
@@ -20,7 +20,7 @@ export default {
       control: { type: 'radio' },
     },
     colorPalette: {
-      options: COLOR_SCHEMES,
+      options: COLOR_PALETTES,
       control: { type: 'radio' },
     },
     isLoading: { control: { type: 'boolean' } },

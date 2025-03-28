@@ -63,7 +63,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
         </SimpleGrid>
       </Box>
-      <Separator colorScheme="gray.200" />
+      <Separator colorPalette="gray.200" />
       <Box padding="6" pb="8">
         <Heading size="lg" as="h6">
           {footerTitle}

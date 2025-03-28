@@ -14,6 +14,7 @@ import {
   progressRecipe,
   selectRecipe,
   tableRecipe,
+  tagRecipe,
   textareaRecipe,
   textRecipe,
   tooltipRecipe,
@@ -45,6 +46,11 @@ export const getSystem = ({
 }: Partial<Options> = {}) => {
   return createSystem(defaultConfig, {
     cssVarsPrefix: 'boemly',
+    globalCss: {
+      html: {
+        colorPalette: 'primary',
+      },
+    },
     theme: {
       tokens: {
         colors: { ...COLORS, ...(customColors || {}) },
@@ -64,9 +70,36 @@ export const getSystem = ({
             contrast: { value: '{colors.primary.100}' },
             fg: { value: '{colors.primary.700}' },
             muted: { value: '{colors.primary.100}' },
-            subtle: { value: '{colors.primary.200}' },
+            subtle: { value: '{colors.primary.100}' },
             emphasized: { value: '{colors.primary.300}' },
             focusRing: { value: '{colors.primary.500}' },
+          },
+          gray: {
+            solid: { value: '{colors.gray.500}' },
+            contrast: { value: '{colors.gray.100}' },
+            fg: { value: '{colors.gray.700}' },
+            muted: { value: '{colors.gray.100}' },
+            subtle: { value: '{colors.gray.100}' },
+            emphasized: { value: '{colors.gray.300}' },
+            focusRing: { value: '{colors.gray.500}' },
+          },
+          red: {
+            solid: { value: '{colors.red.500}' },
+            contrast: { value: '{colors.red.100}' },
+            fg: { value: '{colors.red.700}' },
+            muted: { value: '{colors.red.100}' },
+            subtle: { value: '{colors.red.100}' },
+            emphasized: { value: '{colors.red.300}' },
+            focusRing: { value: '{colors.red.500}' },
+          },
+          blue: {
+            solid: { value: '{colors.blue.500}' },
+            contrast: { value: '{colors.blue.100}' },
+            fg: { value: '{colors.blue.700}' },
+            muted: { value: '{colors.blue.100}' },
+            subtle: { value: '{colors.blue.100}' },
+            emphasized: { value: '{colors.blue.300}' },
+            focusRing: { value: '{colors.blue.500}' },
           },
         },
       },
@@ -90,10 +123,9 @@ export const getSystem = ({
         list: listRecipe,
         progress: progressRecipe,
         table: tableRecipe,
+        tag: tagRecipe,
       },
     },
-    // TODO: Fix passing of color scheme
-    // https://www.chakra-ui.com/docs/get-started/migration#colorscheme-prop
   });
 };
 

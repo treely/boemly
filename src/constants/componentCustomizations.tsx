@@ -206,7 +206,7 @@ export const buttonRecipe = defineRecipe({
   },
 
   variants: {
-    visual: {
+    variant: {
       solid: {
         color: 'black',
       },
@@ -292,8 +292,7 @@ export const buttonRecipe = defineRecipe({
   },
 
   defaultVariants: {
-    colorPalette: 'primary',
-    visual: 'solid',
+    variant: 'solid',
   },
 });
 
@@ -774,10 +773,6 @@ export const checkboxRecipe = defineSlotRecipe({
       },
     },
   },
-
-  defaultVariants: {
-    // colorScheme: 'primary', TODO: Handle colorScheme in chakra-ui v3
-  },
 });
 
 export const tableRecipe = defineSlotRecipe({
@@ -858,6 +853,25 @@ export const listRecipe = defineSlotRecipe({
       light: {
         icon: {
           backgroundColor: 'primary.200',
+        },
+      },
+    },
+  },
+});
+
+export const tagRecipe = defineSlotRecipe({
+  slots: ['root', 'label', 'startElement', 'endElement', 'closeTrigger'],
+  base: {
+    root: {
+      borderRadius: 'md',
+    },
+  },
+  variants: {
+    variant: {
+      outline: {
+        root: {
+          borderWidth: '1px',
+          borderColor: 'colorPalette.500',
         },
       },
     },

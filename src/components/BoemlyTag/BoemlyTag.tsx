@@ -26,7 +26,11 @@ export const BoemlyTag = ({
   return (
     <Tag.Root {...props}>
       <Tag.Label>{children}</Tag.Label>
-      {isClosable && <Tag.CloseTrigger onClick={handleClose} />}
+      {isClosable && (
+        <Tag.EndElement>
+          <Tag.CloseTrigger onClick={handleClose} />
+        </Tag.EndElement>
+      )}
     </Tag.Root>
   );
 };

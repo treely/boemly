@@ -38,3 +38,5 @@ export const BoemlyThemeProvider: React.FC<BoemlyThemeProviderProps> = ({
     </>
   );
 };
+
+// TODO Icon customization does not seem to be working (e.g. Check Button with icons in storybook)

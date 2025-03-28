@@ -37,7 +37,7 @@ export const ContactArea: React.FC<ContactAreaProps> = ({
         <AvatarWithName name={avatar.name} description={avatar.description} image={avatar.image} />
         <Button
           mt={['6', null, null, '0']}
-          colorScheme="whiteAlpha"
+          colorPalette="whiteAlpha"
           variant="outline"
           onClick={link.onClick}
         >

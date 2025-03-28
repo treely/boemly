@@ -55,7 +55,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({
           <Heart />
         </Center>
       </Flex>
-      <Separator colorScheme="gray.200" mt="6" mb="6" />
+      <Separator colorPalette="gray.200" mt="6" mb="6" />
       <SimpleGrid columns={2} gap="6">
         {facts.map((fact) => (
           <Box key={fact.id}>

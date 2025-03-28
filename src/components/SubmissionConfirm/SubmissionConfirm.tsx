@@ -59,7 +59,7 @@ export const SubmissionConfirm: React.FC<SubmissionConfirmProps> = ({
                 <Button
                   size="sm"
                   onClick={onCancel}
-                  colorScheme={cancelButtonColor}
+                  colorPalette={cancelButtonColor}
                   color={cancelButtonTextColor}
                   mr="5"
                 >
@@ -68,7 +68,7 @@ export const SubmissionConfirm: React.FC<SubmissionConfirmProps> = ({
                 <Button
                   size="sm"
                   onClick={onSubmit}
-                  colorScheme={confirmButtonColor}
+                  colorPalette={confirmButtonColor}
                   color={confirmButtonTextColor}
                 >
                   {submissionText}

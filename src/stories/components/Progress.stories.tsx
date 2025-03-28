@@ -2,18 +2,18 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Progress } from '../..';
-import { COLOR_SCHEMES } from '../../constants/colorSchemes';
+import { COLOR_PALETTES } from '../../constants/colorPalettes';
 
 export default {
   title: 'Components/Progress',
   component: Progress.Root,
   argTypes: {
     size: { options: ['xs', 'sm', 'md', 'lg'], control: { type: 'radio' } },
-    colorScheme: {
-      options: COLOR_SCHEMES,
+    colorPalette: {
+      options: COLOR_PALETTES,
       control: { type: 'radio' },
     },
-    hasStripe: { control: { type: 'boolean' } },
+    striped: { control: { type: 'boolean' } },
   },
   args: {
     width: 'sm',
@@ -31,16 +31,16 @@ const Template: StoryFn<typeof Progress> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  colorScheme: 'primary',
+  colorPalette: 'primary',
 };
 
-export const ColorScheme = Template.bind({});
-ColorScheme.args = {
-  colorScheme: 'red',
+export const ColorPalette = Template.bind({});
+ColorPalette.args = {
+  colorPalette: 'red',
 };
 
 export const WithStripe = Template.bind({});
 WithStripe.args = {
-  colorScheme: 'primary',
-  hasStripe: true,
+  colorPalette: 'primary',
+  striped: true,
 };
