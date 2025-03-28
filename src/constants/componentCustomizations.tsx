@@ -206,7 +206,7 @@ export const buttonRecipe = defineRecipe({
   },
 
   variants: {
-    variant: {
+    visual: {
       solid: {
         color: 'black',
       },
@@ -292,8 +292,8 @@ export const buttonRecipe = defineRecipe({
   },
 
   defaultVariants: {
-    // colorScheme: 'primary', TODO: Handle colorScheme in chakra-ui v3
-    variant: 'solid',
+    colorPalette: 'primary',
+    visual: 'solid',
   },
 });
 

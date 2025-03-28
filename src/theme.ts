@@ -1,4 +1,4 @@
-import { Color, createSystem, defaultConfig } from '@chakra-ui/react';
+import { createSystem, defaultConfig } from '@chakra-ui/react';
 import {
   accordionRecipe,
   alertRecipe,
@@ -33,13 +33,13 @@ import BorderRadiiCustomization from './types/BorderRadiiCustomization';
 import FontsCustomization from './types/FontsCustomization';
 
 interface Options {
-  // customColors: Partial<Color>;
+  customColors: Record<string, string>;
   customFonts: FontsCustomization;
   customRadii: BorderRadiiCustomization;
 }
 
 export const getSystem = ({
-  // customColors = {},
+  customColors = {},
   customFonts = {},
   customRadii = {},
 }: Partial<Options> = {}) => {
@@ -47,8 +47,7 @@ export const getSystem = ({
     cssVarsPrefix: 'boemly',
     theme: {
       tokens: {
-        // colors: { ...COLORS, ...(customColors || {}) },
-        colors: COLORS,
+        colors: { ...COLORS, ...(customColors || {}) },
         breakpoints: BREAKPOINTS,
         fonts: { ...FONTS, ...(customFonts || {}) },
         fontSizes: FONT_SIZES,
@@ -57,6 +56,19 @@ export const getSystem = ({
         sizes: SIZES,
         spacing: SPACE,
         zIndex: Z_INDICES,
+      },
+      semanticTokens: {
+        colors: {
+          primary: {
+            solid: { value: '{colors.primary.500}' },
+            contrast: { value: '{colors.primary.100}' },
+            fg: { value: '{colors.primary.700}' },
+            muted: { value: '{colors.primary.100}' },
+            subtle: { value: '{colors.primary.200}' },
+            emphasized: { value: '{colors.primary.300}' },
+            focusRing: { value: '{colors.primary.500}' },
+          },
+        },
       },
       recipes: {
         button: buttonRecipe,

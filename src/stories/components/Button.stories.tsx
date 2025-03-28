@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Button } from '../..';
@@ -19,7 +19,7 @@ export default {
       options: BUTTON_VARIANTS,
       control: { type: 'radio' },
     },
-    colorScheme: {
+    colorPalette: {
       options: COLOR_SCHEMES,
       control: { type: 'radio' },
     },
@@ -64,10 +64,10 @@ Ghost.args = {
   variant: 'ghost',
 };
 
-export const ColorScheme = Template.bind({});
-ColorScheme.args = {
+export const ColorPalette = Template.bind({});
+ColorPalette.args = {
   size: 'md',
-  colorScheme: 'gray',
+  colorPalette: 'gray',
 };
 
 export const Size = Template.bind({});
@@ -75,22 +75,16 @@ Size.args = {
   size: 'xl',
 };
 
-export const FullWidth = Template.bind({});
-FullWidth.args = {
-  size: 'md',
-  isFullWidth: true,
-};
-
 export const Disabled = Template.bind({});
 Disabled.args = {
   size: 'md',
-  isDisabled: true,
+  disabled: true,
 };
 
 export const IsLoading = Template.bind({});
 IsLoading.args = {
   size: 'md',
-  isLoading: true,
+  loading: true,
 };
 
 export const LeftIcon = Template.bind({});
@@ -106,7 +100,7 @@ LeftIcon.args = {
 export const RightIcon = Template.bind({});
 RightIcon.args = {
   size: 'md',
-  rightIcon: (
+  children: (
     <>
       Button <Heart />
     </>
