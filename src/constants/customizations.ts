@@ -88,7 +88,6 @@ export const COLORS = {
     800: { value: '#24466C' },
     900: { value: '#1C3654' },
   },
-  // TODO Add whiteAlpha and blackAlpha colorPalette does not work in the components
 };
 
 export const BREAKPOINTS = {
