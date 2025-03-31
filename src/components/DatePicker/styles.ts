@@ -13,7 +13,7 @@ const datePickerStyle = css`
     display: block;
     height: var(--boemly-spacing-1);
     position: absolute;
-    top: var(--boemly-spacing-1-5);
+    top: var(--boemly-spacing-1\\.5);
     width: var(--boemly-spacing-1);
   }
   .react-datepicker-wrapper {

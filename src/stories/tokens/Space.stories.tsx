@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Table, Text, Box, useToken } from '../..';
+import { Table, Text, Box } from '../..';
 import { SPACE } from '../../constants/customizations';
 
 export default {

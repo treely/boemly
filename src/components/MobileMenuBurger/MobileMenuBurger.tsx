@@ -3,7 +3,6 @@ import { useAnimation } from 'framer-motion';
 import React, { useEffect } from 'react';
 import { MEDIUM_TRANSITION_DURATION } from '../../constants/animations';
 import { MenuBurgerItem } from './styles';
-import { Global } from '@emotion/react';
 
 export interface MobileMenuBurgerProps {
   onOpen: () => void;
@@ -47,7 +46,6 @@ export const MobileMenuBurger: React.FC<MobileMenuBurgerProps> = ({
 
   return (
     <>
-      <Global styles={MenuBurgerItem} />
       <IconButton
         aria-label="Menu toggle"
         onClick={toggleOpen}
