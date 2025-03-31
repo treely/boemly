@@ -329,15 +329,19 @@ export const linkRecipe = defineRecipe({
 });
 
 export const accordionRecipe = defineSlotRecipe({
-  slots: ['button', 'container', 'icon', 'panel'],
+  className: 'accordion',
+  slots: ['root', 'item', 'itemTrigger', 'itemIndicator', 'itemContent', 'itemBody'],
   base: {
-    icon: {
+    itemIndicator: {
       fontSize: '1rem',
       borderRadius: 'lg',
       width: '1.5rem',
       height: '1.5rem',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
-    button: {
+    itemTrigger: {
       fontWeight: 'semibold',
       borderRadius: 'md',
       paddingX: '0',
@@ -345,12 +349,12 @@ export const accordionRecipe = defineSlotRecipe({
         bg: 'unset',
       },
     },
-    container: {
+    item: {
       paddingX: '0',
       paddingTop: '6',
       paddingBottom: '5',
     },
-    panel: {
+    itemContent: {
       paddingX: '0',
       paddingY: '2',
     },
@@ -359,20 +363,20 @@ export const accordionRecipe = defineSlotRecipe({
   variants: {
     visual: {
       white: {
-        icon: {
+        itemIndicator: {
           color: 'primary.700',
           background: 'white',
         },
-        container: {
+        itemContent: {
           borderColor: 'whiteAlpha.300',
         },
       },
       black: {
-        icon: {
+        itemIndicator: {
           color: 'white',
           background: 'black',
         },
-        container: {
+        itemContent: {
           borderColor: 'gray.300',
         },
       },
