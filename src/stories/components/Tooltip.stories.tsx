@@ -66,7 +66,7 @@ export default {
     shouldWrapChildren: false,
     showArrow: false,
     disabled: false,
-    placement: 'right',
+    placement: 'bottom',
     closeOnClick: false,
     closeOnEscape: false,
     closeOnMouseDown: false,
