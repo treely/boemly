@@ -83,7 +83,7 @@ export const BoemlyTabs = ({
         )}
       </Flex>
 
-      {variant === 'line' && <Box color="gray.200" borderTop="1px" mt="-1px" />}
+      {variant === 'line' && <Box color="gray.200" borderWidth="1px" borderTop="1px" mt="-1px" />}
 
       {tab && <Box mt="2">{tab.content}</Box>}
     </Box>
