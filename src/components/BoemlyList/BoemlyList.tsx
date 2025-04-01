@@ -1,3 +1,4 @@
+import TextSize from '@/types/TextSize';
 import { Box, Center, Flex, List, ListRootProps, Text, useRecipe } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 

@@ -20,10 +20,11 @@ import { DatePicker, DatePickerProps } from '../DatePicker/DatePicker';
 import { Slider, SliderProps } from '../..';
 import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 import { Select, BoemlySelectProps } from '../Select';
+import InputSize from '@/types/InputSize';
 
 export interface BoemlyFormControlProps extends Field.RootProps {
   id: string;
-  size?: number;
+  size?: InputSize;
   label?: string;
   helperText?: string;
   errorMessage?: string;
@@ -59,7 +60,7 @@ export interface BoemlyFormControlProps extends Field.RootProps {
 
 export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
   id,
-  size = 12, // TODO: Find out what's equivalent to "lg"
+  size = 'lg',
   label,
   helperText,
   errorMessage,
@@ -106,7 +107,7 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
       case 'Select':
         return (
           <Select
-            bgColor="white"
+            backgroundColor="white"
             {...{ isDisabled, isInvalid, ...selectProps }}
             options={selectOptions}
           />
@@ -121,7 +122,7 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
           </Checkbox.Root>
         );
       case 'DatePicker':
-        return <DatePicker size={size} {...datePickerProps} />;
+        return <DatePicker boxSize={size} {...datePickerProps} />;
       case 'Textarea':
         return <Textarea bgColor="white" {...textareaProps} />;
       case 'Slider':
