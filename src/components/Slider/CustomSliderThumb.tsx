@@ -30,7 +30,7 @@ const CustomSliderThumb: React.FC<CustomSliderThumbProps> = ({
   return showTooltip ? (
     <Tooltip
       content={`${sliderValue} ${unit}`}
-      positioning={{ placement: 'top' }}
+      placement="top"
       showArrow
       open={true}
       contentProps={{

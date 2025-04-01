@@ -744,11 +744,16 @@ export const alertRecipe = defineSlotRecipe({
   },
 });
 
-export const tooltipRecipe = defineRecipe({
+export const tooltipRecipe = defineSlotRecipe({
+  slots: ['trigger', 'arrow', 'arrowTip', 'positioner', 'content'],
   base: {
-    borderRadius: 'lg',
-    px: '4',
-    py: '2',
+    content: {
+      borderRadius: 'lg',
+      px: '4',
+      py: '2',
+      backgroundColor: 'gray.900',
+      fontSize: 'sm',
+    },
   },
 });
 

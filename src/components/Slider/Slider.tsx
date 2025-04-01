@@ -41,7 +41,7 @@ export const BoemlySlider: React.FC<SliderProps> = ({
   const [sliderValue, setSliderValue] = useState(initialValue);
   const [inputValue, setInputValue] = useState(initialValue.toString());
 
-  const sliderHeight = 4;
+  const sliderHeight = 6;
 
   // Update internal sliderValue when the external value prop changes
   useEffect(() => {
@@ -96,6 +96,7 @@ export const BoemlySlider: React.FC<SliderProps> = ({
             min={min}
             max={max}
             width="80%"
+            size="sm"
           >
             <Slider.Control>
               <Slider.Track backgroundColor="primary.200">
@@ -139,19 +140,21 @@ export const BoemlySlider: React.FC<SliderProps> = ({
 
   return isMobile ? (
     <Flex flexDir="column" gap="2" {...styleProps} minW="full">
-      <Flex flexDir="row" justifyContent="right">
-        <BoemlyFormControl
-          id={`slider-input-${ariaLabel}`}
-          rightAddonsOrElements={unit ? [unit] : []}
-          size={10}
-          inputProps={{
-            type: 'number',
-            value: inputValue,
-            onChange: inputOnChange,
-            width: '16',
-            minWidth: '16',
-          }}
-        />
+      <Flex flexDir="row" justifyContent="flex-end">
+        <Box>
+          <BoemlyFormControl
+            id={`slider-input-${ariaLabel}`}
+            rightAddonsOrElements={unit ? [unit] : []}
+            size="sm"
+            inputProps={{
+              type: 'number',
+              value: inputValue,
+              onChange: inputOnChange,
+              width: '16',
+              minWidth: '16',
+            }}
+          />
+        </Box>
       </Flex>
 
       <Flex flexDir="row">
@@ -194,6 +197,7 @@ export const BoemlySlider: React.FC<SliderProps> = ({
         min={min}
         max={max}
         width="full"
+        size="sm"
       >
         <Slider.Control>
           <Slider.Track backgroundColor="primary.200">
@@ -205,18 +209,21 @@ export const BoemlySlider: React.FC<SliderProps> = ({
       <Text size="xsLowNormal" ml="4" flexShrink={0} mr="4">
         {max} {unit}
       </Text>
-      <BoemlyFormControl
-        id={`slider-input-${ariaLabel}`}
-        rightAddonsOrElements={unit ? [unit] : []}
-        size={10}
-        inputProps={{
-          type: 'number',
-          value: inputValue,
-          onChange: inputOnChange,
-          width: '16',
-          minWidth: '16',
-        }}
-      />
+      <Box>
+        <BoemlyFormControl
+          id={`slider-input-${ariaLabel}`}
+          rightAddonsOrElements={unit ? [unit] : []}
+          size="sm"
+          inputProps={{
+            type: 'number',
+            value: inputValue,
+            onChange: inputOnChange,
+            width: '16',
+            minWidth: '16',
+          }}
+          ml="4"
+        />
+      </Box>
     </Flex>
   );
 };
