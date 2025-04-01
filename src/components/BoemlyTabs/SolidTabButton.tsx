@@ -18,6 +18,7 @@ const SolidTabButton = ({
     <Box data-testid="solidTabButtonBox">
       <Button
         data-testid="solidTabButtonIndicator"
+        size="sm"
         variant="link"
         color={isActive ? 'black' : 'gray.600'}
         fontWeight="bold"

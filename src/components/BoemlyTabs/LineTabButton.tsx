@@ -11,12 +11,14 @@ const LineTabButton = ({ onClick, title, isActive = false }: LineTabButtonProps)
   return (
     <Box data-testid="lineTabButtonBox">
       <Button
+        size="sm"
         variant="link"
         color="primary.800"
         fontWeight="bold"
         pb="2"
         onClick={onClick}
         cursor="pointer"
+        padding="unset"
       >
         {title}
       </Button>
