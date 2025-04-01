@@ -131,7 +131,6 @@ export const getSystem = ({
         select: selectRecipe,
         text: textRecipe,
         textarea: textareaRecipe,
-        tooltip: tooltipRecipe,
       },
       slotRecipes: {
         accordion: accordionRecipe,
@@ -142,6 +141,7 @@ export const getSystem = ({
         progress: progressRecipe,
         table: tableRecipe,
         tag: tagRecipe,
+        tooltip: tooltipRecipe,
       },
     },
   });

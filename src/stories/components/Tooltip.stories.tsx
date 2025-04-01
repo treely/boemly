@@ -22,24 +22,20 @@ export default {
     disabled: {
       control: { type: 'boolean' },
     },
-    positioning: {
-      // TODO: fix positioning
+    placement: {
       options: [
-        'auto-start',
-        'auto',
-        'auto-end',
-        'left-start',
-        'left',
-        'left-end',
-        'right-start',
-        'right',
-        'right-end',
-        'top-start',
         'top',
+        'top-start',
         'top-end',
-        'bottom-start',
+        'right',
+        'right-start',
+        'right-end',
         'bottom',
+        'bottom-start',
         'bottom-end',
+        'left',
+        'left-start',
+        'left-end',
       ],
       control: { type: 'radio' },
     },
@@ -70,12 +66,13 @@ export default {
     shouldWrapChildren: false,
     showArrow: false,
     disabled: false,
-    positioning: { placement: 'bottom' },
+    placement: 'right',
     closeOnClick: false,
     closeOnEscape: false,
     closeOnMouseDown: false,
     defaultOpen: false,
     gutter: 8,
+    interactive: true,
   },
 } as Meta<typeof Tooltip>;
 
