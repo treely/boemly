@@ -51,12 +51,12 @@
   "module": "dist/boemly.esm.js",
   "size-limit": [
     {
-      "path": "dist/boemly.cjs.production.min.js",
-      "limit": "1.8 MB"
+      "path": "dist/index.mjs",
+      "limit": "400 KB"
     },
     {
-      "path": "dist/boemly.esm.js",
-      "limit": "400 KB"
+      "path": "dist/index.js",
+      "limit": "1.8 MB"
     }
   ],
   "devDependencies": {
