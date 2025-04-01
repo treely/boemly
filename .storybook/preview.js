@@ -1,5 +1,6 @@
 import React from 'react';
 import { BoemlyThemeProvider } from '../src';
+import { withThemeByClassName } from '@storybook/addon-themes';
 
 export default {
   decorators: [
@@ -8,6 +9,10 @@ export default {
         <Storybook />
       </BoemlyThemeProvider>
     ),
+    withThemeByClassName({
+      defaultTheme: 'light',
+      themes: { light: '', dark: 'dark' },
+    }),
   ],
   parameters: {
     controls: {
