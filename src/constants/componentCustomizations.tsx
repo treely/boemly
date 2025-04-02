@@ -514,9 +514,13 @@ export const pinInputRecipe = defineRecipe({
 });
 
 export const progressRecipe = defineSlotRecipe({
-  slots: ['track'],
+  slots: ['root', 'track', 'range'],
   base: {
-    track: {
+    root: {
+      borderRadius: 'full',
+      overflow: 'hidden', // Workaround because border radius on the track is not working
+    },
+    range: {
       borderRadius: 'full',
     },
   },
