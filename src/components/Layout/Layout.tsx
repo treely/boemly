@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react';
-import { css } from '@emotion/react';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useWindowScroll } from 'react-use';
 
+// TODO: styling is not correct yet. Body text is not visible
 export interface LayoutProps {
   header: ReactNode;
   extendableHeader: boolean;
@@ -55,11 +55,12 @@ export const Layout: React.FC<LayoutProps> = ({
         color={theme === 'dark' ? 'white' : 'black'}
         zIndex="docked"
         boxShadow={headerExtended ? 'unset' : 'lg'}
-        css={css`
-          transition: var(--default-ease) var(--medium-transition-duration) height,
-            var(--default-ease) var(--medium-transition-duration) background-color,
-            var(--default-ease) var(--medium-transition-duration) color;
-        `}
+        css={{
+          transition:
+            'var(--default-ease) var(--medium-transition-duration) height, ' +
+            'var(--default-ease) var(--medium-transition-duration) background-color, ' +
+            'var(--default-ease) var(--medium-transition-duration) color',
+        }}
       >
         {header}
       </Box>
@@ -73,9 +74,9 @@ export const Layout: React.FC<LayoutProps> = ({
             ? 'calc(-1 * var(--extended-header-height))'
             : 'calc(-1 * var(--header-height))',
         ]}
-        css={css`
-          transition: var(--default-ease) var(--medium-transition-duration) margin-top;
-        `}
+        css={{
+          transition: 'var(--default-ease) var(--medium-transition-duration) margin-top',
+        }}
       >
         {body}
       </Box>

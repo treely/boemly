@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Button } from '../..';
 import { Heart } from '@phosphor-icons/react';
-import { COLOR_SCHEMES } from '../../constants/colorSchemes';
+import { COLOR_PALETTES } from '../../constants/colorPalettes';
 import { BUTTON_VARIANTS } from '../../constants/buttonVariants';
 
 export default {
@@ -19,8 +19,8 @@ export default {
       options: BUTTON_VARIANTS,
       control: { type: 'radio' },
     },
-    colorScheme: {
-      options: COLOR_SCHEMES,
+    colorPalette: {
+      options: COLOR_PALETTES,
       control: { type: 'radio' },
     },
     isLoading: { control: { type: 'boolean' } },
@@ -32,7 +32,7 @@ export default {
   },
 } as Meta<typeof Button>;
 
-const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
+const Template: StoryFn<typeof Button> = (args) => <Button {...args}>{args.children}</Button>;
 
 export const Primary = Template.bind({});
 Primary.args = {};
@@ -64,10 +64,10 @@ Ghost.args = {
   variant: 'ghost',
 };
 
-export const ColorScheme = Template.bind({});
-ColorScheme.args = {
+export const ColorPalette = Template.bind({});
+ColorPalette.args = {
   size: 'md',
-  colorScheme: 'gray',
+  colorPalette: 'gray',
 };
 
 export const Size = Template.bind({});
@@ -75,32 +75,34 @@ Size.args = {
   size: 'xl',
 };
 
-export const FullWidth = Template.bind({});
-FullWidth.args = {
-  size: 'md',
-  isFullWidth: true,
-};
-
 export const Disabled = Template.bind({});
 Disabled.args = {
   size: 'md',
-  isDisabled: true,
+  disabled: true,
 };
 
 export const IsLoading = Template.bind({});
 IsLoading.args = {
   size: 'md',
-  isLoading: true,
+  loading: true,
 };
 
 export const LeftIcon = Template.bind({});
 LeftIcon.args = {
   size: 'md',
-  leftIcon: <Heart />,
+  children: (
+    <>
+      <Heart /> Button
+    </>
+  ),
 };
 
 export const RightIcon = Template.bind({});
 RightIcon.args = {
   size: 'md',
-  rightIcon: <Heart />,
+  children: (
+    <>
+      Button <Heart />
+    </>
+  ),
 };

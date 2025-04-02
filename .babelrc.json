@@ -4,9 +4,7 @@
     [
       "@babel/preset-env",
       {
-        "targets": {
-          "chrome": 100
-        }
+        "modules": "commonjs"
       }
     ],
     "@babel/preset-typescript",

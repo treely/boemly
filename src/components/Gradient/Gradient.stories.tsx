@@ -3,11 +3,20 @@ import { StoryFn, Meta } from '@storybook/react';
 
 import { storybookCoverUrl } from '../../test/storybookMedia';
 import { Gradient } from './Gradient';
-import { Box } from '@chakra-ui/react';
+import { Box, ChakraProvider, defaultSystem } from '@chakra-ui/react';
 
 export default {
   title: 'components/Gradient',
   component: Gradient,
+  decorators: [
+    (Story) => {
+      return (
+        <ChakraProvider value={defaultSystem}>
+          <Story />
+        </ChakraProvider>
+      );
+    },
+  ],
 } as Meta<typeof Gradient>;
 
 const Template: StoryFn<typeof Gradient> = (args) => (

@@ -1,5 +1,6 @@
-import { Box, SliderThumb, Tooltip } from '@chakra-ui/react';
+import { Box, SliderThumb } from '@chakra-ui/react';
 import React from 'react';
+import { Tooltip } from '../ui/tooltip';
 
 interface CustomSliderThumbProps {
   sliderValue: number;
@@ -14,6 +15,7 @@ const CustomSliderThumb: React.FC<CustomSliderThumbProps> = ({
 }) => {
   const thumbContent = (
     <SliderThumb
+      index={0}
       width="5"
       height="5"
       boxShadow="base"
@@ -27,14 +29,19 @@ const CustomSliderThumb: React.FC<CustomSliderThumbProps> = ({
 
   return showTooltip ? (
     <Tooltip
-      label={`${sliderValue} ${unit}`}
+      content={`${sliderValue} ${unit}`}
       placement="top"
-      hasArrow
-      isOpen={true}
-      backgroundColor="gray.900"
-      color="white"
-      fontSize="sm"
-      mt={-2}
+      showArrow
+      open={true}
+      contentProps={{
+        css: {
+          color: 'white',
+          backgroundColor: 'gray.900',
+          fontSize: 'sm',
+          mt: '-2',
+          position: 'relative',
+        },
+      }}
     >
       {thumbContent}
     </Tooltip>

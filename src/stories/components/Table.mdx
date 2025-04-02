@@ -1,0 +1,155 @@
+import { Meta } from '@storybook/blocks';
+import { BoemlyThemeProvider, Table } from '../..';
+
+<Meta title="Components/Table" />
+
+# Table
+
+<BoemlyThemeProvider>
+  <Table.Root variant="simple">
+    <Table.Header>
+      <Table.Row>
+        <Table.ColumnHeader>To convert</Table.ColumnHeader>
+        <Table.ColumnHeader>into</Table.ColumnHeader>
+        <Table.ColumnHeader isNumeric>multiply by</Table.ColumnHeader>
+      </Table.Row>
+    </Table.Header>
+
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>inches</Table.Cell>
+        <Table.Cell>millimeters (mm)</Table.Cell>
+        <Table.Cell isNumeric>25.4</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell>feet</Table.Cell>
+        <Table.Cell>centimeters (cm)</Table.Cell>
+        <Table.Cell isNumeric>30.48</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell>yards</Table.Cell>
+        <Table.Cell>metres (m)</Table.Cell>
+        <Table.Cell isNumeric>0.91444</Table.Cell>
+      </Table.Row>
+    </Table.Body>
+
+  </Table.Root>
+</BoemlyThemeProvider>
+
+```tsx
+<Table.Root>
+  <Table.Header>
+    <Table.Row>
+      <Table.ColumnHeader>To convert</Table.ColumnHeader>
+      <Table.ColumnHeader>into</Table.ColumnHeader>
+      <Table.ColumnHeader isNumeric>multiply by</Table.ColumnHeader>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>inches</Table.Cell>
+      <Table.Cell>millimeters (mm)</Table.Cell>
+      <Table.Cell isNumeric>25.4</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>feet</Table.Cell>
+      <Table.Cell>centimeters (cm)</Table.Cell>
+      <Table.Cell isNumeric>30.48</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>yards</Table.Cell>
+      <Table.Cell>metres (m)</Table.Cell>
+      <Table.Cell isNumeric>0.91444</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table.Root>
+```
+
+## Arguments
+
+### `<Table.Root>`
+
+| Property  | Values                                | Default    |
+| --------- | ------------------------------------- | ---------- |
+| `variant` | `'simple'`, `'striped'`, `'unstyled'` | `'simple'` |
+| `size`    | `'sm'`, `'md'`, `'lg'`                | `'md'`     |
+
+### `<Table.Cell>` and `<Table.ColumnHeader>`
+
+| Property    | Values          | Default |
+| ----------- | --------------- | ------- |
+| `isNumeric` | `true`, `false` | `false` |
+
+## Examples
+
+### Variant: `'striped'`
+
+<BoemlyThemeProvider>
+  <Table.Root variant="striped">
+    <Table.Header>
+      <Table.Row>
+        <Table.ColumnHeader>To convert</Table.ColumnHeader>
+        <Table.ColumnHeader>into</Table.ColumnHeader>
+        <Table.ColumnHeader isNumeric>multiply by</Table.ColumnHeader>
+      </Table.Row>
+    </Table.Header>
+
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>inches</Table.Cell>
+        <Table.Cell>millimeters (mm)</Table.Cell>
+        <Table.Cell isNumeric>25.4</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell>feet</Table.Cell>
+        <Table.Cell>centimeters (cm)</Table.Cell>
+        <Table.Cell isNumeric>30.48</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell>yards</Table.Cell>
+        <Table.Cell>metres (m)</Table.Cell>
+        <Table.Cell isNumeric>0.91444</Table.Cell>
+      </Table.Row>
+    </Table.Body>
+
+  </Table.Root>
+</BoemlyThemeProvider>
+
+### Variant: `'unstyled'`
+
+<BoemlyThemeProvider>
+  <Table.Root variant="unstyled">
+    <Table.Header>
+      <Table.Row>
+        <Table.ColumnHeader>To convert</Table.ColumnHeader>
+        <Table.ColumnHeader>into</Table.ColumnHeader>
+        <Table.ColumnHeader isNumeric>multiply by</Table.ColumnHeader>
+      </Table.Row>
+    </Table.Header>
+
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>inches</Table.Cell>
+        <Table.Cell>millimeters (mm)</Table.Cell>
+        <Table.Cell isNumeric>25.4</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell>feet</Table.Cell>
+        <Table.Cell>centimeters (cm)</Table.Cell>
+        <Table.Cell isNumeric>30.48</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell>yards</Table.Cell>
+        <Table.Cell>metres (m)</Table.Cell>
+        <Table.Cell isNumeric>0.91444</Table.Cell>
+      </Table.Row>
+    </Table.Body>
+
+  </Table.Root>
+</BoemlyThemeProvider>

@@ -32,7 +32,13 @@ export default {
 const Template: StoryFn<typeof DatePicker> = (args) => {
   const [date, setDate] = useState<Date | undefined>(undefined);
 
-  return <DatePicker {...args} value={date} onChange={setDate} />;
+  return (
+    <DatePicker
+      {...args}
+      value={date}
+      onChange={(selectedDate) => setDate(selectedDate ?? undefined)}
+    />
+  );
 };
 
 export const Default = Template.bind({});

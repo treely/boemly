@@ -1,4 +1,4 @@
-type ButtonColorScheme =
+type ButtonColorPalettes =
   | 'primary'
   | 'whiteAlpha'
   | 'blackAlpha'
@@ -11,10 +11,4 @@ type ButtonColorScheme =
   | 'blue'
   | 'cyan'
   | 'purple'
-  | 'pink'
-  | 'linkedin'
-  | 'facebook'
-  | 'messenger'
-  | 'whatsapp'
-  | 'twitter'
-  | 'telegram';
+  | 'pink';

@@ -8,18 +8,13 @@ import {
   Flex,
   Button,
   InputGroup,
-  InputLeftElement,
   Menu,
-  MenuButton,
-  MenuList,
-  MenuItemOption,
   Portal,
-  SelectProps,
   useToken,
 } from '@chakra-ui/react';
 import { CaretDown, CaretUp, MagnifyingGlass, Check } from '@phosphor-icons/react';
 import { Badge } from '../..';
-import { CustomizedSelect } from '../../constants/componentCustomizations';
+import { selectRecipe } from '../../constants/componentCustomizations';
 
 interface Option {
   label: string;
@@ -27,7 +22,7 @@ interface Option {
   disabled?: boolean;
 }
 
-export interface BoemlySelectProps extends Omit<SelectProps, 'onChange' | 'value'> {
+export interface BoemlySelectProps {
   borderColor?: string;
   backgroundColor?: string;
   color?: string;
@@ -68,8 +63,8 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
   size = 'md',
   dropdownWidth,
   variant = 'outline',
-  borderColor = CustomizedSelect.variants[variant].borderColor,
-  backgroundColor = CustomizedSelect.variants[variant].backgroundColor,
+  borderColor = selectRecipe.variants?.visual[variant]?.borderColor,
+  backgroundColor = selectRecipe.variants?.visual[variant]?.backgroundColor,
   value,
   onChange,
   onClose,
@@ -173,30 +168,28 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
   }, [isMultiple, isSearchable]);
 
   return (
-    <Menu
-      isLazy
-      closeOnSelect={!isMultiple}
-      initialFocusRef={isSearchable ? inputRef : undefined}
-      isOpen={isDisabled ? false : isOpen}
-      onOpen={() => !isDisabled && setIsOpen(true)}
-      onClose={() => {
-        setIsOpen(false);
-        if (onClose) onClose();
-      }}
-      matchWidth
-    >
-      {({ isOpen }) => (
-        <>
-          <MenuButton
+    <Box border={selectRecipe.variants?.visual[variant]?.border || '1px solid'}>
+      <Menu.Root
+        closeOnSelect={!isMultiple}
+        open={isDisabled ? false : isOpen}
+        onOpenChange={(details) => {
+          setIsOpen(details.open);
+          if (!details.open && onClose) {
+            onClose();
+          }
+        }}
+      >
+        {/* Trigger */}
+        <Menu.Trigger asChild>
+          <Flex
             ref={menuButtonRef}
-            as={Flex}
-            border={CustomizedSelect.variants[variant].border}
+            border={selectRecipe.variants?.visual[variant]?.border}
             borderColor={isInvalid ? 'red' : borderColor}
-            borderRadius={CustomizedSelect.variants[variant].borderRadius}
-            borderBottomWidth={CustomizedSelect.variants[variant].borderBottomWidth}
-            borderBottomStyle={CustomizedSelect.variants[variant].borderBottomStyle}
+            borderRadius={selectRecipe.variants?.visual[variant]?.borderRadius}
+            borderBottomWidth={selectRecipe.variants?.visual[variant]?.borderBottomWidth}
+            borderBottomStyle={selectRecipe.variants?.visual[variant]?.borderBottomStyle}
             p="2"
-            height={CustomizedSelect.sizes[size].height}
+            height={selectRecipe.variants?.size[size]?.height}
             align="center"
             cursor={isDisabled ? 'not-allowed' : 'pointer'}
             bg={isDisabled ? 'gray.200' : backgroundColor}
@@ -206,56 +199,59 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
             role="combobox"
             width={isFullWidth ? '100%' : 'auto'}
             tabIndex={isDisabled ? -1 : 0}
+            alignItems="center"
+            justifyContent="space-between"
           >
-            <Flex alignItems="center" justifyContent="space-between">
-              <Text
-                id="select-label"
-                fontSize={CustomizedSelect.sizes[size].fontSize}
-                color={color}
-                isTruncated
-                whiteSpace="nowrap"
-                overflow="hidden"
-                textOverflow="ellipsis"
-                flexShrink={1}
-              >
-                {selectedOptions.length > 0 && isMultiple ? (
-                  <>
-                    {placeholder}
-                    <Badge
-                      colorScheme="primary"
-                      fontSize={CustomizedSelect.sizes[size].badgeSize}
-                      borderRadius="md"
-                      px="1"
-                      ml="1"
-                      flexShrink={0}
-                    >
-                      {selectedOptions.length}
-                    </Badge>
-                  </>
-                ) : selectedOptions.length > 0 && !isMultiple ? (
-                  (() => {
-                    const selectedOption = options.find((opt) => opt.value === selectedOptions[0]);
-                    return selectedOption ? selectedOption.label : null;
-                  })()
-                ) : (
-                  placeholder
-                )}
-              </Text>
-              <IconButton
-                aria-label="Toggle Dropdown"
-                icon={isOpen ? <CaretUp color={color} /> : <CaretDown color={color} />}
-                variant="unstyled"
-                size="sm"
-                ml="auto"
-                paddingInline={`${space3} ${space0}`}
-                pointerEvents="none"
-                tabIndex={-1}
-              />
-            </Flex>
-          </MenuButton>
+            <Text
+              id="select-label"
+              fontSize={selectRecipe.variants?.size[size]?.fontSize}
+              color={color}
+              truncate
+              whiteSpace="nowrap"
+              overflow="hidden"
+              textOverflow="ellipsis"
+              flexShrink={1}
+            >
+              {selectedOptions.length > 0 && isMultiple ? (
+                <>
+                  {placeholder}
+                  <Badge
+                    colorPalette="primary"
+                    fontSize={selectRecipe.variants?.size[size].badgeSize.value}
+                    borderRadius="md"
+                    px="1"
+                    ml="1"
+                    flexShrink={0}
+                  >
+                    {selectedOptions.length}
+                  </Badge>
+                </>
+              ) : selectedOptions.length > 0 && !isMultiple ? (
+                (() => {
+                  const selectedOption = options.find((opt) => opt.value === selectedOptions[0]);
+                  return selectedOption ? selectedOption.label : null;
+                })()
+              ) : (
+                placeholder
+              )}
+            </Text>
+            <IconButton
+              aria-label="Toggle Dropdown"
+              variant="ghost"
+              size="sm"
+              ml="auto"
+              paddingInline={`${space3} ${space0}`}
+              pointerEvents="none"
+              tabIndex={-1}
+            >
+              {isOpen ? <CaretUp color={color} /> : <CaretDown color={color} />}
+            </IconButton>
+          </Flex>
+        </Menu.Trigger>
 
-          <Portal>
-            <MenuList
+        <Portal>
+          <Menu.Positioner>
+            <Menu.Content
               borderWidth="1px"
               borderColor="gray.100"
               mt="2"
@@ -269,18 +265,15 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
               width={dropdownWidth}
             >
               {isSearchable && (
-                <InputGroup mb="4">
-                  <InputLeftElement pointerEvents="none" alignItems="center" h="100%">
-                    <MagnifyingGlass color="gray.500" />
-                  </InputLeftElement>
+                <InputGroup mb="4" startElement={<MagnifyingGlass color="gray.500" />}>
                   <Input
                     size="md"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder={searchPlaceholder}
-                    isDisabled={isDisabled}
+                    disabled={isDisabled}
                     borderColor="gray.200"
-                    focusBorderColor="black"
+                    css={{ '--focus-color': 'black' }}
                     ref={inputRef}
                     aria-label="Search options"
                   />
@@ -294,7 +287,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
                     onClick={onSelectAll}
                     color="blue.500"
                     mr="3"
-                    variant="unstyled"
+                    variant="ghost"
                   >
                     {selectAllText}
                   </Button>
@@ -304,7 +297,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
                     onClick={onClearAll}
                     color="blue.500"
                     mr="3"
-                    variant="unstyled"
+                    variant="ghost"
                   >
                     {clearAllText}
                   </Button>
@@ -323,18 +316,17 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
                     let afterMatch = label.slice(searchIndex + searchTerm.length);
 
                     return (
-                      <MenuItemOption
+                      <Menu.Item
                         key={value}
                         onClick={() => handleOptionSelect(value, disabled)}
-                        isDisabled={disabled}
+                        disabled={disabled}
                         borderRadius="md"
-                        icon={null}
-                        iconSpacing="0"
                         bg={isSelected ? 'primary.100' : 'transparent'}
+                        value="MenuItem"
                       >
                         <Flex justify="space-between" align="center" width="100%">
                           <Text
-                            fontSize={CustomizedSelect.sizes[size].fontSize}
+                            fontSize={selectRecipe.variants?.size[size]?.fontSize}
                             fontWeight={isSelected ? 'bold' : 'normal'}
                             color="black"
                           >
@@ -351,27 +343,29 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
                             )}
                           </Text>
                           {isMultiple && (
-                            <Checkbox
-                              isChecked={selectedOptions.includes(value)}
+                            <Checkbox.Root
+                              checked={selectedOptions.includes(value)}
+                              disabled={disabled}
                               pointerEvents="none"
-                              iconColor="black"
-                              isDisabled={disabled}
+                              colorPalette="black"
                               tabIndex={-1}
-                            />
+                            >
+                              <Checkbox.Control />
+                            </Checkbox.Root>
                           )}
                           {!isMultiple && isSelected && <Check color={primary500} size={16} />}
                         </Flex>
-                      </MenuItemOption>
+                      </Menu.Item>
                     );
                   })
                 ) : (
                   <Text p="2"> {noOptionsPlaceholder} </Text>
                 )}
               </Box>
-            </MenuList>
-          </Portal>
-        </>
-      )}
-    </Menu>
+            </Menu.Content>
+          </Menu.Positioner>
+        </Portal>
+      </Menu.Root>
+    </Box>
   );
 };

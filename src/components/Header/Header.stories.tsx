@@ -1,11 +1,20 @@
 import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 import { Header } from '.';
-import { Box } from '@chakra-ui/react';
+import { Box, ChakraProvider, defaultSystem } from '@chakra-ui/react';
 
 export default {
   title: 'components/Header',
   component: Header,
+  decorators: [
+    (Story) => {
+      return (
+        <ChakraProvider value={defaultSystem}>
+          <Story />
+        </ChakraProvider>
+      );
+    },
+  ],
   args: {
     left: (
       <div
@@ -45,7 +54,7 @@ export default {
 } as Meta<typeof Header>;
 
 const Template: StoryFn<typeof Header> = (args) => (
-  <Box height="20" backgroundColor="primary.50">
+  <Box height="20" backgroundColor="var(--boemly-colors-primary-50)">
     <Header {...args} />
   </Box>
 );

@@ -45,12 +45,13 @@ export const MobileMenuBurger: React.FC<MobileMenuBurgerProps> = ({
   }, [isOpen, controls]);
 
   return (
-    <IconButton
-      aria-label="Menu toggle"
-      onClick={toggleOpen}
-      variant="ghost"
-      data-testid={isOpen ? 'x' : 'list'}
-      icon={
+    <>
+      <IconButton
+        aria-label="Menu toggle"
+        onClick={toggleOpen}
+        variant="ghost"
+        data-testid={isOpen ? 'x' : 'list'}
+      >
         <Flex
           position="relative"
           width="4"
@@ -78,7 +79,7 @@ export const MobileMenuBurger: React.FC<MobileMenuBurgerProps> = ({
             color={color}
           />
         </Flex>
-      }
-    />
+      </IconButton>
+    </>
   );
 };

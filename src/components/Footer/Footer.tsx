@@ -1,4 +1,4 @@
-import { Box, Divider, Spacer } from '@chakra-ui/react';
+import { Box, Separator, Spacer } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 import { DefaultSectionContainer } from '../DefaultSectionContainer';
 import { Wrapper } from '../Wrapper';
@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({
         <Box mb={['10', null, null, '0']}>{left}</Box>
         <Box>{right}</Box>
       </Box>
-      <Divider color="gray.200" />
+      <Separator color="gray.200" />
       <Box display="flex" flexDir="row" justifyContent="space-between" mt="8">
         <Box>{bottomLeft}</Box>
         <Box>{bottomRight}</Box>

@@ -2,11 +2,27 @@ import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 
 import { BoemlyModal } from './BoemlyModal';
-import { Flex, Heading, Text, useDisclosure } from '@chakra-ui/react';
+import {
+  ChakraProvider,
+  defaultSystem,
+  Flex,
+  Heading,
+  Text,
+  useDisclosure,
+} from '@chakra-ui/react';
 
 export default {
   title: 'components/BoemlyModal',
   component: BoemlyModal,
+  decorators: [
+    (Story) => {
+      return (
+        <ChakraProvider value={defaultSystem}>
+          <Story />
+        </ChakraProvider>
+      );
+    },
+  ],
   argTypes: {
     size: {
       options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'],
@@ -16,28 +32,19 @@ export default {
 } as Meta<typeof BoemlyModal>;
 
 const Template: StoryFn<typeof BoemlyModal> = (args) => {
-  const { onOpen, onClose, isOpen } = useDisclosure();
+  const { onOpen } = useDisclosure();
 
-  return (
-    <BoemlyModal
-      {...args}
-      trigger={<button onClick={onOpen}>Open modal</button>}
-      onClose={onClose}
-      isOpen={isOpen}
-    />
-  );
+  return <BoemlyModal {...args} trigger={<button onClick={onOpen}>Open modal</button>} />;
 };
 
 export const Minimal = Template.bind({});
 Minimal.args = {
-  isOpen: true,
   title: 'Title',
   content: <div>Content</div>,
 };
 
 export const WithButtons = Template.bind({});
 WithButtons.args = {
-  isOpen: true,
   title: 'Title',
   content: <div>Content</div>,
   footer: <button>Button</button>,
@@ -45,7 +52,6 @@ WithButtons.args = {
 
 export const Size = Template.bind({});
 Size.args = {
-  isOpen: true,
   title: 'Title',
   content: <div>Content</div>,
   footer: <button>Button</button>,

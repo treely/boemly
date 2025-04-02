@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import { BoemlyThemeProvider } from '../index';
 
 interface WrapperProps {
-  children: JSX.Element | JSX.Element[];
+  children: ReactNode | ReactNode[];
 }
 
 const render = (ui: any, { ...renderOptions } = {}) => {

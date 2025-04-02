@@ -25,15 +25,18 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
 }: SplitScreenProps) => {
   useResizeEventListener();
 
-  const [mobile] = useMediaQuery(BREAKPOINT_MD_QUERY);
+  const [mobile] = useMediaQuery([BREAKPOINT_MD_QUERY], { fallback: [false] });
 
   const [ref, { height }] = useMeasure<HTMLDivElement>();
   const controls = useAnimation();
 
   const variants = {
     desktop: { top: 0, height: '100%' },
-    mobileClosed: { top: 'var(--boemly-space-28)', height: 'calc(100% - var(--boemly-space-28))' },
-    mobileOpen: { top: height - 40, height: 'calc(100% - var(--boemly-space-28))' },
+    mobileClosed: {
+      top: 'var(--boemly-spacing-28)',
+      height: 'calc(100% - var(--boemly-spacing-28))',
+    },
+    mobileOpen: { top: height - 40, height: 'calc(100% - var(--boemly-spacing-28))' },
   };
 
   useEffect(() => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { InputLeftElement, InputRightElement } from '@chakra-ui/react';
 import { Heart } from '@phosphor-icons/react';
 import { fireEvent, render, screen } from '../../test/testUtils';
 import { BoemlyFormControlProps } from './BoemlyFormControl';
@@ -87,11 +86,7 @@ describe('The BoemlyFormControl component', () => {
 
   it('displays a left addon/element if one is given', () => {
     setup({
-      leftAddonsOrElements: [
-        <InputLeftElement key="1">
-          <Heart data-testid="heart" />
-        </InputLeftElement>,
-      ],
+      leftAddonsOrElements: [<Heart data-testid="heart" />],
     });
 
     expect(screen.getByTestId('heart')).toBeInTheDocument();
@@ -99,11 +94,7 @@ describe('The BoemlyFormControl component', () => {
 
   it('displays a right addon/element if one is given', () => {
     setup({
-      rightAddonsOrElements: [
-        <InputRightElement key="1">
-          <Heart data-testid="heart" />
-        </InputRightElement>,
-      ],
+      rightAddonsOrElements: [<Heart data-testid="heart" />],
     });
 
     expect(screen.getByTestId('heart')).toBeInTheDocument();

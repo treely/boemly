@@ -1,3 +1,5 @@
+import TextSize from '@/types/TextSize';
+
 export const TEXT_SIZES: TextSize[] = [
   'xlRegularNormal',
   'xlRegularNormalBold',

@@ -1,9 +1,9 @@
-import type { StyleProps } from '@chakra-ui/react';
+import type { JsxStyleProps } from '@chakra-ui/react';
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 import convertToKebabCase from '../../utils/convertToKebabCase';
 
-export interface DefaultSectionContainerProps extends StyleProps {
+export interface DefaultSectionContainerProps extends JsxStyleProps {
   children: JSX.Element | JSX.Element[];
   title?: string;
 }

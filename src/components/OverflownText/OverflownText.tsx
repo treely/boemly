@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import type { TextProps } from '@chakra-ui/react';
-import { Text, Tooltip } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
+import { Tooltip } from '../ui/tooltip';
 
 export const OverflownText: React.FC<TextProps> = ({ children, ...props }: TextProps) => {
   const ref = useRef<HTMLParagraphElement>(null);
@@ -16,8 +17,8 @@ export const OverflownText: React.FC<TextProps> = ({ children, ...props }: TextP
   }, []);
 
   return (
-    <Tooltip label={children} isDisabled={!isOverflown}>
-      <Text position="relative" noOfLines={1} ref={ref} {...props}>
+    <Tooltip content={children} disabled={!isOverflown}>
+      <Text position="relative" lineClamp={1} ref={ref} {...props}>
         {children}
       </Text>
     </Tooltip>

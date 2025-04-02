@@ -11,22 +11,15 @@ export default {
     text: { type: { name: 'string' } },
     cancelButton: { type: { name: 'string' } },
     confirmButton: { type: { name: 'string' } },
-    confirmColorScheme: { options: ['primary', 'red'], control: { type: 'radio' } },
+    confirmColorPalette: { options: ['primary', 'red'], control: { type: 'radio' } },
     confirmLoading: { control: { type: 'boolean' } },
   },
 } as Meta<typeof ConfirmAction>;
 
 const Template: StoryFn<typeof ConfirmAction> = (args) => {
-  const { onOpen, onClose, isOpen } = useDisclosure();
+  const { onOpen, open } = useDisclosure();
 
-  return (
-    <ConfirmAction
-      {...args}
-      trigger={<button onClick={onOpen}>Open modal</button>}
-      onClose={onClose}
-      isOpen={isOpen}
-    />
-  );
+  return <ConfirmAction {...args} trigger={<button onClick={onOpen}>Open modal</button>} />;
 };
 
 export const Minimal = Template.bind({});
@@ -52,7 +45,7 @@ WithRedButton.args = {
   title: 'Title',
   cancelButton: 'Cancel',
   confirmButton: 'Delete',
-  confirmColorScheme: 'red',
+  confirmColorPalette: 'red',
 };
 
 export const WithLoadingConfirmationButton = Template.bind({});

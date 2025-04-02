@@ -18,13 +18,13 @@ const SolidTabButton = ({
     <Box data-testid="solidTabButtonBox">
       <Button
         data-testid="solidTabButtonIndicator"
+        size="sm"
         variant="link"
         color={isActive ? 'black' : 'gray.600'}
         fontWeight="bold"
         m="0"
         onClick={onClick}
         cursor="pointer"
-        leftIcon={icon}
         w="full"
         h="full"
         p="2"
@@ -34,7 +34,7 @@ const SolidTabButton = ({
           backgroundColor: isActive ? undefined : 'gray.50',
         }}
       >
-        {title}
+        {icon} {title}
       </Button>
     </Box>
   );
