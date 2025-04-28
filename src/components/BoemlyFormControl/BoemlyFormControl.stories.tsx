@@ -18,7 +18,16 @@ export default {
   argTypes: {
     id: { control: { type: 'text' } },
     inputType: {
-      options: ['Input', 'NumberInput', 'Select', 'Checkbox', 'DatePicker', 'Textarea', 'Slider'],
+      options: [
+        'Input',
+        'NumberInput',
+        'Select',
+        'Checkbox',
+        'Radio',
+        'DatePicker',
+        'Textarea',
+        'Slider',
+      ],
       control: { type: 'radio' },
     },
     size: {
@@ -110,6 +119,19 @@ Checkbox.args = {
   id: 'checkbox',
   inputType: 'Checkbox',
   checkboxProps: { children: 'Checkbox' },
+};
+
+export const Radio = Template.bind({});
+Radio.args = {
+  id: 'radio',
+  inputType: 'Radio',
+  label: 'Choose an option',
+  radioGroupProps: { defaultValue: 'option1' },
+  radioOptions: [
+    { value: 'option1', label: 'Option 1' },
+    { value: 'option2', label: 'Option 2' },
+    { value: 'option3', label: 'Option 3' },
+  ],
 };
 
 export const Textarea = Template.bind({});
