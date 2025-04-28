@@ -126,4 +126,21 @@ describe('The BoemlyFormControl component', () => {
 
     expect(screen.getByTestId('check')).toBeInTheDocument();
   });
+
+  it('displays radio buttons if the inputType Radio is given', () => {
+    setup({
+      inputType: 'Radio',
+      radioGroupProps: { defaultValue: 'option1' },
+      radioOptions: [
+        { value: 'option1', label: 'Option 1' },
+        { value: 'option2', label: 'Option 2' },
+        { value: 'option3', label: 'Option 3', disabled: true },
+      ],
+    });
+
+    expect(screen.getByRole('radiogroup')).toBeInTheDocument();
+    expect(screen.getByLabelText('Option 1')).toBeInTheDocument();
+    expect(screen.getByLabelText('Option 2')).toBeInTheDocument();
+    expect(screen.getByLabelText('Option 3')).toBeInTheDocument();
+  });
 });

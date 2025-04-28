@@ -22,6 +22,10 @@ import {
   TextareaProps,
   useMediaQuery,
   useToken,
+  Radio,
+  RadioGroup,
+  RadioGroupProps,
+  Stack,
 } from '@chakra-ui/react';
 import { CaretDown, CaretUp, Check, WarningOctagon } from '@phosphor-icons/react';
 import { DatePicker, DatePickerProps } from '../DatePicker/DatePicker';
@@ -45,7 +49,8 @@ export interface BoemlyFormControlProps extends StyleProps {
     | 'Checkbox'
     | 'DatePicker'
     | 'Textarea'
-    | 'Slider';
+    | 'Slider'
+    | 'Radio';
   inputProps?: InputProps;
   numberInputProps?: NumberInputProps;
   selectProps?: BoemlySelectProps;
@@ -54,6 +59,8 @@ export interface BoemlyFormControlProps extends StyleProps {
   datePickerProps?: DatePickerProps;
   textareaProps?: TextareaProps;
   sliderProps?: SliderProps;
+  radioGroupProps?: RadioGroupProps;
+  radioOptions?: { value: string; label: string; disabled?: boolean }[];
 
   // Inner input elements
   leftAddonsOrElements?: ReactNode[];
@@ -82,6 +89,8 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
   datePickerProps,
   textareaProps,
   sliderProps,
+  radioGroupProps,
+  radioOptions = [],
 
   leftAddonsOrElements = [],
   rightAddonsOrElements = [],
@@ -128,6 +137,18 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
         return <Textarea bgColor="white" {...textareaProps} />;
       case 'Slider':
         return <Slider onChange={() => undefined} ariaLabel={label || 'slider'} {...sliderProps} />;
+      case 'Radio':
+        return (
+          <RadioGroup {...radioGroupProps}>
+            <Stack direction="row">
+              {radioOptions.map(({ value, label }) => (
+                <Radio key={value} value={value} colorScheme="primary">
+                  {label}
+                </Radio>
+              ))}
+            </Stack>
+          </RadioGroup>
+        );
       default:
         return <Input bgColor="white" {...inputProps} />;
     }
