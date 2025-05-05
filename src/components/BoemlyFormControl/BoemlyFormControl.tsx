@@ -30,7 +30,7 @@ import {
 import { CaretDown, CaretUp, Check, WarningOctagon } from '@phosphor-icons/react';
 import { DatePicker, DatePickerProps } from '../DatePicker/DatePicker';
 import InputSize from '../../types/InputSize';
-import { Slider, SliderProps } from '../..';
+import { Slider, SliderProps } from '../Slider';
 import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 import { Select, BoemlySelectProps } from '../Select';
 
@@ -171,7 +171,7 @@ export const BoemlyFormControl: React.FC<BoemlyFormControlProps> = ({
           {label}
         </FormLabel>
       )}
-      {inputType === ('DatePicker' || 'Slider') ? (
+      {inputType === 'DatePicker' || inputType === 'Slider' ? (
         renderInputField()
       ) : (
         <InputGroup size={size}>

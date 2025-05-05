@@ -23,7 +23,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }: ProjectCardProps) => {
   const [gray500] = useToken('colors', ['gray.500']);
 
-  const icons = [<ArrowsOutSimple color={gray500} />, <MapPin color={gray500} />];
+  const icons = [
+    <ArrowsOutSimple key="arrows" color={gray500} />,
+    <MapPin key="map" color={gray500} />,
+  ];
 
   return (
     <Flex

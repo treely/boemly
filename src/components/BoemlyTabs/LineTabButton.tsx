@@ -7,7 +7,11 @@ interface LineTabButtonProps {
   isActive?: boolean;
 }
 
-const LineTabButton = ({ onClick, title, isActive = false }: LineTabButtonProps): JSX.Element => {
+const LineTabButton = ({
+  onClick,
+  title,
+  isActive = false,
+}: LineTabButtonProps): React.JSX.Element => {
   return (
     <Box data-testid="lineTabButtonBox">
       <Button

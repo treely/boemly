@@ -29,3 +29,5 @@ type TextSize =
   | 'xsLowBold'
   | 'xsMonoNormal'
   | 'xsMonoUppercase';
+
+export default TextSize;

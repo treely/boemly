@@ -5,11 +5,11 @@ import React, { useEffect } from 'react';
 import { Container } from '../Container';
 
 export interface ExpandableProps {
-  icon: JSX.Element;
-  tagline: string | JSX.Element;
-  title: string | JSX.Element;
-  tag?: string | JSX.Element;
-  children: JSX.Element | JSX.Element[];
+  icon: React.JSX.Element;
+  tagline: string | React.JSX.Element;
+  title: string | React.JSX.Element;
+  tag?: string | React.JSX.Element;
+  children: React.JSX.Element | React.JSX.Element[];
   isActive?: boolean;
   isOpen: boolean;
   interactive?: boolean;

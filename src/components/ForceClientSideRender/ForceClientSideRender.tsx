@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 interface ForceClientSideRenderProps {
-  children: JSX.Element;
+  children: React.JSX.Element;
 }
 
 export const ForceClientSideRender: React.FC<ForceClientSideRenderProps> = ({

@@ -4,7 +4,7 @@ import { render as rtlRender } from '@testing-library/react';
 import { BoemlyThemeProvider } from '../index';
 
 interface WrapperProps {
-  children: JSX.Element | JSX.Element[];
+  children: React.JSX.Element | React.JSX.Element[];
 }
 
 const render = (ui: any, { ...renderOptions } = {}) => {

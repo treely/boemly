@@ -318,9 +318,9 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
                     const isMatch = searchIndex !== -1;
                     const isSelected = selectedOptions.includes(value);
 
-                    let beforeMatch = label.slice(0, searchIndex);
-                    let match = label.slice(searchIndex, searchIndex + searchTerm.length);
-                    let afterMatch = label.slice(searchIndex + searchTerm.length);
+                    const beforeMatch = label.slice(0, searchIndex);
+                    const match = label.slice(searchIndex, searchIndex + searchTerm.length);
+                    const afterMatch = label.slice(searchIndex + searchTerm.length);
 
                     return (
                       <MenuItemOption

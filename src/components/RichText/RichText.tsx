@@ -64,7 +64,7 @@ export const RichText: React.FC<RichTextProps> = ({
   textProps = {},
   listProps = {},
 }: RichTextProps) => {
-  let renderInline: boolean = false;
+  let renderInline = false;
 
   // From https://github.com/probablyup/markdown-to-jsx/blob/7460ee6141fa2449c1b80425c62508af56347268/index.tsx#L1178C47-L1178C47
   if (options.forceInline) {

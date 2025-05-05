@@ -16,11 +16,11 @@ export interface BoemlyStepsProps {
 type StackProps = {
   vertical: {
     direction?: StackDirection;
-    divider?: JSX.Element;
+    divider?: React.JSX.Element;
   };
   horizontal: {
     direction?: StackDirection;
-    divider?: JSX.Element;
+    divider?: React.JSX.Element;
   };
 };
 
@@ -50,7 +50,7 @@ export const BoemlySteps: React.FC<BoemlyStepsProps> = ({
     >
       {steps.map(({ text, onClick }, index) => {
         const stepNum = index + 1;
-        let point: JSX.Element;
+        let point: React.JSX.Element;
 
         const defaultProps = {
           width: '6',

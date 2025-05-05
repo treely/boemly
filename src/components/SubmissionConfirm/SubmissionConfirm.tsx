@@ -11,7 +11,7 @@ import {
 import React from 'react';
 
 export interface SubmissionConfirmProps {
-  trigger: JSX.Element;
+  trigger: React.JSX.Element;
   title: string;
   text?: string;
   submissionText: string;

@@ -2,7 +2,7 @@ import React from 'react';
 import { SubmissionConfirm } from '../SubmissionConfirm';
 
 export interface DeleteConfirmProps {
-  trigger: JSX.Element;
+  trigger: React.JSX.Element;
   title: string;
   text?: string;
   deleteText: string;

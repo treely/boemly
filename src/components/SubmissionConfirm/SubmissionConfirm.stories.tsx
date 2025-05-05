@@ -1,10 +1,11 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 
 import { SubmissionConfirm } from './SubmissionConfirm';
 import { Button, useDisclosure } from '@chakra-ui/react';
 
-export default {
+const meta = {
   title: 'components/SubmissionConfirm',
   component: SubmissionConfirm,
   argTypes: {
@@ -31,7 +32,10 @@ export default {
     submissionText: 'Ok',
     cancelText: 'Cancel',
   },
-} as Meta<typeof SubmissionConfirm>;
+} satisfies Meta<typeof SubmissionConfirm>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 const Template: StoryFn<typeof SubmissionConfirm> = (args) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -46,8 +50,16 @@ const Template: StoryFn<typeof SubmissionConfirm> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: Story = {
+  args: {
+    trigger: <Button>Open Dialog</Button>,
+    submissionText: 'Ok',
+    onSubmit: fn(),
+    onCancel: fn(),
+    isOpen: false,
+    cancelText: 'Cancel',
+  },
+};
 
 export const WithText = Template.bind({});
 WithText.args = {

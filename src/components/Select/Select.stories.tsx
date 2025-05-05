@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { BoemlySelect as Select } from './Select';
+import { fn } from '@storybook/test';
 
 const commonOptions = [
   { label: 'Option 1', value: 'option_1' },
@@ -20,8 +21,8 @@ export default {
     isFullWidth: { control: { type: 'boolean' } },
     isSearchable: { control: { type: 'boolean' } },
     isMultiple: { control: { type: 'boolean' } },
-    onChange: { action: 'Select Changed' },
-    onClose: { action: 'Dropdown Closed' },
+    onChange: fn(),
+    onClose: fn(),
     options: { control: 'object' },
     color: {
       control: { type: 'text' },

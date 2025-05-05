@@ -13,7 +13,7 @@ const SolidTabButton = ({
   title,
   isActive = false,
   icon,
-}: SolidTabButtonProps): JSX.Element => {
+}: SolidTabButtonProps): React.JSX.Element => {
   return (
     <Box data-testid="solidTabButtonBox">
       <Button

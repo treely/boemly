@@ -7,8 +7,8 @@ export interface BoemlyTabsProps {
   tabs: {
     key: string;
     title: string;
-    content: JSX.Element | JSX.Element[];
-    icon?: JSX.Element;
+    content: React.JSX.Element | React.JSX.Element[];
+    icon?: React.JSX.Element;
   }[];
   initialTabKey?: string;
   variant?: 'line' | 'solid';
@@ -39,7 +39,7 @@ export const BoemlyTabs = ({
   initialTabKey,
   variant = 'line',
   onChange,
-}: BoemlyTabsProps): JSX.Element => {
+}: BoemlyTabsProps): React.JSX.Element => {
   const [activeTabKey, setActiveTabKey] = useState(initialTabKey ?? tabs[0].key);
 
   const onClick = (newTabKey: string) => {
