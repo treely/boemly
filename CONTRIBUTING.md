@@ -42,6 +42,8 @@ Please get in touch with us to tell us what you like and don't like about it on 
 
 # Development
 
+Node.js version: `22`
+
 To make a code contribution to Boemly you need to know how to setup and develop it. First, you need
 to install the dependencies by using the following command:
 
