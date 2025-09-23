@@ -7,6 +7,19 @@ import { Alien, Heart } from '@phosphor-icons/react';
 export default {
   title: 'components/BoemlyTabs',
   component: BoemlyTabs,
+  argTypes: {
+    size: {
+      options: ['sm', 'md'],
+      control: { type: 'radio' },
+    },
+    isFullWidth: {
+      control: { type: 'boolean' },
+    },
+    variant: {
+      options: ['line', 'solid'],
+      control: { type: 'radio' },
+    },
+  },
   args: {
     tabs: [
       { key: 'tab-1', title: 'Tab 1 Title', content: <div>Tab 1 Content</div>, icon: <Heart /> },
@@ -28,4 +41,10 @@ Solid.args = {
 export const InitialTab = Template.bind({});
 InitialTab.args = {
   initialTabKey: 'tab-2',
+};
+
+export const SolidNotFullWidth = Template.bind({});
+SolidNotFullWidth.args = {
+  variant: 'solid',
+  isFullWidth: false,
 };

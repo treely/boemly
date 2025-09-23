@@ -5,16 +5,38 @@ interface LineTabButtonProps {
   onClick: () => void;
   title: string;
   isActive?: boolean;
+  size?: 'sm' | 'md';
 }
 
-const LineTabButton = ({ onClick, title, isActive = false }: LineTabButtonProps): JSX.Element => {
+const LineTabButton = ({
+  onClick,
+  title,
+  isActive = false,
+  size = 'md',
+}: LineTabButtonProps): JSX.Element => {
+  const sizeStyles = {
+    sm: {
+      fontSize: 'xs',
+      pb: '1',
+      indicatorHeight: '2px',
+    },
+    md: {
+      fontSize: 'sm',
+      pb: '2',
+      indicatorHeight: '3px',
+    },
+  };
+
+  const currentSizeStyle = sizeStyles[size];
+
   return (
     <Box data-testid="lineTabButtonBox">
       <Button
         variant="link"
         color="primary.800"
         fontWeight="bold"
-        pb="2"
+        pb={currentSizeStyle.pb}
+        fontSize={currentSizeStyle.fontSize}
         onClick={onClick}
         cursor="pointer"
       >
@@ -25,7 +47,7 @@ const LineTabButton = ({ onClick, title, isActive = false }: LineTabButtonProps)
           data-testid="lineTabButtonIndicator"
           backgroundColor="primary.700"
           borderTopRadius="full"
-          height="3px"
+          height={currentSizeStyle.indicatorHeight}
         />
       )}
     </Box>
