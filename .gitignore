@@ -6,3 +6,4 @@ dist
 storybook-static
 coverage
 .vscode
+.prettierrc

@@ -10,6 +10,22 @@ export default {
     label: 'Label',
     text: 'Text',
   },
+  argTypes: {
+    orientation: {
+      control: { type: 'radio' },
+      options: ['vertical', 'horizontal'],
+    },
+    size: {
+      control: { type: 'radio' },
+      options: ['sm', 'md', 'lg'],
+    },
+    isDisabled: {
+      control: { type: 'boolean' },
+    },
+    caption: {
+      control: { type: 'text' },
+    },
+  },
 } as Meta<typeof LabelTextPair>;
 
 const Template: StoryFn<typeof LabelTextPair> = (args) => <LabelTextPair {...args} />;
@@ -26,4 +42,9 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   caption: 'Caption',
   isDisabled: true,
+};
+
+export const Horizontal = Template.bind({});
+Horizontal.args = {
+  orientation: 'horizontal',
 };
