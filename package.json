@@ -73,7 +73,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-is": "^18.0.0",
-    "semantic-release": "^19.0.2",
+    "semantic-release": "^25.0.1",
     "size-limit": "^8.1.0",
     "storybook": "^7.0.21",
     "tsdx": "^0.14.1",
