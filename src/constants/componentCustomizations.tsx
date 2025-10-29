@@ -726,6 +726,7 @@ export const CustomizedTable = {
     th: {
       color: 'gray.500',
       textTransform: 'unset',
+      letterSpacing: 'unset',
     },
     td: {
       color: 'black',
