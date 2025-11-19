@@ -1,67 +1,101 @@
-import React from 'react';
-import { fireEvent, render, screen } from '../../test/testUtils';
+import React, { useState } from 'react';
+import { act } from 'react';
+import { fireEvent, render, screen, waitFor } from '../../test/testUtils';
 import { ConfirmAction } from '.';
 import { ConfirmActionProps } from './ConfirmAction';
 
-const onCloseSpy = jest.fn();
+// Wrapper component to manage controlled state
+const ConfirmActionWrapper: React.FC<
+  Omit<ConfirmActionProps, 'open' | 'onOpenChange'> & { defaultOpen?: boolean }
+> = ({ defaultOpen = false, ...props }) => {
+  const [open, setOpen] = useState(defaultOpen);
+  return <ConfirmAction {...props} open={open} onOpenChange={setOpen} />;
+};
 
-const defaultProps: ConfirmActionProps = {
-  title: 'Title',
-  isOpen: true,
-  onClose: onCloseSpy,
+const defaultProps: Omit<ConfirmActionProps, 'open' | 'onOpenChange'> = {
   trigger: <button>Trigger</button>,
   cancelButton: 'Cancel',
   confirmButton: 'Confirm',
+  title: 'Title',
+  text: 'Text',
   onConfirm: jest.fn(),
 };
 
 const setup = (props = {}) => {
   const combinedProps = { ...defaultProps, ...props };
-  render(<ConfirmAction {...combinedProps} />);
+  render(<ConfirmActionWrapper {...combinedProps} />);
 };
 
 describe('The ConfirmAction component', () => {
-  afterEach(() => {
-    onCloseSpy.mockRestore();
+  it('displays the trigger', () => {
+    setup();
+
+    expect(screen.getByText('Trigger')).toBeInTheDocument();
   });
 
-  it('displays the title', () => {
+  it('displays the title', async () => {
     setup();
+
+    await act(async () => {
+      fireEvent.click(screen.getByText('Trigger'));
+    });
 
     expect(screen.getByText('Title')).toBeInTheDocument();
   });
 
-  it('displays the text', () => {
+  it('displays the text', async () => {
     setup({ text: 'Text' });
+
+    await act(async () => {
+      fireEvent.click(screen.getByText('Trigger'));
+    });
 
     expect(screen.getByText('Text')).toBeInTheDocument();
   });
 
-  it('displays the trigger', () => {
-    setup({ isOpen: false });
-
-    expect(screen.getByRole('button')).toHaveTextContent('Trigger');
-  });
-
-  it('displays cancel and confirm buttons', () => {
+  it('displays cancel and confirm buttons', async () => {
     setup();
 
-    expect(screen.getAllByRole('button')).toHaveLength(3);
-    expect(screen.getAllByRole('button')[1]).toHaveTextContent('Cancel');
-    expect(screen.getAllByRole('button')[2]).toHaveTextContent('Confirm');
+    await act(async () => {
+      fireEvent.click(screen.getByText('Trigger'));
+    });
+
+    expect(screen.getByText('Cancel')).toBeInTheDocument();
+    expect(screen.getByText('Confirm')).toBeInTheDocument();
   });
 
-  it('displays loading state on the confirm button if confirmLoading property is true', () => {
+  it('displays loading state on the confirm button if confirmLoading property is true', async () => {
     setup({ confirmLoading: true });
 
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    await act(async () => {
+      fireEvent.click(screen.getByText('Trigger'));
+    });
+
+    // Check if the confirm button is present and in loading state
+    const confirmText = screen.getByText('Confirm');
+    const confirmButton = confirmText.closest('button');
+    expect(confirmButton).toBeInTheDocument();
+
+    expect(confirmButton).toHaveAttribute('data-loading');
   });
 
-  it('closes the modal when the cancel button is clicked', () => {
-    setup({ onClose: onCloseSpy });
+  it('closes the modal when the cancel button is clicked', async () => {
+    setup();
 
-    fireEvent.click(screen.getAllByRole('button')[1]);
+    await act(async () => {
+      fireEvent.click(screen.getByText('Trigger'));
+    });
 
-    expect(onCloseSpy).toHaveBeenCalled();
+    // Verify modal is open
+    expect(screen.getByText('Title')).toBeInTheDocument();
+
+    await act(async () => {
+      fireEvent.click(screen.getByText('Cancel'));
+    });
+
+    // Verify modal is closed
+    await waitFor(() => {
+      expect(screen.queryByText('Title')).not.toBeInTheDocument();
+    });
   });
 });

@@ -1,0 +1,151 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { BoemlyThemeProvider, Table } from '../..';
+
+<Meta title="Components/Table" />
+
+# Table
+
+<BoemlyThemeProvider>
+  <Table.Root variant="simple">
+    <Table.Header>
+      <Table.Row>
+        <Table.ColumnHeader>To convert</Table.ColumnHeader>
+        <Table.ColumnHeader>into</Table.ColumnHeader>
+        <Table.ColumnHeader>multiply by</Table.ColumnHeader>
+      </Table.Row>
+    </Table.Header>
+
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>inches</Table.Cell>
+        <Table.Cell>millimeters (mm)</Table.Cell>
+        <Table.Cell>25.4</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell>feet</Table.Cell>
+        <Table.Cell>centimeters (cm)</Table.Cell>
+        <Table.Cell>30.48</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell>yards</Table.Cell>
+        <Table.Cell>metres (m)</Table.Cell>
+        <Table.Cell>0.91444</Table.Cell>
+      </Table.Row>
+    </Table.Body>
+
+  </Table.Root>
+</BoemlyThemeProvider>
+
+```tsx
+<Table.Root>
+  <Table.Header>
+    <Table.Row>
+      <Table.ColumnHeader>To convert</Table.ColumnHeader>
+      <Table.ColumnHeader>into</Table.ColumnHeader>
+      <Table.ColumnHeader>multiply by</Table.ColumnHeader>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>inches</Table.Cell>
+      <Table.Cell>millimeters (mm)</Table.Cell>
+      <Table.Cell>25.4</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>feet</Table.Cell>
+      <Table.Cell>centimeters (cm)</Table.Cell>
+      <Table.Cell>30.48</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>yards</Table.Cell>
+      <Table.Cell>metres (m)</Table.Cell>
+      <Table.Cell>0.91444</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table.Root>
+```
+
+## Arguments
+
+### `<Table.Root>`
+
+| Property   | Values                 | Default   |
+| ---------- | ---------------------- | --------- |
+| `variant`  | `'line'`, `'outline'`  | `'line'`  |
+| `size`     | `'sm'`, `'md'`, `'lg'` | `'md'`    |
+| `striped`  | `'true'`, `'false'`    | `'false'` |
+| `unstyled` | `'true'`, `'false'`    | `'true'`  |
+
+## Examples
+
+### Striped
+
+<BoemlyThemeProvider>
+  <Table.Root striped>
+    <Table.Header>
+      <Table.Row>
+        <Table.ColumnHeader>To convert</Table.ColumnHeader>
+        <Table.ColumnHeader>into</Table.ColumnHeader>
+        <Table.ColumnHeader isNumeric>multiply by</Table.ColumnHeader>
+      </Table.Row>
+    </Table.Header>
+
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>inches</Table.Cell>
+        <Table.Cell>millimeters (mm)</Table.Cell>
+        <Table.Cell isNumeric>25.4</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell>feet</Table.Cell>
+        <Table.Cell>centimeters (cm)</Table.Cell>
+        <Table.Cell isNumeric>30.48</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell>yards</Table.Cell>
+        <Table.Cell>metres (m)</Table.Cell>
+        <Table.Cell isNumeric>0.91444</Table.Cell>
+      </Table.Row>
+    </Table.Body>
+
+  </Table.Root>
+</BoemlyThemeProvider>
+
+### Unstyled
+
+<BoemlyThemeProvider>
+  <Table.Root unstyled>
+    <Table.Header>
+      <Table.Row>
+        <Table.ColumnHeader>To convert</Table.ColumnHeader>
+        <Table.ColumnHeader>into</Table.ColumnHeader>
+        <Table.ColumnHeader isNumeric>multiply by</Table.ColumnHeader>
+      </Table.Row>
+    </Table.Header>
+
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>inches</Table.Cell>
+        <Table.Cell>millimeters (mm)</Table.Cell>
+        <Table.Cell isNumeric>25.4</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell>feet</Table.Cell>
+        <Table.Cell>centimeters (cm)</Table.Cell>
+        <Table.Cell isNumeric>30.48</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell>yards</Table.Cell>
+        <Table.Cell>metres (m)</Table.Cell>
+        <Table.Cell isNumeric>0.91444</Table.Cell>
+      </Table.Row>
+    </Table.Body>
+
+  </Table.Root>
+</BoemlyThemeProvider>

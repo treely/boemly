@@ -1,17 +1,20 @@
-import { CSSReset } from '@chakra-ui/react';
+import React from 'react';
 import { BoemlyThemeProvider } from '../src';
+import { withThemeByClassName } from '@storybook/addon-themes';
 
 export default {
   decorators: [
     (Storybook) => (
       <BoemlyThemeProvider>
-        <CSSReset />
         <Storybook />
       </BoemlyThemeProvider>
     ),
+    withThemeByClassName({
+      defaultTheme: 'light',
+      themes: { light: '', dark: 'dark' },
+    }),
   ],
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,

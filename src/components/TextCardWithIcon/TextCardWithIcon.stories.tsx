@@ -1,8 +1,8 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { TextCardWithIcon } from './TextCardWithIcon';
-import { Heart } from '@phosphor-icons/react';
+import { HeartIcon } from '@phosphor-icons/react';
 import { storybookCoverUrl } from '../../test/storybookMedia';
 
 export default {
@@ -11,7 +11,7 @@ export default {
   args: {
     title: 'Title',
     text: 'Text',
-    icon: <Heart size={28} />,
+    icon: <HeartIcon size={28} />,
   },
 } as Meta<typeof TextCardWithIcon>;
 

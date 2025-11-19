@@ -10,6 +10,15 @@ export interface DeleteConfirmProps {
   isOpen: boolean;
   onCancel: () => void;
   onDelete: () => void;
+  placement?:
+    | 'top-start'
+    | 'top-end'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right-start'
+    | 'right-end'
+    | 'left-start'
+    | 'left-end';
 }
 
 export const DeleteConfirm: React.FC<DeleteConfirmProps> = ({
@@ -21,10 +30,12 @@ export const DeleteConfirm: React.FC<DeleteConfirmProps> = ({
   isOpen,
   onCancel,
   onDelete,
+  placement = 'bottom-start',
 }: DeleteConfirmProps) => (
   <SubmissionConfirm
     trigger={trigger}
     title={title}
+    placement={placement}
     text={text}
     submissionText={deleteText}
     cancelText={cancelText}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 import { ConfirmAction } from './ConfirmAction';
 import { useDisclosure } from '@chakra-ui/react';
 
@@ -11,27 +11,26 @@ export default {
     text: { type: { name: 'string' } },
     cancelButton: { type: { name: 'string' } },
     confirmButton: { type: { name: 'string' } },
-    confirmColorScheme: { options: ['primary', 'red'], control: { type: 'radio' } },
+    confirmColorPalette: { options: ['primary', 'red'], control: { type: 'radio' } },
     confirmLoading: { control: { type: 'boolean' } },
   },
 } as Meta<typeof ConfirmAction>;
 
 const Template: StoryFn<typeof ConfirmAction> = (args) => {
-  const { onOpen, onClose, isOpen } = useDisclosure();
+  const { open, onOpen, onClose } = useDisclosure();
 
   return (
     <ConfirmAction
       {...args}
       trigger={<button onClick={onOpen}>Open modal</button>}
-      onClose={onClose}
-      isOpen={isOpen}
+      open={open}
+      onOpenChange={(isOpen) => (isOpen ? onOpen() : onClose())}
     />
   );
 };
 
 export const Minimal = Template.bind({});
 Minimal.args = {
-  isOpen: true,
   title: 'Title',
   cancelButton: 'Cancel',
   confirmButton: 'Confirm',
@@ -39,7 +38,6 @@ Minimal.args = {
 
 export const WithText = Template.bind({});
 WithText.args = {
-  isOpen: true,
   title: 'Title',
   text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   cancelButton: 'Cancel',
@@ -48,18 +46,16 @@ WithText.args = {
 
 export const WithRedButton = Template.bind({});
 WithRedButton.args = {
-  isOpen: true,
   title: 'Title',
   cancelButton: 'Cancel',
   confirmButton: 'Delete',
-  confirmColorScheme: 'red',
+  confirmColorPalette: 'red',
 };
 
 export const WithLoadingConfirmationButton = Template.bind({});
 WithLoadingConfirmationButton.args = {
-  isOpen: true,
   title: 'Title',
   cancelButton: 'Cancel',
   confirmButton: 'Confirm',
-  onConfirmLoading: true,
+  confirmLoading: true,
 };

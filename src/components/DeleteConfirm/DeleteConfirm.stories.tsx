@@ -1,8 +1,9 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { DeleteConfirm } from './DeleteConfirm';
-import { Button, useDisclosure } from '@chakra-ui/react';
+import { useDisclosure } from '@chakra-ui/react';
+import { Button } from '../ui/button';
 
 export default {
   title: 'components/DeleteConfirm',
@@ -22,12 +23,12 @@ export default {
 } as Meta<typeof DeleteConfirm>;
 
 const Template: StoryFn<typeof DeleteConfirm> = (args) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { open, onOpen, onClose } = useDisclosure();
 
   return (
     <DeleteConfirm
       {...args}
-      isOpen={isOpen}
+      isOpen={open}
       onCancel={onClose}
       trigger={<Button onClick={onOpen}>Trigger</Button>}
     />

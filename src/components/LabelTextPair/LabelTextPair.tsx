@@ -1,9 +1,9 @@
-import type { FlexProps, StyleProps } from '@chakra-ui/react';
+import type { JsxStyleProps, TextProps } from '@chakra-ui/react';
 import { Box, Flex } from '@chakra-ui/react';
 import React from 'react';
 import { OverflownText } from '../OverflownText';
 
-export interface LabelTextPairProps extends StyleProps {
+export interface LabelTextPairProps extends JsxStyleProps {
   label: string;
   text: string;
   caption?: string;
@@ -51,22 +51,6 @@ const sizes = {
   },
 };
 
-const styles: Record<
-  NonNullable<LabelTextPairProps['orientation']>,
-  Pick<FlexProps, 'flexDir' | 'alignItems' | 'justifyContent'>
-> = {
-  vertical: {
-    flexDir: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-  },
-  horizontal: {
-    flexDir: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-};
-
 export const LabelTextPair: React.FC<LabelTextPairProps> = ({
   label,
   text,
@@ -78,23 +62,26 @@ export const LabelTextPair: React.FC<LabelTextPairProps> = ({
 }: LabelTextPairProps) => (
   <Box {...styleProps}>
     <Flex
-      flexDir={styles[orientation].flexDir}
-      alignItems={styles[orientation].alignItems}
-      justifyContent={styles[orientation].justifyContent}
+      flexDir={orientation === 'vertical' ? 'column' : 'row'}
+      alignItems={orientation === 'vertical' ? 'flex-start' : 'center'}
+      justifyContent={orientation === 'vertical' ? 'flex-start' : 'space-between'}
     >
       <OverflownText
-        size={sizes[size][orientation].label}
+        size={sizes[size][orientation].label as TextProps['size']}
         color={isDisabled ? 'gray.400' : 'black'}
       >
         {label}
       </OverflownText>
-      <OverflownText size={sizes[size][orientation].text} color={isDisabled ? 'gray.400' : 'black'}>
+      <OverflownText
+        size={sizes[size][orientation].text as TextProps['size']}
+        color={isDisabled ? 'gray.400' : 'black'}
+      >
         {text}
       </OverflownText>
     </Flex>
     {caption && (
       <OverflownText
-        size={sizes[size][orientation].caption}
+        size={sizes[size][orientation].caption as TextProps['size']}
         color={isDisabled ? 'gray.400' : 'black'}
       >
         {caption}

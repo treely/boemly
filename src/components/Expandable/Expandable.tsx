@@ -1,8 +1,8 @@
 import { Box, Heading, IconButton, Flex, Text, Spinner } from '@chakra-ui/react';
-import { motion, useAnimation } from 'framer-motion';
-import { CaretDown, CaretUp } from '@phosphor-icons/react';
+import { CaretDownIcon, CaretUpIcon } from '@phosphor-icons/react';
 import React, { useEffect } from 'react';
 import { Container } from '../Container';
+import { motion, useAnimation } from 'framer-motion';
 
 export interface ExpandableProps {
   icon: JSX.Element;
@@ -87,15 +87,20 @@ export const Expandable: React.FC<ExpandableProps> = ({
         <IconButton
           aria-label="Open/Close"
           variant="outline"
-          icon={isOpen ? <CaretUp /> : <CaretDown />}
-          isDisabled={!interactive}
+          disabled={!interactive}
           onClick={onToggle}
-        />
+        >
+          {isOpen ? <CaretUpIcon /> : <CaretDownIcon />}
+        </IconButton>
       </Flex>
       <motion.div variants={variants} animate={controls} initial={isOpen ? 'open' : 'close'}>
         {loading ? (
           <Box pt="6" textAlign="center">
-            <Spinner emptyColor="gray.200" color="primary.500" />
+            <Spinner
+              data-testid="loading-spinner"
+              color="primary.500"
+              css={{ '--spinner-track-color': 'colors.gray.200' }}
+            />
           </Box>
         ) : (
           <Box pt="6">{children}</Box>

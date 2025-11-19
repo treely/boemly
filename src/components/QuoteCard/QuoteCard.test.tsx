@@ -8,7 +8,7 @@ const defaultProps: QuoteCardProps = {
   avatar: {
     name: 'Name',
     description: 'Description',
-    image: <img src="/src" alt="Alt text" />,
+    imageSrc: '/src',
   },
 };
 

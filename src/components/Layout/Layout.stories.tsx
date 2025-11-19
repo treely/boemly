@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { Layout } from './Layout';
 
@@ -24,7 +24,7 @@ export default {
         style={{
           backgroundColor: 'var(--boemly-colors-red-500)',
           height: 'var(--boemly-sizes-2xl)',
-          paddingTop: 'var(--boemly-space-40)',
+          paddingTop: 'var(--boemly-spacing-40)',
         }}
       >
         Body

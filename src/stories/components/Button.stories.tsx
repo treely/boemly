@@ -1,9 +1,9 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react-webpack5';
 
 import { Button } from '../..';
-import { Heart } from '@phosphor-icons/react';
-import { COLOR_SCHEMES } from '../../constants/colorSchemes';
+import { HeartIcon } from '@phosphor-icons/react';
+import { COLOR_PALETTES } from '../../constants/colorPalettes';
 import { BUTTON_VARIANTS } from '../../constants/buttonVariants';
 
 export default {
@@ -19,8 +19,8 @@ export default {
       options: BUTTON_VARIANTS,
       control: { type: 'radio' },
     },
-    colorScheme: {
-      options: COLOR_SCHEMES,
+    colorPalette: {
+      options: COLOR_PALETTES,
       control: { type: 'radio' },
     },
     isLoading: { control: { type: 'boolean' } },
@@ -32,7 +32,23 @@ export default {
   },
 } as Meta<typeof Button>;
 
-const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
+const Template: StoryFn<typeof Button> = (args) => {
+  const { isFullWidth, isLoading, isDisabled, ...restArgs } = args as typeof args & {
+    isFullWidth?: boolean;
+    isLoading?: boolean;
+    isDisabled?: boolean;
+  };
+  return (
+    <Button
+      {...restArgs}
+      w={isFullWidth ? 'full' : undefined}
+      {...(isLoading && { loading: true })}
+      {...(isDisabled && { disabled: true })}
+    >
+      {args.children}
+    </Button>
+  );
+};
 
 export const Primary = Template.bind({});
 Primary.args = {};
@@ -54,8 +70,8 @@ OutlineWhite.args = {
   size: 'md',
   variant: 'outlineWhite',
 };
-OutlineWhite.parameters = {
-  backgrounds: { default: 'dark' },
+OutlineWhite.globals = {
+  backgrounds: { value: 'dark' },
 };
 
 export const Ghost = Template.bind({});
@@ -64,10 +80,10 @@ Ghost.args = {
   variant: 'ghost',
 };
 
-export const ColorScheme = Template.bind({});
-ColorScheme.args = {
+export const ColorPalette = Template.bind({});
+ColorPalette.args = {
   size: 'md',
-  colorScheme: 'gray',
+  colorPalette: 'gray',
 };
 
 export const Size = Template.bind({});
@@ -84,23 +100,31 @@ FullWidth.args = {
 export const Disabled = Template.bind({});
 Disabled.args = {
   size: 'md',
-  isDisabled: true,
+  disabled: true,
 };
 
 export const IsLoading = Template.bind({});
 IsLoading.args = {
   size: 'md',
-  isLoading: true,
+  loading: true,
 };
 
 export const LeftIcon = Template.bind({});
 LeftIcon.args = {
   size: 'md',
-  leftIcon: <Heart />,
+  children: (
+    <>
+      <HeartIcon /> Button
+    </>
+  ),
 };
 
 export const RightIcon = Template.bind({});
 RightIcon.args = {
   size: 'md',
-  rightIcon: <Heart />,
+  children: (
+    <>
+      Button <HeartIcon />
+    </>
+  ),
 };

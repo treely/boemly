@@ -1,21 +1,20 @@
 import React from 'react';
-import { Box, Flex, StackDirection, Text } from '@chakra-ui/react';
-import { ReactNode } from 'react';
-import { css } from '@emotion/react';
+import { Avatar, Flex, Text } from '@chakra-ui/react';
 
 export interface AvatarWithNameProps {
   name: string;
   description: string;
-  image: ReactNode;
+  imageSrc: string;
   orientation?: 'vertical' | 'horizontal';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
 type FlexProps = {
   vertical: {
-    direction?: StackDirection;
+    direction?: 'column' | 'row';
   };
   horizontal: {
-    direction?: StackDirection;
+    direction?: 'column' | 'row';
   };
 };
 
@@ -28,7 +27,7 @@ const flexProps: FlexProps = {
   },
 };
 
-type TextProps = {
+type AvatarTextProps = {
   vertical: {
     marginTop: string;
     marginLeft: string;
@@ -41,7 +40,7 @@ type TextProps = {
   };
 };
 
-const textProps: TextProps = {
+const textProps: AvatarTextProps = {
   vertical: {
     marginTop: '4',
     marginLeft: '0',
@@ -57,39 +56,31 @@ const textProps: TextProps = {
 export const AvatarWithName: React.FC<AvatarWithNameProps> = ({
   name,
   description,
-  image,
+  imageSrc,
   orientation = 'horizontal',
-}: AvatarWithNameProps) => (
-  <Flex
-    flexDir={flexProps[orientation].direction}
-    alignItems="center"
-    data-testid={`avatar-with-name-${orientation}`}
-  >
-    <Box
-      position="relative"
-      minWidth={['12', null, '14']}
-      width={['12', null, '14']}
-      height={['12', null, '14']}
-      borderRadius="xl"
-      css={css`
-        & span,
-        div,
-        img {
-          border-radius: var(--boemly-radii-xl);
-        }
-      `}
+  size = 'md',
+}: AvatarWithNameProps) => {
+  return (
+    <Flex
+      flexDir={flexProps[orientation].direction}
+      alignItems="center"
+      data-testid={`avatar-with-name-${orientation}`}
     >
-      {image}
-    </Box>
-    <Text
-      size="smRegularNormal"
-      textAlign={textProps[orientation].textAlign}
-      marginTop={textProps[orientation].marginTop}
-      marginLeft={textProps[orientation].marginLeft}
-    >
-      {name}
-      <br />
-      {description}
-    </Text>
-  </Flex>
-);
+      <Avatar.Root shape="square" size={size}>
+        <Avatar.Fallback name={name} />
+        <Avatar.Image src={imageSrc} />
+      </Avatar.Root>
+
+      <Text
+        size="smRegularNormal"
+        textAlign={textProps[orientation].textAlign}
+        marginTop={textProps[orientation].marginTop}
+        marginLeft={textProps[orientation].marginLeft}
+      >
+        {name}
+        <br />
+        {description}
+      </Text>
+    </Flex>
+  );
+};

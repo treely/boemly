@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Text, useToken } from '@chakra-ui/react';
+import { chakra, useToken } from '@chakra-ui/react';
 import { motion, MotionConfig, useAnimation } from 'framer-motion';
 import { FC, useContext, useEffect, ReactNode } from 'react';
 import { ImageRadioGroupContext } from '../ImageRadioGroup';
@@ -14,6 +14,12 @@ export interface ImageRadioItemProps {
   isSelected?: boolean;
   isDisabled?: boolean;
 }
+
+const MotionFlex = chakra(motion.button);
+
+const MotionBox = chakra(motion.div);
+
+const MotionText = chakra(motion.span);
 
 export const ImageRadioItem: FC<ImageRadioItemProps> = ({
   title,
@@ -41,13 +47,11 @@ export const ImageRadioItem: FC<ImageRadioItemProps> = ({
 
   useEffect(() => {
     controls.start(isDisabled ? 'disabled' : isActivated ? 'selected' : 'default');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDisabled, controls]);
 
   useEffect(() => {
     if (isDisabled) return;
     controls.start(isActivated ? 'selected' : 'default');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isActivated, controls]);
 
   const onMouseEnterHandler = () => {
@@ -71,8 +75,8 @@ export const ImageRadioItem: FC<ImageRadioItemProps> = ({
   const onClickHandler = () => (onChange ? onChange(value) : onClick ? onClick(value) : null);
 
   return (
-    <MotionConfig transition={{ bounce: false, ease: false, duration: QUICK_TRANSITION_DURATION }}>
-      <Flex
+    <MotionConfig transition={{ bounce: 0, duration: QUICK_TRANSITION_DURATION }}>
+      <MotionFlex
         as={motion.button}
         direction="column"
         alignItems="center"
@@ -86,7 +90,7 @@ export const ImageRadioItem: FC<ImageRadioItemProps> = ({
         onMouseEnter={onMouseEnterHandler}
         onMouseLeave={onMouseLeaveHandler}
       >
-        <Box
+        <MotionBox
           as={motion.div}
           width="10"
           height="10"
@@ -96,7 +100,7 @@ export const ImageRadioItem: FC<ImageRadioItemProps> = ({
           overflow="hidden"
           animate={controls}
         >
-          <Box
+          <MotionBox
             as={motion.div}
             width="full"
             height="full"
@@ -108,19 +112,19 @@ export const ImageRadioItem: FC<ImageRadioItemProps> = ({
             animate={controls}
           >
             {thumbnail}
-          </Box>
-        </Box>
-        <Text
+          </MotionBox>
+        </MotionBox>
+        <MotionText
           as={motion.span}
           mt="2"
-          size="sm"
+          fontSize="sm"
           initial="default"
           variants={textVariants}
           animate={controls}
         >
           {title}
-        </Text>
-      </Flex>
+        </MotionText>
+      </MotionFlex>
     </MotionConfig>
   );
 };

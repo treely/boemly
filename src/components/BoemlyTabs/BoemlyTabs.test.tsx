@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen, render, fireEvent } from '../../test/testUtils';
 import { BoemlyTabs, BoemlyTabsProps } from './BoemlyTabs';
-import { Alien, Heart } from '@phosphor-icons/react';
+import { AlienIcon, HeartIcon } from '@phosphor-icons/react';
 
 const onChangeSpy = jest.fn();
 
@@ -59,8 +59,18 @@ describe('The BoemlyTabs component', () => {
       ...defaultProps,
       variant: 'solid',
       tabs: [
-        { key: 'tab-1', title: 'Tab 1 Title', content: <div>Tab 1 Content</div>, icon: <Heart /> },
-        { key: 'tab-2', title: 'Tab 2 Title', content: <div>Tab 2 Content</div>, icon: <Alien /> },
+        {
+          key: 'tab-1',
+          title: 'Tab 1 Title',
+          content: <div>Tab 1 Content</div>,
+          icon: <HeartIcon />,
+        },
+        {
+          key: 'tab-2',
+          title: 'Tab 2 Title',
+          content: <div>Tab 2 Content</div>,
+          icon: <AlienIcon />,
+        },
       ],
     });
 

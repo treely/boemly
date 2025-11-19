@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart } from '@phosphor-icons/react';
+import { HeartIcon } from '@phosphor-icons/react';
 import { render, screen } from '../../test/testUtils';
 import { BoemlyListProps } from './BoemlyList';
 import { BoemlyList } from '.';
@@ -19,7 +19,7 @@ describe('The BoemlyList component', () => {
   });
 
   it('displays a custom icon', () => {
-    setup({ icon: <Heart data-testid="heart-icon" /> });
+    setup({ icon: <HeartIcon data-testid="heart-icon" /> });
 
     expect(screen.getByTestId('heart-icon')).toBeInTheDocument();
   });

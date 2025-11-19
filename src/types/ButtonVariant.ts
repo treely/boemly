@@ -1,1 +1,1 @@
-type ButtonVariant = 'ghost' | 'link' | 'outline' | 'outlineWhite' | 'solid';
+export type ButtonVariant = 'ghost' | 'link' | 'outline' | 'outlineWhite' | 'solid';

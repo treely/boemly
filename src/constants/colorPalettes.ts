@@ -1,4 +1,6 @@
-export const COLOR_SCHEMES: ButtonColorScheme[] = [
+import type { ButtonColorPalettes } from '../types/ButtonColorScheme';
+
+export const COLOR_PALETTES: ButtonColorPalettes[] = [
   'primary',
   'whiteAlpha',
   'blackAlpha',
@@ -12,10 +14,4 @@ export const COLOR_SCHEMES: ButtonColorScheme[] = [
   'cyan',
   'purple',
   'pink',
-  'linkedin',
-  'facebook',
-  'messenger',
-  'whatsapp',
-  'twitter',
-  'telegram',
 ];

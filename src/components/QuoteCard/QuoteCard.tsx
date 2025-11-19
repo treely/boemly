@@ -14,7 +14,11 @@ export const QuoteCard: React.FC<QuoteCardProps> = ({ text, avatar }: QuoteCardP
       <Text size="mdRegularNormalBold" color="black" mb="8">
         {text}
       </Text>
-      <AvatarWithName image={avatar.image} name={avatar.name} description={avatar.description} />
+      <AvatarWithName
+        imageSrc={avatar.imageSrc}
+        name={avatar.name}
+        description={avatar.description}
+      />
     </Box>
   </Container>
 );

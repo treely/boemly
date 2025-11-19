@@ -11,7 +11,7 @@ const defaultProps: DeleteConfirmProps = {
   deleteText: 'Delete',
   cancelText: 'Cancel',
   trigger: <button>Trigger</button>,
-  isOpen: false,
+  isOpen: true,
   onCancel: cancelSpy,
   onDelete: deleteSpy,
 };

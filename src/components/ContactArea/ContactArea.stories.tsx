@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { storybookAvatarUrl } from '../../test/storybookMedia';
 import { ContactArea } from './ContactArea';
@@ -18,7 +18,7 @@ DefaultProps.args = {
   avatar: {
     name: 'Lukas Bals',
     description: 'Engineer',
-    image: <img alt="Alt text" src={storybookAvatarUrl} />,
+    imageSrc: storybookAvatarUrl,
   },
   link: {
     text: 'Button',

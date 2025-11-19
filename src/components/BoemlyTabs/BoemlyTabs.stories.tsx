@@ -1,8 +1,8 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { BoemlyTabs } from './BoemlyTabs';
-import { Alien, Heart } from '@phosphor-icons/react';
+import { AlienIcon, HeartIcon } from '@phosphor-icons/react';
 
 export default {
   title: 'components/BoemlyTabs',
@@ -22,8 +22,18 @@ export default {
   },
   args: {
     tabs: [
-      { key: 'tab-1', title: 'Tab 1 Title', content: <div>Tab 1 Content</div>, icon: <Heart /> },
-      { key: 'tab-2', title: 'Tab 2 Title', content: <div>Tab 2 Content</div>, icon: <Alien /> },
+      {
+        key: 'tab-1',
+        title: 'Tab 1 Title',
+        content: <div>Tab 1 Content</div>,
+        icon: <HeartIcon />,
+      },
+      {
+        key: 'tab-2',
+        title: 'Tab 2 Title',
+        content: <div>Tab 2 Content</div>,
+        icon: <AlienIcon />,
+      },
     ],
   },
 } as Meta<typeof BoemlyTabs>;

@@ -1,9 +1,9 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { RichText } from './RichText';
 import { storybookCoverUrl } from '../../test/storybookMedia';
-import { Heart } from '@phosphor-icons/react';
+import { HeartIcon } from '@phosphor-icons/react';
 
 export default {
   title: 'components/RichText',
@@ -65,47 +65,47 @@ Default.args = {
 
 export const CustomHeading = Template.bind({});
 CustomHeading.args = {
-  content: `
-  # Heading 1
-  ## Heading 2
-  ### Heading 3
-  #### Heading 4
-  
-  Text with *italic* and **bold** text.
+  content: 
+  `# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+
+Text with *italic* and **bold** text.
   `,
   headingProps: { color: 'primary.500' },
 };
 
 export const CustomText = Template.bind({});
 CustomText.args = {
-  content: `
-  # Heading 1
-  ## Heading 2
-  ### Heading 3
-  #### Heading 4
-  
-  Text with *italic* and **bold** text.
+  content: 
+  `# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+
+Text with *italic* and **bold** text.
   `,
   textProps: { color: 'primary.500', size: 'smRegularNormalBold' },
 };
 
 export const CustomUnorderedList = Template.bind({});
 CustomUnorderedList.args = {
-  content: `
-  ## Unordered list
+  content: 
+  `## Unordered list
   
   * List item 1
   * List item 2
   * List item 3
   `,
-  listProps: { textColor: 'primary.500', textSize: 'xsMonoUppercase', icon: <Heart /> },
+  listProps: { textColor: 'primary.500', textSize: 'xsMonoUppercase', icon: <HeartIcon /> },
 };
 
 export const CustomOrderedList = Template.bind({});
 CustomOrderedList.args = {
-  content: `
-  ## Ordered list
-  
+  content: 
+  `## Ordered list
+
   1. First item
   2. Second item
   3. Third item

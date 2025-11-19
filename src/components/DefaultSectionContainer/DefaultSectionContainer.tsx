@@ -1,9 +1,9 @@
-import type { StyleProps } from '@chakra-ui/react';
+import type { JsxStyleProps } from '@chakra-ui/react';
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 import convertToKebabCase from '../../utils/convertToKebabCase';
 
-export interface DefaultSectionContainerProps extends StyleProps {
+export interface DefaultSectionContainerProps extends JsxStyleProps {
   children: JSX.Element | JSX.Element[];
   title?: string;
 }
@@ -16,8 +16,8 @@ export const DefaultSectionContainer: React.FC<DefaultSectionContainerProps> = (
 }: DefaultSectionContainerProps) => (
   <Box
     position="relative"
-    paddingY={backgroundColor ? ['12', null, '28'] : 'unset'}
-    marginY={!backgroundColor ? ['8', null, '28'] : 'unset'}
+    paddingY={backgroundColor ? ['28', null, '64'] : 'unset'}
+    marginY={!backgroundColor ? ['12', null, '32'] : 'unset'}
     overflow={backgroundColor ? 'hidden' : 'unset'}
     backgroundColor={backgroundColor}
     id={title ? convertToKebabCase(title) : undefined}

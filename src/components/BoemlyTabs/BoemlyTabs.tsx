@@ -61,8 +61,8 @@ export const BoemlyTabs = ({
   initialTabKey,
   variant = 'line',
   size = 'md',
-  onChange,
   isFullWidth = true,
+  onChange,
 }: BoemlyTabsProps): JSX.Element => {
   const [activeTabKey, setActiveTabKey] = useState(initialTabKey ?? tabs[0].key);
 
@@ -114,7 +114,7 @@ export const BoemlyTabs = ({
           )}
         </Flex>
 
-        {variant === 'line' && <Box color="gray.200" borderTop="1px" mt="-1px" />}
+        {variant === 'line' && <Box color="gray.200" borderWidth="1px" borderTop="1px" mt="-1px" />}
       </Box>
 
       {tab && <Box mt="2">{tab.content}</Box>}

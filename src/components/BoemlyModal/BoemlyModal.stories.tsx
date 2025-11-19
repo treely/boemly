@@ -1,55 +1,73 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { BoemlyModal } from './BoemlyModal';
-import { Flex, Heading, Text, useDisclosure } from '@chakra-ui/react';
+import {
+  Button,
+  ChakraProvider,
+  defaultSystem,
+  Flex,
+  Heading,
+  Text,
+  useDisclosure,
+} from '@chakra-ui/react';
 
 export default {
   title: 'components/BoemlyModal',
   component: BoemlyModal,
+  decorators: [
+    (Story) => {
+      return (
+        <ChakraProvider value={defaultSystem}>
+          <Story />
+        </ChakraProvider>
+      );
+    },
+  ],
   argTypes: {
     size: {
-      options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'],
+      options: ['xs', 'sm', 'md', 'lg', 'xl', 'full', 'cover'],
       control: { type: 'radio' },
     },
   },
 } as Meta<typeof BoemlyModal>;
 
 const Template: StoryFn<typeof BoemlyModal> = (args) => {
-  const { onOpen, onClose, isOpen } = useDisclosure();
+  const { open, onOpen, onClose } = useDisclosure();
 
   return (
     <BoemlyModal
       {...args}
-      trigger={<button onClick={onOpen}>Open modal</button>}
-      onClose={onClose}
-      isOpen={isOpen}
+      open={open}
+      onOpenChange={(isOpen) => (isOpen ? onOpen() : onClose())}
+      trigger={
+        <Button variant="plain" onClick={onOpen}>
+          Open modal
+        </Button>
+      }
     />
   );
 };
 
 export const Minimal = Template.bind({});
 Minimal.args = {
-  isOpen: true,
   title: 'Title',
   content: <div>Content</div>,
 };
 
 export const WithButtons = Template.bind({});
 WithButtons.args = {
-  isOpen: true,
   title: 'Title',
   content: <div>Content</div>,
-  footer: <button>Button</button>,
+  footer: <Button variant="plain">Button</Button>,
 };
 
 export const Size = Template.bind({});
 Size.args = {
-  isOpen: true,
   title: 'Title',
   content: <div>Content</div>,
-  footer: <button>Button</button>,
-  size: '3xl',
+  footer: <Button variant="plain">Button</Button>,
+  size: 'xl',
 };
 
 export const WithCustomTitle = Template.bind({});
@@ -57,12 +75,12 @@ WithCustomTitle.args = {
   title: (
     <Flex flexDir="row">
       <Heading color="red">Custom title</Heading>
-      <Text color="grey" size="1px">
+      <Text color="grey" size="smRegularNormal">
         -with custom subtitle
       </Text>
     </Flex>
   ),
   content: <div>Content</div>,
-  footer: <button>Button</button>,
-  size: '3xl',
+  footer: <Button variant="plain">Button</Button>,
+  size: 'xl',
 };

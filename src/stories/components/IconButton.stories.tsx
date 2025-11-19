@@ -1,9 +1,9 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react-webpack5';
 
 import { IconButton } from '../..';
-import { Heart } from '@phosphor-icons/react';
-import { COLOR_SCHEMES } from '../../constants/colorSchemes';
+import { HeartIcon } from '@phosphor-icons/react';
+import { COLOR_PALETTES } from '../../constants/colorPalettes';
 import { BUTTON_VARIANTS } from '../../constants/buttonVariants';
 
 export default {
@@ -23,21 +23,24 @@ export default {
       options: BUTTON_VARIANTS,
       control: { type: 'radio' },
     },
-    colorScheme: {
-      options: COLOR_SCHEMES,
+    colorPalette: {
+      options: COLOR_PALETTES,
       control: { type: 'radio' },
     },
-    isLoading: { control: { type: 'boolean' } },
-    isDisabled: { control: { type: 'boolean' } },
-    isRound: { control: { type: 'boolean' } },
+    loading: { control: { type: 'boolean' } },
+    disabled: { control: { type: 'boolean' } },
+    rounded: { control: { type: 'radio' }, options: ['none', 'full'] },
   },
   args: {
-    icon: <Heart />,
     'aria-label': 'Heart button',
   },
 } as Meta<typeof IconButton>;
 
-const Template: StoryFn<typeof IconButton> = (args) => <IconButton {...args} />;
+const Template: StoryFn<typeof IconButton> = (args) => (
+  <IconButton {...args}>
+    <HeartIcon />
+  </IconButton>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
@@ -53,14 +56,14 @@ OutlineWhite.args = {
   size: 'md',
   variant: 'outlineWhite',
 };
-OutlineWhite.parameters = {
-  backgrounds: { default: 'dark' },
+OutlineWhite.globals = {
+  backgrounds: { value: 'dark' },
 };
 
-export const ColorScheme = Template.bind({});
-ColorScheme.args = {
+export const ColorPalette = Template.bind({});
+ColorPalette.args = {
   size: 'md',
-  colorScheme: 'gray',
+  colorPalette: 'gray',
 };
 
 export const Size = Template.bind({});
@@ -71,19 +74,19 @@ Size.args = {
 export const IsRound = Template.bind({});
 IsRound.args = {
   size: 'md',
-  isRound: true,
+  rounded: 'full',
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  icon: <Heart />,
+  icon: <HeartIcon />,
   size: 'md',
-  isDisabled: true,
+  disabled: true,
 };
 
 export const IsLoading = Template.bind({});
 IsLoading.args = {
-  icon: <Heart />,
+  icon: <HeartIcon />,
   size: 'md',
-  isLoading: true,
+  loading: true,
 };

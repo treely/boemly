@@ -1,1 +1,1 @@
-export { BoemlySelect as Select, BoemlySelectProps } from './Select';
+export { BoemlySelect as Select, type BoemlySelectProps } from './Select';

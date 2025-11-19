@@ -50,7 +50,7 @@ For development on Boemly check out our [development docs](CONTRIBUTING.md#devel
 
 - [Typescript](https://www.typescriptlang.org/) as the programming language.
 - [@emotion](https://emotion.sh/docs/introduction) for custom styles.
-- [react-use](https://www.npmjs.com/package/react-use) as a collection of hooks.
+- [@reactuses/core](https://www.npmjs.com/package/@reactuses/core) as a collection of hooks.
 - [Framer](https://www.framer.com/docs/) for animations.
 - [Eslint](https://eslint.org/) combined with [Prettier](https://prettier.io/)
   as a linter/formatter.

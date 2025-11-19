@@ -9,7 +9,7 @@ const defaultProps: ContactAreaProps = {
   avatar: {
     name: 'Name',
     description: 'Description',
-    image: <img alt="Alt text" />,
+    imageSrc: '/src',
   },
   link: { text: 'Button Text', onClick: () => jest.fn() },
 };

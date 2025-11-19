@@ -101,7 +101,7 @@ describe('The DatePicker component', () => {
     fireEvent.click(screen.getByTestId('datepicker-input'));
     fireEvent.click(screen.getByText('12'));
 
-    expect(screen.queryByTestId('clear-button')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Clear date')).not.toBeInTheDocument();
   });
 
   it('allows for clearing of the field if isClearable is true', () => {
@@ -115,7 +115,7 @@ describe('The DatePicker component', () => {
     expect(onChangeSpy).toHaveBeenCalledWith(new Date('2022-01-12'));
     expect(onSelectSpy).toHaveBeenCalledWith(new Date('2022-01-12'));
 
-    fireEvent.click(screen.getByTestId('clear-button'));
+    fireEvent.click(screen.getByLabelText('Clear date'));
 
     expect(onChangeSpy).toHaveBeenCalledWith(undefined);
     expect(onChangeSpy).toHaveBeenCalledTimes(2);

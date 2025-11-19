@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { BoemlyAccordion } from './BoemlyAccordion';
 
@@ -30,6 +30,6 @@ White.args = {
   rows,
   variant: 'white',
 };
-White.parameters = {
-  backgrounds: { default: 'dark' },
+White.globals = {
+  backgrounds: { value: 'dark' },
 };

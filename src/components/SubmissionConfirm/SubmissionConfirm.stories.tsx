@@ -1,8 +1,9 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { SubmissionConfirm } from './SubmissionConfirm';
-import { Button, useDisclosure } from '@chakra-ui/react';
+import { useDisclosure } from '@chakra-ui/react';
+import { Button } from '../ui/button';
 
 export default {
   title: 'components/SubmissionConfirm',
@@ -34,12 +35,12 @@ export default {
 } as Meta<typeof SubmissionConfirm>;
 
 const Template: StoryFn<typeof SubmissionConfirm> = (args) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { onOpen, onClose, open } = useDisclosure();
 
   return (
     <SubmissionConfirm
       {...args}
-      isOpen={isOpen}
+      isOpen={open}
       onCancel={onClose}
       trigger={<Button onClick={onOpen}>Trigger</Button>}
     />

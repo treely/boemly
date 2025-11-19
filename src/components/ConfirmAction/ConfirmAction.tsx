@@ -7,41 +7,41 @@ export interface ConfirmActionProps {
   cancelButton: string;
   confirmButton: string;
   onConfirm: () => void;
-  onClose: () => void;
-  isOpen: boolean;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
   title?: string;
   text?: string;
-  confirmColorScheme?: 'primary' | 'red';
+  confirmColorPalette?: 'primary' | 'red';
   confirmLoading?: boolean;
 }
 export const ConfirmAction: React.FC<ConfirmActionProps> = ({
   trigger,
   cancelButton,
   confirmButton,
-  onClose,
-  isOpen,
   title,
   text,
   onConfirm,
-  confirmColorScheme = 'primary',
+  open,
+  onOpenChange,
+  confirmColorPalette = 'primary',
   confirmLoading = false,
 }: ConfirmActionProps) => (
   <BoemlyModal
     title={title}
     size="lg"
     content={<Text>{text}</Text>}
-    onClose={onClose}
-    isOpen={isOpen}
+    open={open}
+    onOpenChange={onOpenChange}
     trigger={trigger}
-    footer={
+    footer={({ onClose }) => (
       <Flex gap="2">
         <Button variant="ghost" onClick={onClose}>
           {cancelButton}
         </Button>
-        <Button colorScheme={confirmColorScheme} isLoading={confirmLoading} onClick={onConfirm}>
+        <Button colorPalette={confirmColorPalette} loading={confirmLoading} onClick={onConfirm}>
           {confirmButton}
         </Button>
       </Flex>
-    }
+    )}
   />
 );

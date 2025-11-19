@@ -1,18 +1,10 @@
-import { Box, StyleProps, useMediaQuery } from '@chakra-ui/react';
+import { Box, Flex, FlexProps, Slider, Text, useMediaQuery } from '@chakra-ui/react';
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  InputRightAddon,
-  Flex,
-  Text,
-} from '@chakra-ui/react';
 import { BoemlyFormControl } from '../BoemlyFormControl';
 import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 import CustomSliderThumb from './CustomSliderThumb';
 
-export interface SliderProps extends StyleProps {
+export interface SliderProps extends Omit<FlexProps, 'onChange'> {
   variant?: 'default' | 'boundary';
   defaultValue?: number;
   value?: number;
@@ -38,8 +30,9 @@ export const BoemlySlider: React.FC<SliderProps> = ({
   upperBoundText = '',
   ...styleProps
 }: SliderProps) => {
-  const [isMobile] = useMediaQuery(BREAKPOINT_MD_QUERY);
-
+  const [isMobile] = useMediaQuery([BREAKPOINT_MD_QUERY], {
+    fallback: [false],
+  });
   const initialValue = useMemo(
     () => value ?? defaultValue ?? min + (max - min) / 2,
     [defaultValue, min, max, value]
@@ -58,7 +51,8 @@ export const BoemlySlider: React.FC<SliderProps> = ({
     }
   }, [value]);
 
-  const sliderOnChange = (newValue: number) => {
+  const sliderOnChange = (details: { value: number[] }) => {
+    const newValue = details.value[0];
     setSliderValue(newValue);
     setInputValue(newValue.toString());
     onChange(newValue);
@@ -94,21 +88,22 @@ export const BoemlySlider: React.FC<SliderProps> = ({
             borderRadius="full"
           />
 
-          <Slider
-            aria-label={ariaLabel}
-            defaultValue={defaultValue}
-            value={sliderValue}
-            onChange={sliderOnChange}
-            focusThumbOnChange={false}
+          <Slider.Root
+            aria-label={[ariaLabel]}
+            defaultValue={defaultValue ? [defaultValue] : undefined}
+            onValueChange={(details) => sliderOnChange(details)}
+            value={[sliderValue]}
             min={min}
             max={max}
             width="80%"
           >
-            <SliderTrack backgroundColor="primary.200">
-              <SliderFilledTrack backgroundColor="primary.500" />
-            </SliderTrack>
-            <CustomSliderThumb sliderValue={sliderValue} unit={unit} showTooltip={true} />
-          </Slider>
+            <Slider.Control>
+              <Slider.Track backgroundColor="primary.200" height={`${sliderHeight}px`}>
+                <Slider.Range backgroundColor="primary.500" />
+              </Slider.Track>
+              <CustomSliderThumb sliderValue={sliderValue} unit={unit} showTooltip={true} />
+            </Slider.Control>
+          </Slider.Root>
 
           <Box
             height={`${sliderHeight}px`}
@@ -144,37 +139,40 @@ export const BoemlySlider: React.FC<SliderProps> = ({
 
   return isMobile ? (
     <Flex flexDir="column" gap="2" {...styleProps} minW="full">
-      <Flex flexDir="row" justifyContent="right">
-        <BoemlyFormControl
-          id={`slider-input-${ariaLabel}`}
-          rightAddonsOrElements={unit ? [<InputRightAddon key="unit">{unit}</InputRightAddon>] : []}
-          size="sm"
-          width="auto"
-          inputProps={{
-            type: 'number',
-            value: inputValue,
-            onChange: inputOnChange,
-            width: '16',
-            minWidth: '16',
-          }}
-        />
+      <Flex flexDir="row" justifyContent="flex-end">
+        <Box>
+          <BoemlyFormControl
+            id={`slider-input-${ariaLabel}`}
+            rightAddons={unit ? [unit] : []}
+            size="sm"
+            inputProps={{
+              type: 'number',
+              value: inputValue,
+              onChange: inputOnChange,
+              width: '16',
+              minWidth: '16',
+            }}
+          />
+        </Box>
       </Flex>
 
       <Flex flexDir="row">
-        <Slider
-          aria-label={ariaLabel}
-          defaultValue={defaultValue}
-          value={sliderValue}
-          onChange={sliderOnChange}
-          focusThumbOnChange={false}
+        <Slider.Root
+          aria-label={[ariaLabel]}
+          defaultValue={defaultValue ? [defaultValue] : undefined}
+          onValueChange={(details) => sliderOnChange(details)}
+          value={[sliderValue]}
           min={min}
           max={max}
+          width="full"
         >
-          <SliderTrack backgroundColor="primary.200">
-            <SliderFilledTrack backgroundColor="primary.500" />
-          </SliderTrack>
-          <CustomSliderThumb sliderValue={sliderValue} />
-        </Slider>
+          <Slider.Control>
+            <Slider.Track backgroundColor="primary.200" height={`${sliderHeight}px`}>
+              <Slider.Range backgroundColor="primary.500" />
+            </Slider.Track>
+            <CustomSliderThumb sliderValue={sliderValue} />
+          </Slider.Control>
+        </Slider.Root>
       </Flex>
 
       <Flex flexDir="row" justifyContent="space-between">
@@ -191,37 +189,39 @@ export const BoemlySlider: React.FC<SliderProps> = ({
       <Text size="xsLowNormal" mr="4" flexShrink={0}>
         {min} {unit}
       </Text>
-      <Slider
-        aria-label={ariaLabel}
-        defaultValue={defaultValue}
-        value={sliderValue}
-        onChange={sliderOnChange}
-        focusThumbOnChange={false}
+      <Slider.Root
+        defaultValue={defaultValue ? [defaultValue] : undefined}
+        onValueChange={(details) => sliderOnChange(details)}
+        value={[sliderValue]}
         min={min}
         max={max}
+        width="full"
       >
-        <SliderTrack backgroundColor="primary.200">
-          <SliderFilledTrack backgroundColor="primary.500" />
-        </SliderTrack>
-        <CustomSliderThumb sliderValue={sliderValue} />
-      </Slider>
-      <Text size="xsLowNormal" ml="4" flexShrink={0}>
+        <Slider.Control>
+          <Slider.Track backgroundColor="primary.200" height={`${sliderHeight}px`}>
+            <Slider.Range backgroundColor="primary.500" />
+          </Slider.Track>
+          <CustomSliderThumb sliderValue={sliderValue} />
+        </Slider.Control>
+      </Slider.Root>
+      <Text size="xsLowNormal" ml="4" flexShrink={0} mr="4">
         {max} {unit}
       </Text>
-      <BoemlyFormControl
-        id={`slider-input-${ariaLabel}`}
-        rightAddonsOrElements={unit ? [<InputRightAddon key="unit">{unit}</InputRightAddon>] : []}
-        size="sm"
-        width="auto"
-        inputProps={{
-          type: 'number',
-          value: inputValue,
-          onChange: inputOnChange,
-          width: '16',
-          minWidth: '16',
-        }}
-        ml="4"
-      />
+      <Box>
+        <BoemlyFormControl
+          id={`slider-input-${ariaLabel}`}
+          rightAddons={unit ? [unit] : []}
+          size="sm"
+          inputProps={{
+            type: 'number',
+            value: inputValue,
+            onChange: inputOnChange,
+            width: '16',
+            minWidth: '16',
+          }}
+          ml="4"
+        />
+      </Box>
     </Flex>
   );
 };

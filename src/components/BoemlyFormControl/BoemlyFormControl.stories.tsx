@@ -1,20 +1,22 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
-
-import {
-  Box,
-  InputLeftAddon,
-  InputLeftElement,
-  InputRightAddon,
-  InputRightElement,
-} from '@chakra-ui/react';
-import { Heart } from '@phosphor-icons/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
+import { Box, ChakraProvider, defaultSystem } from '@chakra-ui/react';
+import { HeartIcon } from '@phosphor-icons/react';
 import { BoemlyFormControl } from './BoemlyFormControl';
 import { INPUT_SIZES } from '../../constants/inputSizes';
 
 export default {
   title: 'components/BoemlyFormControl',
   component: BoemlyFormControl,
+  decorators: [
+    (Story) => {
+      return (
+        <ChakraProvider value={defaultSystem}>
+          <Story />
+        </ChakraProvider>
+      );
+    },
+  ],
   argTypes: {
     id: { control: { type: 'text' } },
     inputType: {
@@ -170,41 +172,25 @@ Slider.args = {
 export const InputWithLeftAddon = Template.bind({});
 InputWithLeftAddon.args = {
   id: 'input-with-left-addon',
-  leftAddonsOrElements: [
-    <InputLeftAddon key="1">
-      <Heart />
-    </InputLeftAddon>,
-  ],
+  leftAddons: [<HeartIcon />],
 };
 
 export const InputWithLeftElement = Template.bind({});
 InputWithLeftElement.args = {
   id: 'input-with-left-element',
-  leftAddonsOrElements: [
-    <InputLeftElement key="1">
-      <Heart />
-    </InputLeftElement>,
-  ],
+  leftElements: [<HeartIcon />],
 };
 
 export const InputWithRightAddon = Template.bind({});
 InputWithRightAddon.args = {
   id: 'input-with-right-addon',
-  rightAddonsOrElements: [
-    <InputRightAddon key="1">
-      <Heart />
-    </InputRightAddon>,
-  ],
+  rightAddons: [<HeartIcon />],
 };
 
 export const InputWithRightElement = Template.bind({});
 InputWithRightElement.args = {
   id: 'input-with-right-element',
-  rightAddonsOrElements: [
-    <InputRightElement key="1">
-      <Heart />
-    </InputRightElement>,
-  ],
+  rightElements: [<HeartIcon />],
 };
 
 export const StatesOverview = () => (

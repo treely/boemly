@@ -1,7 +1,7 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import { Heart } from '@phosphor-icons/react';
+import { HeartIcon } from '@phosphor-icons/react';
 import { BoemlyList } from './BoemlyList';
 import { TEXT_SIZES } from '../../constants/textSizes';
 
@@ -35,7 +35,7 @@ Default.args = {
 export const WithCustomIcon = Template.bind({});
 WithCustomIcon.args = {
   listItems,
-  icon: <Heart />,
+  icon: <HeartIcon />,
 };
 
 export const Ordered = Template.bind({});

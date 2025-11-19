@@ -61,6 +61,6 @@ describe('The Expandable component', () => {
   it('displays a loading spinner if loading is true', () => {
     setup({ loading: true });
 
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    expect(screen.getByTestId('loading-spinner')).toBeInTheDocument();
   });
 });

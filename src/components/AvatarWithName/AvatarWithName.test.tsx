@@ -6,12 +6,12 @@ import { AvatarWithNameProps } from './AvatarWithName';
 const defaultProps: AvatarWithNameProps = {
   name: 'Name',
   description: 'Description',
-  image: <img alt="alt" />,
+  imageSrc: '/src',
 };
 
 const setup = (props = {}) => {
   const combinedProps = { ...defaultProps, ...props };
-  render(<AvatarWithName {...combinedProps} />);
+  return render(<AvatarWithName {...combinedProps} />);
 };
 
 describe('The AvatarWithName component', () => {
@@ -28,9 +28,11 @@ describe('The AvatarWithName component', () => {
   });
 
   it('displays the image', () => {
-    setup();
+    const { container } = setup();
 
-    expect(screen.getByRole('img')).toHaveAttribute('alt', 'alt');
+    const image = container.querySelector('img[data-part="image"]');
+    expect(image).toBeInTheDocument();
+    expect(image).toHaveAttribute('src', '/src');
   });
 
   it('renders in horizontal orientation', () => {

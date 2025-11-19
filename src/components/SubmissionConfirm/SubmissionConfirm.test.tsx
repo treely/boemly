@@ -11,7 +11,7 @@ const defaultProps: SubmissionConfirmProps = {
   submissionText: 'Submit',
   cancelText: 'Cancel',
   trigger: <button>Trigger</button>,
-  isOpen: false,
+  isOpen: true,
   onCancel: cancelSpy,
   onSubmit: submitSpy,
 };

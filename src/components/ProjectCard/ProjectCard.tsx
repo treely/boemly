@@ -1,6 +1,5 @@
-import { Box, Divider, Flex, Heading, SimpleGrid, Text, useToken } from '@chakra-ui/react';
-import { css } from '@emotion/react';
-import { ArrowsOutSimple, MapPin } from '@phosphor-icons/react';
+import { Box, Separator, Flex, Heading, SimpleGrid, Text, useToken } from '@chakra-ui/react';
+import { ArrowsOutSimpleIcon, MapPinIcon } from '@phosphor-icons/react';
 import React, { ReactNode } from 'react';
 
 export interface ProjectCardProps {
@@ -23,7 +22,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }: ProjectCardProps) => {
   const [gray500] = useToken('colors', ['gray.500']);
 
-  const icons = [<ArrowsOutSimple color={gray500} />, <MapPin color={gray500} />];
+  const icons = [<ArrowsOutSimpleIcon color={gray500} />, <MapPinIcon color={gray500} />];
 
   return (
     <Flex
@@ -40,14 +39,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         width="full"
         height="40"
         borderTopRadius="3xl"
-        css={css`
-          & span,
-          div,
-          img {
-            border-top-left-radius: var(--boemly-radii-3xl);
-            border-top-right-radius: var(--boemly-radii-3xl);
-          }
-        `}
+        css={{
+          '& span, div, img': {
+            borderTopLeftRadius: 'var(--boemly-radii-3xl)',
+            borderTopRightRadius: 'var(--boemly-radii-3xl)',
+          },
+        }}
       >
         {image}
       </Box>
@@ -55,7 +52,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <Heading as="h6" size="sm">
           {title}
         </Heading>
-        <SimpleGrid columns={2} spacing="6" mt="6">
+        <SimpleGrid columns={2} gap="6" mt="6">
           {facts.map((fact, index) => (
             <Box key={fact.id} display="flex" flexDirection="row" alignItems="center">
               {icons[index]}
@@ -66,7 +63,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
         </SimpleGrid>
       </Box>
-      <Divider colorScheme="gray.200" />
+      <Separator colorPalette="gray.200" />
       <Box padding="6" pb="8">
         <Heading size="lg" as="h6">
           {footerTitle}

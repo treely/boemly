@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { BoemlySteps } from './BoemlySteps';
 
@@ -11,7 +11,6 @@ export default {
 const Template: StoryFn<typeof BoemlySteps> = (args) => <BoemlySteps {...args} />;
 
 const onClick = () => {
-  // eslint-disable-next-line no-console
   console.log('Click');
 };
 const steps = [

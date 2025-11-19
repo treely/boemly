@@ -5,8 +5,8 @@ interface MenuBurgerItemProps {
   color: 'black' | 'white';
 }
 export const MenuBurgerItem = styled(motion.div)<MenuBurgerItemProps>`
-  height: var(--boemly-space-0-5);
-  width: var(--boemly-space-4);
+  height: var(--boemly-spacing-0\\.5);
+  width: var(--boemly-spacing-4);
 
   border-radius: var(--boemly-radii-full);
 

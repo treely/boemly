@@ -1,7 +1,7 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
+import { Meta } from '@storybook/react-webpack5';
 
-import { Table, Tbody, Td, Text, Th, Thead, Tr, useToken } from '../..';
+import { Table, Text, useToken } from '../..';
 import { LINE_HEIGHTS } from '../../constants/customizations';
 
 export default {
@@ -16,35 +16,35 @@ const LineHeightRow = ({ lineHeight }: LineHeightsRowProps) => {
   const [lineHeightValue] = useToken('lineHeights', [lineHeight]);
 
   return (
-    <Tr>
-      <Td>
+    <Table.Row>
+      <Table.Cell>
         <Text size="mdMonoNormal">{lineHeight}</Text>
-      </Td>
-      <Td>
+      </Table.Cell>
+      <Table.Cell>
         <Text size="mdMonoNormal">{lineHeightValue}</Text>
-      </Td>
-      <Td>
+      </Table.Cell>
+      <Table.Cell>
         <Text size="mdMonoNormal" lineHeight={lineHeight} backgroundColor="blackAlpha.50">
           {`Line height = ${lineHeight}`}
         </Text>
-      </Td>
-    </Tr>
+      </Table.Cell>
+    </Table.Row>
   );
 };
 
 export const LineHeights = () => (
-  <Table variant="simple">
-    <Thead>
-      <Tr>
-        <Th>Token</Th>
-        <Th>Value</Th>
-        <Th>Example</Th>
-      </Tr>
-    </Thead>
-    <Tbody>
+  <Table.Root>
+    <Table.Header>
+      <Table.Row>
+        <Table.ColumnHeader>Token</Table.ColumnHeader>
+        <Table.ColumnHeader>Value</Table.ColumnHeader>
+        <Table.ColumnHeader>Example</Table.ColumnHeader>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
       {Object.keys(LINE_HEIGHTS).map((lineHeights) => (
         <LineHeightRow key={lineHeights} lineHeight={lineHeights} />
       ))}
-    </Tbody>
-  </Table>
+    </Table.Body>
+  </Table.Root>
 );

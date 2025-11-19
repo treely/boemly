@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react-webpack5';
 
 import { Tooltip } from '../..';
 
@@ -16,42 +16,42 @@ export default {
       control: { type: 'boolean' },
       description: 'Is needed if you want to wrap a disabled element like a button',
     },
-    hasArrow: {
+    showArrow: {
       control: { type: 'boolean' },
     },
-    isDisabled: {
+    disabled: {
       control: { type: 'boolean' },
     },
     placement: {
       options: [
-        'auto-start',
-        'auto',
-        'auto-end',
-        'left-start',
-        'left',
-        'left-end',
-        'right-start',
-        'right',
-        'right-end',
-        'top-start',
         'top',
+        'top-start',
         'top-end',
-        'bottom-start',
+        'right',
+        'right-start',
+        'right-end',
         'bottom',
+        'bottom-start',
         'bottom-end',
+        'left',
+        'left-start',
+        'left-end',
       ],
       control: { type: 'radio' },
     },
     closeOnClick: {
       control: { type: 'boolean' },
     },
-    closeOnEsc: {
+    closeOnEscape: {
       control: { type: 'boolean' },
     },
-    closeOnMouseDown: {
+    closeOnPointerDown: {
       control: { type: 'boolean' },
     },
-    defaultIsOpen: {
+    closeOnScroll: {
+      control: { type: 'boolean' },
+    },
+    defaultOpen: {
       control: { type: 'boolean' },
     },
     gutter: {
@@ -62,16 +62,17 @@ export default {
   args: {
     children: <span>Hover me</span>,
     'aria-label': 'Tooltip',
-    label: 'Label',
+    content: 'Label',
     shouldWrapChildren: false,
-    hasArrow: false,
-    isDisabled: false,
+    showArrow: false,
+    disabled: false,
     placement: 'bottom',
     closeOnClick: false,
-    closeOnEsc: false,
+    closeOnEscape: false,
     closeOnMouseDown: false,
-    defaultIsOpen: false,
+    defaultOpen: false,
     gutter: 8,
+    interactive: true,
   },
 } as Meta<typeof Tooltip>;
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { StoryFn, Meta } from '@storybook/react';
-import { Flex } from '@chakra-ui/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
+import { ChakraProvider, defaultSystem, Flex } from '@chakra-ui/react';
 
 import { ImageRadioGroup } from '.';
 import { storybookMapThumbnailUrl } from '../../test/storybookMedia';
@@ -28,6 +28,15 @@ const Wrapper = () => {
 
 export default {
   title: 'components/ImageRadioGroup',
+  decorators: [
+    (Story) => {
+      return (
+        <ChakraProvider value={defaultSystem}>
+          <Story />
+        </ChakraProvider>
+      );
+    },
+  ],
 
   component: Wrapper,
 } as Meta<typeof Wrapper>;

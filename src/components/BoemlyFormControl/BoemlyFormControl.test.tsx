@@ -1,9 +1,9 @@
 import React from 'react';
-import { InputLeftElement, InputRightElement } from '@chakra-ui/react';
-import { Heart } from '@phosphor-icons/react';
+import { HeartIcon } from '@phosphor-icons/react';
 import { fireEvent, render, screen } from '../../test/testUtils';
 import { BoemlyFormControlProps } from './BoemlyFormControl';
 import { BoemlyFormControl } from '.';
+import { act } from 'react';
 
 const defaultProps: BoemlyFormControlProps = {
   id: 'form-id',
@@ -47,18 +47,17 @@ describe('The BoemlyFormControl component', () => {
       ],
     });
 
-    fireEvent.click(screen.getByRole('button', { name: /toggle dropdown/i }));
+    fireEvent.click(screen.getByRole('combobox'));
 
     const option1 = await screen.findByText('Label 1');
-    const option1Div = option1.closest('button');
-    const option1Styles = window.getComputedStyle(option1Div!);
-    expect(option1Styles.cursor).toBe('default');
+    const option1Element = option1.closest('[role="option"]');
+    expect(option1Element).not.toHaveAttribute('aria-disabled', 'true');
 
     const option2 = await screen.findByText('Label 2');
-    const option2Div = option2.closest('button');
-    const option2Styles = window.getComputedStyle(option2Div!);
-    expect(option2Styles.cursor).toBe('not-allowed');
-    expect(option2Div).toHaveAttribute('disabled');
+    const option2Element = option2.closest('[role="option"]');
+
+    const isDisabled = option2Element?.getAttribute('aria-disabled') === 'true';
+    expect(isDisabled).toBe(true);
   });
 
   it('displays a checkbox field if the inputType checkbox is given', () => {
@@ -73,8 +72,10 @@ describe('The BoemlyFormControl component', () => {
     expect(screen.getByTestId('datepicker-input')).toBeInTheDocument();
   });
 
-  it('displays a slider if the inputType Slider is given', () => {
-    setup({ inputType: 'Slider' });
+  it('displays a slider if the inputType Slider is given', async () => {
+    await act(async () => {
+      setup({ inputType: 'Slider' });
+    });
 
     expect(screen.getByRole('slider')).toBeInTheDocument();
   });
@@ -85,25 +86,33 @@ describe('The BoemlyFormControl component', () => {
     expect(screen.getByText('Label')).toBeInTheDocument();
   });
 
-  it('displays a left addon/element if one is given', () => {
+  it('displays a left addon if one is given', () => {
     setup({
-      leftAddonsOrElements: [
-        <InputLeftElement key="1">
-          <Heart data-testid="heart" />
-        </InputLeftElement>,
-      ],
+      leftAddons: [<HeartIcon data-testid="heart" />],
     });
 
     expect(screen.getByTestId('heart')).toBeInTheDocument();
   });
 
-  it('displays a right addon/element if one is given', () => {
+  it('displays a left element if one is given', () => {
     setup({
-      rightAddonsOrElements: [
-        <InputRightElement key="1">
-          <Heart data-testid="heart" />
-        </InputRightElement>,
-      ],
+      leftElements: [<HeartIcon data-testid="heart" />],
+    });
+
+    expect(screen.getByTestId('heart')).toBeInTheDocument();
+  });
+
+  it('displays a right addon if one is given', () => {
+    setup({
+      rightAddons: [<HeartIcon data-testid="heart" />],
+    });
+
+    expect(screen.getByTestId('heart')).toBeInTheDocument();
+  });
+
+  it('displays a right element if one is given', () => {
+    setup({
+      rightElements: [<HeartIcon data-testid="heart" />],
     });
 
     expect(screen.getByTestId('heart')).toBeInTheDocument();
@@ -122,20 +131,25 @@ describe('The BoemlyFormControl component', () => {
   });
 
   it('displays a check icon if isValid is true', () => {
-    setup({ isValid: true });
+    setup({
+      inputType: 'NumberInput', // Check icon only renders when inputType !== 'Input'
+      isValid: true,
+    });
 
     expect(screen.getByTestId('check')).toBeInTheDocument();
   });
 
-  it('displays radio buttons if the inputType Radio is given', () => {
-    setup({
-      inputType: 'Radio',
-      radioGroupProps: { defaultValue: 'option1' },
-      radioOptions: [
-        { value: 'option1', label: 'Option 1' },
-        { value: 'option2', label: 'Option 2' },
-        { value: 'option3', label: 'Option 3', disabled: true },
-      ],
+  it('displays radio buttons if the inputType Radio is given', async () => {
+    await act(async () => {
+      setup({
+        inputType: 'Radio',
+        radioGroupProps: { defaultValue: 'option1' },
+        radioOptions: [
+          { value: 'option1', label: 'Option 1' },
+          { value: 'option2', label: 'Option 2' },
+          { value: 'option3', label: 'Option 3', disabled: true },
+        ],
+      });
     });
 
     expect(screen.getByRole('radiogroup')).toBeInTheDocument();

@@ -52,7 +52,7 @@ describe('The SplitScreen component', () => {
   });
 
   describe('on mobile', () => {
-    beforeAll(() => {
+    beforeEach(() => {
       Object.defineProperty(window, 'matchMedia', {
         writable: true,
         value: jest.fn().mockImplementation(() => ({

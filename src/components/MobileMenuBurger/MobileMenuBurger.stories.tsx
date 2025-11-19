@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 import { useDisclosure } from '@chakra-ui/react';
 
 import { MobileMenuBurger } from './MobileMenuBurger';
@@ -10,9 +10,9 @@ export default {
 } as Meta<typeof MobileMenuBurger>;
 
 const Template: StoryFn<typeof MobileMenuBurger> = (args) => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { open, onToggle } = useDisclosure();
 
-  return <MobileMenuBurger {...args} isOpen={isOpen} onClose={onToggle} onOpen={onToggle} />;
+  return <MobileMenuBurger {...args} isOpen={open} onClose={onToggle} onOpen={onToggle} />;
 };
 
 export const Default = Template.bind({});
@@ -27,6 +27,6 @@ White.args = {
   onClose: () => alert('Close'),
   color: 'white',
 };
-White.parameters = {
-  backgrounds: { default: 'dark' },
+White.globals = {
+  backgrounds: { value: 'dark' },
 };

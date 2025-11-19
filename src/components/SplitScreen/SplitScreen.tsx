@@ -1,10 +1,10 @@
 import { Box, useMediaQuery } from '@chakra-ui/react';
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode, useEffect, useRef } from 'react';
 import { useAnimation } from 'framer-motion';
-import { useMeasure } from 'react-use';
 import { BREAKPOINT_MD_QUERY } from '../../constants/breakpoints';
 import useResizeEventListener from '../../hooks/useResizeEventListener';
 import { Left, Right } from './styles';
+import { useMeasure } from '@reactuses/core';
 
 export interface SplitScreenProps {
   left: ReactNode;
@@ -25,15 +25,19 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
 }: SplitScreenProps) => {
   useResizeEventListener();
 
-  const [mobile] = useMediaQuery(BREAKPOINT_MD_QUERY);
+  const [mobile] = useMediaQuery([BREAKPOINT_MD_QUERY], { fallback: [false] });
 
-  const [ref, { height }] = useMeasure<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
+  const [rect] = useMeasure(ref);
   const controls = useAnimation();
 
   const variants = {
     desktop: { top: 0, height: '100%' },
-    mobileClosed: { top: 'var(--boemly-space-28)', height: 'calc(100% - var(--boemly-space-28))' },
-    mobileOpen: { top: height - 40, height: 'calc(100% - var(--boemly-space-28))' },
+    mobileClosed: {
+      top: 'var(--boemly-spacing-28)',
+      height: 'calc(100% - var(--boemly-spacing-28))',
+    },
+    mobileOpen: { top: (rect?.height ?? 0) - 40, height: 'calc(100% - var(--boemly-spacing-28))' },
   };
 
   useEffect(() => {
@@ -42,8 +46,7 @@ export const SplitScreen: React.FC<SplitScreenProps> = ({
     } else {
       controls.start('desktop');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mobileIsOpen, height, controls]);
+  }, [mobileIsOpen, rect?.height, controls, mobile, hideLeftOnMobile]);
 
   return (
     <div ref={ref}>

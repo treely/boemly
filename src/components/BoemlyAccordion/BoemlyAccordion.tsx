@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
-  Box,
-  Heading,
-} from '@chakra-ui/react';
+import { Accordion, Box, Heading } from '@chakra-ui/react';
 import { RichText } from '../RichText';
 
 export interface BoemlyAccordionProps {
@@ -26,28 +18,32 @@ export const BoemlyAccordion: React.FC<BoemlyAccordionProps> = ({
   defaultIndex,
 }: BoemlyAccordionProps) => {
   const textColor = variant === 'black' ? 'gray.500' : 'white';
+  const initialExpandedValues = defaultIndex.map((index) => rows[index].id.toString());
+
   return (
-    <Accordion defaultIndex={defaultIndex} variant={variant} allowToggle>
+    <Accordion.Root defaultValue={initialExpandedValues} collapsible visual={variant}>
       {rows.map(({ id, key, value }) => (
-        <AccordionItem key={id}>
-          <AccordionButton>
+        <Accordion.Item key={id} value={id.toString()}>
+          <Accordion.ItemTrigger>
             <Box flex="1" textAlign="left">
               <Heading as="h6" size="sm" color={variant} mr="8">
                 {key}
               </Heading>
             </Box>
-            <AccordionIcon />
-          </AccordionButton>
-          <AccordionPanel>
-            <RichText
-              headingProps={{ color: textColor }}
-              textProps={{ color: textColor }}
-              listProps={{ textColor: textColor }}
-              content={value}
-            />
-          </AccordionPanel>
-        </AccordionItem>
+            <Accordion.ItemIndicator />
+          </Accordion.ItemTrigger>
+          <Accordion.ItemContent>
+            <Accordion.ItemBody>
+              <RichText
+                headingProps={{ color: textColor }}
+                textProps={{ color: textColor }}
+                listProps={{ textColor: textColor }}
+                content={value}
+              />
+            </Accordion.ItemBody>
+          </Accordion.ItemContent>
+        </Accordion.Item>
       ))}
-    </Accordion>
+    </Accordion.Root>
   );
 };

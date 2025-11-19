@@ -1,17 +1,8 @@
-import {
-  Box,
-  Center,
-  Flex,
-  List,
-  ListIcon,
-  ListItem,
-  ListProps,
-  Text,
-  useMultiStyleConfig,
-} from '@chakra-ui/react';
+import TextSize from '../../types/TextSize';
+import { Box, Flex, List, ListRootProps, Text } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 
-export interface BoemlyListStyleProps extends ListProps {
+export interface BoemlyListStyleProps extends ListRootProps {
   icon?: ReactNode;
   textColor?: string;
   textSize?: TextSize;
@@ -33,12 +24,10 @@ export const BoemlyList: React.FC<BoemlyListProps> = ({
   textSize = 'mdRegularNormal',
   ...props
 }: BoemlyListProps) => {
-  const styles = useMultiStyleConfig('List', props);
-
   return (
-    <List spacing="4" as={ordered ? 'ol' : 'ul'} {...props}>
+    <List.Root gap="4" as={ordered ? 'ol' : 'ul'} {...props}>
       {listItems.map(({ id, text }, index) => (
-        <ListItem key={id} display="flex" alignItems="baseline">
+        <List.Item key={id} display="flex" alignItems="baseline">
           <Flex alignItems="center" position="relative">
             {/* Insert a zero-width character so that `align-items: baseline` 
                 aligns the icon to the first line of the text */}
@@ -46,34 +35,22 @@ export const BoemlyList: React.FC<BoemlyListProps> = ({
               &zwnj;
             </Text>
 
-            <ListIcon
-              as={() => (
-                <Center
-                  __css={styles.icon}
-                  width="6"
-                  height="6"
-                  minWidth="6"
-                  borderRadius="lg"
-                  float="left"
-                  mr="4"
-                >
-                  {ordered ? (
-                    <Text size="xsLowBold" color="black">
-                      {index + 1}
-                    </Text>
-                  ) : (
-                    icon
-                  )}
-                </Center>
+            <List.Indicator>
+              {ordered ? (
+                <Text size="xsLowBold" color="black">
+                  {index + 1}
+                </Text>
+              ) : (
+                icon
               )}
-            />
+            </List.Indicator>
           </Flex>
 
           <Text size={textSize} color={textColor}>
             {text}
           </Text>
-        </ListItem>
+        </List.Item>
       ))}
-    </List>
+    </List.Root>
   );
 };

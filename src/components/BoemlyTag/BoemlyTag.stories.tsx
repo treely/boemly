@@ -1,7 +1,7 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react-webpack5';
 import { BoemlyTag, BoemlyTagProps } from './BoemlyTag';
-import { COLOR_SCHEMES } from '../../constants/colorSchemes';
+import { COLOR_PALETTES } from '../../constants/colorPalettes';
 
 export default {
   title: 'components/BoemlyTag',
@@ -12,11 +12,11 @@ export default {
       control: { type: 'radio' },
     },
     size: {
-      options: ['sm', 'md', 'lg'],
+      options: ['sm', 'md', 'lg', 'xl'],
       control: { type: 'radio' },
     },
-    colorScheme: {
-      options: COLOR_SCHEMES,
+    colorPalette: {
+      options: COLOR_PALETTES,
       control: { type: 'radio' },
     },
     isClosable: {
@@ -30,8 +30,8 @@ export default {
   args: {
     children: 'Tag',
     variant: 'subtle',
-    size: 'md',
-    colorScheme: 'primary',
+    size: 'lg',
+    colorPalette: 'primary',
   },
 } as Meta<typeof BoemlyTag>;
 

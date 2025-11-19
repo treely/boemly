@@ -52,7 +52,7 @@ const SolidTabButton = ({
         w="full"
         h="full"
       >
-        {title}
+        {icon} {title}
       </Button>
     </Box>
   );

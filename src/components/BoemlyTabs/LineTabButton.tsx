@@ -32,6 +32,7 @@ const LineTabButton = ({
   return (
     <Box data-testid="lineTabButtonBox">
       <Button
+        size="sm"
         variant="link"
         color="primary.800"
         fontWeight="bold"
@@ -39,6 +40,7 @@ const LineTabButton = ({
         fontSize={currentSizeStyle.fontSize}
         onClick={onClick}
         cursor="pointer"
+        padding="unset"
       >
         {title}
       </Button>

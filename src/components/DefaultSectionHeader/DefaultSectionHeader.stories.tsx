@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { DefaultSectionHeader } from './DefaultSectionHeader';
 
@@ -10,26 +10,26 @@ export default {
 
 const Template: StoryFn<typeof DefaultSectionHeader> = (args) => <DefaultSectionHeader {...args} />;
 
-export const justTitle = Template.bind({});
-justTitle.args = {
+export const JustTitle = Template.bind({});
+JustTitle.args = {
   title: 'Title',
 };
 
-export const taglineAndTitle = Template.bind({});
-taglineAndTitle.args = {
+export const TaglineAndTitle = Template.bind({});
+TaglineAndTitle.args = {
   tagline: 'Tagline',
   title: 'Title',
 };
 
-export const taglineTitleAndText = Template.bind({});
-taglineTitleAndText.args = {
+export const TaglineTitleAndText = Template.bind({});
+TaglineTitleAndText.args = {
   tagline: 'Tagline',
   title: 'Title',
   text: 'Text',
 };
 
-export const centered = Template.bind({});
-centered.args = {
+export const Centered = Template.bind({});
+Centered.args = {
   tagline: 'Tagline',
   title: 'Title',
   text: 'Text',
@@ -39,8 +39,8 @@ centered.args = {
   textProps: { textAlign: 'center' },
 };
 
-export const centeredAsHero = Template.bind({});
-centeredAsHero.args = {
+export const CenteredAsHero = Template.bind({});
+CenteredAsHero.args = {
   tagline: 'Tagline',
   title: 'Title',
   text: 'Text',

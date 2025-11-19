@@ -1,8 +1,10 @@
 import React from 'react';
 import { Flex, Text, useToken, Stack } from '@chakra-ui/react';
-import type { StackDirection } from '@chakra-ui/react';
-import { Check } from '@phosphor-icons/react';
+import type { ConditionalValue } from '@chakra-ui/react';
+import { CheckIcon } from '@phosphor-icons/react';
 import StepDivider from './StepDivider';
+
+type StackDirection = ConditionalValue<'row' | 'column' | 'row-reverse' | 'column-reverse'>;
 
 export interface BoemlyStepsProps {
   steps: {
@@ -16,22 +18,22 @@ export interface BoemlyStepsProps {
 type StackProps = {
   vertical: {
     direction?: StackDirection;
-    divider?: JSX.Element;
+    separator?: JSX.Element;
   };
   horizontal: {
     direction?: StackDirection;
-    divider?: JSX.Element;
+    separator?: JSX.Element;
   };
 };
 
 const stackProps: StackProps = {
   vertical: {
     direction: 'column',
-    divider: undefined,
+    separator: undefined,
   },
   horizontal: {
     direction: 'row',
-    divider: <StepDivider />,
+    separator: <StepDivider />,
   },
 };
 
@@ -44,9 +46,9 @@ export const BoemlySteps: React.FC<BoemlyStepsProps> = ({
 
   return (
     <Stack
-      spacing="4"
+      gap="4"
       direction={stackProps[orientation].direction}
-      divider={stackProps[orientation].divider}
+      separator={stackProps[orientation].separator}
     >
       {steps.map(({ text, onClick }, index) => {
         const stepNum = index + 1;
@@ -62,7 +64,7 @@ export const BoemlySteps: React.FC<BoemlyStepsProps> = ({
         if (stepNum < currentStep) {
           point = (
             <Flex {...defaultProps} backgroundColor="green.500">
-              <Check color={white} size={12} data-testid="check-icon" />
+              <CheckIcon color={white} size={12} data-testid="check-icon" />
             </Flex>
           );
         } else if (stepNum === currentStep) {

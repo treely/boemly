@@ -1,9 +1,14 @@
 import React, { ReactNode } from 'react';
-import { Alert, CloseButton, Flex, Spinner, Text, useToken } from '@chakra-ui/react';
-import { CheckCircle, Info, WarningCircle, WarningOctagon } from '@phosphor-icons/react';
+import { Alert, CloseButton, Spinner, useToken } from '@chakra-ui/react';
+import {
+  CheckCircleIcon,
+  InfoIcon,
+  WarningCircleIcon,
+  WarningOctagonIcon,
+} from '@phosphor-icons/react';
 
 export interface BoemlyAlertProps {
-  status?: 'success' | 'error' | 'warning' | 'info' | 'loading';
+  status?: 'info' | 'warning' | 'success' | 'error' | 'neutral' | 'loading';
   title?: ReactNode;
   text: ReactNode;
   isClosable?: boolean;
@@ -28,10 +33,10 @@ export const BoemlyAlert: React.FC<BoemlyAlertProps> = ({
   const renderIcon = () => {
     switch (status) {
       case 'loading':
-        return <Spinner size="sm" color={blue500} />;
+        return <Spinner size="sm" color={blue500} data-testid="loading-icon" />;
       case 'success':
         return (
-          <CheckCircle
+          <CheckCircleIcon
             size={iconSize}
             weight="fill"
             color={primary500}
@@ -40,11 +45,16 @@ export const BoemlyAlert: React.FC<BoemlyAlertProps> = ({
         );
       case 'error':
         return (
-          <WarningOctagon size={iconSize} weight="fill" color={red500} data-testid="error-icon" />
+          <WarningOctagonIcon
+            size={iconSize}
+            weight="fill"
+            color={red500}
+            data-testid="error-icon"
+          />
         );
       case 'warning':
         return (
-          <WarningCircle
+          <WarningCircleIcon
             size={iconSize}
             weight="fill"
             color={orange500}
@@ -52,26 +62,25 @@ export const BoemlyAlert: React.FC<BoemlyAlertProps> = ({
           />
         );
       default:
-        return <Info size={iconSize} weight="fill" color={blue500} data-testid="info-icon" />;
+        return <InfoIcon size={iconSize} weight="fill" color={blue500} data-testid="info-icon" />;
     }
   };
 
   return (
-    <Alert status={status}>
-      {renderIcon()}
-      <Flex justifyContent="space-between" alignItems="center" width="100%">
-        <Flex mx="4" flexDir="column">
-          {title && (
-            <Text size="mdRegularNormalBold" color="black">
-              {title}
-            </Text>
-          )}
-          <Text color="gray.700" size="mdRegularNormal">
-            {text}
-          </Text>
-        </Flex>
-        {isClosable && <CloseButton size="sm" onClick={onClose} />}
-      </Flex>
-    </Alert>
+    <Alert.Root status={status === 'loading' ? 'info' : status}>
+      <Alert.Indicator>{renderIcon()}</Alert.Indicator>
+      <Alert.Content>
+        <Alert.Title>{title}</Alert.Title>
+        <Alert.Description>{text}</Alert.Description>
+      </Alert.Content>
+      {isClosable && (
+        <CloseButton
+          size="sm"
+          alignSelf="center"
+          onClick={onClose}
+          _hover={{ bg: 'blackAlpha.100' }}
+        />
+      )}
+    </Alert.Root>
   );
 };

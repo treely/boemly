@@ -1,1 +1,1 @@
-export { BoemlyFormControl } from './BoemlyFormControl';
+export { BoemlyFormControl, type BoemlyFormControlProps } from './BoemlyFormControl';

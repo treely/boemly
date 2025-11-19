@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { QuoteCard } from './QuoteCard';
 import { storybookAvatarUrl } from '../../test/storybookMedia';
@@ -17,6 +17,6 @@ Default.args = {
   avatar: {
     name: 'Hans',
     description: 'CEO @ a company',
-    image: <img src={storybookAvatarUrl} alt="Alt" />,
+    imageSrc: storybookAvatarUrl,
   },
 };
