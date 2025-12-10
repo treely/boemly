@@ -11,13 +11,29 @@ import {
 } from '@chakra-ui/react';
 import { CalendarBlankIcon, CaretLeftIcon, CaretRightIcon } from '@phosphor-icons/react';
 import React, { forwardRef, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import ReactDatePicker, { registerLocale } from 'react-datepicker';
-import de from 'date-fns/locale/de';
-import enUS from 'date-fns/locale/en-US';
-import fr from 'date-fns/locale/fr';
+import * as ReactDatePickerModule from 'react-datepicker';
+import type { ReactDatePickerCustomHeaderProps } from 'react-datepicker';
+import { de, enUS, fr } from 'date-fns/locale';
 import datePickerStyle from './styles';
 import { dateFormat, months } from './constants';
 import { Global } from '@emotion/react';
+
+const DatePickerModule = ReactDatePickerModule as any;
+const DatePickerComponent = DatePickerModule.default || DatePickerModule;
+const registerLocale =
+  DatePickerModule.registerLocale ||
+  DatePickerModule.default?.registerLocale ||
+  DatePickerComponent.registerLocale;
+
+if (registerLocale && typeof registerLocale === 'function') {
+  try {
+    registerLocale('de', de);
+    registerLocale('en', enUS);
+    registerLocale('fr', fr);
+  } catch (error) {
+    console.error('Failed to register locales:', error);
+  }
+}
 
 export interface DatePickerProps
   extends Omit<InputGroupProps, 'onChange' | 'onSelect' | 'children' | 'size'> {
@@ -44,7 +60,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   size,
   ...inputGroupProps
 }: DatePickerProps) => {
-  const datePickerRef = useRef<ReactDatePicker>(null);
+  const datePickerRef = useRef<typeof DatePickerComponent>(null);
 
   const addonRef = useRef<HTMLDivElement>(null);
   const [addonWidth, setAddonWidth] = useState(0);
@@ -118,14 +134,10 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     [yearRange]
   );
 
-  registerLocale('de', de);
-  registerLocale('en', enUS);
-  registerLocale('fr', fr);
-
   return (
     <>
       <Global styles={datePickerStyle} />
-      <ReactDatePicker
+      <DatePickerComponent
         ref={datePickerRef}
         renderCustomHeader={({
           date,
@@ -135,7 +147,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
           increaseMonth,
           prevMonthButtonDisabled,
           nextMonthButtonDisabled,
-        }) => (
+        }: ReactDatePickerCustomHeaderProps) => (
           <Flex margin="2" justifyContent="center">
             <IconButton
               aria-label="caret-left"
