@@ -20,7 +20,8 @@ interface Option {
   disabled?: boolean;
 }
 
-export interface BoemlySelectProps {
+export interface BoemlySelectProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'color'> {
   borderColor?: string;
   backgroundColor?: string;
   color?: string;
@@ -67,6 +68,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
   onChange,
   onClose,
   options,
+  ...rest
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -232,6 +234,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
             alignItems="center"
             justifyContent="space-between"
             _focusVisible={{ outline: 'none', boxShadow: 'none' }}
+            {...rest}
           >
             <Text
               id="select-label"

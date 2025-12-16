@@ -1,5 +1,4 @@
 import { Box, Button, Heading, Text } from '@chakra-ui/react';
-import { css } from '@emotion/react';
 import React, { ReactNode } from 'react';
 import { Gradient } from '../Gradient';
 
@@ -24,13 +23,12 @@ export const HeroCard: React.FC<HeroCardProps> = ({
     height="lg"
     textAlign="center"
     borderRadius="2xl"
-    css={css`
-      & span,
-      div,
-      img {
-        border-radius: var(--boemly-radii-2xl);
-      }
-    `}
+    overflow="hidden"
+    css={{
+      '& span, div, img': {
+        borderRadius: 'var(--boemly-radii-2xl)',
+      },
+    }}
   >
     {image && (
       <>

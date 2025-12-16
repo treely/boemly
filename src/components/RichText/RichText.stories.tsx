@@ -65,8 +65,7 @@ Default.args = {
 
 export const CustomHeading = Template.bind({});
 CustomHeading.args = {
-  content: 
-  `# Heading 1
+  content: `# Heading 1
 ## Heading 2
 ### Heading 3
 #### Heading 4
@@ -78,8 +77,7 @@ Text with *italic* and **bold** text.
 
 export const CustomText = Template.bind({});
 CustomText.args = {
-  content: 
-  `# Heading 1
+  content: `# Heading 1
 ## Heading 2
 ### Heading 3
 #### Heading 4
@@ -91,8 +89,7 @@ Text with *italic* and **bold** text.
 
 export const CustomUnorderedList = Template.bind({});
 CustomUnorderedList.args = {
-  content: 
-  `## Unordered list
+  content: `## Unordered list
   
   * List item 1
   * List item 2
@@ -103,8 +100,7 @@ CustomUnorderedList.args = {
 
 export const CustomOrderedList = Template.bind({});
 CustomOrderedList.args = {
-  content: 
-  `## Ordered list
+  content: `## Ordered list
 
   1. First item
   2. Second item

@@ -24,7 +24,7 @@ export const BoemlyTag = ({
   if (!isVisible) return <></>;
 
   return (
-    <Tag.Root {...props}>
+    <Tag.Root boxShadow="none" {...props}>
       <Tag.Label>{children}</Tag.Label>
       {isClosable && (
         <Tag.EndElement>

@@ -109,7 +109,7 @@
   },
   "peerDependencies": {
     "react": "^18 || ^19",
-    "react-dom": "^18"
+    "react-dom": "^18 || ^19"
   },
   "jest": {
     "setupFilesAfterEnv": [
