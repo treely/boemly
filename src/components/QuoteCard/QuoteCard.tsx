@@ -18,6 +18,10 @@ export const QuoteCard: React.FC<QuoteCardProps> = ({ text, avatar }: QuoteCardP
         imageSrc={avatar.imageSrc}
         name={avatar.name}
         description={avatar.description}
+        imageAlt={avatar.imageAlt}
+        imageObjectFit={avatar.imageObjectFit}
+        orientation={avatar.orientation}
+        size={avatar.size}
       />
     </Box>
   </Container>

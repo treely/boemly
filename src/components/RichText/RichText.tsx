@@ -12,15 +12,9 @@ let languagesRegistered = false;
 
 const registerLanguages = async () => {
   if (languagesRegistered) return;
-  
+
   try {
-    const [
-      js,
-      bash,
-      python,
-      yaml,
-      xml,
-    ] = await Promise.all([
+    const [js, bash, python, yaml, xml] = await Promise.all([
       import('react-syntax-highlighter/dist/cjs/languages/hljs/javascript.js'),
       import('react-syntax-highlighter/dist/cjs/languages/hljs/bash.js'),
       import('react-syntax-highlighter/dist/cjs/languages/hljs/python.js'),
@@ -28,12 +22,24 @@ const registerLanguages = async () => {
       import('react-syntax-highlighter/dist/cjs/languages/hljs/xml.js'),
     ]);
 
-    SyntaxHighlighter.registerLanguage('javascript', js.default);
-    SyntaxHighlighter.registerLanguage('bash', bash.default);
-    SyntaxHighlighter.registerLanguage('python', python.default);
-    SyntaxHighlighter.registerLanguage('yaml', yaml.default);
-    SyntaxHighlighter.registerLanguage('xml', xml.default);
-    
+    // Temporarily suppress console.error to prevent highlight.js from logging
+    // when a language is already registered (common in test environments)
+    const originalError = console.error;
+    console.error = () => {};
+
+    try {
+      SyntaxHighlighter.registerLanguage('javascript', js.default);
+      SyntaxHighlighter.registerLanguage('bash', bash.default);
+      SyntaxHighlighter.registerLanguage('python', python.default);
+      SyntaxHighlighter.registerLanguage('yaml', yaml.default);
+      SyntaxHighlighter.registerLanguage('xml', xml.default);
+    } catch {
+      // Silently ignore if languages are already registered
+    } finally {
+      // Restore console.error
+      console.error = originalError;
+    }
+
     languagesRegistered = true;
   } catch (error) {
     console.warn('Failed to register syntax highlighter languages:', error);

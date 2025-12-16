@@ -18,5 +18,9 @@ Default.args = {
     name: 'Hans',
     description: 'CEO @ a company',
     imageSrc: storybookAvatarUrl,
+    imageAlt: 'Hans',
+    imageObjectFit: 'cover',
+    orientation: 'horizontal',
+    size: 'md',
   },
 };

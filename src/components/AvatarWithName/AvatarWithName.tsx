@@ -5,6 +5,8 @@ export interface AvatarWithNameProps {
   name: string;
   description: string;
   imageSrc: string;
+  imageAlt?: string;
+  imageObjectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
   orientation?: 'vertical' | 'horizontal';
   size?: 'sm' | 'md' | 'lg' | 'xl';
 }
@@ -57,6 +59,8 @@ export const AvatarWithName: React.FC<AvatarWithNameProps> = ({
   name,
   description,
   imageSrc,
+  imageAlt,
+  imageObjectFit = 'cover',
   orientation = 'horizontal',
   size = 'md',
 }: AvatarWithNameProps) => {
@@ -68,7 +72,7 @@ export const AvatarWithName: React.FC<AvatarWithNameProps> = ({
     >
       <Avatar.Root shape="square" size={size}>
         <Avatar.Fallback name={name} />
-        <Avatar.Image src={imageSrc} />
+        <Avatar.Image src={imageSrc} alt={imageAlt} style={{ objectFit: imageObjectFit }} />
       </Avatar.Root>
 
       <Text

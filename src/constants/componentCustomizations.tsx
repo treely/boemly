@@ -214,6 +214,10 @@ export const accordionSlotRecipe = defineSlotRecipe({
   className: 'accordion',
   slots: accordionAnatomy.keys(),
   base: {
+    root: {
+      borderTopWidth: '1px',
+      borderTopColor: 'gray.200',
+    },
     itemIndicator: {
       fontSize: '1rem',
       borderRadius: 'lg',
@@ -235,6 +239,7 @@ export const accordionSlotRecipe = defineSlotRecipe({
       paddingX: '0',
       paddingTop: '6',
       paddingBottom: '5',
+      borderColor: 'gray.200',
     },
     itemContent: {
       paddingX: '0',
@@ -249,8 +254,11 @@ export const accordionSlotRecipe = defineSlotRecipe({
           color: 'primary.700',
           background: 'white',
         },
-        itemContent: {
-          borderColor: 'whiteAlpha.300',
+        root: {
+          borderTopColor: 'whiteAlpha.300 !important',
+        },
+        item: {
+          borderColor: 'whiteAlpha.300 !important',
         },
       },
       black: {
