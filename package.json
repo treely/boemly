@@ -7,8 +7,7 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
     }
   },
   "types": "dist/index.d.ts",
@@ -47,10 +46,6 @@
     {
       "path": "dist/index.js",
       "limit": "300 kB"
-    },
-    {
-      "path": "dist/index.cjs",
-      "limit": "400 kB"
     }
   ],
   "devDependencies": {
