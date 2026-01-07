@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
 import { Box, Heading, HeadingProps, Link, Text, TextProps } from '@chakra-ui/react';
 import { ImageContainer } from './styles';

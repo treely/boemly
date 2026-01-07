@@ -1,3 +1,5 @@
+'use client';
+
 import { Box } from '@chakra-ui/react';
 import { useWindowScroll } from '@reactuses/core';
 import React, { ReactNode, useEffect, useState } from 'react';

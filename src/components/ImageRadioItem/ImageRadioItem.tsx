@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { chakra, useToken } from '@chakra-ui/react';
 import { motion, MotionConfig, useAnimation } from 'framer-motion';
