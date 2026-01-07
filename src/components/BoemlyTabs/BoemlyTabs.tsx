@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useMemo, useState } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import LineTabButton from './LineTabButton';

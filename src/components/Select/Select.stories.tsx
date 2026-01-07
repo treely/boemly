@@ -102,3 +102,25 @@ SearchableMultiSelect.args = {
     { label: 'Option 4', value: 'option_4' },
   ],
 };
+
+export const NotFullWidth = Template.bind({});
+NotFullWidth.args = {
+  placeholder: 'Select',
+  isFullWidth: false,
+  options: [
+    { label: 'Short', value: 'short' },
+    {
+      label: 'This is a much longer option label that extends beyond the trigger',
+      value: 'long_1',
+    },
+    {
+      label: 'Another very long option with even more text to demonstrate auto width',
+      value: 'long_2',
+    },
+    { label: 'Medium length option', value: 'medium' },
+    {
+      label: 'Extra long option label with a lot of descriptive text for demonstration purposes',
+      value: 'extra_long',
+    },
+  ],
+};

@@ -1,3 +1,5 @@
+'use client';
+
 import { Flex, IconButton } from '@chakra-ui/react';
 import { useAnimation } from 'framer-motion';
 import React, { useEffect } from 'react';

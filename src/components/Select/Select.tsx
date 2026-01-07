@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import {
   Box,
@@ -81,7 +83,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
 
   // Use controlled value if provided, otherwise use internal state
   const isControlled = value !== undefined;
-  const selectedOptions = isControlled ? value : internalSelectedOptions;
+  const selectedOptions = (isControlled ? value : internalSelectedOptions) ?? [];
 
   const filteredOptions = useMemo(() => {
     if (isSearchable && searchTerm) {
@@ -209,7 +211,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
             onClose();
           }
         }}
-        positioning={{ placement: 'bottom-start', flip: false, sameWidth: true }}
+        positioning={{ placement: 'bottom-start', flip: false, sameWidth: false }}
       >
         {/* Trigger */}
         <Popover.Trigger asChild>
@@ -284,7 +286,8 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
             maxHeight={dynamicMaxHeight}
             overflowY="auto"
             zIndex="popover"
-            width={dropdownWidth || menuWidth}
+            width={dropdownWidth || 'auto'}
+            minWidth={menuWidth}
           >
             {isSearchable && (
               <InputGroup mb="4" startElement={<MagnifyingGlassIcon color="gray.500" />}>
@@ -356,7 +359,7 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
                         bg: disabled ? undefined : isSelected ? 'primary.200' : 'gray.100',
                       }}
                     >
-                      <Flex justify="space-between" align="center" width="100%">
+                      <Flex justify="space-between" align="center" width="100%" gap="3">
                         <Text
                           fontSize={selectRecipe.variants?.size[size]?.fontSize}
                           fontWeight={isSelected ? 'bold' : 'normal'}

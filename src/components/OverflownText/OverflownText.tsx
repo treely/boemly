@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef, useState, useEffect } from 'react';
 import type { TextProps } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react';

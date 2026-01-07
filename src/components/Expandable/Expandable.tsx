@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Heading, IconButton, Flex, Text, Spinner } from '@chakra-ui/react';
 import { CaretDownIcon, CaretUpIcon } from '@phosphor-icons/react';
 import React, { useEffect } from 'react';

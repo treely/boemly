@@ -1,4 +1,4 @@
-import type { ButtonColorPalettes } from '../types/ButtonColorScheme';
+import type { ButtonColorPalettes } from '../types/ButtonColorPalette';
 
 export const COLOR_PALETTES: ButtonColorPalettes[] = [
   'primary',

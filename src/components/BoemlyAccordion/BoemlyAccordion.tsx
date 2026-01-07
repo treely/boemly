@@ -18,7 +18,7 @@ export const BoemlyAccordion: React.FC<BoemlyAccordionProps> = ({
   defaultIndex,
 }: BoemlyAccordionProps) => {
   const textColor = variant === 'black' ? 'gray.500' : 'white';
-  const initialExpandedValues = defaultIndex.map((index) => rows[index].id.toString());
+  const initialExpandedValues = defaultIndex?.map((index) => rows[index].id.toString());
 
   return (
     <Accordion.Root defaultValue={initialExpandedValues} collapsible visual={variant}>

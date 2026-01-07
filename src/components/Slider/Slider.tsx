@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Flex, FlexProps, Slider, Text, useMediaQuery } from '@chakra-ui/react';
 import React, { useEffect, useMemo, useState } from 'react';
 import { BoemlyFormControl } from '../BoemlyFormControl';

@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, useMediaQuery } from '@chakra-ui/react';
 import React, { ReactNode, useEffect, useRef } from 'react';
 import { useAnimation } from 'framer-motion';
