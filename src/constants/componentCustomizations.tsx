@@ -690,6 +690,14 @@ export const menuSlotRecipe = defineSlotRecipe({
       paddingTop: 'var(--boemly-spacing-2)',
       paddingBottom: 'var(--boemly-spacing-2)',
     },
+    item: {
+      cursor: 'pointer',
+    },
+    trigger: {
+      _open: {
+        background: 'inherit',
+      },
+    },
   },
 });
 
@@ -1069,6 +1077,9 @@ export const tagSlotRecipe = defineSlotRecipe({
     },
     label: {
       fontWeight: 'medium',
+    },
+    closeTrigger: {
+      cursor: 'pointer',
     },
   },
   variants: {
