@@ -45,6 +45,7 @@ export const Colors = () => (
       <ColorRow colorToken="transparent" />
       <ColorRow colorToken="black" />
       <ColorRow colorToken="white" />
+      <ColorRow colorToken="forestgreen" />
       {COLOR_PALETTES.map((color) =>
         colorWeights.map((weight) => <ColorRow colorToken={`${color}.${weight}`} />)
       )}

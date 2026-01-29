@@ -18,6 +18,7 @@ interface ColorScale {
 
 interface ColorsCustomization {
   black?: ColorToken;
+  forestgreen?: ColorToken;
   primary?: ColorScale;
   gray?: ColorScale;
   red?: ColorScale;

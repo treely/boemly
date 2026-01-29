@@ -5,6 +5,7 @@ export const FONTS = {
   display: { value: 'Raleway, ui-sans-serif, system-ui, sans-serif' },
   heading: { value: 'Inter, ui-sans-serif, system-ui, sans-serif' },
   mono: { value: 'Space Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace' },
+  metric: { value: 'Space Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace' },
 };
 
 export const FONT_SIZES = {
@@ -40,6 +41,7 @@ export const LINE_HEIGHTS = {
 
 export const COLORS = {
   black: { value: '#121212' },
+  forestgreen: { value: '#032b1a' },
   primary: {
     50: { value: '#f3f6f5' },
     100: { value: '#f2fcf7' },
