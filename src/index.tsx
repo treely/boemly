@@ -40,6 +40,7 @@ export { BoemlyThemeProvider } from './components/BoemlyThemeProvider';
 export { Wrapper } from './components/Wrapper';
 export { ConfirmAction } from './components/ConfirmAction';
 export { Select, type BoemlySelectProps } from './components/Select';
+export { RangeSelect, type RangeSelectProps } from './components/RangeSelect';
 export { SubmissionConfirm } from './components/SubmissionConfirm';
 
 export {
