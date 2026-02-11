@@ -74,16 +74,23 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [internalSelectedOptions, setInternalSelectedOptions] = useState<string[]>([]);
+  const [internalSelectedOptions, setInternalSelectedOptions] = useState<string[]>(value ?? []);
   const [menuWidth, setMenuWidth] = useState<string>('auto');
   const inputRef = useRef<HTMLInputElement>(null);
   const menuButtonRef = useRef<HTMLDivElement>(null);
   const [primary500] = useToken('colors', ['primary.500']);
   const [space3] = useToken('space', ['3']);
 
-  // Use controlled value if provided, otherwise use internal state
-  const isControlled = value !== undefined;
-  const selectedOptions = (isControlled ? value : internalSelectedOptions) ?? [];
+  // Sync internal state when the value prop changes from the parent
+  const prevValueRef = useRef(value);
+  useEffect(() => {
+    if (value !== undefined && JSON.stringify(value) !== JSON.stringify(prevValueRef.current)) {
+      setInternalSelectedOptions(value);
+      prevValueRef.current = value;
+    }
+  }, [value]);
+
+  const selectedOptions = internalSelectedOptions;
 
   const filteredOptions = useMemo(() => {
     if (isSearchable && searchTerm) {
@@ -155,17 +162,12 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
         return newSelectedOptions;
       };
 
-      // Only update internal state if not controlled
-      if (!isControlled) {
-        setInternalSelectedOptions((prev) => updateSelection(prev));
-      } else {
-        // For controlled mode, just call onChange and let parent handle state
-        updateSelection(selectedOptions);
-      }
+      const newSelectedOptions = updateSelection(internalSelectedOptions);
+      setInternalSelectedOptions(newSelectedOptions);
 
       setSearchTerm(''); // Clear search term after selection
     },
-    [isMultiple, onChange, preventDeselection, isControlled, selectedOptions]
+    [isMultiple, onChange, preventDeselection, internalSelectedOptions]
   );
 
   const onSelectAll = useCallback(() => {
@@ -173,22 +175,18 @@ export const BoemlySelect: React.FC<BoemlySelectProps> = ({
       .filter((option) => !option.disabled)
       .map((option) => option.value);
 
-    if (!isControlled) {
-      setInternalSelectedOptions(enabledFilteredOptions);
-    }
+    setInternalSelectedOptions(enabledFilteredOptions);
     if (onChange) {
       onChange(enabledFilteredOptions);
     }
-  }, [filteredOptions, onChange, isControlled]);
+  }, [filteredOptions, onChange]);
 
   const onClearAll = useCallback(() => {
-    if (!isControlled) {
-      setInternalSelectedOptions([]);
-    }
+    setInternalSelectedOptions([]);
     if (onChange) {
       onChange([]);
     }
-  }, [onChange, isControlled]);
+  }, [onChange]);
 
   // max height for the menu options, to show that there are more items to scroll
   const dynamicMaxHeight = useMemo(() => {
