@@ -9,8 +9,8 @@ describe('The RangeSelect component', () => {
     expect(screen.getByText('Select a range')).toBeInTheDocument();
   });
 
-  it('opens dropdown and shows From/To labels when clicked', async () => {
-    render(<RangeSelect />);
+  it('opens dropdown and shows From/To labels and placeholders when clicked', async () => {
+    render(<RangeSelect rangeFromPlaceholder="10" rangeToPlaceholder="20" />);
 
     const combobox = screen.getByRole('combobox');
     await act(async () => {
@@ -20,6 +20,8 @@ describe('The RangeSelect component', () => {
     await waitFor(() => {
       expect(screen.getByText('From')).toBeInTheDocument();
       expect(screen.getByText('To')).toBeInTheDocument();
+      expect(screen.getByPlaceholderText('10')).toBeInTheDocument();
+      expect(screen.getByPlaceholderText('20')).toBeInTheDocument();
     });
   });
 
