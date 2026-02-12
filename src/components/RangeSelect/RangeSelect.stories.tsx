@@ -7,6 +7,10 @@ export default {
   component: RangeSelect,
   argTypes: {
     placeholder: { control: { type: 'text' } },
+    rangeFromLabel: { control: { type: 'text' } },
+    rangeToLabel: { control: { type: 'text' } },
+    rangeFromPlaceholder: { control: { type: 'text' } },
+    rangeToPlaceholder: { control: { type: 'text' } },
     isDisabled: { control: { type: 'boolean' } },
     isInvalid: { control: { type: 'boolean' } },
     isFullWidth: { control: { type: 'boolean' } },
@@ -37,11 +41,7 @@ export default {
 const Template: StoryFn<typeof RangeSelect> = (args) => <RangeSelect {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-  placeholder: 'Select a range',
-  rangeFromLabel: 'From',
-  rangeToLabel: 'To',
-};
+Default.args = {};
 
 export const WithValidation: StoryFn<typeof RangeSelect> = (args) => {
   const [value, setValue] = useState<string[]>(['', '']);

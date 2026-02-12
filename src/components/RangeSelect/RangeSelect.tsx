@@ -12,13 +12,15 @@ export interface RangeSelectProps
   color?: string;
   clearText?: string;
   placeholder?: string;
+  rangeFromLabel?: string;
+  rangeToLabel?: string;
+  rangeFromPlaceholder?: string;
+  rangeToPlaceholder?: string;
+  rangeFromError?: string;
+  rangeToError?: string;
   isDisabled?: boolean;
   isInvalid?: boolean;
   isFullWidth?: boolean;
-  rangeFromLabel?: string;
-  rangeToLabel?: string;
-  rangeFromError?: string;
-  rangeToError?: string;
   value?: string[];
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   dropdownWidth?: '3xs' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -28,22 +30,24 @@ export interface RangeSelectProps
 }
 
 export const RangeSelect: React.FC<RangeSelectProps> = ({
-  color = 'black',
-  placeholder = 'Select a range',
-  clearText = 'Clear',
-  isDisabled = false,
-  isInvalid = false,
-  isFullWidth = true,
-  rangeFromLabel = 'From',
-  rangeToLabel = 'To',
-  rangeFromError,
-  rangeToError,
-  size = 'md',
-  dropdownWidth,
   variant = 'outline',
   borderColor = selectRecipe.variants?.visual[variant]?.borderColor,
   backgroundColor = selectRecipe.variants?.visual[variant]?.backgroundColor,
+  color = 'black',
+  clearText = 'Clear',
+  placeholder = 'Select a range',
+  rangeFromLabel = 'From',
+  rangeToLabel = 'To',
+  rangeFromPlaceholder: fromPlaceholder = '',
+  rangeToPlaceholder: toPlaceholder = '',
+  rangeFromError,
+  rangeToError,
+  isDisabled = false,
+  isInvalid = false,
+  isFullWidth = true,
   value,
+  size = 'md',
+  dropdownWidth,
   onChange,
   onClose,
   ...rest
@@ -191,6 +195,7 @@ export const RangeSelect: React.FC<RangeSelectProps> = ({
                   <Input
                     type="number"
                     size="md"
+                    placeholder={fromPlaceholder}
                     value={selectedOptions[0] || ''}
                     onChange={(e) => handleRangeChange(0, e.target.value)}
                     borderRadius="md"
@@ -216,6 +221,7 @@ export const RangeSelect: React.FC<RangeSelectProps> = ({
                   </Text>
                   <Input
                     type="number"
+                    placeholder={toPlaceholder}
                     size="md"
                     value={selectedOptions[1] || ''}
                     onChange={(e) => handleRangeChange(1, e.target.value)}
