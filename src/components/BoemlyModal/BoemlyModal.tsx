@@ -7,6 +7,16 @@ export interface BoemlyModalProps {
   trigger: ReactNode;
   footer?: ReactNode | ((props: { onClose: () => void }) => ReactNode);
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full' | 'cover';
+  position?:
+    | 'topLeft'
+    | 'top'
+    | 'topRight'
+    | 'left'
+    | 'center'
+    | 'right'
+    | 'bottomLeft'
+    | 'bottom'
+    | 'bottomRight';
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
@@ -33,10 +43,56 @@ export const BoemlyModal: React.FC<BoemlyModalProps> = ({
   trigger,
   footer,
   size = 'xl',
+  position = 'center',
   open,
   onOpenChange,
 }: BoemlyModalProps) => {
   const onClose = () => onOpenChange(false);
+
+  const positionStyles: Record<
+    NonNullable<BoemlyModalProps['position']>,
+    {
+      positioner: { justifyContent: string; alignItems: string };
+      content: { marginInlineStart: string; marginInlineEnd: string };
+    }
+  > = {
+    topLeft: {
+      positioner: { justifyContent: 'flex-start', alignItems: 'flex-start' },
+      content: { marginInlineStart: '0', marginInlineEnd: 'auto' },
+    },
+    top: {
+      positioner: { justifyContent: 'center', alignItems: 'flex-start' },
+      content: { marginInlineStart: 'auto', marginInlineEnd: 'auto' },
+    },
+    topRight: {
+      positioner: { justifyContent: 'flex-end', alignItems: 'flex-start' },
+      content: { marginInlineStart: 'auto', marginInlineEnd: '0' },
+    },
+    left: {
+      positioner: { justifyContent: 'flex-start', alignItems: 'center' },
+      content: { marginInlineStart: '0', marginInlineEnd: 'auto' },
+    },
+    center: {
+      positioner: { justifyContent: 'center', alignItems: 'center' },
+      content: { marginInlineStart: 'auto', marginInlineEnd: 'auto' },
+    },
+    right: {
+      positioner: { justifyContent: 'flex-end', alignItems: 'center' },
+      content: { marginInlineStart: 'auto', marginInlineEnd: '0' },
+    },
+    bottomLeft: {
+      positioner: { justifyContent: 'flex-start', alignItems: 'flex-end' },
+      content: { marginInlineStart: '0', marginInlineEnd: 'auto' },
+    },
+    bottom: {
+      positioner: { justifyContent: 'center', alignItems: 'flex-end' },
+      content: { marginInlineStart: 'auto', marginInlineEnd: 'auto' },
+    },
+    bottomRight: {
+      positioner: { justifyContent: 'flex-end', alignItems: 'flex-end' },
+      content: { marginInlineStart: 'auto', marginInlineEnd: '0' },
+    },
+  };
 
   const renderFooter = () => {
     if (!footer) return null;
@@ -55,8 +111,8 @@ export const BoemlyModal: React.FC<BoemlyModalProps> = ({
       <Dialog.Trigger asChild>{trigger}</Dialog.Trigger>
       <Portal>
         <Dialog.Backdrop />
-        <Dialog.Positioner>
-          <Dialog.Content>
+        <Dialog.Positioner {...positionStyles[position].positioner}>
+          <Dialog.Content {...positionStyles[position].content}>
             <Dialog.Header>
               <Dialog.Title>{title}</Dialog.Title>
             </Dialog.Header>

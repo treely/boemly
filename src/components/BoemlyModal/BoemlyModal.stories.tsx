@@ -29,6 +29,20 @@ export default {
       options: ['xs', 'sm', 'md', 'lg', 'xl', 'full', 'cover'],
       control: { type: 'radio' },
     },
+    position: {
+      options: [
+        'topLeft',
+        'top',
+        'topRight',
+        'left',
+        'center',
+        'right',
+        'bottomLeft',
+        'bottom',
+        'bottomRight',
+      ],
+      control: { type: 'select' },
+    },
   },
 } as Meta<typeof BoemlyModal>;
 
@@ -68,6 +82,15 @@ Size.args = {
   content: <div>Content</div>,
   footer: <Button variant="plain">Button</Button>,
   size: 'xl',
+};
+
+export const Position = Template.bind({});
+Position.args = {
+  title: 'Centered Modal',
+  content: <div>Use the `position` prop to align the modal within the viewport.</div>,
+  footer: <Button variant="plain">Button</Button>,
+  size: 'md',
+  position: 'center',
 };
 
 export const WithCustomTitle = Template.bind({});
