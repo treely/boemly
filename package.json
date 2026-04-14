@@ -99,7 +99,7 @@
     "typescript": "^5.7.2"
   },
   "dependencies": {
-    "@chakra-ui/react": "^3",
+    "@chakra-ui/react": "3.30.0",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@phosphor-icons/react": "^2.1.0",
