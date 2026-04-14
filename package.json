@@ -58,7 +58,7 @@
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.26.0",
-    "@chakra-ui/cli": "^3.30.0",
+    "@chakra-ui/cli": "3.30.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@size-limit/preset-big-lib": "^8.2.6",
