@@ -69,15 +69,15 @@ export const BoemlyModal: React.FC<BoemlyModalProps> = ({
       content: { marginInlineStart: 'auto', marginInlineEnd: '0' },
     },
     left: {
-      positioner: { justifyContent: 'flex-start', alignItems: 'center' },
+      positioner: { justifyContent: 'flex-start', alignItems: 'safe center' },
       content: { marginInlineStart: '0', marginInlineEnd: 'auto' },
     },
     center: {
-      positioner: { justifyContent: 'center', alignItems: 'center' },
+      positioner: { justifyContent: 'center', alignItems: 'safe center' },
       content: { marginInlineStart: 'auto', marginInlineEnd: 'auto' },
     },
     right: {
-      positioner: { justifyContent: 'flex-end', alignItems: 'center' },
+      positioner: { justifyContent: 'flex-end', alignItems: 'safe center' },
       content: { marginInlineStart: 'auto', marginInlineEnd: '0' },
     },
     bottomLeft: {
