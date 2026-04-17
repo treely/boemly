@@ -61,7 +61,7 @@
     "@chakra-ui/cli": "3.30.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@size-limit/preset-big-lib": "^8.2.6",
+    "@size-limit/preset-big-lib": "^12.1.0",
     "@storybook/addon-docs": "^10.0.8",
     "@storybook/addon-links": "^10.0.8",
     "@storybook/addon-themes": "^10.0.8",
@@ -92,7 +92,7 @@
     "react-is": "^18.0.0",
     "resize-observer-polyfill": "^1.5.1",
     "semantic-release": "^25.0.1",
-    "size-limit": "^8.2.6",
+    "size-limit": "^12.1.0",
     "storybook": "^10.0.8",
     "tslib": "^2.3.1",
     "typescript": "^5.7.2"
