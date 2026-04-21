@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { BoemlyModal } from '../BoemlyModal';
-import { Button, Flex, Text } from '@chakra-ui/react';
+import { Button } from '../ui/button';
+import { Flex, Text } from '@chakra-ui/react';
 
 export interface ConfirmActionProps {
   trigger: ReactNode;
@@ -12,6 +13,7 @@ export interface ConfirmActionProps {
   title?: string;
   text?: string;
   confirmColorPalette?: 'primary' | 'red';
+  confirmButtonTextColor?: string;
   confirmLoading?: boolean;
 }
 export const ConfirmAction: React.FC<ConfirmActionProps> = ({
@@ -24,6 +26,7 @@ export const ConfirmAction: React.FC<ConfirmActionProps> = ({
   open,
   onOpenChange,
   confirmColorPalette = 'primary',
+  confirmButtonTextColor = 'black',
   confirmLoading = false,
 }: ConfirmActionProps) => (
   <BoemlyModal
@@ -38,7 +41,12 @@ export const ConfirmAction: React.FC<ConfirmActionProps> = ({
         <Button variant="ghost" onClick={onClose}>
           {cancelButton}
         </Button>
-        <Button colorPalette={confirmColorPalette} loading={confirmLoading} onClick={onConfirm}>
+        <Button
+          colorPalette={confirmColorPalette}
+          color={confirmButtonTextColor}
+          loading={confirmLoading}
+          onClick={onConfirm}
+        >
           {confirmButton}
         </Button>
       </Flex>

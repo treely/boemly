@@ -12,6 +12,9 @@ export default {
     cancelButton: { type: { name: 'string' } },
     confirmButton: { type: { name: 'string' } },
     confirmColorPalette: { options: ['primary', 'red'], control: { type: 'radio' } },
+    confirmButtonTextColor: {
+      control: { type: 'text' },
+    },
     confirmLoading: { control: { type: 'boolean' } },
   },
 } as Meta<typeof ConfirmAction>;
@@ -50,6 +53,7 @@ WithRedButton.args = {
   cancelButton: 'Cancel',
   confirmButton: 'Delete',
   confirmColorPalette: 'red',
+  confirmButtonTextColor: 'white',
 };
 
 export const WithLoadingConfirmationButton = Template.bind({});
