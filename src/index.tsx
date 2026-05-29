@@ -65,6 +65,7 @@ export {
   Spacer,
   Spinner,
   Stack,
+  Switch,
   Table,
   Tag,
   useDisclosure,
